@@ -1,0 +1,15 @@
+.heroIMG{
+    height: 40em;
+    position: relative;
+    top: 5em;
+    right: 5em;
+}
+.hometext h1{
+    font-weight: bold !important;
+    font-size: 6em !important;
+    color: #0f1f3d;
+}
+.BtnTake{
+    background-color: aqua !important;
+    color: #FFFFFF !important;
+}

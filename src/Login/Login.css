@@ -1,0 +1,51 @@
+.login-container{
+    background-color: #d3d3d3;
+    height: 51.6em;
+}
+.imagegrid{
+    position: relative;
+    top: 6em;
+    right: 16em;
+}
+.loginForm{
+    position: relative;
+    left: 1em;
+    top: 6em;
+    background-color: #FFFFFF;
+    width: 30em;
+    height: 33em;
+    justify-content: start !important;
+}
+.formTypo{
+    color: #0f1f3d;
+    position: relative;
+    font-weight: 3em !important;
+    /* right: 10em; */
+
+}
+.loginHeading{
+    font-weight: 3em !important;
+}
+.input1{
+    padding: 1em;
+    position: relative;
+   
+}
+.checkP{
+    display: flex;
+}
+.Btnlogin{
+    background-color: aqua !important;
+    color: #FFFFFF !important;
+    position: relative;
+    right: 13em;
+}
+.chackPara{
+    position: relative;
+    bottom: 4px;
+}
+.forgotLinks{
+    position: relative;
+    left: 15em;
+    bottom: 6em;
+}

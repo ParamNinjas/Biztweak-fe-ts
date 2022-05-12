@@ -1,0 +1,24 @@
+.Signup-con{
+    background-color: #d3d3d3;
+    height: 51.6em;
+}
+.SignForm{
+    position: relative;
+    left: 1em;
+    top: 6em;
+    background-color: #FFFFFF;
+    width: 30em;
+    height: 40em;
+    justify-content: start !important;
+}
+.BtnSignup{
+    background-color: aqua !important;
+    color: #FFFFFF !important;
+    position: relative;
+    right: -1em;
+}
+.haveAcc{
+    position: relative;
+    left: 15em;
+    bottom: 3em;
+}
