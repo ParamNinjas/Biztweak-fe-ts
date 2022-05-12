@@ -18,8 +18,8 @@ import '../Login/Login.css'
 const  Login=() =>{
 return (
     <div className="login-container">
+         <Navbar/>
         <Container maxWidth="sm">
-            <Navbar/>
             <Grid container>
                 <Grid item xs={12} sm={12} md={5} lg={5}>
                     <div className="imagegrid">
