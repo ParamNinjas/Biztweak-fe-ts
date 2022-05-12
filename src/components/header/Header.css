@@ -11,9 +11,9 @@
 }
 .hometext h1{
   font-family: 'Roboto', Black 900;
-    font-size: 80px 1px;
+    /* font-size: 70px 1px; */
   font-weight: bold !important;
-  font-size: 5.5rem !important;
+  font-size: 4rem !important;
   color: #0f1f3d;
   flex-shrink: 0;
   width: 100%;

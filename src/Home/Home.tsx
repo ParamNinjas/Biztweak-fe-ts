@@ -18,7 +18,10 @@ return(
                 <Grid item xs={12} sm={12} md={6} lg={6}>
                     <div className="hometext">
                         <h1>
-                        Take a FREE. BizTweak Assessment.
+                        Learn How to:
+                        1. Find Customers
+                        2. Get ready for Funding
+                        3. Makes sales
                         </h1>
                         <p>
                         BizTweak aims to help make entrepreneurship easier,
