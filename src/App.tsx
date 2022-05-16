@@ -7,6 +7,7 @@ import AboutPage from './routes/About';
 import Login from './routes/SignIn';
 import Register from './routes/Register';
 import Dashboard from "./routes/Dash/Dashboard";
+import Profile from "./CompanyProfile/Profile";
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/blog' element={<Blog />} /> 
           <Route path='/Dashboard' element={<Dashboard />} />
+          <Route path='/Profile' element={<Profile />} />
         </Routes>
       </Router>
     </div>

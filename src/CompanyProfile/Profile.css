@@ -1,0 +1,30 @@
+.companyName{
+    position: relative;
+    top: 5em;
+    display: flex;
+    gap: 5em;
+}
+.comName{
+    position: relative;
+    bottom: 10px;
+}
+.companyLogo{
+    position: relative;
+    top: 6em;
+    display: flex;
+    gap: 5em;
+}
+.comLogo{
+    position: relative;
+    left: 5em;
+}
+.registered{
+    position: relative;
+    top: 7em;
+    display: flex ;
+    /* gap: 1em; */
+}
+.Radio{
+    position: relative;
+    top: 10px;
+}

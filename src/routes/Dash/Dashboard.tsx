@@ -11,11 +11,13 @@ import avatar from '../../Images/avatar.png'
 import pop1 from '../../Images/pop1.png'
 import pop2 from '../../Images/pop2.png'
 import Select from '@material-ui/core/Select';
+import { useNavigate } from 'react-router-dom';
 import './Dashboard.css'
 
 
 const Dashboard = () => {
     const [open, setOpen] = React.useState(false);
+    const navigate = useNavigate();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -120,7 +122,6 @@ const Dashboard = () => {
                 
                     <Button 
                         className='popSave'
-                        onClick={handleClose} 
                         variant='outlined'>
                         Save
                     </Button>
