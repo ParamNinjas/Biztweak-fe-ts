@@ -122,7 +122,10 @@ const Dashboard = () => {
                 
                     <Button 
                         className='popSave'
-                        variant='outlined'>
+                        variant='outlined'
+                        onClick={handleClose}
+                        >
+                        
                         Save
                     </Button>
                     </DialogActions>
