@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useState } from "react";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -7,7 +7,7 @@ import Container from '@material-ui/core/Container';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import Navbar from '../components/Navbar/Navbar'
-import '../components/Navbar/Navbar.css'
+import { supabase } from "../supabaseClient";
 import '../Login/Login.css'
 
 
@@ -15,11 +15,31 @@ import '../Login/Login.css'
 
 
 
+
 const  Login=() =>{
+    const [loading, setLoading] = useState(false)
+    const [email, setEmail] = useState('')
+  
+    const handleLogin = async (e : any) => {
+      e.preventDefault()
+  
+      try {
+        setLoading(true)
+        const { error } = await supabase.auth.signIn({ email })
+        if (error) throw error
+        alert('Check your email for the login link!')
+      } catch (error) {
+        // alert(error.error_description || error.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+  
 return (
     <div className="login-container">
-         <Navbar/>
+          <Navbar/>
         <Container maxWidth="sm">
+          
             <Grid container>
                 <Grid item xs={12} sm={12} md={5} lg={5}>
                     <div className="imagegrid">
@@ -36,7 +56,6 @@ return (
                             <Typography 
                             className="loginHeading"
                             variant="h3"
-                            // fontweight='Bold'
                             >
                                 Login Account
                             </Typography>  
@@ -50,6 +69,8 @@ return (
                                     id="filled-basic"  
                                     label="Email Address" 
                                     variant="filled" 
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div className="input1">
@@ -72,6 +93,7 @@ return (
                         <Button 
                             variant="outlined"
                             className="Btnlogin"
+                            onClick={handleLogin}
                             >
                                 Login
                         </Button>

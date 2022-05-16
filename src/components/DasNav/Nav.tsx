@@ -5,7 +5,7 @@ import logo from '../../Images/bizlogo.png'
 import { Button } from '@material-ui/core';
 import './Navbar.css';
 
-const Navbar = () => {
+const DashNav = () => {
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
 
@@ -25,12 +25,12 @@ const Navbar = () => {
             <Link to='/'><img src={logo} alt="Logo" width='170px' height='auto' /></Link>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li>
-                    <Link to='/'>Home</Link>
+                    <Link to='/Dashboard'>Home</Link>
                 </li>
                 <li>
                     <Link to='/blog'>Blog</Link>
                 </li>
-                <li>
+                {/* <li>
                     <Link to='/about'>About Us</Link>
                 </li>
                 <li>
@@ -40,7 +40,7 @@ const Navbar = () => {
                 <Button variant='outlined' className='BtnRegister'>
                 <Link to='/sign_up'>Register</Link>
                 </Button>
-          </li>
+          </li> */}
             </ul>
             <div className='hamburger' onClick={handleClick}>
                 {click ? (<FaTimes size={20} style={{ color: '#fff' }} />) : (<FaBars size={20} style={{ color: '#fff' }} />)}
@@ -50,4 +50,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default DashNav 
