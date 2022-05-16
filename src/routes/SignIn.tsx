@@ -8,6 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import Navbar from '../components/Navbar/Navbar'
 import { supabase } from "../supabaseClient";
+import { useNavigate } from 'react-router-dom';
 import '../Login/Login.css'
 
 
@@ -19,6 +20,7 @@ import '../Login/Login.css'
 const  Login=() =>{
     const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState('')
+    const navigate = useNavigate();
   
     const handleLogin = async (e : any) => {
       e.preventDefault()
@@ -27,7 +29,7 @@ const  Login=() =>{
         setLoading(true)
         const { error } = await supabase.auth.signIn({ email })
         if (error) throw error
-        alert('Check your email for the login link!')
+        navigate('/Dashboard'); 
       } catch (error) {
         // alert(error.error_description || error.message)
       } finally {
