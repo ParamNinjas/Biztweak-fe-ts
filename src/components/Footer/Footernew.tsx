@@ -33,9 +33,9 @@ const Footernew = () => {
   	 		<div className="footer-col">
   	 			<h4>follow us</h4>
   	 			<div className="social-links">
-                   <a href="https://www.facebook.com/Tafadzwa-Consulting-530892300334863/?_rdr"><FaFacebook size={30} style={{ color: '#ffffff', marginRight: '1rem' }} /></a>
-                   <a href="https://twitter.com/tafadzwaconsult"><FaTwitter size={30} style={{ color: '#ffffff', marginRight: '1rem' }} /></a>
-                   <a href="https://za.linkedin.com/in/tafadzwa-consulting-5628bb65"><FaLinkedin size={30} style={{ color: '#ffffff', marginRight: '1rem' }} /></a>
+                   <a href="https://www.facebook.com/biztweaksouthafrica"><FaFacebook size={30} style={{ color: '#000000', marginRight: '1rem' }} /></a>
+                   <a href="https://twitter.com/BizTweak"><FaTwitter size={30} style={{ color: '#000000', marginRight: '1rem' }} /></a>
+                   <a href="https://www.linkedin.com/company/biztweak/"><FaLinkedin size={30} style={{ color: '#000000', marginRight: '1rem' }} /></a>
   	 			</div>
   	 		</div>
   	 	</div>
