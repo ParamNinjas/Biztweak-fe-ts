@@ -17,11 +17,13 @@ return(
                 <Grid item xs={12} sm={12} md={6} lg={6}>
                     <div className="hometext">
                             <h1>
-                                Learn How to:<br/>
-                                1. Find Customers<br/>
+                                Learn How to:
+                            </h1>
+                            <h2>
+                            1. Find Customers<br/>
                                 2. Get ready for Funding<br/>
                                 3. Makes sales
-                            </h1>
+                            </h2>
                             <h3>learn how to improve revenue in your business.</h3>
                             </div>
                             <div className="homepara">

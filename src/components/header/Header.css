@@ -9,7 +9,7 @@
   height: auto;
   vertical-align: middle;
 }
-.hometext h1{
+.hometext h1 {
   font-family: 'Roboto', Black 900;
     /* font-size: 70px 1px; */
   font-weight: bold !important;
@@ -24,6 +24,10 @@
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1;
+}
+.hometext h2 {
+  font-family: 'Roboto', Black 900;
+  color: #0f1f3d;
 }
 
 .homepara p{

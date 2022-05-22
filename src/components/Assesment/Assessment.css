@@ -1,0 +1,42 @@
+.MuiAccordionSummary-root{
+    background-color: aqua !important;
+}
+.cusSegmant-con{
+    display: block;
+}
+.radio1{
+    display: flex;
+}
+.radio2{
+    display: flex;
+}
+.rev{
+    display: block;
+}
+.MuiAlert-filledInfo{
+    position: relative !important;
+    top: 1em !important;
+}
+.sell{
+    position: relative;
+    justify-items: center;
+    top: 3em;
+}
+.biz{
+    position: relative;
+    top: 1em;
+}
+.companyBox{
+    position: relative;
+    top: 2em;
+    background-color: aquamarine;
+    height: 10em;
+}
+.company{
+    position: relative;
+    top: 11px;
+    left: 18px;
+    border-radius: 50%;
+    width: 8em;
+    height: 8em;
+}

@@ -3,7 +3,7 @@ import Footernew from '../components/Footer/Footernew'
 import Navbar from '../components/Navbar/Navbar'
 import About from '../About/About'
 import Subscribe from '../components/subscribe/Subscribe'
-import Cards from '../../src/components/cards/Cards'
+import Cards from '../components/cards/Cards'
 
 
 

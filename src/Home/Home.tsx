@@ -19,10 +19,12 @@ return(
                     <div className="hometext">
                         <h1>
                         Learn How to:
+                        </h1>
+                        <h3>
                         1. Find Customers
                         2. Get ready for Funding
                         3. Makes sales
-                        </h1>
+                        </h3>
                         <p>
                         BizTweak aims to help make entrepreneurship easier,
                         by helping you spot gaps in your business or business idea.

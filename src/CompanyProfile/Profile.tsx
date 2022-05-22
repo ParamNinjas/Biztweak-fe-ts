@@ -43,7 +43,7 @@ const Profile = () => {
                             </div>
                             <Button variant='outlined' className='btnCompany2'>
                                     + Add Company
-                                </Button>
+                            </Button>
                         </Grid>
                         <Grid item xs={12} sm={12} md={8} lg={8}>
                             <Typography>Company Profile</Typography>
