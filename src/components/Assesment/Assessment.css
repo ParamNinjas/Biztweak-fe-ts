@@ -1,5 +1,5 @@
 .MuiAccordionSummary-root{
-    background-color: aqua !important;
+    background-color: #F0F8FF !important;
 }
 .cusSegmant-con{
     display: block;
@@ -29,7 +29,7 @@
 .companyBox{
     position: relative;
     top: 2em;
-    background-color: aquamarine;
+    background-color: #dcdcdc;
     height: 10em;
 }
 .company{
@@ -39,4 +39,34 @@
     border-radius: 50%;
     width: 8em;
     height: 8em;
+}
+.profAdd{
+    color: aqua !important;
+    border-color: aqua !important; 
+    border-style: dashed !important;
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+    position: relative;
+    top: 1em;
+}
+.sideAccord{
+    position: relative;
+    top: 4em;
+    right: 4em;
+}
+.sideAccord2{
+    position: relative;
+    top: 6em;
+    right: 4em;
+}
+
+.sideAccord3{
+    position: relative;
+    top: 8em;
+    right: 4em;
+}
+.AssesButtons{
+    position: relative;
+    top: 6em;
+    gap: 1em;
 }
