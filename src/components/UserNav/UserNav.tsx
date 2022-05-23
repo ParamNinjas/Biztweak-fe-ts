@@ -36,6 +36,9 @@ const UserNavbar = () => {
                 <li>
                     <Link to='/Courses'>Courses</Link>
                 </li>
+                <li>
+                    <Link to='/Profile'>Profile</Link>
+                </li>
                  {/* <li className="nav-btn">
                 <Button variant='outlined' className='BtnRegister'>
                 <Link to='/sign_up'>Register</Link>
