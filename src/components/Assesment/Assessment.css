@@ -75,3 +75,16 @@
     top: 3em;
     
 }
+.companyInf{
+    position: relative;
+    bottom: 6em;
+    left: 11em;
+}
+.indust{
+    position: relative;
+    top: 1.5em;
+}
+.phase{
+    position: relative;
+    top: 3em;
+}
