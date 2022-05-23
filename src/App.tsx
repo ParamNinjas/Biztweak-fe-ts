@@ -9,6 +9,7 @@ import Register from './routes/Register';
 import Dashboard from "./routes/Dash/Dashboard";
 import Profile from "./CompanyProfile/Profile";
 import AssesSell from "./components/Assesment/AssesSell";
+import AssessBasic from "./components/Assesment/AssesBasic";
 
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route path='/Dashboard' element={<Dashboard />} />
           <Route path='/Profile' element={<Profile />} />
           <Route path='/AssesSell' element={<AssesSell />} />
+          <Route path='/AssesBasic' element={<AssessBasic />} />
         </Routes>
       </Router>
     </div>
