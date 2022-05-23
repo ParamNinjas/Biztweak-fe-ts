@@ -78,7 +78,60 @@ const Profile = () => {
                                     
                                 />
                                 <Typography className="Radio">Yes</Typography>
+                            </div> <div className="companyName">
+                                <Typography>Company Location</Typography>
+                                <TextField
+                                    variant="outlined"
+                                    className="comName"
+                                    label="Company name"
+                                    size="small"
+                                    />
                             </div>
+                            <div className="companyName">
+                                <Typography>Number of employees</Typography>
+                                <TextField
+                                    variant="outlined"
+                                    className="comName"
+                                    placeholder="Number of employees at your company..."
+                                    label="Company name"
+                                    size="small"
+                                    />
+                            </div>
+                            <div className="companyName">
+                                <Typography>Annual Turnover</Typography>
+                                <TextField
+                                    variant="outlined"
+                                    className="comName"
+                                    placeholder="What is your yearly turnover..." name="annual_turnover"
+                                    label="Company name"
+                                    size="small"
+                                    />
+                            </div>
+                            <div className="companyName">
+                                <Typography>Monthly Turnover (Over 6 months)</Typography>
+                                <TextField
+                                    variant="outlined"
+                                    className="comName"
+                                    placeholder="What was your monthly turnover in the past 6 months..."
+                                    label="Company name"
+                                    size="small"
+                                    />
+                            </div>
+                            <div className="companyName">
+                                <Typography>Products/Services</Typography>
+                                <TextField
+                                    variant="outlined"
+                                    className="comName"
+                                    label="Company name"
+                                    size="small"
+                                    placeholder="What products or services is your company offering?"
+                                    columns={50}
+                                    rows={10}
+                                    defaultValue={""}
+                                    />
+                            </div>
+                            
+                            
                         </Grid>
                     </Grid>
                 </div>
