@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Container } from '@material-ui/core';
 import { Grid , Typography , Button , Divider } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
@@ -11,6 +11,7 @@ import avatar from '../../Images/avatar.png'
 import pop1 from '../../Images/pop1.png'
 import pop2 from '../../Images/pop2.png'
 import Select from '@material-ui/core/Select';
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css'
 
@@ -18,6 +19,11 @@ import './Dashboard.css'
 const Dashboard = () => {
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate();
+    const [bizInd, setBizind] = useState([
+        {value:0, label: 'Admin/ Business support'},
+        {value:1, label: 'IT/ Communication'},
+        {value:2, label: 'Fashion/ Retail'},
+    ])
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -125,8 +131,8 @@ const Dashboard = () => {
                         variant='outlined'
                         onClick={handleClose}
                         >
+                        <Link to='/AssesBasic'>Save</Link>
                         
-                        Save
                     </Button>
                     </DialogActions>
                 </Dialog>
