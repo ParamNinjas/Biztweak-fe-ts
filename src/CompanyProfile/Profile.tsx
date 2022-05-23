@@ -9,6 +9,7 @@ import { Grid ,
 from "@material-ui/core";
 import Radio from '@material-ui/core/Radio';
 import avatar from '../Images/avatar.png'
+import UserNavbar from "../components/UserNav/UserNav";
 import './Profile.css';
 
 
@@ -19,6 +20,7 @@ const Profile = () => {
 
     return (
         <div className="profile-con">
+            <UserNavbar/>
             <Container>
                 <div className="profile-grid">
                     <Grid container>
@@ -78,8 +80,11 @@ const Profile = () => {
                                     
                                 />
                                 <Typography className="Radio">Yes</Typography>
-                            </div> <div className="companyName">
-                                <Typography>Company Location</Typography>
+                            </div> 
+                            <div className="sort">
+                            <Typography>Company Location</Typography>
+                            <div className="companyLocation">
+                                
                                 <TextField
                                     variant="outlined"
                                     className="comName"
@@ -87,8 +92,9 @@ const Profile = () => {
                                     size="small"
                                     />
                             </div>
-                            <div className="companyName">
-                                <Typography>Number of employees</Typography>
+                            <Typography>Number of employees</Typography>
+                            <div className="numEmployees">
+                                
                                 <TextField
                                     variant="outlined"
                                     className="comName"
@@ -97,8 +103,9 @@ const Profile = () => {
                                     size="small"
                                     />
                             </div>
-                            <div className="companyName">
-                                <Typography>Annual Turnover</Typography>
+                            <Typography>Annual Turnover</Typography>
+                            <div className="annualTurnover">
+                               
                                 <TextField
                                     variant="outlined"
                                     className="comName"
@@ -107,8 +114,9 @@ const Profile = () => {
                                     size="small"
                                     />
                             </div>
-                            <div className="companyName">
-                                <Typography>Monthly Turnover (Over 6 months)</Typography>
+                            <Typography>Monthly Turnover (6 months)</Typography>
+                            <div className="turnover">
+                                
                                 <TextField
                                     variant="outlined"
                                     className="comName"
@@ -117,18 +125,20 @@ const Profile = () => {
                                     size="small"
                                     />
                             </div>
-                            <div className="companyName">
-                                <Typography>Products/Services</Typography>
+                            <Typography>Products/Services</Typography>
+                            <div className="Products">
+                                
                                 <TextField
                                     variant="outlined"
                                     className="comName"
                                     label="Company name"
                                     size="small"
                                     placeholder="What products or services is your company offering?"
-                                    columns={50}
-                                    rows={10}
+                                    // columns={50}
+                                    // rows={10}
                                     defaultValue={""}
                                     />
+                            </div>
                             </div>
                             
                             

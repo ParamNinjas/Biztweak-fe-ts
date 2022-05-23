@@ -28,3 +28,27 @@
     position: relative;
     top: 10px;
 }
+.sort{
+    position: relative;
+    top: 8em;
+}
+.companyLocation{
+    position: relative;
+    left: 13em;
+    bottom: 1em;
+}
+.annualTurnover{
+    position: relative;
+    left: 13em;
+    bottom: 1em;
+}
+.turnover{
+    position: relative;
+    left: 13em;
+    bottom: 1em;
+}
+.Products{
+    position: relative;
+    left: 13em;
+    bottom: 1em;
+}

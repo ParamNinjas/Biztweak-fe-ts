@@ -88,3 +88,8 @@
     position: relative;
     top: 3em;
 }
+.numEmployees{
+    position: relative;
+    left: 13em;
+    bottom: 1em;
+}
