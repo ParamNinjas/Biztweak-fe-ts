@@ -39,11 +39,6 @@ const UserNavbar = () => {
                 <li>
                     <Link to='/Profile'>Profile</Link>
                 </li>
-                 {/* <li className="nav-btn">
-                <Button variant='outlined' className='BtnRegister'>
-                <Link to='/sign_up'>Register</Link>
-                </Button>
-          </li> */}
             </ul>
             <div className='hamburger' onClick={handleClick}>
                 {click ? (<FaTimes size={20} style={{ color: '#fff' }} />) : (<FaBars size={20} style={{ color: '#fff' }} />)}

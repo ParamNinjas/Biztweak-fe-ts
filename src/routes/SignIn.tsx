@@ -1,5 +1,6 @@
 import React , { useState } from "react";
 import Grid from '@material-ui/core/Grid';
+import { Link } from 'react-router-dom'
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import signin from '../Images/signin.png'
@@ -20,22 +21,17 @@ import '../Login/Login.css'
 const  Login=() =>{
     const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const navigate = useNavigate();
   
-    const handleLogin = async (e : any) => {
-      e.preventDefault()
-  
-      try {
-        setLoading(true)
-        const { error } = await supabase.auth.signIn({ email })
-        if (error) throw error
-        navigate('/Dashboard'); 
-      } catch (error) {
-        // alert(error.error_description || error.message)
-      } finally {
-        setLoading(false)
+    async function signIn() {
+        console.log('Signed In',);
+        const { user, session, error } = await supabase.auth.signIn({
+            email: email,
+            password: password,
+          })
+          navigate('/Dashboard'); 
       }
-    }
   
 return (
     <div className="login-container">
@@ -80,6 +76,7 @@ return (
                                 id="filled-basic"  
                                 label="Password" 
                                 variant="filled" 
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
                         <div className="checkP">
@@ -95,7 +92,7 @@ return (
                         <Button 
                             variant="outlined"
                             className="Btnlogin"
-                            onClick={handleLogin}
+                            onClick={()=> signIn()}
                             >
                                 Login
                         </Button>
@@ -104,7 +101,7 @@ return (
                                 <p>Forgot Password?</p>
                             </div>
                             <div className="noAcc">
-                                <p>Don't have a password?</p>
+                            <Link to='/sign_up'>Don't have an account?</Link>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,6 @@
 import React , { useState, useEffect } from "react";
+import axios from 'axios';
+import { Link } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -7,11 +9,24 @@ import signin from '../Images/signin.png'
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Navbar from "../components/Navbar/Navbar";
-// import Footer from '../components/Footer/Footer'
 import '../Signup/Signup.css'
 
 
 const Signup=()=>{
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    
+      async function newUser() {
+        console.log('AddingUser', email,password , name);
+        const { user, session, error } = await supabase.auth.signUp({
+            email: email,
+            password: password,
+          })
+
+      }
+
     return(
         <div className="Signup-con">
             <Navbar/>
@@ -45,6 +60,7 @@ const Signup=()=>{
                                     id="filled-basic"  
                                     label="Full Name" 
                                     variant="filled" 
+                                    onChange={(e)=> setName(e.target.value)}
                             />
                         </div>
                         <div className="input1">
@@ -52,6 +68,7 @@ const Signup=()=>{
                                 id="filled-basic"  
                                 label="Email Address" 
                                 variant="filled" 
+                                onChange={(e)=> setEmail(e.target.value)}
                             />
                         </div>
                         <div className="input1">
@@ -59,6 +76,7 @@ const Signup=()=>{
                                     id="filled-basic"  
                                     label="Password" 
                                     variant="filled" 
+                                    onChange={(e)=> setPassword(e.target.value)}
                             />
                         </div>
                         <div className="input1">
@@ -66,16 +84,18 @@ const Signup=()=>{
                                 id="filled-basic"  
                                 label="Confirm Password" 
                                 variant="filled" 
+                                onChange={(e)=> setPassword(e.target.value)}
                             />
                         </div>
                         <Button 
                             variant="outlined"
                             className="BtnSignup"
+                            onClick={()=> newUser()}
                             >
                                 Signup
                         </Button>
                             <div className="haveAcc">
-                                <p>Already have an account?</p> 
+                            <Link to='/login'>Already have an account</Link>
                             </div>
                     </div>
                 </Grid>
