@@ -1,0 +1,95 @@
+.MuiAccordionSummary-root{
+    background-color: #F0F8FF !important;
+}
+.cusSegmant-con{
+    display: block;
+}
+.radio1{
+    display: flex;
+}
+.radio2{
+    display: flex;
+}
+.rev{
+    display: block;
+}
+.MuiAlert-filledInfo{
+    position: relative !important;
+    top: 1em !important;
+}
+.sell{
+    position: relative;
+    justify-items: center;
+    top: 3em;
+}
+.biz{
+    position: relative;
+    top: 1em;
+}
+.companyBox{
+    position: relative;
+    top: 2em;
+    background-color: #dcdcdc;
+    height: 10em;
+}
+.company{
+    position: relative;
+    top: 11px;
+    left: 18px;
+    border-radius: 50%;
+    width: 8em;
+    height: 8em;
+}
+.profAdd{
+    color: aqua !important;
+    border-color: aqua !important; 
+    border-style: dashed !important;
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+    position: relative;
+    top: 1em;
+}
+.sideAccord{
+    position: relative;
+    top: 4em;
+    right: 4em;
+}
+.sideAccord2{
+    position: relative;
+    top: 6em;
+    right: 4em;
+}
+
+.sideAccord3{
+    position: relative;
+    top: 8em;
+    right: 4em;
+}
+.AssesButtons{
+    position: relative;
+    top: 6em;
+    gap: 1em;
+}
+.bassicAccords{
+    position: relative;
+    top: 3em;
+    
+}
+.companyInf{
+    position: relative;
+    bottom: 7em;
+    left: 11em;
+}
+.indust{
+    position: relative;
+    top: 1.5em;
+}
+.phase{
+    position: relative;
+    top: 3em;
+}
+.numEmployees{
+    position: relative;
+    left: 13em;
+    bottom: 1em;
+}

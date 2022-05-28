@@ -11,6 +11,7 @@ import Profile from "./CompanyProfile/Profile";
 import AssesSell from "./components/Assesment/AssesSell";
 import AssessBasic from "./components/Assesment/AssesBasic";
 import Getcourse from "./components/Course/Getcourse"
+import Coursepage from "./components/Course/Coursepage"
 
 
 
@@ -39,6 +40,7 @@ function App() {
           <Route path='/AssesSell' element={<AssesSell />} />
           <Route path='/AssesBasic' element={<AssessBasic />} />
           <Route path='/Getcourse' element={<Getcourse />} />
+          <Route path='/Coursepage' element={<Coursepage />} />
         </Routes>
       </Router>
     </div>
