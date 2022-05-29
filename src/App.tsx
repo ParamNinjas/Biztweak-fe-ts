@@ -13,6 +13,7 @@ import AssessBasic from "./components/Assesment/AssesBasic";
 
 
 
+
 function App() {
   const [session, setSession] = useState(null)
 
@@ -35,7 +36,7 @@ function App() {
           <Route path='/blog' element={<Blog />} /> 
           <Route path='/Dashboard' element={<Dashboard />} />
           <Route path='/Profile' element={<Profile />} />
-          <Route path='/AssesSell' element={<AssesSell />} />
+          {/* <Route path='/AssesSell' element={<AssesSell />} /> */}
           <Route path='/AssesBasic' element={<AssessBasic />} />
         </Routes>
       </Router>
