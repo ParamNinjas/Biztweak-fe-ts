@@ -1577,7 +1577,7 @@
 
 "@material-ui/core@^4.12.4":
   version "4.12.4"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.12.4.tgz#4ac17488e8fcaf55eb6a7f5efb2a131e10138a73"
+  resolved "https://registry.npmjs.org/@material-ui/core/-/core-4.12.4.tgz"
   integrity sha512-tr7xekNlM9LjA6pagJmL8QCgZXaubWUwkJnoYcMKd4gw/t4XiyvnTkjdGrUVicyB2BsdaAv1tvow45bPM4sSwQ==
   dependencies:
     "@babel/runtime" "^7.4.4"
@@ -1595,14 +1595,14 @@
 
 "@material-ui/icons@^4.11.3":
   version "4.11.3"
-  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.11.3.tgz#b0693709f9b161ce9ccde276a770d968484ecff1"
+  resolved "https://registry.npmjs.org/@material-ui/icons/-/icons-4.11.3.tgz"
   integrity sha512-IKHlyx6LDh8n19vzwH5RtHIOHl9Tu90aAAxcbWME6kp4dmvODM3UvOHJeMIDzUbd4muuJKHmlNoBN+mDY4XkBA==
   dependencies:
     "@babel/runtime" "^7.4.4"
 
 "@material-ui/lab@^4.0.0-alpha.61":
   version "4.0.0-alpha.61"
-  resolved "https://registry.yarnpkg.com/@material-ui/lab/-/lab-4.0.0-alpha.61.tgz#9bf8eb389c0c26c15e40933cc114d4ad85e3d978"
+  resolved "https://registry.npmjs.org/@material-ui/lab/-/lab-4.0.0-alpha.61.tgz"
   integrity sha512-rSzm+XKiNUjKegj8bzt5+pygZeckNLOr+IjykH8sYdVk7dE9y2ZuUSofiMV2bJk3qU+JHwexmw+q0RyNZB9ugg==
   dependencies:
     "@babel/runtime" "^7.4.4"
@@ -1794,19 +1794,19 @@
 
 "@progress/kendo-draggable-common@dev":
   version "0.2.0-dev.202205111349"
-  resolved "https://registry.yarnpkg.com/@progress/kendo-draggable-common/-/kendo-draggable-common-0.2.0-dev.202205111349.tgz#c0c37d4c0c4aa3dce7e66e0c8a34b4b016d1b6b6"
+  resolved "https://registry.npmjs.org/@progress/kendo-draggable-common/-/kendo-draggable-common-0.2.0-dev.202205111349.tgz"
   integrity sha512-6mfT5I9TNqsmxq+nrHuL2dKENMoMBuKmBajIvd8o3dTNA2ihtFDSvUWgNL0VpbLHwFZOAQRJ6VOhNs+/aiyHZg==
   dependencies:
     tslib "^1.7.0"
 
 "@progress/kendo-popup-common@1.9.0":
   version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@progress/kendo-popup-common/-/kendo-popup-common-1.9.0.tgz#cf363f91634b364cdb20997e6f85e5cf9cbc7d8a"
+  resolved "https://registry.npmjs.org/@progress/kendo-popup-common/-/kendo-popup-common-1.9.0.tgz"
   integrity sha512-03FmQtRI2le3x78N1szlhtUkOyruq9aSf2SYCoyvd72mX9V9yAbqsoKByuFDazEbjHyHFkAmj32GrimWHevLCg==
 
 "@progress/kendo-react-common@5.3.0":
   version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@progress/kendo-react-common/-/kendo-react-common-5.3.0.tgz#dce070fcb273d9c4d9657dfed966b3fc5100ca8d"
+  resolved "https://registry.npmjs.org/@progress/kendo-react-common/-/kendo-react-common-5.3.0.tgz"
   integrity sha512-HIbGI+m3ofxc6ehDY3ael/CFUvAe3yQIBMHm+WA662AsN3AbuNxPZ5wqHbhf6eq+/BtZWpkhbQrujVGy74/knA==
   dependencies:
     "@progress/kendo-draggable-common" dev
@@ -1814,7 +1814,7 @@
 
 "@progress/kendo-react-dropdowns@^5.3.0":
   version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@progress/kendo-react-dropdowns/-/kendo-react-dropdowns-5.3.0.tgz#379676f9ab39b702eee61cefc29cbad4f62d78a3"
+  resolved "https://registry.npmjs.org/@progress/kendo-react-dropdowns/-/kendo-react-dropdowns-5.3.0.tgz"
   integrity sha512-s/S8lCMoRDC6LWO+pb2y93gBoq8D8H6DU9UilLMwlr7pYd6dD9hbqspDFdzTO8d/rNQek/ia5UrMZDpCQuJ0hA==
   dependencies:
     "@progress/kendo-react-common" "5.3.0"
@@ -1824,7 +1824,7 @@
 
 "@progress/kendo-react-labels@5.3.0":
   version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@progress/kendo-react-labels/-/kendo-react-labels-5.3.0.tgz#539bf26df5f18c3b4cc92465f42d13b9273cf8ba"
+  resolved "https://registry.npmjs.org/@progress/kendo-react-labels/-/kendo-react-labels-5.3.0.tgz"
   integrity sha512-4nyD/JVan4Q3vnV5PW7H3u+LgdVRjR3SLFZ/K9X3MoNk6O9M/E/+Z932riOWUzqjRTnQO+Y3u8cWL2m3TnFghg==
   dependencies:
     "@progress/kendo-react-common" "5.3.0"
@@ -1832,7 +1832,7 @@
 
 "@progress/kendo-react-popup@5.3.0":
   version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@progress/kendo-react-popup/-/kendo-react-popup-5.3.0.tgz#15b9749c8e51a847f51223c815be37e572f3d5e0"
+  resolved "https://registry.npmjs.org/@progress/kendo-react-popup/-/kendo-react-popup-5.3.0.tgz"
   integrity sha512-FVMki/mCiDvCFIWswR8D+hB/yHvnNpDFrKHdutA0c/1lNNH/BGk9Whyqy7dXzTTVGrKFvwIH77ST4nAS/Ifd9w==
   dependencies:
     "@progress/kendo-popup-common" "1.9.0"
@@ -2990,6 +2990,14 @@ axe-core@^4.3.5:
   version "4.4.1"
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.4.1.tgz"
   integrity sha512-gd1kmb21kwNuWr6BQz8fv6GNECPBnUasepcoLbekws23NVBLODdsClRZ+bQ8+9Uomf3Sm3+Vwn0oYG9NvwnJCw==
+
+axios@^0.27.2:
+  version "0.27.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
+  integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
+  dependencies:
+    follow-redirects "^1.14.9"
+    form-data "^4.0.0"
 
 axobject-query@^2.2.0:
   version "2.2.0"
@@ -4911,7 +4919,7 @@ flatted@^3.1.0:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz"
   integrity sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==
 
-follow-redirects@^1.0.0:
+follow-redirects@^1.0.0, follow-redirects@^1.14.9:
   version "1.15.0"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.0.tgz"
   integrity sha512-aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ==
@@ -4939,6 +4947,15 @@ form-data@^3.0.0:
   version "3.0.1"
   resolved "https://registry.npmjs.org/form-data/-/form-data-3.0.1.tgz"
   integrity sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==
+  dependencies:
+    asynckit "^0.4.0"
+    combined-stream "^1.0.8"
+    mime-types "^2.1.12"
+
+form-data@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-4.0.0.tgz#93919daeaf361ee529584b9b31664dc12c9fa452"
+  integrity sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==
   dependencies:
     asynckit "^0.4.0"
     combined-stream "^1.0.8"
