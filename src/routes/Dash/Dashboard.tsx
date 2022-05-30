@@ -13,6 +13,7 @@ import pop2 from '../../Images/pop2.png'
 import Select from '@material-ui/core/Select';
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
+import Footernew from '../../components/Footer/Footernew';
 import './Dashboard.css'
 
 
@@ -34,6 +35,7 @@ const Dashboard = () => {
   };
 
     return (
+        <>
         <div className='Dash-con'>
             <DashNav/>
             <Container>
@@ -137,7 +139,10 @@ const Dashboard = () => {
                     </DialogActions>
                 </Dialog>
             </div>
+          
         </div>
+      
+        </>
     )
 
 

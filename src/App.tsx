@@ -10,6 +10,7 @@ import Dashboard from "./routes/Dash/Dashboard";
 import Profile from "./CompanyProfile/Profile";
 import AssesSell from "./components/Assesment/AssesSell";
 import AssessBasic from "./components/Assesment/AssesBasic";
+import Report from "./components/Report/Report";
 
 
 
@@ -36,7 +37,7 @@ function App() {
           <Route path='/blog' element={<Blog />} /> 
           <Route path='/Dashboard' element={<Dashboard />} />
           <Route path='/Profile' element={<Profile />} />
-          {/* <Route path='/AssesSell' element={<AssesSell />} /> */}
+          <Route path='/Report' element={<Report />} />
           <Route path='/AssesBasic' element={<AssessBasic />} />
         </Routes>
       </Router>

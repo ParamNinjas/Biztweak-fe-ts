@@ -81,6 +81,88 @@ const AssessBasic = () => {
         setCustomerReaserch((event.target as HTMLInputElement).value);
       };
 
+      let productReco = ""
+     if (productOwner === "yes"){
+        productReco = "No recommendation"
+     }else {
+       productReco = "recommend course"
+     }
+  
+     let targetReco = ""
+     if (tagetAudiance === "yes"){
+        targetReco = "No recommendation"
+     }else {
+       targetReco = "recommend course"
+     }
+     
+     let targetLocReco = ""
+     if (tagetAudianceLocation === "yes"){
+      targetLocReco = "No recommendation"
+     }else {
+      targetLocReco = "recommend course"
+     }
+    
+
+     let targetSizeReco = ""
+     if (tagetMarketSize === "yes"){
+      targetSizeReco = "No recommendation"
+     }else {
+      targetSizeReco = "recommend course"
+     }
+
+     let reacReco = ""
+     if (cusReach === "yes"){
+      reacReco = "No recommendation"
+     }else {
+      reacReco = "recommend course"
+     }
+  
+     let competitorReco = ""
+     if (competitor === "yes"){
+      competitorReco = "No recommendation"
+     }else {
+      competitorReco = "recommend course"
+     }
+     
+     let accessReco = ""
+     if (marketAccess === "yes"){
+      accessReco = "No recommendation"
+     }else {
+      accessReco = "recommend course"
+     }
+    
+
+     let marketLocReco = ""
+     if (marketLocation === "yes"){
+      marketLocReco = "No recommendation"
+     }else {
+      marketLocReco = "recommend course"
+     }
+
+     let idealCusReco = ""
+     if (idealCustomer === "yes"){
+      idealCusReco = "No recommendation"
+     }else {
+      idealCusReco = "recommend course"
+     }
+     
+     let importantCusReco = ""
+     if (importantCustomer === "yes"){
+      importantCusReco = "No recommendation"
+     }else {
+      importantCusReco = "recommend course"
+     }
+    
+
+     let cusResearchReco = ""
+     if (customerReaserch === "yes"){
+      cusResearchReco = "No recommendation"
+     }else {
+      cusResearchReco = "recommend course"
+     }
+     
+     
+
       // Market and Sales
       const [companyAd, setCompanyAd] = React.useState<string>();
       const [effectiveAd, setEffectiveAdd] = React.useState<string>();
@@ -140,6 +222,7 @@ const AssessBasic = () => {
       const handleReasources = (event: React.ChangeEvent<HTMLInputElement>) => {
         setResources((event.target as HTMLInputElement).value);
       };
+     
 
     return(
         <div className='Basic'>
@@ -653,6 +736,7 @@ const AssessBasic = () => {
           </AccordionDetails>
         </Accordion>
       </div>
+      
       <div className='AssesButtons'>
         <Button 
             variant='outlined'
