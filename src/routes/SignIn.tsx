@@ -20,6 +20,7 @@ import '../Login/Login.css'
 const  Login=() =>{
     const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const navigate = useNavigate();
   
     const handleLogin = async (e : any) => {
@@ -71,6 +72,7 @@ return (
                                     id="filled-basic"  
                                     label="Email Address" 
                                     variant="filled" 
+                                    fullWidth
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                             />
@@ -79,7 +81,9 @@ return (
                            <TextField 
                                 id="filled-basic"  
                                 label="Password" 
+                                fullWidth
                                 variant="filled" 
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
                         <div className="checkP">

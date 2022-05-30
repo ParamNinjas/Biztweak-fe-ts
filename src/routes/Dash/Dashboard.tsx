@@ -69,7 +69,7 @@ const Dashboard = () => {
                                     </p>
                                 </div>
                             </div>
-                            <Button variant='outlined' className='btnCompany2'>
+                            <Button variant='outlined' className='btnCompany2' onClick={handleClickOpen}>
                                     + Add Company
                                 </Button>
                         </Grid>
