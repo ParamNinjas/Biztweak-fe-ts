@@ -15,7 +15,7 @@ const Report = () => {
             <Container>
                 <div className='report'>
                     <Grid container>
-                        <Grid item xs={12} sm={12} md={4} lg={4}>
+                        <Grid item xs={12} sm={12} md={3} lg={3}>
                         <div className='profileInfo'>
                                 <Typography>Profile</Typography>
                                 <img
@@ -39,13 +39,24 @@ const Report = () => {
                                 </Button>
                         
                         </Grid>
-                        <Grid item xs={12} sm={12} md={8} lg={8}>
+                        <Grid item xs={12} sm={12} md={9} lg={9}>
                         <img
                         src={banner}
                         alt='RepBanner'
                         className='banner'
                     />
-                            
+                    <Typography variant='h5'>Full Summary</Typography>
+
+                    <div className='report-accord'>
+                            <Grid item >
+                                <Typography>Full Report</Typography>
+                            </Grid>
+                        
+                    </div>
+                    <div className='recommendations'>
+                        <Typography>Report</Typography>
+                        
+                    </div>    
                         </Grid>
                     </Grid>
                    
