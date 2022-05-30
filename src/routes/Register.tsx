@@ -1,5 +1,5 @@
 import React , { useState, useEffect } from "react";
-import axios from 'axios';
+// import axios from 'axios';
 import { Link } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 import Grid from '@material-ui/core/Grid';
@@ -60,6 +60,7 @@ const Signup=()=>{
                                     id="filled-basic"  
                                     label="Full Name" 
                                     variant="filled" 
+                                    fullWidth
                                     onChange={(e)=> setName(e.target.value)}
                             />
                         </div>
@@ -68,6 +69,7 @@ const Signup=()=>{
                                 id="filled-basic"  
                                 label="Email Address" 
                                 variant="filled" 
+                                fullWidth
                                 onChange={(e)=> setEmail(e.target.value)}
                             />
                         </div>
@@ -76,6 +78,7 @@ const Signup=()=>{
                                     id="filled-basic"  
                                     label="Password" 
                                     variant="filled" 
+                                    fullWidth
                                     onChange={(e)=> setPassword(e.target.value)}
                             />
                         </div>
@@ -84,6 +87,7 @@ const Signup=()=>{
                                 id="filled-basic"  
                                 label="Confirm Password" 
                                 variant="filled" 
+                                fullWidth
                                 onChange={(e)=> setPassword(e.target.value)}
                             />
                         </div>

@@ -67,6 +67,7 @@ return (
                                     id="filled-basic"  
                                     label="Email Address" 
                                     variant="filled" 
+                                    fullWidth
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                             />
@@ -75,6 +76,7 @@ return (
                            <TextField 
                                 id="filled-basic"  
                                 label="Password" 
+                                fullWidth
                                 variant="filled" 
                                 onChange={(e) => setPassword(e.target.value)}
                             />

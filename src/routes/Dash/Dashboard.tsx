@@ -13,17 +13,27 @@ import pop2 from '../../Images/pop2.png'
 import Select from '@material-ui/core/Select';
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
+import Footernew from '../../components/Footer/Footernew';
 import './Dashboard.css'
 
 
 const Dashboard = () => {
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate();
-    const [bizInd, setBizind] = useState([
+    
+    const [bizIndlist, setBizindlist] = useState([
         {value:0, label: 'Admin/ Business support'},
         {value:1, label: 'IT/ Communication'},
         {value:2, label: 'Fashion/ Retail'},
     ])
+    const [bizPhaseList, setBizPhaseList] = useState([
+        {value:0, label: 'I want to sell'},
+        {value:2, label: 'I want to learn how to find customers'},
+        {value:3, label: 'I want to learn how to fundraise'},
+    ])
+
+    const [bizInd, setBizind] = useState([])
+    const [bizPhase, setBizPhase] = useState([])
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -34,6 +44,7 @@ const Dashboard = () => {
   };
 
     return (
+        <>
         <div className='Dash-con'>
             <DashNav/>
             <Container>
@@ -58,7 +69,7 @@ const Dashboard = () => {
                                     </p>
                                 </div>
                             </div>
-                            <Button variant='outlined' className='btnCompany2'>
+                            <Button variant='outlined' className='btnCompany2' onClick={handleClickOpen}>
                                     + Add Company
                                 </Button>
                         </Grid>
@@ -106,21 +117,32 @@ const Dashboard = () => {
                     />
                     <Typography className='bizIndustry'>Business Industry</Typography>
                 <div className="dropdown">
-                    <button className="dropbtn">⬇</button>
-                    <div className="dropdown-content">
-                        <a href="#">Admin/ Business support</a>
-                        <a href="#">IT / Communication</a>
-                        <a href="#">Fashion / Retail</a>
-                    </div>
+                   
+                    <select 
+                            className='dropdownItem' 
+                        
+                            >
+                                
+                            {
+                                bizIndlist?.map((bizInd) => (
+                                <option value={bizInd.value}>{bizInd.label}</option>
+                            ))
+                            }
+                    </select>
                     </div>
                     <Typography className='bizIndustry'>Business Phase</Typography>
                     <div className="dropdown2">
-                    <button className="dropbtn">⬇</button>
-                    <div className="dropdown-content">
-                        <a href="#">Admin/ Business support</a>
-                        <a href="#">IT / Communication</a>
-                        <a href="#">Fashion / Retail</a>
-                    </div>
+                    <select 
+                            className='dropdownItem2' 
+                        
+                            >
+                                
+                            {
+                                bizPhaseList?.map((bizPhase) => (
+                                <option value={bizPhase.value}>{bizPhase.label}</option>
+                            ))
+                            }
+                    </select>
                     </div>
                     </DialogContentText>
                     </DialogContent>
@@ -137,7 +159,10 @@ const Dashboard = () => {
                     </DialogActions>
                 </Dialog>
             </div>
+          
         </div>
+      
+        </>
     )
 
 

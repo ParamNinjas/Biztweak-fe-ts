@@ -1,0 +1,14 @@
+.banner{
+    height: 8em;
+    width: 100%;
+}
+.repoAccord{
+   background-color: #376F76 !important;
+   /* color: white !important;  */
+}
+.recommendations{
+    position: relative;
+    top: 3em;
+    background-color: #E5E5E5;
+    height: 50em;
+}
