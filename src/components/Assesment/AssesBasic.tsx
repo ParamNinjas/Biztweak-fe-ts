@@ -15,6 +15,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
+import { Link } from 'react-router-dom'
 import './Assessment.css'
 
 
@@ -747,9 +748,10 @@ const AssessBasic = () => {
         <Button 
             variant='outlined'
             className='AssesSave'
-            // onClick={handleSubmit}
+            
         >
-        Save
+          <Link to='/Report'>Save</Link>
+        
         </Button>       
       </div>
         </Grid>
