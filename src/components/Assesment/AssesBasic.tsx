@@ -5,8 +5,6 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import Radio from '@material-ui/core/Radio';
-// import RadioGroup from '@material-ui/core/RadioGroup';
 import MuiAlert from '@material-ui/lab/Alert';
 import UserNavbar from '../UserNav/UserNav';
 import company from '../../Images/company.png'
@@ -15,8 +13,11 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { createSlice } from '@reduxjs/toolkit';
 import './Assessment.css'
+import { Api } from '../../services/endpoints';
+import { IRecomendation } from '../../Interfaces/IRecomendation'
 
 
 const AssessBasic = () => {
@@ -24,7 +25,28 @@ const AssessBasic = () => {
     function Alert(props : any) {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
       }
-
+  const createReport = async () =>{
+    const payload = {
+      "segment" : "Market Sales",
+      "userId" : "U0001",
+      "segmentResponses" : [{ key : "productReco " , value : productOwner}, 
+                            { key : "targetReco" , value : tagetAudiance}, 
+                            { key :"targetLocReco" , value : tagetAudianceLocation},
+                            { key :"targetSizeReco" , value : tagetMarketSize}, 
+                            { key : "reacReco" , value : cusReach}, 
+                            { key : "competitorReco" , value : competitor},
+                            { key : "accessReco" , value : marketAccess}, 
+                            { key : "marketLocReco" , value : marketLocation},
+                            { key : "idealCusReco" , value : idealCustomer}, 
+                            { key : "importantCusReco" , value : importantCustomer}, 
+                            { key : "cusResearchReco" , value : customerReaserch}] ,
+    } as IRecomendation; 
+    const result = await Api.POST_CreateRecommendation(payload)
+    const filtered = payload.segmentResponses.filter(seg => {
+      return seg.key = "productReco"
+    })
+    console.log('Result is' , result)
+  }
       // Customer Segment
       const [productOwner, setProductOwner] = React.useState<string>();
       const [tagetAudiance, setTargetAudiance] = React.useState<string>();
@@ -162,7 +184,7 @@ const AssessBasic = () => {
       cusResearchReco = "recommend course"
      }
      
-     
+ 
 
       // Market and Sales
       const [companyAd, setCompanyAd] = React.useState<string>();
@@ -186,7 +208,42 @@ const AssessBasic = () => {
       const handlePriceReview = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPriceReview((event.target as HTMLInputElement).value);
       };
-
+      
+      let companyAdReco = ""
+      if (companyAd === "yes"){
+        companyAdReco = "No recommendation"
+      }else {
+        companyAdReco = "recommend course"
+      }
+   
+      let effectiveReco = ""
+      if (effectiveAd === "yes"){
+         effectiveReco = "No recommendation"
+      }else {
+        effectiveReco = "recommend course"
+      }
+      
+      let planningReco = ""
+      if (planning === "yes"){
+        planningReco  = "No recommendation"
+      }else {
+        planningReco  = "recommend course"
+      }
+     
+ 
+      let stratReco = ""
+      if (priceStrategy === "yes"){
+        stratReco = "No recommendation"
+      }else {
+        stratReco = "recommend course"
+      }
+ 
+      let reviewReco = ""
+      if (priceReview === "yes"){
+        reviewReco = "No recommendation"
+      }else {
+        reviewReco = "recommend course"
+      }
       //Value Proposition
       const [problem, setProblem] = React.useState<string>();
       const [cusValue, setCusValue] = React.useState<string>();
@@ -210,12 +267,54 @@ const AssessBasic = () => {
         setElevatorPitch((event.target as HTMLInputElement).value);
       };
 
+      let problemReco = ""
+      if (problem === "yes"){
+        problemReco = "No recommendation"
+      }else {
+        problemReco = "recommend course"
+      }
+   
+      let cusValueReco = ""
+      if (cusValue === "yes"){
+        cusValueReco = "No recommendation"
+      }else {
+        cusValueReco = "recommend course"
+      }
+      
+      let needsReco = ""
+      if (needsSatisfied === "yes"){
+        needsReco  = "No recommendation"
+      }else {
+        needsReco  = "recommend course"
+      }
+     
+ 
+      let uniqueReco = ""
+      if (productUniqueness === "yes"){
+        uniqueReco = "No recommendation"
+      }else {
+        uniqueReco = "recommend course"
+      }
+ 
+      let elevatorReco = ""
+      if (elevatorPitch === "yes"){
+        elevatorReco = "No recommendation"
+      }else {
+        elevatorReco = "recommend course"
+      }
+
       //Key Activities
       const [bizModel, setBizModel] = React.useState<string>();
 
       const handleBizModel = (event: React.ChangeEvent<HTMLInputElement>) => {
         setBizModel((event.target as HTMLInputElement).value);
       };
+      let bizReco = ""
+      if (bizModel === "yes"){
+        bizReco  = "No recommendation"
+      }else {
+        bizReco  = "recommend course"
+      }
 
       //Key Resources
       const [resources, setResources] = React.useState<string>();
@@ -223,6 +322,13 @@ const AssessBasic = () => {
       const handleReasources = (event: React.ChangeEvent<HTMLInputElement>) => {
         setResources((event.target as HTMLInputElement).value);
       };
+
+      let resourcesReco = ""
+      if (resources === "yes"){
+        resourcesReco  = "No recommendation"
+      }else {
+        resourcesReco  = "recommend course"
+      }
      
 
     return(
@@ -748,6 +854,7 @@ const AssessBasic = () => {
         <Button 
             variant='outlined'
             className='AssesSave'
+            onClick={() => createReport()}
             
         >
           <Link to='/Report'>Save</Link>
@@ -761,4 +868,8 @@ const AssessBasic = () => {
     )
 }
 
-export default AssessBasic
+export default AssessBasic;
+// export const { save } = actions;
+// export default reducer;
+
+//try Export at the top

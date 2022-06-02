@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import DashNav from '../DasNav/Nav';
 import { Container, Grid , Button , Typography, Divider } from '@material-ui/core';
 import banner from "../../Images/banner.png"
@@ -8,10 +8,19 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './Report.css'
+import { Api } from '../../services/endpoints';
+import { IRecomendation } from '../../Interfaces/IRecomendation';
 
 
 
 const Report = () => {
+    const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
+    const test = async () =>{
+        const allRecommendations = await Api.GET_AllRecommendations()
+        const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
+        setAllRecommendations(result)
+     
+      }
 
     return(
         <div className='report-con'>
@@ -65,9 +74,15 @@ const Report = () => {
                                         <Typography >Business Concept</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        <Typography>
-                                           
-                                        </Typography>
+                                        {allRecommendations.map(
+                                          reco => {
+                                              return(
+                                                  <>
+                                                  <p>{reco.segment}</p>
+                                                  </>
+                                              )
+                                          }  
+                                        )}
                                         </AccordionDetails>
                                     </Accordion >
                                     <Typography variant='h5'>Business Diagnosis</Typography>
@@ -320,6 +335,12 @@ const Report = () => {
                                     
                                     </Grid>
                             </Grid>
+                            <Button
+                            variant='outlined'
+                             onClick={() => test()}
+                            >
+                                Get
+                            </Button>
                       
 
                     </div>    
