@@ -8,7 +8,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Radio from '@material-ui/core/Radio';
 import MuiAlert from '@material-ui/lab/Alert';
 import UserNavbar from '../UserNav/UserNav';
-import company from '../../Images/company.png'
+import company from '../../Images/company.png';
 import './Coursepage.css'
 
 
