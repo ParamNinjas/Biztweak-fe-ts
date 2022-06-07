@@ -12,6 +12,9 @@ import Profile from "./CompanyProfile/Profile";
 import AssessBasic from "./components/Assesment/AssesBasic";
 import Report from "./components/Report/Report";
 import Getcourse from "./components/Course/Getcourse"
+import Bargraph from "./components/Report/Bar";
+import Pchart from "./components/Report/Pie";
+
 
 
 
@@ -35,6 +38,9 @@ function App() {
           <Route path='/Report' element={<Report />} />
           <Route path='/AssesBasic' element={<AssessBasic />} />
           <Route path='/Getcourse' element={<Getcourse />} />
+          <Route path='/Bar' element={<Bargraph />} />
+          <Route path='/Pie' element={<Pchart />} />
+       
         </Routes>
       </Router>
     </div>

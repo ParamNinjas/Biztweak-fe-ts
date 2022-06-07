@@ -26,27 +26,77 @@ const AssessBasic = () => {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
       }
   const createReport = async () =>{
-    const payload = {
-      "segment" : "Market Sales",
-      "userId" : "U0001",
-      "segmentResponses" : [{ key : "productReco " , value : productOwner}, 
-                            { key : "targetReco" , value : tagetAudiance}, 
-                            { key :"targetLocReco" , value : tagetAudianceLocation},
-                            { key :"targetSizeReco" , value : tagetMarketSize}, 
-                            { key : "reacReco" , value : cusReach}, 
-                            { key : "competitorReco" , value : competitor},
-                            { key : "accessReco" , value : marketAccess}, 
-                            { key : "marketLocReco" , value : marketLocation},
-                            { key : "idealCusReco" , value : idealCustomer}, 
-                            { key : "importantCusReco" , value : importantCustomer}, 
-                            { key : "cusResearchReco" , value : customerReaserch}] ,
-    } as IRecomendation; 
-    const result = await Api.POST_CreateRecommendation(payload)
-    const filtered = payload.segmentResponses.filter(seg => {
-      return seg.key = "productReco"
-    })
-    console.log('Result is' , result)
-  }
+     const payload = {
+      "segment": "customer",
+      "userId": "U0005",
+      "segmentResponses": {
+        "customer": [{"key": productReco ,"value": productOwner},
+                      {"key": targetReco ,"value": tagetAudiance},
+                      {"key": targetLocReco , "value": tagetAudianceLocation },
+                      {"key": targetSizeReco ,"value": tagetMarketSize},
+                      {"key": reacReco,"value": cusReach},
+                      {"key": competitorReco ,"value": competitor},
+                      {"key": accessReco, "value": marketAccess },
+                      {"key": marketLocReco,"value": marketLocation},
+                      {"key": idealCusReco,"value": idealCustomer},
+                      {"key": importantCusReco, "value": importantCustomer},
+                      {"key": cusResearchReco, "value": customerReaserch }
+                    ],
+        "Market": [{"key"   :  companyAdReco ,"value": companyAd},
+                    {"key"  :  effectiveReco ,"value": effectiveAd},
+                    { "key" :  planningReco  , "value" : planning}, 
+                    { "key" :  stratReco  , "value" : priceStrategy},
+                    { "key" :  reviewReco  , "value" : priceReview}, 
+        ],
+        "Value": [{"key"  : problemReco ,"value": problem},
+                  {"key"  : cusValueReco,"value": cusValue},
+                  { "key" : needsReco , "value" : needsSatisfied}, 
+                  { "key" :uniqueReco , "value" : productUniqueness},
+                  { "key" :elevatorReco , "value" : elevatorPitch}, 
+          ],
+          "Activities": [{"key": bizReco,"value": bizModel},
+                        ],
+          "Resources": [{"key": resourcesReco ,"value": resources},
+                      ],
+  
+    
+      } 
+    
+    } 
+    //  {
+    //   "segment" : "customer",
+    //   "userId" : "U0001",
+    //   "segmentResponses" :{
+    //      "customer" : [{ key : "productReco" , value : productOwner}, 
+    //                         { key : "targetReco" , value : tagetAudiance}, 
+    //                         { key :"targetLocReco" , value : tagetAudianceLocation},
+    //                         { key :"targetSizeReco" , value : tagetMarketSize}, 
+    //                         { key : "reacReco" , value : cusReach}, 
+    //                         { key : "competitorReco" , value : competitor},
+    //                         { key : "accessReco" , value : marketAccess}, 
+    //                         { key : "marketLocReco" , value : marketLocation},
+    //                         { key : "idealCusReco" , value : idealCustomer}, 
+    //                         { key : "importantCusReco" , value : importantCustomer}, 
+    //                         { key : "cusResearchReco" , value : customerReaserch
+    //                       }],
+    //                     "Market" : [{ key : "companyAdReco" , value : companyAd}, 
+    //                       { key : "effectiveReco" , value : effectiveAd} 
+                      
+    //                     ] 
+                          
+                          
+    //                       }
+                          
+    //                       } as IRecomendation; 
+      const result = await Api.POST_CreateRecommendation(payload)
+      // const filtered = payload.segmentResponses.filter(seg => {
+      //   return seg.key = "productReco"
+      // })
+      console.log('Result is' , result) 
+    } 
+    
+  
+  
       // Customer Segment
       const [productOwner, setProductOwner] = React.useState<string>();
       const [tagetAudiance, setTargetAudiance] = React.useState<string>();
@@ -108,21 +158,21 @@ const AssessBasic = () => {
      if (productOwner === "yes"){
         productReco = "No recommendation"
      }else {
-       productReco = "recommend course"
+       productReco = "Market Research"
      }
   
      let targetReco = ""
      if (tagetAudiance === "yes"){
         targetReco = "No recommendation"
      }else {
-       targetReco = "recommend course"
+       targetReco = "Market Intelligence"
      }
      
      let targetLocReco = ""
      if (tagetAudianceLocation === "yes"){
       targetLocReco = "No recommendation"
      }else {
-      targetLocReco = "recommend course"
+      targetLocReco = "Market Research"
      }
     
 
@@ -130,28 +180,28 @@ const AssessBasic = () => {
      if (tagetMarketSize === "yes"){
       targetSizeReco = "No recommendation"
      }else {
-      targetSizeReco = "recommend course"
+      targetSizeReco = "SAM SOM TAM"
      }
 
      let reacReco = ""
      if (cusReach === "yes"){
       reacReco = "No recommendation"
      }else {
-      reacReco = "recommend course"
+      reacReco = "Market Strategy"
      }
   
      let competitorReco = ""
      if (competitor === "yes"){
       competitorReco = "No recommendation"
      }else {
-      competitorReco = "recommend course"
+      competitorReco = "Competitor Analysis"
      }
      
      let accessReco = ""
      if (marketAccess === "yes"){
       accessReco = "No recommendation"
      }else {
-      accessReco = "recommend course"
+      accessReco = "Total Addressable market"
      }
     
 
@@ -159,21 +209,21 @@ const AssessBasic = () => {
      if (marketLocation === "yes"){
       marketLocReco = "No recommendation"
      }else {
-      marketLocReco = "recommend course"
+      marketLocReco = "Market Reasearch"
      }
 
      let idealCusReco = ""
      if (idealCustomer === "yes"){
       idealCusReco = "No recommendation"
      }else {
-      idealCusReco = "recommend course"
+      idealCusReco = "Ideal Customer profile"
      }
      
      let importantCusReco = ""
      if (importantCustomer === "yes"){
       importantCusReco = "No recommendation"
      }else {
-      importantCusReco = "recommend course"
+      importantCusReco = "Market Research"
      }
     
 
@@ -181,7 +231,7 @@ const AssessBasic = () => {
      if (customerReaserch === "yes"){
       cusResearchReco = "No recommendation"
      }else {
-      cusResearchReco = "recommend course"
+      cusResearchReco = "Business Research Officer"
      }
      
  
@@ -271,21 +321,21 @@ const AssessBasic = () => {
       if (problem === "yes"){
         problemReco = "No recommendation"
       }else {
-        problemReco = "recommend course"
+        problemReco = "Value proposition canvas"
       }
    
       let cusValueReco = ""
       if (cusValue === "yes"){
         cusValueReco = "No recommendation"
       }else {
-        cusValueReco = "recommend course"
+        cusValueReco = "Business model canvas"
       }
       
       let needsReco = ""
       if (needsSatisfied === "yes"){
         needsReco  = "No recommendation"
       }else {
-        needsReco  = "recommend course"
+        needsReco  = "Value proposition canvas"
       }
      
  
@@ -293,14 +343,14 @@ const AssessBasic = () => {
       if (productUniqueness === "yes"){
         uniqueReco = "No recommendation"
       }else {
-        uniqueReco = "recommend course"
+        uniqueReco = "Value proposition canvas"
       }
  
       let elevatorReco = ""
       if (elevatorPitch === "yes"){
         elevatorReco = "No recommendation"
       }else {
-        elevatorReco = "recommend course"
+        elevatorReco = "elevator pitch template"
       }
 
       //Key Activities
@@ -313,7 +363,7 @@ const AssessBasic = () => {
       if (bizModel === "yes"){
         bizReco  = "No recommendation"
       }else {
-        bizReco  = "recommend course"
+        bizReco  = "Process development"
       }
 
       //Key Resources
@@ -327,7 +377,7 @@ const AssessBasic = () => {
       if (resources === "yes"){
         resourcesReco  = "No recommendation"
       }else {
-        resourcesReco  = "recommend course"
+        resourcesReco  = "organizational design and development"
       }
      
 

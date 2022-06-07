@@ -10,17 +10,29 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './Report.css'
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation';
+import Bargraph from './Bar';
+import PieC from './Pie';
 
 
 
 const Report = () => {
+    const recommendations : Array<IRecomendation> = [];
     const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
     const test = async () =>{
         const allRecommendations = await Api.GET_AllRecommendations()
         const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
-        setAllRecommendations(result)
-     
+        
+    
+
+result.forEach(element => {
+         if (element.segmentResponses){
+             recommendations.push(element)
+         }
+     });
+     setAllRecommendations(recommendations)
+     console.log('Reco here', allRecommendations)
       }
+        
 
     return(
         <div className='report-con'>
@@ -58,6 +70,12 @@ const Report = () => {
                         alt='RepBanner'
                         className='banner'
                     />
+                    <div className='pChart'>
+                        <PieC/>
+                    </div>
+                    <div className='bGraph'>
+                        {/* <Bargraph/> */}
+                    </div>
                     <Typography variant='h5'>Full Summary</Typography>
 
                     <div className='report-accord'>
@@ -74,15 +92,26 @@ const Report = () => {
                                         <Typography >Business Concept</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
+                                            <div className='list'>
                                         {allRecommendations.map(
                                           reco => {
-                                              return(
-                                                  <>
-                                                  <p>{reco.segment}</p>
-                                                  </>
-                                              )
-                                          }  
+                                            return (
+                                                
+                                                reco.segmentResponses.customer.map(
+                                                   cusList => {
+                                                       return (
+                                                           <>
+                                                           <li>{cusList.key}</li>
+                                                           </>
+
+                                                       )
+                                                   } 
+                                                )
+                                                
+                                            )
+                                          }
                                         )}
+                                        </div>
                                         </AccordionDetails>
                                     </Accordion >
                                     <Typography variant='h5'>Business Diagnosis</Typography>
@@ -112,9 +141,27 @@ const Report = () => {
                                         <Typography >Best Performing Areas</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
+                                        <div className='list'>
+                                        {allRecommendations.map(
+                                          reco => {
+                                            return (
+                                                
+                                                reco.segmentResponses.Market.map(
+                                                   markList => {
+                                                       return (
+                                                           <>
+                                                           
+                                                           <li>{markList.key}</li>
+                                                           </>
+
+                                                       )
+                                                   } 
+                                                )
+                                                
+                                            )
+                                          }
+                                        )}
+                                        </div>
                                         </AccordionDetails>
                                     </Accordion>
 
@@ -128,9 +175,26 @@ const Report = () => {
                                         <Typography >Major Gaps</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
+                                        <div className='list'>
+                                        {allRecommendations.map(
+                                          reco => {
+                                            return (
+                                                
+                                                reco.segmentResponses.customer.map(
+                                                   cusList => {
+                                                       return (
+                                                           <>
+                                                           <li>{cusList.key}</li>
+                                                           </>
+
+                                                       )
+                                                   } 
+                                                )
+                                                
+                                            )
+                                          }
+                                        )}
+                                        </div>
                                         </AccordionDetails>
                                     </Accordion>
                             </Grid>
@@ -178,9 +242,27 @@ const Report = () => {
                                         <Typography >Best Performing Areas</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
+                                        <div className='list'>
+                                        {allRecommendations.map(
+                                          reco => {
+                                            return (
+                                                
+                                                reco.segmentResponses.Market.map(
+                                                   markList => {
+                                                       return (
+                                                           <>
+                                                           
+                                                           <li>{markList.key}</li>
+                                                           </>
+
+                                                       )
+                                                   } 
+                                                )
+                                                
+                                            )
+                                          }
+                                        )}
+                                        </div>
                                         </AccordionDetails>
                                     </Accordion>
 
@@ -222,9 +304,26 @@ const Report = () => {
                                         <Typography >Strategic Planning</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
+                                        <div className='list'>
+                                        {allRecommendations.map(
+                                          reco => {
+                                            return (
+                                                
+                                                reco.segmentResponses.customer.map(
+                                                   cusList => {
+                                                       return (
+                                                           <>
+                                                           <li>{cusList.key}</li>
+                                                           </>
+
+                                                       )
+                                                   } 
+                                                )
+                                                
+                                            )
+                                          }
+                                        )}
+                                        </div>
                                         </AccordionDetails>
                                     </Accordion>
                                     <Accordion>
@@ -236,9 +335,26 @@ const Report = () => {
                                         <Typography >Marketing and Sales</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
+                                        <div className='list'>
+                                        {allRecommendations.map(
+                                          reco => {
+                                            return (
+                                                
+                                                reco.segmentResponses.Market.map(
+                                                   markList => {
+                                                       return (
+                                                           <>
+                                                           <li>{markList.key}</li>
+                                                           </>
+
+                                                       )
+                                                   } 
+                                                )
+                                                
+                                            )
+                                          }
+                                        )}
+                                        </div>
                                         </AccordionDetails>
                                     </Accordion>
                                     <Accordion>
@@ -250,9 +366,26 @@ const Report = () => {
                                         <Typography >Product Development</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
+                                        <div className='list'>
+                                        {allRecommendations.map(
+                                          reco => {
+                                            return (
+                                                
+                                                reco.segmentResponses.Value.map(
+                                                   valList => {
+                                                       return (
+                                                           <>
+                                                           <li>{valList.key}</li>
+                                                           </>
+
+                                                       )
+                                                   } 
+                                                )
+                                                
+                                            )
+                                          }
+                                        )}
+                                        </div>
                                         </AccordionDetails>
                                     </Accordion>
                                     <Accordion>
@@ -265,9 +398,26 @@ const Report = () => {
                                         <Typography >Financial Management</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
+                                        <div className='list'>
+                                        {allRecommendations.map(
+                                          reco => {
+                                            return (
+                                                
+                                                reco.segmentResponses.Value.map(
+                                                   valList => {
+                                                       return (
+                                                           <>
+                                                           <li>{valList.key}</li>
+                                                           </>
+
+                                                       )
+                                                   } 
+                                                )
+                                                
+                                            )
+                                          }
+                                        )}
+                                        </div>
                                         </AccordionDetails>
                                     </Accordion>
                                     <Accordion >
