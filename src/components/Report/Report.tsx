@@ -11,6 +11,7 @@ import './Report.css'
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation';
 import Bargraph from './Bar';
+import { Link } from 'react-router-dom';
 import PieC from './Pie';
 
 
@@ -21,18 +22,31 @@ const Report = () => {
     const test = async () =>{
         const allRecommendations = await Api.GET_AllRecommendations()
         const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
-        
+        setAllRecommendations(result)
     
-
-result.forEach(element => {
-         if (element.segmentResponses){
-             recommendations.push(element)
-         }
-     });
-     setAllRecommendations(recommendations)
-     console.log('Reco here', allRecommendations)
+        console.log('reco',allRecommendations)
       }
-        
+
+      // Filtered Data
+    
+       const filtered = allRecommendations[0]?.segmentResponses.customer.filter(seg => {
+        return seg.value !== "No recommendation"
+       
+      }) 
+    //   console.log('filtered list', filtered)
+
+      const filteredMark = allRecommendations[0]?.segmentResponses.Market.filter(seg => {
+        return seg.value !== "No recommendation"
+       
+      }) 
+    //   console.log('filtered listm', filteredMark)
+
+      const filteredVal = allRecommendations[0]?.segmentResponses.Value.filter(seg => {
+        return seg.value !== "No recommendation"
+       
+      }) 
+    //   console.log('filtered listv', filteredVal)
+    
 
     return(
         <div className='report-con'>
@@ -99,9 +113,10 @@ result.forEach(element => {
                                                 
                                                 reco.segmentResponses.customer.map(
                                                    cusList => {
+                                                    const recoColor = cusList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
                                                            <>
-                                                           <li>{cusList.key}</li>
+                                                           <li style={{color : recoColor}}>{cusList.key}</li>
                                                            </>
 
                                                        )
@@ -150,7 +165,6 @@ result.forEach(element => {
                                                    markList => {
                                                        return (
                                                            <>
-                                                           
                                                            <li>{markList.key}</li>
                                                            </>
 
@@ -305,21 +319,12 @@ result.forEach(element => {
                                         </AccordionSummary>
                                         <AccordionDetails>
                                         <div className='list'>
-                                        {allRecommendations.map(
+                                        {filtered?.map(
                                           reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.customer.map(
-                                                   cusList => {
-                                                       return (
-                                                           <>
-                                                           <li>{cusList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
+                                            return (       
+                                            <>
+                                            <p>{reco.value}</p>
+                                            </>     
                                             )
                                           }
                                         )}
@@ -336,21 +341,12 @@ result.forEach(element => {
                                         </AccordionSummary>
                                         <AccordionDetails>
                                         <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Market.map(
-                                                   markList => {
-                                                       return (
-                                                           <>
-                                                           <li>{markList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
+                                          {filteredMark?.map(
+                                          mark => {
+                                            return (       
+                                            <>
+                                            <p>{mark.value}</p>
+                                            </>     
                                             )
                                           }
                                         )}
@@ -367,21 +363,12 @@ result.forEach(element => {
                                         </AccordionSummary>
                                         <AccordionDetails>
                                         <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Value.map(
-                                                   valList => {
-                                                       return (
-                                                           <>
-                                                           <li>{valList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
+                                        {filteredVal?.map(
+                                          val => {
+                                            return (       
+                                            <>
+                                            <p>{val.value}</p>
+                                            </>     
                                             )
                                           }
                                         )}
@@ -403,11 +390,11 @@ result.forEach(element => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Value.map(
-                                                   valList => {
+                                                reco.segmentResponses.Resources.map(
+                                                   resList => {
                                                        return (
                                                            <>
-                                                           <li>{valList.key}</li>
+                                                           <li>{resList.value}</li>
                                                            </>
 
                                                        )
@@ -447,9 +434,17 @@ result.forEach(element => {
                                         <Typography >Market Intelligence</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
+                                        <div className='list'>
+                                        {filtered?.map(
+                                          reco => {
+                                            return (       
+                                            <>
+                                            <p>{reco.value}</p>
+                                            </>     
+                                            )
+                                          }
+                                        )}
+                                        </div>
                                         </AccordionDetails>
                                     </Accordion>
 
@@ -462,9 +457,26 @@ result.forEach(element => {
                                         <Typography >Talent Management</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
+                                        <div className='list'>
+                                        {allRecommendations.map(
+                                          reco => {
+                                            return (
+                                                
+                                                reco.segmentResponses.Resources.map(
+                                                   resList => {
+                                                       return (
+                                                           <>
+                                                           <li>{resList.value}</li>
+                                                           </>
+
+                                                       )
+                                                   } 
+                                                )
+                                                
+                                            )
+                                          }
+                                        )}
+                                        </div>
                                         </AccordionDetails>
                                     </Accordion>
 
@@ -478,7 +490,26 @@ result.forEach(element => {
                                         </AccordionSummary>
                                         <AccordionDetails>
                                         <Typography>
-                                            
+                                        <div className='list'>
+                                        {allRecommendations.map(
+                                          reco => {
+                                            return (
+                                                
+                                                reco.segmentResponses.Activities.map(
+                                                   actList => {
+                                                       return (
+                                                           <>
+                                                           <li>{actList.value}</li>
+                                                           </>
+
+                                                       )
+                                                   } 
+                                                )
+                                                
+                                            )
+                                          }
+                                        )}
+                                        </div>
                                         </Typography>
                                         </AccordionDetails>
                                     </Accordion>
@@ -490,6 +521,11 @@ result.forEach(element => {
                              onClick={() => test()}
                             >
                                 Get
+                            </Button>
+                            <Button
+                            variant='outlined'
+                            >
+                                <Link to='/Profile'>Next</Link>
                             </Button>
                       
 

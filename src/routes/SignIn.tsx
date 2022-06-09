@@ -30,7 +30,7 @@ const  Login=() =>{
             email: email,
             password: password,
           })
-          navigate('/Dashboard'); 
+          navigate('/Report'); 
       }
   
 return (

@@ -30,33 +30,33 @@ const AssessBasic = () => {
       "segment": "customer",
       "userId": "U0005",
       "segmentResponses": {
-        "customer": [{"key": productReco ,"value": productOwner},
-                      {"key": targetReco ,"value": tagetAudiance},
-                      {"key": targetLocReco , "value": tagetAudianceLocation },
-                      {"key": targetSizeReco ,"value": tagetMarketSize},
-                      {"key": reacReco,"value": cusReach},
-                      {"key": competitorReco ,"value": competitor},
-                      {"key": accessReco, "value": marketAccess },
-                      {"key": marketLocReco,"value": marketLocation},
-                      {"key": idealCusReco,"value": idealCustomer},
-                      {"key": importantCusReco, "value": importantCustomer},
-                      {"key": cusResearchReco, "value": customerReaserch }
+        "customer": [{"key": "Do you know who your product is for?" ,"value": productReco},
+                      {"key": "Do you know who is your target market/audience?" ,"value": targetReco},
+                      {"key": "Do you know where they are located?" , "value": targetLocReco },
+                      {"key": "Do you know the Total market size?" ,"value": targetSizeReco},
+                      {"key": "Do you know how you are going to reach your Customer?","value": reacReco},
+                      {"key": "Has the company actively identified a competitor in the market?" ,"value": competitorReco},
+                      {"key": "Do you know how much of your market is accessible?", "value": accessReco },
+                      {"key": "Do you know how much of your market is in your region/locality?","value": marketLocReco},
+                      {"key": "Do you have a profile for your ideal customer?","value": idealCusReco},
+                      {"key": "Do you know who your most important customers are?", "value": importantCusReco},
+                      {"key": "Do you have a designated Customer Researcher Specialist for this?", "value": cusResearchReco }
                     ],
-        "Market": [{"key"   :  companyAdReco ,"value": companyAd},
-                    {"key"  :  effectiveReco ,"value": effectiveAd},
-                    { "key" :  planningReco  , "value" : planning}, 
-                    { "key" :  stratReco  , "value" : priceStrategy},
-                    { "key" :  reviewReco  , "value" : priceReview}, 
+        "Market": [{"key"   :  "Does the company advertise?" ,"value": companyAdReco},
+                    {"key"  :  "Is the company’s advertising effective?" ,"value": effectiveReco},
+                    { "key" :  "Does the company conduct sales planning and developed targets?"  , "value" : planningReco}, 
+                    { "key" :  "Do you have a price strategy in place?"  , "value" : stratReco},
+                    { "key" :  "Do you review your pricing strategy often?"  , "value" : reviewReco }, 
         ],
-        "Value": [{"key"  : problemReco ,"value": problem},
-                  {"key"  : cusValueReco,"value": cusValue},
-                  { "key" : needsReco , "value" : needsSatisfied}, 
-                  { "key" :uniqueReco , "value" : productUniqueness},
-                  { "key" :elevatorReco , "value" : elevatorPitch}, 
+        "Value": [{"key"  : "Do you know the problem you are solving?" ,"value": problemReco},
+                  {"key"  : "Do you know what value you deliver to the customer?","value": cusValueReco},
+                  { "key" : "Are you aware of which customer needs you are satisfying?" , "value" : needsReco}, 
+                  { "key" :"Can you describe the uniqueness of your product, and show key differences from existing alternatives?" , "value" : uniqueReco},
+                  { "key" :"Do you have an elevator pitch?" , "value" : elevatorReco}, 
           ],
-          "Activities": [{"key": bizReco,"value": bizModel},
+          "Activities": [{"key": "Do you know the most important things you need to do to make your business model work?","value": bizReco},
                         ],
-          "Resources": [{"key": resourcesReco ,"value": resources},
+          "Resources": [{"key": "Do you know what infrastructure and resources you need in order to deliver the key activities?" ,"value": resourcesReco},
                       ],
   
     
@@ -263,21 +263,21 @@ const AssessBasic = () => {
       if (companyAd === "yes"){
         companyAdReco = "No recommendation"
       }else {
-        companyAdReco = "recommend course"
+        companyAdReco = "marketing plan"
       }
    
       let effectiveReco = ""
       if (effectiveAd === "yes"){
          effectiveReco = "No recommendation"
       }else {
-        effectiveReco = "recommend course"
+        effectiveReco = "rmarketing plan"
       }
       
       let planningReco = ""
       if (planning === "yes"){
         planningReco  = "No recommendation"
       }else {
-        planningReco  = "recommend course"
+        planningReco  = "Sales planning, Customer acquistion plan,  "
       }
      
  
@@ -285,14 +285,14 @@ const AssessBasic = () => {
       if (priceStrategy === "yes"){
         stratReco = "No recommendation"
       }else {
-        stratReco = "recommend course"
+        stratReco = "Revenue models"
       }
  
       let reviewReco = ""
       if (priceReview === "yes"){
         reviewReco = "No recommendation"
       }else {
-        reviewReco = "recommend course"
+        reviewReco = "Costing, product & service pricing"
       }
       //Value Proposition
       const [problem, setProblem] = React.useState<string>();
@@ -620,7 +620,7 @@ const AssessBasic = () => {
               <div>
                 <FormControl>
                   <FormLabel id="demo-controlled-radio-buttons-group">
-                  Do you know who your most important customers are?
+                  Do you have a designated Customer Researcher Specialist for this?
                   </FormLabel>
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
