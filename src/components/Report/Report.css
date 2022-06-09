@@ -4,11 +4,28 @@
 }
 .repoAccord{
    background-color: #376F76 !important;
-   /* color: white !important;  */
+
 }
 .recommendations{
     position: relative;
     top: 3em;
     background-color: #E5E5E5;
     height: 50em;
+    width: 100%;
+}
+.bar{
+    width: 27em !important;
+    height: 10em !important;
+}
+
+.pieChart{
+    display: block;
+}
+.p{
+    position: relative;
+    display: flex;
+}
+.list li {
+    display: flex !important;
+    list-style: none;
 }

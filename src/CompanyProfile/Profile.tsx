@@ -15,9 +15,7 @@ import './Profile.css';
 
 const Profile = () => {
     
-
-   
-
+    
     return (
         <div className="profile-con">
             <UserNavbar/>
