@@ -11,6 +11,7 @@ import './Report.css'
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation';
 import Bargraph from './Bar';
+import { Link } from 'react-router-dom';
 import PieC from './Pie';
 
 
@@ -520,6 +521,11 @@ const Report = () => {
                              onClick={() => test()}
                             >
                                 Get
+                            </Button>
+                            <Button
+                            variant='outlined'
+                            >
+                                <Link to='/Profile'>Next</Link>
                             </Button>
                       
 
