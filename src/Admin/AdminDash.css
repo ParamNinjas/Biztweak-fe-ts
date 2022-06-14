@@ -1,0 +1,18 @@
+.adminCon{
+    position: relative;
+    left: 12em;
+    bottom: 49em;
+    background-color: #f8f9fa;
+}
+.ForwardRef-root-1 {
+    height: 29px !important;
+    width: 10em !important;
+    left: 10px !important;
+    
+}
+
+.adminTop{
+    height: 3em;
+    width: 70% !important;
+    background-color: aqua;
+}

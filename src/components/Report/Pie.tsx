@@ -42,8 +42,8 @@ return (
     <div className='pieChart'>
         <div className='p'>
     <div className='chart1'>
-        <PieChart width={300} height={300}>
-          <Pie data={data} dataKey="students" outerRadius={50} fill="green" />
+        <PieChart width={300} height={300} >
+          <Pie data={data}  dataKey="students" outerRadius={50} fill="green" />
         </PieChart>
         </div>
         <div className='chart2'>
