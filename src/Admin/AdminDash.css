@@ -16,3 +16,65 @@
     width: 70% !important;
     background-color: aqua;
 }
+.end{
+    position: relative;
+    left: 20em;
+    list-style: none;
+    color:#FFFFFF ;
+}
+
+.Assesments{
+    display: flex;
+    gap: 1em;
+}
+.comAsses{
+    width: 15em;
+    height: 10em;
+    background-color: floralwhite;
+}
+
+.inComAsses{
+    width: 15em;
+    height: 10em;
+    background-color: floralwhite;
+}
+
+.totAsses{
+    width: 15em;
+    height: 10em;
+    background-color: floralwhite;
+}
+.totUsers{
+    width: 15em;
+    height: 10em;
+    background-color: floralwhite; 
+}
+
+.num{
+    font-size: xxx-large !important;
+    color: aqua !important;
+    font-weight: bolder !important;
+}
+.bars{
+    display: flex;
+    gap: 2em;
+}
+.bar1{
+    width: 30em;
+    height: 20em;
+    background-color: floralwhite;  
+}
+.bar2{
+    width: 20em;
+    height: 20em;
+    background-color: floralwhite;  
+}
+.new{
+    width: 20em;
+    height: 20em;
+    background-color: floralwhite;  
+}
+.proftxt{
+    font-size: x-large !important;
+    font-weight: bolder !important;
+}
