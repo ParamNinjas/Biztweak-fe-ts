@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DashNav from '../DasNav/Nav';
 import { Container, Grid , Button , Typography, Divider } from '@material-ui/core';
 import banner from "../../Images/banner.png"
@@ -17,15 +17,17 @@ import PieC from './Pie';
 
 
 const Report = () => {
+  const [initialize, setInitialize] = useState(false)
     const recommendations : Array<IRecomendation> = [];
     const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
     const test = async () =>{
         const allRecommendations = await Api.GET_AllRecommendations()
         const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
         setAllRecommendations(result)
-    
+        setInitialize(true)
         console.log('reco',allRecommendations)
       }
+      
 
       // Filtered Data
     
@@ -84,14 +86,15 @@ const Report = () => {
                         alt='RepBanner'
                         className='banner'
                     />
+                   
                     <div className='pChart'>
                         <PieC/>
                     </div>
                     <div className='bGraph'>
-                        {/* <Bargraph/> */}
+                        {/* {initialize == true && <Bargraph/>} */}
                     </div>
                     <Typography variant='h5'>Full Summary</Typography>
-
+                  
                     <div className='report-accord'>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={12} md={6} lg={6}>
@@ -163,9 +166,10 @@ const Report = () => {
                                                 
                                                 reco.segmentResponses.Market.map(
                                                    markList => {
+                                                    const recoColor = markList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
                                                            <>
-                                                           <li>{markList.key}</li>
+                                                           <li style={{color : recoColor}}>{markList.key}</li>
                                                            </>
 
                                                        )
@@ -196,9 +200,10 @@ const Report = () => {
                                                 
                                                 reco.segmentResponses.customer.map(
                                                    cusList => {
+                                                    const recoColor = cusList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
                                                            <>
-                                                           <li>{cusList.key}</li>
+                                                           <li style={{color : recoColor}}>{cusList.key}</li>
                                                            </>
 
                                                        )
@@ -263,10 +268,11 @@ const Report = () => {
                                                 
                                                 reco.segmentResponses.Market.map(
                                                    markList => {
+                                                    const recoColor = markList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
                                                            <>
                                                            
-                                                           <li>{markList.key}</li>
+                                                           <li style={{color : recoColor}}>{markList.key}</li>
                                                            </>
 
                                                        )

@@ -8,6 +8,7 @@ import {
   LineSeries,
 } from '@devexpress/dx-react-chart-material-ui';
 import { ValueScale } from '@devexpress/dx-react-chart';
+import { Animation } from '@devexpress/dx-react-chart';
 // import './Report.css'
 
 interface IDataItem {
@@ -16,33 +17,32 @@ interface IDataItem {
     total: number,
   }
   
-  const chartData: IDataItem[] = [
-    { segment: 'C', sale: 80, total: 987 },
-    { segment: 'R', sale: 30, total: 3000 },
-    { segment: 'V', sale: 70, total: 1100 },
-    { segment: 'P', sale: 100, total: 7100 },
-    { segment: 'K', sale: 40, total: 4300 },
-    { segment: 'D', sale: 70, total: 7500 },
+  const data = [
+    { year: '1950', population: 2.525 },
+    { year: '1960', population: 3.018 },
+    { year: '1970', population: 3.682 },
+    { year: '1980', population: 4.440 },
+    { year: '1990', population: 5.310 },
+    { year: '2000', population: 6.127 },
+    { year: '2010', population: 6.930 },
   ];
 const  Bargraph = () => {
+  console.log("Data here", chartData)
+  const { data: chartData } = this.state;
     return (
         <div className="bar">
-        <Chart
+          <Chart
           data={chartData}
         >
-          <ValueScale name="sale" />
-          <ValueScale name="total" />
-
           <ArgumentAxis />
-          <ValueAxis scaleName="sale" showGrid={false} showLine={true} showTicks={true} />
-          <ValueAxis scaleName="total" position="right" showGrid={false} showLine={true} showTicks={true} />
+          <ValueAxis max={7} />
 
           <BarSeries
-            name="Units Sold"
-            valueField="sale"
-            argumentField="segment"
-            scaleName="sale"
+            valueField="population"
+            argumentField="year"
           />
+          {/* <Title text="World population" /> */}
+          <Animation />
         </Chart>
         </div>
 

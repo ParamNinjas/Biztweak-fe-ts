@@ -18,7 +18,7 @@ const data1 = [
     {name: 'Technical scripter', students: 1000},
   ];
   const data3 = [
-    {name: 'Geeksforgeeks', students: 250},
+    {name: 'Geeksforgeeks', students: 450},
     {name: 'Technical scripter', students: 1000},
 
   ];
@@ -57,28 +57,24 @@ return (
         </PieChart>
         </div>
         </div>
-        {/* <div className='p'>
-        <div className='chart4'>
+        <div className='p'>
+    <div className='chart1'>
         <PieChart width={300} height={300}>
           <Pie data={data3} dataKey="students" outerRadius={50} fill="green" />
         </PieChart>
         </div>
-        <div className='chart5'>
+        <div className='chart2'>
         <PieChart width={300} height={300}>
-          <Pie data={data4} dataKey="students" outerRadius={50} fill="green" />
+          <Pie data={data4} dataKey="students" outerRadius={50} fill="yellow" />
         </PieChart>
         </div>
-        <div className='chart6'>
+        <div className='chart3'>
         <PieChart width={300} height={300}>
-          <Pie data={data5} dataKey="students" outerRadius={50} fill="green" />
+          <Pie data={data5} dataKey="students" outerRadius={50} fill="aqua" />
         </PieChart>
         </div>
         </div>
-        <div className='chart7'>
-        <PieChart width={300} height={300}>
-          <Pie data={data6} dataKey="students" outerRadius={50} fill="green" />
-        </PieChart>
-        </div> */}
+    
         </div>
 );
 }
