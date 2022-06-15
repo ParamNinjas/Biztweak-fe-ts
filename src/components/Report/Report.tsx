@@ -13,11 +13,13 @@ import { IRecomendation } from '../../Interfaces/IRecomendation';
 import Bargraph from './Bar';
 import { Link } from 'react-router-dom';
 import PieC from './Pie';
+import { supabase } from '../../supabaseClient';
 
 
 
 const Report = () => {
   const [initialize, setInitialize] = useState(false)
+  const user = supabase.auth.user()
     const recommendations : Array<IRecomendation> = [];
     const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
     const test = async () =>{
@@ -25,8 +27,20 @@ const Report = () => {
         const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
         setAllRecommendations(result)
         setInitialize(true)
-        console.log('reco',allRecommendations)
       }
+    // console.log('Report ID', user?.id)
+    // const getReco = async () => {
+    //   const { data, error } = await supabase
+    //   .from('Recommendations')
+    //   .select('*')
+    //   .eq('Recomendations?.userId', 'user?.id')
+    // }
+    
+
+    useEffect(() => {
+      test()
+     
+    });
       
 
       // Filtered Data
@@ -522,12 +536,12 @@ const Report = () => {
                                     
                                     </Grid>
                             </Grid>
-                            <Button
+                            {/* <Button
                             variant='outlined'
-                             onClick={() => test()}
+                             onClick={() => getReco()}
                             >
                                 Get
-                            </Button>
+                            </Button> */}
                             <Button
                             variant='outlined'
                             >

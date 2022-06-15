@@ -4414,6 +4414,11 @@ domutils@^2.5.2, domutils@^2.8.0:
     domelementtype "^2.2.0"
     domhandler "^4.2.0"
 
+donut-chart-js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/donut-chart-js/-/donut-chart-js-1.0.1.tgz#473baf6f35f6a0f8fcbef0736ed796690b24410a"
+  integrity sha512-MJyRMDDwCPL9dDfK4xi7sVsY1UyGaaFe0FIbQbZwojgeo8iCXOkLkerODvRUTzaPR2Pbj6Szlg0ojhyTGpG9UA==
+
 dot-case@^3.0.4:
   version "3.0.4"
   resolved "https://registry.npmjs.org/dot-case/-/dot-case-3.0.4.tgz"
@@ -8172,6 +8177,11 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-minimal-pie-chart@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/react-minimal-pie-chart/-/react-minimal-pie-chart-8.3.0.tgz#cf6de3d712ea07e87e404276cbb811143ca00682"
+  integrity sha512-ICot74PGPrmGkaie8O+5tRZ5ivukYQ3fRN5ppvw1J01sIa5tHO9cekakyv9nXUkxKifiKn/FQu5uWHfSD39mRQ==
 
 react-refresh@^0.11.0:
   version "0.11.0"

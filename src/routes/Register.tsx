@@ -23,9 +23,12 @@ const Signup=()=>{
         const { user, session, error } = await supabase.auth.signUp({
             email: email,
             password: password,
+            // name: name
           })
 
       }
+           
+      
 
     return(
         <div className="Signup-con">

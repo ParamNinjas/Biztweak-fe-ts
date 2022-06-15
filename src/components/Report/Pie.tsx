@@ -1,5 +1,8 @@
 import React from 'react';
 import { PieChart, Pie} from 'recharts';
+// import { PieChart } from 'react-minimal-pie-chart';
+
+
   
   
 const Pchart = () => {
@@ -40,7 +43,7 @@ const data1 = [
   
 return (
     <div className='pieChart'>
-        <div className='p'>
+        {/* <div className='p'>
     <div className='chart1'>
         <PieChart width={300} height={300} >
           <Pie data={data}  dataKey="students" outerRadius={50} fill="green" />
@@ -74,7 +77,7 @@ return (
         </PieChart>
         </div>
         </div>
-    
+     */}
         </div>
 );
 }

@@ -21,7 +21,7 @@ import './Profile.css';
 const Profile = () => {
   const [companyName, setCompanyName] = useState("");
   const [logo, setLogo] = useState([]);
-  const [registered, setRegistered] =  React.useState<string>();  
+  const [registered, setRegistered] =  useState<string>();  
   const [location, setLocation] = useState("");
   const [employees, setEmployees] = useState();
   const [annTurnover, setAnnTurnover] = useState();
@@ -47,6 +47,7 @@ const Profile = () => {
 
   const handleRegistered = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRegistered((event.target as HTMLInputElement).value);
+    console.log('it works', registered)
   };
     
     return (
