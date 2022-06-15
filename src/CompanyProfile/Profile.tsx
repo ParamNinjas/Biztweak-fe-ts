@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Grid , 
         Container , 
         Typography , 
@@ -10,11 +10,44 @@ from "@material-ui/core";
 import Radio from '@material-ui/core/Radio';
 import avatar from '../Images/avatar.png'
 import UserNavbar from "../components/UserNav/UserNav";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import RadioGroup from "@mui/material/RadioGroup";
+import { Api } from '../services/endpoints';
 import './Profile.css';
 
 
 const Profile = () => {
-    
+  const [companyName, setCompanyName] = useState("");
+  const [logo, setLogo] = useState([]);
+  const [registered, setRegistered] =  React.useState<string>();  
+  const [location, setLocation] = useState("");
+  const [employees, setEmployees] = useState();
+  const [annTurnover, setAnnTurnover] = useState();
+  const [monTurnover, setMonTurnover] = useState();
+  const [industry, setIndustry] = useState();
+  const [product, setProduct] = useState("");
+
+  const createProfile = async () =>{
+    const payload = {
+     "companyName": companyName,
+     "location": location,
+     "phase" : registered,
+     "employees" : employees,
+     "annTurnover" : annTurnover,
+     "monTurnover" : monTurnover,
+     "industry" : industry,
+     "product" : product,
+   } 
+     const result = await Api.POST_CreateCompany(payload)
+     console.log('Result is' , result) 
+   } 
+           
+
+  const handleRegistered = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRegistered((event.target as HTMLInputElement).value);
+  };
     
     return (
         <div className="profile-con">
@@ -53,6 +86,7 @@ const Profile = () => {
                                     variant="outlined"
                                     className="comName"
                                     label="Company name"
+                                    onChange={(e) => setCompanyName(e.target.value)}
                                     size="small"
                                     />
                             </div>
@@ -64,21 +98,33 @@ const Profile = () => {
                                     size="small"
                                     />
                             </div>
+                         
                             <div className="registered">
-                                <Typography className="Radio">Is your company Registered</Typography>
-                                 <Radio
-                                    value="a"
-                                    name="radio-button-demo"
-                                    
-                                />
-                                <Typography className="Radio">No</Typography>
-                                <Radio
-                                    value="a"
-                                    name="radio-button-demo"
-                                    
-                                />
-                                <Typography className="Radio">Yes</Typography>
+                            <FormControl>
+                                <FormLabel id="demo-controlled-radio-buttons-group">
+                                    Do you know who your product is for?
+                                </FormLabel>
+                                <RadioGroup
+                                    aria-labelledby="demo-controlled-radio-buttons-group"
+                                    name="controlled-radio-buttons-group"
+                                    value={registered}
+                                    onChange={handleRegistered}
+                                >
+                                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                                </RadioGroup>
+                            </FormControl>
                             </div> 
+                            <div className="companyIn">
+                                <Typography>Industry</Typography>
+                                <TextField
+                                    variant="outlined"
+                                    className="comin"
+                                    label="Industry"
+                                    onChange={(e) => setIndustry(e.target.value)}
+                                    size="small"
+                                    />
+                            </div>
                             <div className="sort">
                             <Typography>Company Location</Typography>
                             <div className="companyLocation">
@@ -86,7 +132,8 @@ const Profile = () => {
                                 <TextField
                                     variant="outlined"
                                     className="comName"
-                                    label="Company name"
+                                    label="Company Location"
+                                    onChange={(e) => setLocation(e.target.value)}
                                     size="small"
                                     />
                             </div>
@@ -97,7 +144,8 @@ const Profile = () => {
                                     variant="outlined"
                                     className="comName"
                                     placeholder="Number of employees at your company..."
-                                    label="Company name"
+                                    onChange={(e) => setEmployees(e.target.value)}
+                                    label="Number of employees"
                                     size="small"
                                     />
                             </div>
@@ -108,7 +156,8 @@ const Profile = () => {
                                     variant="outlined"
                                     className="comName"
                                     placeholder="What is your yearly turnover..." name="annual_turnover"
-                                    label="Company name"
+                                    label="Annual Turnover"
+                                    onChange={(e) => setAnnTurnover(e.target.value)}
                                     size="small"
                                     />
                             </div>
@@ -119,7 +168,8 @@ const Profile = () => {
                                     variant="outlined"
                                     className="comName"
                                     placeholder="What was your monthly turnover in the past 6 months..."
-                                    label="Company name"
+                                    label="Monthly Turnover"
+                                    onChange={(e) => setMonTurnover(e.target.value)}
                                     size="small"
                                     />
                             </div>
@@ -129,16 +179,21 @@ const Profile = () => {
                                 <TextField
                                     variant="outlined"
                                     className="comName"
-                                    label="Company name"
+                                    label="Products"
                                     size="small"
+                                    onChange={(e) => setProduct(e.target.value)}
                                     placeholder="What products or services is your company offering?"
-                                    // columns={50}
-                                    // rows={10}
-                                    defaultValue={""}
                                     />
                             </div>
+                            <Button 
+                                    variant='outlined' 
+                                    className='btnProfSave'
+                                    onClick={() => createProfile()}
+                            >
+                                    Save
+                            </Button>
                             </div>
-                            
+                          
                             
                         </Grid>
                     </Grid>

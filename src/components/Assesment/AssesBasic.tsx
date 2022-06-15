@@ -63,35 +63,7 @@ const AssessBasic = () => {
       } 
     
     } 
-    //  {
-    //   "segment" : "customer",
-    //   "userId" : "U0001",
-    //   "segmentResponses" :{
-    //      "customer" : [{ key : "productReco" , value : productOwner}, 
-    //                         { key : "targetReco" , value : tagetAudiance}, 
-    //                         { key :"targetLocReco" , value : tagetAudianceLocation},
-    //                         { key :"targetSizeReco" , value : tagetMarketSize}, 
-    //                         { key : "reacReco" , value : cusReach}, 
-    //                         { key : "competitorReco" , value : competitor},
-    //                         { key : "accessReco" , value : marketAccess}, 
-    //                         { key : "marketLocReco" , value : marketLocation},
-    //                         { key : "idealCusReco" , value : idealCustomer}, 
-    //                         { key : "importantCusReco" , value : importantCustomer}, 
-    //                         { key : "cusResearchReco" , value : customerReaserch
-    //                       }],
-    //                     "Market" : [{ key : "companyAdReco" , value : companyAd}, 
-    //                       { key : "effectiveReco" , value : effectiveAd} 
-                      
-    //                     ] 
-                          
-                          
-    //                       }
-                          
-    //                       } as IRecomendation; 
       const result = await Api.POST_CreateRecommendation(payload)
-      // const filtered = payload.segmentResponses.filter(seg => {
-      //   return seg.key = "productReco"
-      // })
       console.log('Result is' , result) 
     } 
     

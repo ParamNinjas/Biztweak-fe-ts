@@ -21,7 +21,7 @@
 .registered{
     position: relative;
     top: 7em;
-    display: flex ;
+    display: flex !important;
     /* gap: 1em; */
 }
 .Radio{
@@ -51,4 +51,18 @@
     position: relative;
     left: 13em;
     bottom: 1em;
+}
+.companyIn{
+    position: relative;
+    top: 7em;
+    display: flex;
+}
+.comin{
+    position: relative;
+    left: 9.5em;
+    bottom: 1em;
+}
+.btnProfSave{
+    color: aqua !important;
+    border-color: aqua !important; 
 }
