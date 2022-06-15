@@ -1,27 +1,49 @@
-import * as React from 'react';
+import React , { useState, useEffect } from "react";
+import { Api } from '../services/endpoints';
 import { DataGrid } from '@mui/x-data-grid';
 
 export default function UserList() {
+  const [allProfiles, setAllProfiles] = useState<ICompany[]>([]);
+  const Prof = async () =>{
+    const allProfiles = await Api.GET_AllProfiles()
+    const result = allProfiles.result? allProfiles.result : [] as ICompany[];
+    setAllProfiles(result)
+    console.log('reco',allProfiles)
+  } 
+
+  useEffect(() => {
+    Prof()
+   
+  });
   return (
     <div style={{ height: 250, width: '100%' }}>
       <DataGrid
         columns={[
-            { field: 'Company' }, 
-            { field: 'Location' },
-            { field: 'Phase' }, 
-            { field: 'Industry' },
-            { field: 'Employees' }, 
-            { field: 'Turnover' },
+          { field: 'id',
+              headerName : 'ID'
+            }, 
+            { field: 'companyName',
+              headerName : 'Company'
+            }, 
+            { field: 'location',
+              headerName : 'Location' 
+            },
+            { field: 'Phase',
+              headerName : 'Phase'
+            }, 
+            { field: 'industry',
+            headerName : 'Industry' 
+            },
+            { field: 'employees',
+              headerName : 'Employee'
+            },  
+            { field: 'annTurnover',
+              headerName : 'Turnover'
+            },
             { field: 'Action' },
           
         ]}
-        rows={[
-          {
-            id: 1,
-            username: '@MaterialUI',
-            age: 20,
-          },
-        ]}
+        rows={allProfiles}
       />
     </div>
   );

@@ -37,3 +37,14 @@ export interface Resources {
     key : string,
     value : string,
 }
+
+export interface ICompany {
+    id : number,
+    companyName : string,
+    location : string,
+    phase : string,
+    registered : string,
+    industry : string,
+    employees : string,
+    turnover : string  
+}
