@@ -30,7 +30,7 @@ const  Login=() =>{
             email: email,
             password: password,
           })
-          navigate('/Report'); 
+          navigate('/AssesBasic'); 
       }
   
 return (
@@ -100,7 +100,7 @@ return (
                         </Button>
                         <div className="forgotLinks">
                             <div className="forgotPass">
-                                <p>Forgot Password?</p>
+                            <Link to='/Forgot'>Forgot Password?</Link>
                             </div>
                             <div className="noAcc">
                             <Link to='/sign_up'>Don't have an account?</Link>

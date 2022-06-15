@@ -1,4 +1,4 @@
-import { IRecomendation } from "../Interfaces/IRecomendation";
+import { ICompany, IRecomendation } from "../Interfaces/IRecomendation";
 import { DELETE, GET, POST, PUT } from "./client";
 import { GetApiResponse, IResponseObject } from "./response";
 
@@ -24,4 +24,22 @@ export const Api = {
     const result = GetApiResponse<IRecomendation[]>(false, "" , response.data)
     return result;
   },
+  POST_CreateCompany: async (
+    payload: ICompany
+      ): Promise<IResponseObject<any>> => {
+    const response = await POST(
+      `${DBServiceUrl}/Company`,
+      payload
+    );
+    console.log('response', response)
+    const result = GetApiResponse<any>(false, "" , response.data)
+    return result;
+  },
+
+  GET_AllProfiles: async (): Promise<IResponseObject<ICompany[]>> => {
+    const response = await GET(`${DBServiceUrl}/Company`);
+    const result = GetApiResponse<ICompany[]>(false, "" , response.data)
+    return result;
+  },
+  
 }
