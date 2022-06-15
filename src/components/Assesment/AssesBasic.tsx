@@ -18,17 +18,20 @@ import { createSlice } from '@reduxjs/toolkit';
 import './Assessment.css'
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation'
+import { supabase } from '../../supabaseClient';
 
 
 const AssessBasic = () => {
   const [value, setValue] = React.useState('');
+  const user = supabase.auth.user()
     function Alert(props : any) {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
       }
+      console.log("user id", user?.id)
   const createReport = async () =>{
      const payload = {
       "segment": "customer",
-      "userId": "U0005",
+      "userId": user?.id,
       "segmentResponses": {
         "customer": [{"key": "Do you know who your product is for?" ,"value": productReco},
                       {"key": "Do you know who is your target market/audience?" ,"value": targetReco},

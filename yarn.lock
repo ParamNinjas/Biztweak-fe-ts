@@ -6767,6 +6767,19 @@ check-types@^11.1.1:
   "integrity" "sha512-K4jKbY1d4ENhbrG2zuPWaQBvDly+iZ2yAW+T1fATN78hc0sInwn7wZB8XtlNnvHug5RMwV897Xm4LqmPM4e2Og=="
   "resolved" "https://registry.npmjs.org/jest-mock/-/jest-mock-27.5.1.tgz"
   "version" "27.5.1"
+    dom-serializer "^1.0.1"
+    domelementtype "^2.2.0"
+    domhandler "^4.2.0"
+
+donut-chart-js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/donut-chart-js/-/donut-chart-js-1.0.1.tgz#473baf6f35f6a0f8fcbef0736ed796690b24410a"
+  integrity sha512-MJyRMDDwCPL9dDfK4xi7sVsY1UyGaaFe0FIbQbZwojgeo8iCXOkLkerODvRUTzaPR2Pbj6Szlg0ojhyTGpG9UA==
+
+dot-case@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.npmjs.org/dot-case/-/dot-case-3.0.4.tgz"
+  integrity sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==
   dependencies:
     "@jest/types" "^27.5.1"
     "@types/node" "*"
@@ -8218,6 +8231,15 @@ negotiator@0.6.3:
   version "0.6.3"
   resolved "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
+react-minimal-pie-chart@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/react-minimal-pie-chart/-/react-minimal-pie-chart-8.3.0.tgz#cf6de3d712ea07e87e404276cbb811143ca00682"
+  integrity sha512-ICot74PGPrmGkaie8O+5tRZ5ivukYQ3fRN5ppvw1J01sIa5tHO9cekakyv9nXUkxKifiKn/FQu5uWHfSD39mRQ==
+
+react-refresh@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"
+  integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
 
 neo-async@^2.6.2:
   version "2.6.2"

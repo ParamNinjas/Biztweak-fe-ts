@@ -7,13 +7,24 @@ import { Link } from 'react-router-dom';
 import SearchBar from "material-ui-search-bar";
 import Side from "./sideNav";
 import UserList from "./List";
-import { Api } from '../services/endpoints';
-import './AdminDash.css'    
+import { Api } from '../services/endpoints'; 
+import { IRecomendation } from "../Interfaces/IRecomendation";
+import './AdminDash.css'   
 
 
 
 const Admin=() => {
-   
+    const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
+    const test = async () =>{
+        const allRecommendations = await Api.GET_AllRecommendations()
+        const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
+        setAllRecommendations(result)
+        // console.log('reco',allRecommendations)
+      }
+      useEffect(() => {
+        test()
+       
+      });
 
 
 
@@ -32,19 +43,19 @@ const Admin=() => {
                     <Grid item xs={12} sm={12} md={8} lg={8}>
                         <div className="Assesments">
                                 <div className="comAsses">
-                                    <Typography className="num">67</Typography>
+                                    <Typography className="num">{allRecommendations.length}</Typography>
                                     <Typography>Completed Assesments</Typography>
                                 </div>
                                 <div className="inComAsses">
-                                <Typography className="num">67</Typography>
+                                <Typography className="num">0</Typography>
                                 <Typography>incomplete Assesments</Typography>
                                 </div>
                                 <div className="totAsses">
-                                <Typography className="num">67</Typography>
+                                <Typography className="num">{allRecommendations.length}</Typography>
                                 <Typography>Total Assesments</Typography>
                                 </div>
                                 <div className="totUsers">
-                                <Typography className="num">67</Typography>
+                                <Typography className="num">3</Typography>
                                 <Typography>Total Users</Typography>
                                 </div>
                         </div>
