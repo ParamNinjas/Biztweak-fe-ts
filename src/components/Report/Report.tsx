@@ -105,7 +105,7 @@ const Report = () => {
                         <PieC/>
                     </div>
                     <div className='bGraph'>
-                        {/* {initialize == true && <Bargraph/>} */}
+                        {<Bargraph/>}
                     </div>
                     <Typography variant='h5'>Full Summary</Typography>
                   
