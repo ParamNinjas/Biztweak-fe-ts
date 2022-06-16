@@ -3,9 +3,12 @@
     background-color: #082a2c;
     color: aliceblue;
     height:51.5em;
+    padding-left: 13px;
     
 }
 
 .Nav li {
     font-size: x-large;
+    padding-top: 3em;
+    margin: auto;
 }
