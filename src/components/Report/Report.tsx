@@ -100,7 +100,8 @@ const Report = () => {
                         alt='RepBanner'
                         className='banner'
                     />
-                   
+                   <Typography variant='h3'>Report Summary</Typography>
+                   <Typography>Company</Typography>
                     <div className='pChart'>
                         <Donut/>
                     </div>
