@@ -12,16 +12,17 @@
 }
 
 .adminTop{
-    height: 3em;
-    width: 70% !important;
+    height: 6em;
+    width: 100% !important;
     background: #00a9b1;
     border-radius: 2px;
     margin-top: 1.5rem!important;
     margin-top: 1.5rem!important;
     color: white !important;
     font-weight: bold;
+    
 }
-}
+
 .end{
     position: relative;
     left: 20em;
