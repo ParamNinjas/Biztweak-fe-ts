@@ -12,7 +12,7 @@ import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation';
 import Bargraph from './Bar';
 import { Link } from 'react-router-dom';
-import PieC from './Pie';
+import Donut from './Donut';
 import { supabase } from '../../supabaseClient';
 
 
@@ -102,7 +102,7 @@ const Report = () => {
                     />
                    
                     <div className='pChart'>
-                        <PieC/>
+                        <Donut/>
                     </div>
                     <div className='bGraph'>
                         {<Bargraph/>}

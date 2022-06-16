@@ -8,3 +8,35 @@
 .chartTitle {
   margin-bottom: 20px;
 }
+.group1{
+  display: flex !important;
+}
+.chart2{
+  position: relative;
+  right: 32em;
+}
+.chart3{
+  position: relative;
+  right: 64em;
+}
+.chart4{
+  position: relative;
+  right: 96em;
+}
+.chart5{
+  position: relative;
+  right: 128em;
+}
+.group2{
+  display: flex !important;
+  position: relative;
+  bottom: 7em;
+}
+.chart7{
+  position: relative;
+  right: 31em;
+}
+.bar{
+  display: flex;
+  height: 10em !important;
+}
