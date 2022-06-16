@@ -1,49 +1,76 @@
-import React from 'react';
-// import Paper from '@mui/material/Paper';
-import {
-  ArgumentAxis,
-  ValueAxis,
-  BarSeries,
-  Chart,
-  LineSeries,
-} from '@devexpress/dx-react-chart-material-ui';
-import { ValueScale } from '@devexpress/dx-react-chart';
-import { Animation } from '@devexpress/dx-react-chart';
-// import './Report.css'
+import React, { PureComponent } from 'react';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-interface IDataItem {
-    segment: string,
-    sale: number,
-    total: number,
-  }
-  
-  const data = [
-    { year: '1950', population: 2.525 },
-    { year: '1960', population: 3.018 },
-    { year: '1970', population: 3.682 },
-    { year: '1980', population: 4.440 },
-    { year: '1990', population: 5.310 },
-    { year: '2000', population: 6.127 },
-    { year: '2010', population: 6.930 },
-  ];
+const data = [
+  {
+    name: 'Page A',
+    uv: 4000,
+    pv: 2400,
+    amt: 2400,
+  },
+  {
+    name: 'Page B',
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    name: 'Page C',
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    name: 'Page D',
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
+  },
+  {
+    name: 'Page E',
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    name: 'Page F',
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+];
 const  Bargraph = () => {
-  console.log("Data here", chartData)
-  const { data: chartData } = this.state;
+  // console.log("Data here", chartData)
+  // const { data: chartData } = this.state;
     return (
         <div className="bar">
-          <Chart
-          data={chartData}
+           <ResponsiveContainer width="100%" height="100%">
+        <BarChart
+          width={500}
+          height={300}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
         >
-          <ArgumentAxis />
-          <ValueAxis max={7} />
-
-          <BarSeries
-            valueField="population"
-            argumentField="year"
-          />
-          {/* <Title text="World population" /> */}
-          <Animation />
-        </Chart>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="pv" fill="#8884d8" />
+          <Bar dataKey="uv" fill="#82ca9d" />
+        </BarChart>
+      </ResponsiveContainer>
         </div>
 
     )
