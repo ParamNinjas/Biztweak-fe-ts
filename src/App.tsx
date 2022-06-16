@@ -13,7 +13,6 @@ import AssessBasic from "./components/Assesment/AssesBasic";
 import Report from "./components/Report/Report";
 import Getcourse from "./components/Course/Getcourse"
 import Bargraph from "./components/Report/Bar";
-import Pchart from "./components/Report/Pie";
 import Forgot from "./components/forgot/Forgot";
 import Admin from "./Admin/AdminDash";
 import Donut from "./components/Report/Donut";
@@ -42,7 +41,6 @@ function App() {
           <Route path='/AssesBasic' element={<AssessBasic />} />
           <Route path='/Getcourse' element={<Getcourse />} />
           <Route path='/Bar' element={<Bargraph />} />
-          <Route path='/Pie' element={<Pchart />} />
           <Route path='/Forgot' element={<Forgot />} />
           <Route path='/AdminDash' element={<Admin />} />
           <Route path='/Donut' element={<Donut />} />

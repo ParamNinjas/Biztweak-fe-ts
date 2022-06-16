@@ -22,25 +22,25 @@ const data3 = [
 ];
 const data4 = [
   { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 100 },
+  { name: 'Group B', value: 900 },
 //   { name: 'Group C', value: 300 },
 //   { name: 'Group D', value: 200 },
 ];
 const data5 = [
-  { name: 'Group A', value: 400 },
+  { name: 'Group A', value: 600 },
   { name: 'Group B', value: 100 },
 //   { name: 'Group C', value: 300 },
 //   { name: 'Group D', value: 200 },
 ];
 const data6 = [
-  { name: 'Group A', value: 400 },
+  { name: 'Group A', value: 600 },
   { name: 'Group B', value: 100 },
 //   { name: 'Group C', value: 300 },
 //   { name: 'Group D', value: 200 },
 ];
 const data7 = [
   { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 100 },
+  { name: 'Group B', value: 250 },
 //   { name: 'Group C', value: 300 },
 //   { name: 'Group D', value: 200 },
 ];
@@ -109,7 +109,7 @@ const Donut = () => {
       <div className='chart4'>
       <PieChart width={700} height={300} >
         <Pie
-          data={data3}
+          data={data4}
           cx={120}
           cy={200}
           innerRadius={60}
@@ -127,7 +127,7 @@ const Donut = () => {
       <div className='chart5'>
       <PieChart width={700} height={300} >
         <Pie
-          data={data3}
+          data={data5}
           cx={120}
           cy={200}
           innerRadius={60}
@@ -147,7 +147,7 @@ const Donut = () => {
       <div className='chart6'>
       <PieChart width={700} height={300} >
         <Pie
-          data={data3}
+          data={data6}
           cx={120}
           cy={200}
           innerRadius={60}
@@ -165,7 +165,7 @@ const Donut = () => {
       <div className='chart7'>
       <PieChart width={700} height={300} >
         <Pie
-          data={data3}
+          data={data7}
           cx={120}
           cy={200}
           innerRadius={60}
