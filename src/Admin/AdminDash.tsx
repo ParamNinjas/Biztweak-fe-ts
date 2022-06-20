@@ -1,7 +1,7 @@
 import React , { useState, useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import { Typography } from "@material-ui/core";
+import { Typography, Button } from "@material-ui/core";
 import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
 import SearchBar from "material-ui-search-bar";
@@ -9,7 +9,7 @@ import Side from "./sideNav";
 import UserList from "./List";
 import { Api } from '../services/endpoints'; 
 import { IRecomendation } from "../Interfaces/IRecomendation";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 import './AdminDash.css'   
 
@@ -185,19 +185,77 @@ const Admin=() => {
                             </div>
                             </div>
                         </div>
+                        <div className="filButtons">
+                          <div className="newUsersBTN">
+                              <Button
+                                className="AddUsers"
+                                variant="outlined"
+                                >Add New Users
+                                </Button>
+                          </div>
+                          <div className="regUsersBTN">
+                              <Button
+                                className="RegUsers"
+                                variant="outlined"
+                                >Total Registered Users
+                                </Button>
+                          </div>
+                          <div className="AllAssesBTN">
+                              <Button
+                                className="AllAsses"
+                                variant="outlined"
+                                >All Assesments
+                                </Button>
+                          </div>
+                        </div>
                         <div className="prof">
                             <Typography className="proftxt">Profiles by registered</Typography>
+                            <div className="SeeMore">
+                              <Link to='/List'>See All Profiles {'>'}</Link>
+                            </div>
                             <div className="list">
                                 <UserList/>
                             </div>
                         </div>
                     </Grid>
                     <Grid item xs={12} sm={12} md={4} lg={4}>
+                    <div className="SeeMoreU">
+                              <Link to='/List'>See all users {'>'}</Link>
+                            </div>
                         <div className="newUsers">
                             <h4>New Users</h4>
                             <div className="new">
 
                             </div>
+                            <Button
+                              className="sendMail"
+                              variant="outlined"
+                            >Send Mail
+                            </Button>
+                            <div className="phaseBTNs">
+                              <div className="Phase1">
+                                <Button
+                                  className="phase1BTN"
+                                  variant="outlined"
+                                >How To Sell
+                                </Button>
+                              </div>
+                              <div className="Phase2">
+                                <Button
+                                  className="phase1BTN"
+                                  variant="outlined"
+                                >Get Customers
+                                </Button>
+                              </div>
+                            </div>
+                            <div className="phase3">
+                            <Button
+                                  className="phase3BTN"
+                                  variant="outlined"
+                                >Get Customers
+                                </Button>
+                            </div>
+                            
                         </div>
                     </Grid>
 

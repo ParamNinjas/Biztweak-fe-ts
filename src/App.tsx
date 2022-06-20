@@ -17,6 +17,7 @@ import Bargraph from "./components/Report/Bar";
 import Forgot from "./components/forgot/Forgot";
 import Admin from "./Admin/AdminDash";
 import Donut from "./components/Report/Donut";
+import UserList from "./Admin/List";
 import './Login/Login.css'
 
 
@@ -46,6 +47,8 @@ function App() {
           <Route path='/Forgot' element={<Forgot />} />
           <Route path='/AdminDash' element={<Admin />} />
           <Route path='/Donut' element={<Donut />} />
+          <Route path='/List' element={<UserList />} />
+
        
         </Routes>
       </Router>
