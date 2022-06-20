@@ -1,0 +1,42 @@
+import React from "react";
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Container from '@material-ui/core/Container';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import sideNav from '../../sideNav'
+import './SendMail.css'
+
+
+const SendMail = () => {
+    return (
+        <div className="send-con">
+            {/* <sideNav/> */}
+            <Container>
+                <div className="send">
+                    <div className="filter">
+                        <Typography>Filter</Typography>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            fullWidth
+                            variant="outlined"
+                            // value={age}
+                            // onChange={handleChange}
+                            >
+                            <MenuItem value={1}>All Users</MenuItem>
+                            <MenuItem value={2}>Registered Business users</MenuItem>
+                            <MenuItem value={3}>None Registered Business users</MenuItem> 
+                            <MenuItem value={4}>Idea/Concept phase users</MenuItem>
+                            <MenuItem value={5}>Early Stage phase users</MenuItem>
+                            <MenuItem value={6}>Startup phase users</MenuItem> 
+                            <MenuItem value={7}>Accelerate phase users</MenuItem> 
+                        </Select>
+                    </div>
+                </div>
+            </Container>
+        </div>
+    )
+}
+
+export default SendMail
