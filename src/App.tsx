@@ -20,6 +20,7 @@ import Donut from "./components/Report/Donut";
 import UserList from "./Admin/List";
 import AddAdmin from "./Admin/AddAdmin";
 import AddUser from "./Admin/AdminComponents/AddUser/AddUser";
+import SendMail from "./Admin/AdminComponents/SendMail/SendMail";
 import './Login/Login.css'
 
 
@@ -52,7 +53,7 @@ function App() {
           <Route path='/List' element={<UserList />} />
           <Route path='/AddAdmin' element={<AddAdmin />} />
           <Route path='/AddUser' element={<AddUser />} />
-       
+          <Route path='/SendMail' element={<SendMail />} />
         </Routes>
       </Router>
     </div>
