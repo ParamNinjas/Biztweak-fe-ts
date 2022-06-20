@@ -26,9 +26,9 @@ const Admin=() => {
                 <SearchBar onChange={() => console.log('onChange')}
       onRequestSearch={() => console.log('onRequestSearch')}
       style={{
-        margin: '20',
-        maxWidth: 600
-        
+        margin: "0",
+        maxWidth: 800,
+        padding: 
       }}/>
                 <div className="end">
                     <HomeIcon/>

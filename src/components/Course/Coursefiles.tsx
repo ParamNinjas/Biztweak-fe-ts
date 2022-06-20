@@ -9,6 +9,7 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import { Button } from '@material-ui/core';
 import Stack from '@mui/material/Stack';
+// import Thumbnail from './Thumbnail'
 
 
 const Accordion = styled((props: AccordionProps) => (
@@ -49,8 +50,8 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 const onDownload = () => {
   const link = document.createElement("a");
-  link.download = `download.txt`;
-  link.href = "./download.txt";
+  link.download = `module1-strategicplanning.pdf`;
+  link.href = "./PDFS/module1-strategicplanning.pdf";
   link.click();
 };
 
@@ -77,9 +78,14 @@ export default function Coursefiles() {
 an extensive understanding of the questions you need to answer for value proposition and importance and techniques 
 of customer relationship management. And will conclude by explaining the revenue models and streams.
           </Typography>
+          {/* <Thumbnail></Thumbnail> */}
           <Button onClick={onDownload} variant="contained" color="primary" size="small">
       Download
+      {/* <object data="./PDFS/module1-strategicplanning.pdf" type="application/pdf" width="100%" height="100%">
+      <p>Alternative text - include a link <a href="./PDFS/module1-strategicplanning.pdf">to the PDF!</a></p>
+  </object> */}
     </Button>
+   
         </AccordionDetails>
       
       </Accordion>
