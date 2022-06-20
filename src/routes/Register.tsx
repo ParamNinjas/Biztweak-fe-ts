@@ -27,6 +27,15 @@ const Signup=()=>{
           })
 
       }
+      async function ExtraInfo() {
+
+            const { data, error } = await supabase
+            .from('userProfile')
+            .insert([
+            { display_name: name},
+            ])
+
+      }
            
       
 

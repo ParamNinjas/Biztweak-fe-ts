@@ -140,11 +140,6 @@ const AddUser = () => {
                             <MenuItem value={4}>Nedbank</MenuItem>
                             <MenuItem value={5}>Tyme Bank</MenuItem>   
                         </Select>
-                          
-                         
-
-                      
-
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={6}>
                     <Typography>Email</Typography>
@@ -154,8 +149,97 @@ const AddUser = () => {
                             fullWidth
                             size="small"
                             />
-                            
+                    <Typography>Confirm Password</Typography>
+                        <TextField
+                            variant="outlined"
+                            className="txtfield"
+                            fullWidth
+                            size="small"
+                            />
+                              <Typography>Company Logo</Typography>
+                        <TextField
+                            variant="outlined"
+                            className="txtfield"
+                            fullWidth
+                            size="small"
+                            />
+                    <Typography>Company Location</Typography>
+                        <TextField
+                            variant="outlined"
+                            className="txtfield"
+                            fullWidth
+                            size="small"
+                            />
+                    <Typography>Business Phase</Typography>
+                    <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            fullWidth
+                            // size="small"
+                            variant="outlined"
+                            // value={age}
+                            // onChange={handleChange}
+                            >
+                            <MenuItem value={1}>I want to learn how to sell</MenuItem>
+                            <MenuItem value={1}>I want to learn how to find customers</MenuItem>
+                            <MenuItem value={2}>I want to learn how to raise funds</MenuItem>  
+                        </Select>
+                    <Typography>Annual Turnover</Typography>
+                        <TextField
+                            variant="outlined"
+                            className="txtfield"
+                            fullWidth
+                            size="small"
+                            />
+                    <Typography>Products/Services</Typography>
+                        <TextField
+                            variant="outlined"
+                            className="txtfield"
+                            fullWidth
+                            size="small"
+                            />
+                    <Typography>Since when has your business been operating on the premise?</Typography>
+                        <TextField
+                            variant="outlined"
+                            className="txtfield"
+                            fullWidth
+                            size="small"
+                            />
+                    <Typography>What % of your turnover is</Typography>
+                    <div className="percentages">
+                        <div className="Card">
+                        <Typography>Card</Typography>
+                            <TextField
+                                variant="outlined"
+                                className="txtfield"
+                                // fullWidth
+                                size="small"
+                            />
+                        </div>
+                        <div className="Cash">
+                        <Typography>Cash</Typography>
+                            <TextField
+                                variant="outlined"
+                                className="txtfield"
+                                // fullWidth
+                                size="small"
+                            />
+                        </div>
+                        <div className="EFT">
+                        <Typography>EFT</Typography>
+                            <TextField
+                                variant="outlined"
+                                className="txtfield"
+                                // fullWidth
+                                size="small"
+                            />
+                        </div>
+                    </div>
                     </Grid>
+                    <Button
+                          variant="contained"
+                          className="AdduserSave"  
+                    >Save</Button>
                 </Grid>
             </Container>
         </div>
