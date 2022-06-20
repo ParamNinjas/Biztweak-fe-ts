@@ -10,6 +10,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import UserNavbar from '../UserNav/UserNav';
 import company from '../../Images/company.png';
 import './Coursepage.css'
+import Coursefiles from './Coursefiles'
 
 
 const Coursepage = () => {
@@ -50,7 +51,7 @@ const Coursepage = () => {
             </div>      
            </Grid>
            <Grid item xs={12} sm={12} md={8} lg={8}>
-           <Typography className='biz' variant='h5'>My Courses</Typography>
+           <Coursefiles/>
            </Grid>
            </Grid>
             </Container>
