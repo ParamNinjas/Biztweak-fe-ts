@@ -17,6 +17,7 @@ import Forgot from "./components/forgot/Forgot";
 import Admin from "./Admin/AdminDash";
 import Donut from "./components/Report/Donut";
 import UserList from "./Admin/List";
+import AddAdmin from "./Admin/AddAdmin";
 import './Login/Login.css'
 
 
@@ -46,7 +47,7 @@ function App() {
           <Route path='/AdminDash' element={<Admin />} />
           <Route path='/Donut' element={<Donut />} />
           <Route path='/List' element={<UserList />} />
-
+          <Route path='/AddAdmin' element={<AddAdmin />} />
        
         </Routes>
       </Router>
