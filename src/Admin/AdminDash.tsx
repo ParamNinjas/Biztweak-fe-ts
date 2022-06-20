@@ -196,21 +196,21 @@ const Admin=() => {
                               <Button
                                 className="AddUsers"
                                 variant="outlined"
-                                >Add New Users
+                                ><ion-icon name="add"></ion-icon>Add New Users
                                 </Button>
                           </div>
                           <div className="regUsersBTN">
                               <Button
                                 className="RegUsers"
                                 variant="outlined"
-                                >Total Registered Users
+                                ><ion-icon name="people"></ion-icon>Total Registered Users
                                 </Button>
                           </div>
                           <div className="AllAssesBTN">
                               <Button
                                 className="AllAsses"
                                 variant="outlined"
-                                >All Assesments
+                                ><ion-icon name="flag"></ion-icon>All Assesments
                                 </Button>
                           </div>
                         </div>
@@ -236,7 +236,7 @@ const Admin=() => {
                             <Button
                               className="sendMail"
                               variant="outlined"
-                            >Send Mail
+                            ><ion-icon name="mail"></ion-icon>Send Mail
                             </Button>
                             <div className="phaseBTNs">
                               <div className="Phase1">
