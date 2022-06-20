@@ -12,6 +12,7 @@ import Profile from "./CompanyProfile/Profile";
 import AssessBasic from "./components/Assesment/AssesBasic";
 import Report from "./components/Report/Report";
 import Getcourse from "./components/Course/Getcourse"
+import Coursepage from "./components/Course/Coursepage"
 import Bargraph from "./components/Report/Bar";
 import Forgot from "./components/forgot/Forgot";
 import Admin from "./Admin/AdminDash";
@@ -41,6 +42,7 @@ function App() {
           <Route path='/Report' element={<Report />} />
           <Route path='/AssesBasic' element={<AssessBasic />} />
           <Route path='/Getcourse' element={<Getcourse />} />
+          <Route path='/Coursepage' element={<Coursepage />} />
           <Route path='/Bar' element={<Bargraph />} />
           <Route path='/Forgot' element={<Forgot />} />
           <Route path='/AdminDash' element={<Admin />} />

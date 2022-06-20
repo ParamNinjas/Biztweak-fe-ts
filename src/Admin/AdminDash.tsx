@@ -107,7 +107,13 @@ const Admin=() => {
             <Container>
                 <div className="adminCon">
                 <div className="adminTop">
-                <SearchBar/>
+                <SearchBar onChange={() => console.log('onChange')}
+      onRequestSearch={() => console.log('onRequestSearch')}
+      style={{
+        margin: '20',
+        maxWidth: 600
+        
+      }}/>
                 <div className="end">
                     <HomeIcon/>
                 </div>
