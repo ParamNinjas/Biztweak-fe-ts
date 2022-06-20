@@ -34,7 +34,7 @@ const UserNavbar = () => {
                     <Link to='/Dashboard'>Dashboard</Link>
                 </li>
                 <li>
-                    <Link to='/Courses'>Courses</Link>
+                    <Link to='/Coursepage'>Courses</Link>
                 </li>
                 <li>
                     <Link to='/Profile'>Profile</Link>
