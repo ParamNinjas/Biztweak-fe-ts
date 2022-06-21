@@ -193,7 +193,8 @@ const Admin=() => {
                               <Button
                                 className="AddUsers"
                                 variant="outlined"
-                                ><ion-icon name="add"></ion-icon>  
+                                >
+                                  {/* <ion-icon name="add"></ion-icon>   */}
                                 <Link to='/AddUser'>Add New Users</Link>
                                 </Button>
                           </div>
@@ -201,14 +202,17 @@ const Admin=() => {
                               <Button
                                 className="RegUsers"
                                 variant="outlined"
-                                ><ion-icon name="people"></ion-icon>Total Registered Users
+                                >
+                                  {/* <ion-icon name="people"></ion-icon> */}
+                                  Total Registered Users
                                 </Button>
                           </div>
                           <div className="AllAssesBTN">
                               <Button
                                 className="AllAsses"
                                 variant="outlined"
-                                ><ion-icon name="flag"></ion-icon>
+                                >
+                                  {/* <ion-icon name="flag"></ion-icon> */}
                                 <Link to='/AllAsses'>All Assesments</Link>
                                 </Button>
                           </div>
@@ -235,7 +239,9 @@ const Admin=() => {
                             <Button
                               className="sendMail"
                               variant="outlined"
-                            ><ion-icon name="mail"></ion-icon>Send Mail
+                            >
+                              {/* <ion-icon name="mail"></ion-icon> */}
+                              Send Mail
                             </Button>
                             <div className="phaseBTNs">
                               <div className="Phase1">
