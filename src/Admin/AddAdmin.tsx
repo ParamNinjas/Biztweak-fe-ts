@@ -1,6 +1,4 @@
 import React , { useState, useEffect } from "react";
-// import axios from 'axios';
-import { Link } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -40,7 +38,7 @@ const AddAdmin=()=>{
                         <img
                             src={signin}
                             alt='signin'
-                            className='signinIMG'
+                            className='signinIMG' 
                         />
                     </div>
                 </Grid>
