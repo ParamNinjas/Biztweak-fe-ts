@@ -12,12 +12,17 @@
 }
 
 .adminTop{
-    position: relative;
-    height: 3em;
-    width: 70% !important;
-    background-color: aqua;
-    left: 14em;
+    height: 6em;
+    width: 100% !important;
+    background: #00a9b1;
+    border-radius: 2px;
+    margin-top: 1.5rem!important;
+    margin-top: 1.5rem!important;
+    color: white !important;
+    font-weight: bold;
+    
 }
+
 .end{
     position: relative;
     left: 20em;
@@ -28,6 +33,7 @@
 .Assesments{
     display: flex;
     gap: 1em;
+    padding-top: 3em;
 }
 .comAsses{
     width: 15em;
