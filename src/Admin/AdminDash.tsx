@@ -193,7 +193,8 @@ const Admin=() => {
                               <Button
                                 className="AddUsers"
                                 variant="outlined"
-                                ><ion-icon name="add"></ion-icon>Add New Users
+                                ><ion-icon name="add"></ion-icon>  
+                                <Link to='/AddUser'>Add New Users</Link>
                                 </Button>
                           </div>
                           <div className="regUsersBTN">
@@ -207,7 +208,8 @@ const Admin=() => {
                               <Button
                                 className="AllAsses"
                                 variant="outlined"
-                                ><ion-icon name="flag"></ion-icon>All Assesments
+                                ><ion-icon name="flag"></ion-icon>
+                                <Link to='/AllAsses'>All Assesments</Link>
                                 </Button>
                           </div>
                         </div>
