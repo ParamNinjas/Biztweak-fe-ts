@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
-import { IRecomendation } from "../../../Interfaces/IRecomendation";
+import { ICompany, IRecomendation } from "../../../Interfaces/IRecomendation";
 import { Api } from "../../../services/endpoints";
 import './AllAsses.css'
 
@@ -60,10 +60,25 @@ interface TabPanelProps {
         setAllRecommendations(result)
         // console.log('reco',allRecommendations)
       }
+ 
+      const [allAsses, setAllAsses] = useState<ICompany[]>([]);
+      const asses = async () =>{
+        const allAsses = await Api.GET_AllProfiles()
+        const outcome = allAsses.result? allAsses.result : [] as ICompany[];
+        setAllAsses(outcome)
+        console.log('profile', allAsses )
+      }
+
       useEffect(() => {
-        test()
-       
+        test();
+        asses();  
       });
+
+
+
+
+
+
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
@@ -100,10 +115,33 @@ interface TabPanelProps {
                         <Tab label="Revenue" {...a11yProps(1)} />
                         </Tabs>
                         <TabPanel value={value} index={0}>
-                            Item One
+                            <div className='list'>
+                                {allAsses.map(
+                                    reco => {
+                                    return (
+                                        <>
+                                    <Typography>{reco.location}</Typography>
+                                        </>
+                                                )
+                                            } 
+                                        )         
+                                }
+                                       
+                            </div>
                         </TabPanel>
                         <TabPanel value={value} index={1}>
-                            Item Two
+                            <div className='list'>
+                                {allAsses.map(
+                                    reco2 => {
+                                    return (
+                                        <>
+                                    <Typography>{reco2.annTurnover}</Typography>
+                                        </>
+                                                )
+                                            } 
+                                        )         
+                                }         
+                            </div>
                         </TabPanel>
                 
                     </div>
