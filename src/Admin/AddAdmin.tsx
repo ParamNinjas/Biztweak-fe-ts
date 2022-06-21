@@ -1,6 +1,4 @@
 import React , { useState, useEffect } from "react";
-// import axios from 'axios';
-import { Link } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -9,7 +7,6 @@ import signin from '../Images/signin.png'
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Navbar from "../components/Navbar/Navbar";
-import hero from "../Images/hero-bg.png"
 import '../Signup/Signup.css'
 
 
