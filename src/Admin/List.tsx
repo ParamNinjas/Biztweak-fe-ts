@@ -1,6 +1,7 @@
 import React , { useState, useEffect } from "react";
 import { Api } from '../services/endpoints';
 import { DataGrid } from '@mui/x-data-grid';
+import { ICompany } from "../Interfaces/IRecomendation";
 
 export default function UserList() {
   const [allProfiles, setAllProfiles] = useState<ICompany[]>([]);
@@ -8,7 +9,6 @@ export default function UserList() {
     const allProfiles = await Api.GET_AllProfiles()
     const result = allProfiles.result? allProfiles.result : [] as ICompany[];
     setAllProfiles(result)
-    console.log('reco',allProfiles)
   } 
 
   useEffect(() => {

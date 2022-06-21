@@ -14,7 +14,7 @@ const Side =() => {
              <ul>
                 <li><ion-icon name="apps"></ion-icon>Dashboard</li>
                 <li><ion-icon name="people-outline"></ion-icon>Users</li>
-                <li><ion-icon name="person-outline"></ion-icon>Admin Users</li>
+                <li><ion-icon name="person-outline"></ion-icon><Link to='/AddAdmin'>Admin Users</Link></li>
                 <li><ion-icon name="person-outline"></ion-icon>Root Admin</li>
              </ul>
             </div>

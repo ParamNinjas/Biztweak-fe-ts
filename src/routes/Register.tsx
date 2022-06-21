@@ -19,13 +19,30 @@ const Signup=()=>{
 
     
       async function newUser() {
-        console.log('AddingUser', email,password , name);
+        console.log('AddingUser', email,password );
         const { user, session, error } = await supabase.auth.signUp({
             email: email,
             password: password,
+            // name: name
           })
 
       }
+      async function ExtraInfo() {
+            const { data, error } = await supabase
+            .from('profile')
+            .insert([
+            { display_name: name},
+            { email: email},
+            ])
+            console.log('AddingUserInfo', name,email );
+      }
+      function Run(){
+        ExtraInfo();
+        newUser();
+        console.log("running both fuctions")
+      }
+           
+      
 
     return(
         <div className="Signup-con">
@@ -94,7 +111,7 @@ const Signup=()=>{
                         <Button 
                             variant="outlined"
                             className="BtnSignup"
-                            onClick={()=> newUser()}
+                            onClick={()=> Run()}
                             >
                                 Signup
                         </Button>
