@@ -222,7 +222,7 @@ const AssessBasic = () => {
      }
      
      let importantCusReco = ""
-     let importantCusRecoKey = ""
+     let importantCusRecoKey = "" 
      if (importantCustomer === "yes"){
       importantCusReco = "No recommendation"
       importantCusRecoKey = "Most important not determined."

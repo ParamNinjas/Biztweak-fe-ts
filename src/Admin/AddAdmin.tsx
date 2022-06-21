@@ -9,6 +9,7 @@ import signin from '../Images/signin.png'
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Navbar from "../components/Navbar/Navbar";
+import hero from "../Images/hero-bg.png"
 import '../Signup/Signup.css'
 
 
@@ -40,7 +41,7 @@ const AddAdmin=()=>{
                         <img
                             src={signin}
                             alt='signin'
-                            className='signinIMG'
+                            className='signinIMG' 
                         />
                     </div>
                 </Grid>
