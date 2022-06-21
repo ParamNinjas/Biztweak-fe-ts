@@ -191,11 +191,12 @@ const Admin = () => {
                             <Button
                                 className="AddUsers"
                                 variant="outlined"
-                            ><ion-icon name="add"></ion-icon>Add New Users
-                            </Button>
-                        </div>
-                        <div className="regUsersBTN">
-                            <Button
+                                ><ion-icon name="add"></ion-icon>  
+                                <Link to='/AddUser'>Add New Users</Link>
+                                </Button>
+                          </div>
+                          <div className="regUsersBTN">
+                              <Button
                                 className="RegUsers"
                                 variant="outlined"
                             ><ion-icon name="people"></ion-icon>Total Registered Users
@@ -205,14 +206,34 @@ const Admin = () => {
                             <Button
                                 className="AllAsses"
                                 variant="outlined"
-                            ><ion-icon name="flag"></ion-icon>All Assesments
+                        <div className="prof">
+                            <Typography className="proftxt">Profiles by registered</Typography>
+                            <div className="SeeMore">
+                              <Link to='/List'>See All Profiles {'>'}</Link>
+                            </div>
+                            <div className="list">
+                                <UserList/>
+                            </div>
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={3} lg={3}>
+                    <div className="SeeMoreU">
+                              <Link to='/List'>See all users {'>'}</Link>
+                            </div>
+                        <div className="newUsers">
+                            <h4>New Users</h4>
+                            <div className="new">
+
+                            </div>
+                            <Button
+                              className="sendMail"
+                              variant="outlined"
+                            ><ion-icon name="mail"></ion-icon>Send Mail
                             </Button>
                         </div>
-                    </div>
                     <div className="prof">
                         <Typography className="proftxt">Profiles by registered</Typography>
                         <div className="SeeMore">
-                            <Link to='/List'>See All Profiles {'>'}</Link>
                         </div>
                         <div className="list">
                             <UserList />

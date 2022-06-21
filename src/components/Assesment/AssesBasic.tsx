@@ -33,33 +33,33 @@ const AssessBasic = () => {
       "segment": "customer",
       "userId": user?.id,
       "segmentResponses": {
-        "customer": [{"key": "Do you know who your product is for?" ,"value": productReco},
-                      {"key": "Do you know who is your target market/audience?" ,"value": targetReco},
-                      {"key": "Do you know where they are located?" , "value": targetLocReco },
-                      {"key": "Do you know the Total market size?" ,"value": targetSizeReco},
-                      {"key": "Do you know how you are going to reach your Customer?","value": reacReco},
-                      {"key": "Has the company actively identified a competitor in the market?" ,"value": competitorReco},
-                      {"key": "Do you know how much of your market is accessible?", "value": accessReco },
-                      {"key": "Do you know how much of your market is in your region/locality?","value": marketLocReco},
-                      {"key": "Do you have a profile for your ideal customer?","value": idealCusReco},
-                      {"key": "Do you know who your most important customers are?", "value": importantCusReco},
-                      {"key": "Do you have a designated Customer Researcher Specialist for this?", "value": cusResearchReco }
+        "customer": [{"key": productRecoKey ,"value": productReco},
+                      {"key": targetRecoKey ,"value": targetReco},
+                      {"key": targetLocRecoKey , "value": targetLocReco },
+                      {"key": targetSizeRecoKey ,"value": targetSizeReco},
+                      {"key": reacRecoKey,"value": reacReco},
+                      {"key": competitorRecoKey ,"value": competitorReco},
+                      {"key": accessRecoKey, "value": accessReco },
+                      {"key": marketLocRecoKey,"value": marketLocReco},
+                      {"key": idealCusRecoKey,"value": idealCusReco},
+                      {"key": importantCusRecoKey, "value": importantCusReco},
+                      {"key": cusResearchRecoKey, "value": cusResearchReco }
                     ],
-        "Market": [{"key"   :  "Does the company advertise?" ,"value": companyAdReco},
-                    {"key"  :  "Is the company’s advertising effective?" ,"value": effectiveReco},
-                    { "key" :  "Does the company conduct sales planning and developed targets?"  , "value" : planningReco}, 
-                    { "key" :  "Do you have a price strategy in place?"  , "value" : stratReco},
-                    { "key" :  "Do you review your pricing strategy often?"  , "value" : reviewReco }, 
+        "Market": [{"key"   :  companyAdReco ,"value": companyAdReco},
+                    {"key"  :  effectiveRecoKey ,"value": effectiveReco},
+                    { "key" :  planningRecoKey  , "value" : planningReco}, 
+                    { "key" :  stratRecoKey  , "value" : stratReco},
+                    { "key" :  reviewRecoKey  , "value" : reviewReco }, 
         ],
-        "Value": [{"key"  : "Do you know the problem you are solving?" ,"value": problemReco},
-                  {"key"  : "Do you know what value you deliver to the customer?","value": cusValueReco},
-                  { "key" : "Are you aware of which customer needs you are satisfying?" , "value" : needsReco}, 
-                  { "key" :"Can you describe the uniqueness of your product, and show key differences from existing alternatives?" , "value" : uniqueReco},
-                  { "key" :"Do you have an elevator pitch?" , "value" : elevatorReco}, 
+        "Value": [{"key"  : problemRecoKey ,"value": problemReco},
+                  {"key"  : problemRecoKey,"value": cusValueReco},
+                  { "key" : problemRecoKey, "value" : needsReco}, 
+                  { "key" :uniqueRecoKey , "value" : uniqueReco},
+                  { "key" :elevatorRecoKey , "value" : elevatorReco}, 
           ],
-          "Activities": [{"key": "Do you know the most important things you need to do to make your business model work?","value": bizReco},
+          "Activities": [{"key": bizRecoKey,"value": bizReco},
                         ],
-          "Resources": [{"key": "Do you know what infrastructure and resources you need in order to deliver the key activities?" ,"value": resourcesReco},
+          "Resources": [{"key": resourcesRecoKey ,"value": resourcesReco},
                       ],
   
     
@@ -130,83 +130,116 @@ const AssessBasic = () => {
       };
 
       let productReco = ""
+      let productRecoKey = ""
      if (productOwner === "yes"){
         productReco = "No recommendation"
+        productRecoKey = "Customer profile has been determined."
      }else {
        productReco = "Market Research"
+       productRecoKey = "Customer profile not determined"
      }
   
      let targetReco = ""
+     let targetRecoKey = ""
      if (tagetAudiance === "yes"){
         targetReco = "No recommendation"
+        targetRecoKey = "Target audience has been determined."
      }else {
        targetReco = "Market Intelligence"
+       targetRecoKey = "Target audience has not been selected"
      }
      
      let targetLocReco = ""
+     let targetLocRecoKey = ""
      if (tagetAudianceLocation === "yes"){
       targetLocReco = "No recommendation"
+      targetLocRecoKey = "Target audience has been located geographically."
      }else {
       targetLocReco = "Market Research"
+      targetLocRecoKey = "Target audience has not been located geographically"
      }
     
 
      let targetSizeReco = ""
+     let targetSizeRecoKey = ""
      if (tagetMarketSize === "yes"){
       targetSizeReco = "No recommendation"
+      targetSizeReco = "Target audience has been segmented."
      }else {
       targetSizeReco = "SAM SOM TAM"
+      targetSizeRecoKey = "Target audience has not been segmented."
      }
 
      let reacReco = ""
+     let reacRecoKey = ""
      if (cusReach === "yes"){
       reacReco = "No recommendation"
+      reacRecoKey = "Total accessible market has been determined."
      }else {
       reacReco = "Market Strategy"
+      reacRecoKey = "Total accessible market has not been determined"
      }
   
      let competitorReco = ""
+     let competitorRecoKey = ""
      if (competitor === "yes"){
       competitorReco = "No recommendation"
+      competitorRecoKey = "Competitors have been identified"
      }else {
       competitorReco = "Competitor Analysis"
+      competitorRecoKey = "competitors have not been identified"
      }
      
      let accessReco = ""
+     let accessRecoKey = ""
      if (marketAccess === "yes"){
       accessReco = "No recommendation"
+      accessRecoKey = "Total accessible market has been determined."
      }else {
       accessReco = "Total Addressable market"
+      accessRecoKey = "Total accessible market has not been determined"
      }
     
 
      let marketLocReco = ""
+     let marketLocRecoKey = ""
      if (marketLocation === "yes"){
       marketLocReco = "No recommendation"
+      marketLocRecoKey = "Total observable market has been determined."
      }else {
       marketLocReco = "Market Reasearch"
+      marketLocRecoKey = "Total observable market has not been determined."
      }
 
      let idealCusReco = ""
+     let idealCusRecoKey = ""
      if (idealCustomer === "yes"){
       idealCusReco = "No recommendation"
+      idealCusRecoKey = "Ideal customer profile has been determined."
      }else {
       idealCusReco = "Ideal Customer profile"
+      idealCusRecoKey = "Ideal customer profile has not been determined."
      }
      
      let importantCusReco = ""
+     let importantCusRecoKey = ""
      if (importantCustomer === "yes"){
       importantCusReco = "No recommendation"
+      importantCusRecoKey = "Most important not determined."
      }else {
       importantCusReco = "Market Research"
+      importantCusRecoKey = "Most important customers not determined"
      }
     
 
      let cusResearchReco = ""
+     let cusResearchRecoKey = ""
      if (customerReaserch === "yes"){
       cusResearchReco = "No recommendation"
+      cusResearchRecoKey = "Customer research has been done"
      }else {
       cusResearchReco = "Business Research Officer"
+      cusResearchRecoKey = "Customer research has not been done"
      }
      
  
@@ -235,39 +268,55 @@ const AssessBasic = () => {
       };
       
       let companyAdReco = ""
+      let companyAdRecoKey = ""
       if (companyAd === "yes"){
         companyAdReco = "No recommendation"
+        companyAdRecoKey = "The company does advertise"
       }else {
         companyAdReco = "marketing plan"
+        companyAdRecoKey = "The company does not advertise"
       }
    
       let effectiveReco = ""
+      let effectiveRecoKey = ""
       if (effectiveAd === "yes"){
          effectiveReco = "No recommendation"
+         effectiveRecoKey = "The advertising is effective"
       }else {
         effectiveReco = "rmarketing plan"
+        effectiveRecoKey = "The advertising is not effective"
       }
       
       let planningReco = ""
+      let planningRecoKey = ""
       if (planning === "yes"){
         planningReco  = "No recommendation"
+        planningRecoKey = "Sales Planning is conducted"
       }else {
         planningReco  = "Sales planning, Customer acquistion plan,  "
+        planningRecoKey = "Sales Planning is not conducted"
       }
      
  
       let stratReco = ""
+      let stratRecoKey = ""
       if (priceStrategy === "yes"){
         stratReco = "No recommendation"
+        stratRecoKey = "Price strategy planning is done"
       }else {
         stratReco = "Revenue models"
+        stratRecoKey = "Price strategy planning is not done"
       }
  
       let reviewReco = ""
+
+      let reviewRecoKey = ""
       if (priceReview === "yes"){
         reviewReco = "No recommendation"
+        reviewRecoKey = "Prive reviews are done"
       }else {
         reviewReco = "Costing, product & service pricing"
+        reviewRecoKey = "Prive reviews are not done"
       }
       //Value Proposition
       const [problem, setProblem] = React.useState<string>();
@@ -293,39 +342,54 @@ const AssessBasic = () => {
       };
 
       let problemReco = ""
+      let problemRecoKey = ""
       if (problem === "yes"){
         problemReco = "No recommendation"
+        problemRecoKey = "Problem being solved has been determined."
       }else {
         problemReco = "Value proposition canvas"
+        problemRecoKey = "Problem being solved not determined"
       }
    
       let cusValueReco = ""
+      let cusValueRecoKey = ""
       if (cusValue === "yes"){
         cusValueReco = "No recommendation"
+        cusValueRecoKey = "Value being delivered has been determined."
       }else {
         cusValueReco = "Business model canvas"
+        cusValueRecoKey = "Value being delivered not determined."
       }
       
       let needsReco = ""
+      let needsRecoKey = ""
       if (needsSatisfied === "yes"){
         needsReco  = "No recommendation"
+        needsRecoKey = "Customer needs have been determined."
       }else {
         needsReco  = "Value proposition canvas"
+        needsRecoKey = "Customer needs have not been determined."
       }
      
  
       let uniqueReco = ""
+      let uniqueRecoKey = ""
       if (productUniqueness === "yes"){
         uniqueReco = "No recommendation"
+        uniqueRecoKey = "uniques selling point has been determined."
       }else {
         uniqueReco = "Value proposition canvas"
+        uniqueRecoKey = "Uniques selling point not determined."
       }
  
       let elevatorReco = ""
+      let elevatorRecoKey = ""
       if (elevatorPitch === "yes"){
         elevatorReco = "No recommendation"
+        elevatorRecoKey = "An elevator pitch has been prepared."
       }else {
         elevatorReco = "elevator pitch template"
+        elevatorRecoKey = "No elevator pitch"
       }
 
       //Key Activities
@@ -335,10 +399,13 @@ const AssessBasic = () => {
         setBizModel((event.target as HTMLInputElement).value);
       };
       let bizReco = ""
+      let bizRecoKey = ""
       if (bizModel === "yes"){
         bizReco  = "No recommendation"
+        bizRecoKey = "Key activities in the business have been determined"
       }else {
         bizReco  = "Process development"
+        bizRecoKey = "Key activities in the business not determined"
       }
 
       //Key Resources
@@ -349,10 +416,13 @@ const AssessBasic = () => {
       };
 
       let resourcesReco = ""
+      let resourcesRecoKey = ""
       if (resources === "yes"){
         resourcesReco  = "No recommendation"
+        resourcesRecoKey = "Key resources needed have been determined."
       }else {
         resourcesReco  = "organizational design and development"
+        resourcesRecoKey = "Key resources needed have not been determined"
       }
      
 
