@@ -103,8 +103,8 @@ const Admin=() => {
 
     return(
         <div>
-            <Side/>
-            <Container>
+          
+           
                 <div className="adminCon">
                 <div className="adminTop">
                 <SearchBar/>
@@ -113,7 +113,10 @@ const Admin=() => {
                 </div>
                 </div>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} sm={12} md={8} lg={8}>
+                <Grid item xs={12} sm={12} md={2} lg={2}>
+                    <Side/>
+                </Grid>
+                    <Grid item xs={12} sm={12} md={7} lg={7}>
                         <div className="Assesments">
                                 <div className="comAsses">
                                     <Typography className="num">{allRecommendations.length}</Typography>
@@ -218,7 +221,7 @@ const Admin=() => {
                             </div>
                         </div>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={4} lg={4}>
+                    <Grid item xs={12} sm={12} md={3} lg={3}>
                     <div className="SeeMoreU">
                               <Link to='/List'>See all users {'>'}</Link>
                             </div>
@@ -262,7 +265,7 @@ const Admin=() => {
                 </Grid>
                
                 </div>
-            </Container>
+          
 
         </div>
     )

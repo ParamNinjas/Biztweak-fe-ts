@@ -1,9 +1,10 @@
 .sideNav{
-    width: 20%;
+    width: 100%;
     background-color: #082a2c;
     color: aliceblue;
-    height:51.5em;
-    
+    height: 51.5em;
+    position: relative;
+    bottom: 3em;
 }
 
 .Nav li {

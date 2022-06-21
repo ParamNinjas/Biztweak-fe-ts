@@ -1,5 +1,5 @@
 .adminCon{
-    position: relative;
+    /* position: relative; */
     left: 12em;
     bottom: 49em;
     background-color: #f8f9fa;
@@ -12,9 +12,11 @@
 }
 
 .adminTop{
+    position: relative;
     height: 3em;
     width: 70% !important;
     background-color: aqua;
+    left: 14em;
 }
 .end{
     position: relative;
