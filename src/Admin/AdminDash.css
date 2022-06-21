@@ -1,9 +1,7 @@
-.adminCon {
-    position: relative;
-    left: 12em;
-    bottom: 49em;
+    .root {
     background-color: #f8f9fa;
 }
+
 
 .ForwardRef-root-1 {
     height: 29px !important;
@@ -15,24 +13,7 @@
 .search {
 }
 
-.adminTop {
-    height: 6em;
-    width: 100% !important;
-    background: #00a9b1;
-    border-radius: 2px;
-    margin-top: 1.5rem !important;
-    margin-top: 1.5rem !important;
-    color: white !important;
-    font-weight: bold;
 
-}
-
-.end {
-    position: relative;
-    left: 20em;
-    list-style: none;
-    color: #FFFFFF;
-}
 
 .Assesments {
     display: flex;

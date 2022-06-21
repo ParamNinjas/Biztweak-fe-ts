@@ -1,0 +1,23 @@
+.adminTops {
+    height: 6em;
+    width: 100% !important;
+    background: #00a9b1;
+    border-radius: 2px;
+    margin-top: 1.5rem !important;
+    margin-top: 1.5rem !important;
+    color: white !important;
+    font-weight: bold;
+
+}
+
+.adminTops .search {
+      width: 100% !important;
+      color: white !important;
+}
+
+.adminTops .end {
+    position: relative;
+    left: 20em;
+    list-style: none;
+    color: #FFFFFF;
+}

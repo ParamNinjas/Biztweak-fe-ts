@@ -21,6 +21,8 @@ import UserList from "./Admin/List";
 import AddAdmin from "./Admin/AddAdmin";
 import AddUser from "./Admin/AdminComponents/AddUser/AddUser";
 import SendMail from "./Admin/AdminComponents/SendMail/SendMail";
+// import Registered from "./Admin/AdminComponents/Registered/TotRegistered";
+import AllAsses from "./Admin/AdminComponents/AllAsses/AllAsses";
 import './Login/Login.css'
 
 
@@ -54,6 +56,8 @@ function App() {
           <Route path='/AddAdmin' element={<AddAdmin />} />
           <Route path='/AddUser' element={<AddUser />} />
           <Route path='/SendMail' element={<SendMail />} />
+          {/* <Route path='/TotRegistered' element={<Registered />} /> */}
+          <Route path='/AllAsses' element={<AllAsses />} />
         </Routes>
       </Router>
     </div>
