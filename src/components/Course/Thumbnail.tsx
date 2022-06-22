@@ -1,8 +1,8 @@
-// import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 // // import PdfThumbnail from 'react-pdf-thumbnail';
 
 
-// const thumb = () => {
+const thumb = () => {
 // 	const [viewImage, setViewImage] = React.useState();
 // 	useEffect(() => {
 // 	const createThumb = async () => {
@@ -27,6 +27,6 @@
 // 			<img src={viewImage} alt='img' />
 // 		</>
 // 	);
-// };
+};
 
-// export default thumb
+export default thumb

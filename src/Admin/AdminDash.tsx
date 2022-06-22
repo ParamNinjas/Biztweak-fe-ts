@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Grid from '@material-ui/core/Grid;
+import Grid from "@material-ui/core/Grid";
 import Container from '@material-ui/core/Container';
 import { Typography, Button } from "@material-ui/core";
 import HomeIcon from '@material-ui/icons/Home';
@@ -223,7 +223,7 @@ const Admin=() => {
                             </div>
                         </div>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={3} lg={3}>
+                      <Grid item xs={12} sm={12} md={3} lg={3}>
                     <div className="SeeMoreU">
                               <Link to='/List'>See all users {'>'}</Link>
                             </div>

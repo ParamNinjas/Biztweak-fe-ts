@@ -57,7 +57,7 @@ const Donut = () => {
    
   }) 
   // const cusPos = filteredCusPos.length
-  // console.log('Data',)
+  // console.log('Data', filteredCusPos.length)
   // const data = [
   //   { name: 'Group A', value: 400 },
   //   { name: 'Group B', value: 100 },
