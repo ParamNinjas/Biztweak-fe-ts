@@ -1,29 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 import { IRecomendation } from 'src/Interfaces/IRecomendation';
 import { Api } from '../../services/endpoints';
 import './chart.css'
 
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 100 },
-];
-const data2 = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 50 },
-];
-const data3 = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 100 },
-];
-const data4 = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 900 },
-];
-const data5 = [
-  { name: 'Group A', value: 600 },
-  { name: 'Group B', value: 100 },
-];
 const data6 = [
   { name: 'Group A', value: 600 },
   { name: 'Group B', value: 100 },
@@ -47,7 +27,7 @@ const Donut = () => {
     test()
    
   });
-
+// Customer Pie
   const filteredCusPos = allRecommendations[0]?.segmentResponses.customer.filter(seg => {
     return seg.value !== "No recommendation"
    
@@ -56,14 +36,70 @@ const Donut = () => {
     return seg.value === "No recommendation"
    
   }) 
-  // const cusPos = filteredCusPos.length
-  // console.log('Data', filteredCusPos.length)
-  // const data = [
-  //   { name: 'Group A', value: 400 },
-  //   { name: 'Group B', value: 100 },
-  // //   { name: 'Group C', value: 300 },
-  // //   { name: 'Group D', value: 200 },
-  // ];
+  const data = [
+    { name: 'Group A', value: typeof filteredCusPos !== "undefined" ? filteredCusPos.length : 0 },
+    { name: 'Group B', value: typeof filteredCusNeg !== "undefined" ? filteredCusNeg.length : 0  },
+  ];
+
+  console.log('found it ', data)
+
+  //Market pie
+  const filteredMarkPos = allRecommendations[0]?.segmentResponses.Market.filter(seg => {
+    return seg.value !== "No recommendation"
+   
+  }) 
+  const filteredMarkNeg = allRecommendations[0]?.segmentResponses.Market.filter(seg => {
+    return seg.value === "No recommendation"
+   
+  }) 
+  const data2 = [
+    { name: 'Group A', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 },
+    { name: 'Group B', value: typeof filteredMarkNeg !== "undefined" ? filteredMarkNeg.length : 0  },
+  ];
+
+  //Value Pie
+    const filteredValPos = allRecommendations[0]?.segmentResponses.Value.filter(seg => {
+      return seg.value !== "No recommendation"
+     
+    }) 
+    const filteredValNeg = allRecommendations[0]?.segmentResponses.Value.filter(seg => {
+      return seg.value === "No recommendation"
+     
+    }) 
+    const data3 = [
+      { name: 'Group A', value: typeof filteredValPos !== "undefined" ? filteredValPos.length : 0 },
+      { name: 'Group B', value: typeof filteredValNeg !== "undefined" ? filteredValNeg.length : 0 },
+    ];
+
+
+  //Activities Pie
+  const filteredActPos = allRecommendations[0]?.segmentResponses.Activities.filter(seg => {
+    return seg.value !== "No recommendation"
+   
+  }) 
+  const filteredActNeg = allRecommendations[0]?.segmentResponses.Activities.filter(seg => {
+    return seg.value === "No recommendation"
+   
+  }) 
+  const data4 = [
+    { name: 'Group A', value: typeof filteredActPos !== "undefined" ? filteredActPos.length : 0 },
+    { name: 'Group B', value: typeof filteredActNeg !== "undefined" ? filteredActNeg.length : 0  },
+  ];
+
+    //Resources Pie
+    const filteredResPos = allRecommendations[0]?.segmentResponses.Resources.filter(seg => {
+      return seg.value !== "No recommendation"
+     
+    }) 
+    const filteredResNeg = allRecommendations[0]?.segmentResponses.Resources.filter(seg => {
+      return seg.value === "No recommendation"
+     
+    }) 
+    const data5 = [
+      { name: 'Group A', value: typeof filteredResPos !== "undefined" ? filteredResPos.length : 0},
+      { name: 'Group B', value: typeof filteredResNeg !== "undefined" ? filteredResNeg.length : 0  },
+    ];
+
 
     return (
         <div>
