@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core;
 import Container from '@material-ui/core/Container';
 import { Typography, Button } from "@material-ui/core";
 
@@ -102,13 +102,7 @@ const Admin = () => {
 
 
     return (
-        <div>
-
-
-            <div className="adminCon">
-                <div className="adminTop">
-                </div>
-            </div>
+            <div className="adminCon">    
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={12} md={2} lg={2}>
                     <Side />
@@ -191,7 +185,8 @@ const Admin = () => {
                             <Button
                                 className="AddUsers"
                                 variant="outlined"
-                                ><ion-icon name="add"></ion-icon>  
+                                >
+                                  {/* <ion-icon name="add"></ion-icon>   */}
                                 <Link to='/AddUser'>Add New Users</Link>
                                 </Button>
                           </div>
@@ -228,7 +223,9 @@ const Admin = () => {
                             <Button
                               className="sendMail"
                               variant="outlined"
-                            ><ion-icon name="mail"></ion-icon>Send Mail
+                            >
+                              {/* <ion-icon name="mail"></ion-icon> */}
+                              Send Mail
                             </Button>
                         </div>
                     <div className="prof">
