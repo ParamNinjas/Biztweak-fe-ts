@@ -10,7 +10,6 @@ import UserList from "./List";
 import { Api } from '../services/endpoints'; 
 import { IRecomendation } from "../Interfaces/IRecomendation";
 import { BarChart, Bar, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-
 import './AdminDash.css'   
 
 
@@ -200,7 +199,6 @@ const Admin=() => {
                                 className="AddUsers"
                                 variant="outlined"
                                 >
-                                  {/* <ion-icon name="add"></ion-icon>   */}
                                 <Link to='/AddUser'>Add New Users</Link>
                                 </Button>
                           </div>
@@ -209,7 +207,6 @@ const Admin=() => {
                                 className="RegUsers"
                                 variant="outlined"
                                 >
-                                  {/* <ion-icon name="people"></ion-icon> */}
                                   Total Registered Users
                                 </Button>
                           </div>
@@ -218,7 +215,6 @@ const Admin=() => {
                                 className="AllAsses"
                                 variant="outlined"
                                 >
-                                  {/* <ion-icon name="flag"></ion-icon> */}
                                 <Link to='/AllAsses'>All Assesments</Link>
                                 </Button>
                           </div>

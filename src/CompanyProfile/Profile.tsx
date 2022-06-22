@@ -16,18 +16,19 @@ import FormLabel from "@mui/material/FormLabel";
 import RadioGroup from "@mui/material/RadioGroup";
 import { Api } from '../services/endpoints';
 import './Profile.css';
+import { ICompany } from "src/Interfaces/IRecomendation";
 
 
 const Profile = () => {
-  const [companyName, setCompanyName] = useState("");
+  const [companyName, setCompanyName] = useState<string>("");
   const [logo, setLogo] = useState([]);
   const [registered, setRegistered] =  useState<string>();  
-  const [location, setLocation] = useState("");
-  const [employees, setEmployees] = useState();
-  const [annTurnover, setAnnTurnover] = useState();
-  const [monTurnover, setMonTurnover] = useState();
-  const [industry, setIndustry] = useState();
-  const [product, setProduct] = useState("");
+  const [location, setLocation] = useState<string>("");
+  const [employees, setEmployees] = useState<number>(0);
+  const [annTurnover, setAnnTurnover] = useState<number>(0);
+  const [monTurnover, setMonTurnover] = useState<number>(0);
+  const [industry, setIndustry] = useState<string>();
+  const [product, setProduct] = useState<string>();
 
   const createProfile = async () =>{
     const payload = {
@@ -35,11 +36,12 @@ const Profile = () => {
      "location": location,
      "phase" : registered,
      "employees" : employees,
+     "registered" : registered,
      "annTurnover" : annTurnover,
      "monTurnover" : monTurnover,
      "industry" : industry,
      "product" : product,
-   } 
+   } as ICompany
      const result = await Api.POST_CreateCompany(payload)
      console.log('Result is' , result) 
    } 
@@ -145,7 +147,7 @@ const Profile = () => {
                                     variant="outlined"
                                     className="comName"
                                     placeholder="Number of employees at your company..."
-                                    onChange={(e) => setEmployees(e.target.value)}
+                                    onChange={(e) => setEmployees(Number(e.target.value))}
                                     label="Number of employees"
                                     size="small"
                                     />
@@ -158,7 +160,7 @@ const Profile = () => {
                                     className="comName"
                                     placeholder="What is your yearly turnover..." name="annual_turnover"
                                     label="Annual Turnover"
-                                    onChange={(e) => setAnnTurnover(e.target.value)}
+                                    onChange={(e) => setAnnTurnover(Number(e.target.value))}
                                     size="small"
                                     />
                             </div>
@@ -170,7 +172,7 @@ const Profile = () => {
                                     className="comName"
                                     placeholder="What was your monthly turnover in the past 6 months..."
                                     label="Monthly Turnover"
-                                    onChange={(e) => setMonTurnover(e.target.value)}
+                                    onChange={(e) => setMonTurnover(Number(e.target.value))}
                                     size="small"
                                     />
                             </div>
