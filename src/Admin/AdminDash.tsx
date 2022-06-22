@@ -20,7 +20,7 @@ const Admin=() => {
         const allRecommendations = await Api.GET_AllRecommendations()
         const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
         setAllRecommendations(result)
-        // console.log('reco',allRecommendations)
+   
       }
       useEffect(() => {
         test()
