@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Grid from '@material-ui/core;
+import Grid from '@material-ui/core/Grid;
 import Container from '@material-ui/core/Container';
 import { Typography, Button } from "@material-ui/core";
 import HomeIcon from '@material-ui/icons/Home';
@@ -10,7 +10,6 @@ import UserList from "./List";
 import { Api } from '../services/endpoints'; 
 import { IRecomendation } from "../Interfaces/IRecomendation";
 import { BarChart, Bar, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-
 import './AdminDash.css'   
 
 
@@ -194,7 +193,6 @@ const Admin=() => {
                                 className="AddUsers"
                                 variant="outlined"
                                 >
-                                  {/* <ion-icon name="add"></ion-icon>   */}
                                 <Link to='/AddUser'>Add New Users</Link>
                                 </Button>
                           </div>
@@ -202,14 +200,15 @@ const Admin=() => {
                               <Button
                                 className="RegUsers"
                                 variant="outlined"
-                                ><ion-icon name="people"></ion-icon>Total Registered Users
+                                >
+                                  Total Registered Users
                                 </Button>
                           </div>
                           <div className="AllAssesBTN">
                               <Button
                                 className="AllAsses"
                                 variant="outlined"
-                                ><ion-icon name="flag"></ion-icon>
+                                >
                                 <Link to='/AllAsses'>All Assesments</Link>
                                 </Button>
                           </div>

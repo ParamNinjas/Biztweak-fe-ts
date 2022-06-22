@@ -130,7 +130,7 @@ interface TabPanelProps {
                             </div>
                         </TabPanel>
                         <TabPanel value={value} index={1}>
-                            <div className='list'>
+                            {/* <div className='list'>
                                 {allAsses.map(
                                     reco2 => {
                                     return (
@@ -141,7 +141,7 @@ interface TabPanelProps {
                                             } 
                                         )         
                                 }         
-                            </div>
+                            </div> */}
                         </TabPanel>
                 
                     </div>

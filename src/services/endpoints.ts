@@ -26,7 +26,7 @@ export const Api = {
   },
   POST_CreateCompany: async (
     payload: ICompany
-      ): Promise<IResponseObject<any>> => {
+      ): Promise<IResponseObject<ICompany>> => {
     const response = await POST(
       `${DBServiceUrl}/Company`,
       payload
