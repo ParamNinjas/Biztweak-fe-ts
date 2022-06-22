@@ -1,53 +1,69 @@
-import React, { PureComponent } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { IRecomendation } from 'src/Interfaces/IRecomendation';
+import { Api } from '../../services/endpoints';
 import './chart.css'
 
 const data = [
   { name: 'Group A', value: 400 },
   { name: 'Group B', value: 100 },
-//   { name: 'Group C', value: 300 },
-//   { name: 'Group D', value: 200 },
 ];
 const data2 = [
   { name: 'Group A', value: 400 },
   { name: 'Group B', value: 50 },
-//   { name: 'Group C', value: 300 },
-//   { name: 'Group D', value: 200 },
 ];
 const data3 = [
   { name: 'Group A', value: 400 },
   { name: 'Group B', value: 100 },
-//   { name: 'Group C', value: 300 },
-//   { name: 'Group D', value: 200 },
 ];
 const data4 = [
   { name: 'Group A', value: 400 },
   { name: 'Group B', value: 900 },
-//   { name: 'Group C', value: 300 },
-//   { name: 'Group D', value: 200 },
 ];
 const data5 = [
   { name: 'Group A', value: 600 },
   { name: 'Group B', value: 100 },
-//   { name: 'Group C', value: 300 },
-//   { name: 'Group D', value: 200 },
 ];
 const data6 = [
   { name: 'Group A', value: 600 },
   { name: 'Group B', value: 100 },
-//   { name: 'Group C', value: 300 },
-//   { name: 'Group D', value: 200 },
 ];
 const data7 = [
   { name: 'Group A', value: 400 },
   { name: 'Group B', value: 250 },
-//   { name: 'Group C', value: 300 },
-//   { name: 'Group D', value: 200 },
 ];
 const COLORS = ['#D3D3D3', '#4DB282', '#FFBB28', '#FF8042'];
 
 
 const Donut = () => {
+  const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
+  const test = async () =>{
+      const allRecommendations = await Api.GET_AllRecommendations()
+      const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
+      setAllRecommendations(result)
+      // setInitialize(true)
+  }
+  useEffect(() => {
+    test()
+   
+  });
+
+  const filteredCusPos = allRecommendations[0]?.segmentResponses.customer.filter(seg => {
+    return seg.value !== "No recommendation"
+   
+  }) 
+  const filteredCusNeg = allRecommendations[0]?.segmentResponses.customer.filter(seg => {
+    return seg.value === "No recommendation"
+   
+  }) 
+  // const cusPos = filteredCusPos.length
+  // console.log('Data',)
+  // const data = [
+  //   { name: 'Group A', value: 400 },
+  //   { name: 'Group B', value: 100 },
+  // //   { name: 'Group C', value: 300 },
+  // //   { name: 'Group D', value: 200 },
+  // ];
 
     return (
         <div>
