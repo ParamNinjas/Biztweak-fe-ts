@@ -4,14 +4,14 @@ import { IRecomendation } from 'src/Interfaces/IRecomendation';
 import { Api } from '../../services/endpoints';
 import './chart.css'
 
-const data6 = [
-  { name: 'Group A', value: 600 },
-  { name: 'Group B', value: 100 },
-];
-const data7 = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 250 },
-];
+// const data6 = [
+//   { name: 'Group A', value: 600 },
+//   { name: 'Group B', value: 100 },
+// ];
+// const data7 = [
+//   { name: 'Group A', value: 400 },
+//   { name: 'Group B', value: 250 },
+// ];
 const COLORS = ['#D3D3D3', '#4DB282', '#FFBB28', '#FF8042'];
 
 
@@ -99,7 +99,20 @@ const Donut = () => {
       { name: 'Group A', value: typeof filteredResPos !== "undefined" ? filteredResPos.length : 0},
       { name: 'Group B', value: typeof filteredResNeg !== "undefined" ? filteredResNeg.length : 0  },
     ];
-
+    const data6 = [
+      { name: 'Group A', value: typeof filteredCusPos !== "undefined" ? filteredCusPos.length : 0 },
+      { name: 'Group B', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 },
+      { name: 'Group C', value: typeof filteredValPos !== "undefined" ? filteredValPos.length : 0 },
+      { name: 'Group D', value: typeof filteredActPos !== "undefined" ? filteredActPos.length : 0 },
+      { name: 'Group E', value: typeof filteredValPos !== "undefined" ? filteredValPos.length : 0 },
+    ];
+    const data7 = [
+      { name: 'Group A', value: typeof filteredCusNeg !== "undefined" ? filteredCusNeg.length : 0 },
+      { name: 'Group B', value: typeof filteredMarkNeg !== "undefined" ? filteredMarkNeg.length : 0 },
+      { name: 'Group C', value: typeof filteredValNeg !== "undefined" ? filteredValNeg.length : 0 },
+      { name: 'Group D', value: typeof filteredActNeg !== "undefined" ? filteredActNeg.length : 0 },
+      { name: 'Group E', value: typeof filteredValNeg !== "undefined" ? filteredValNeg.length : 0 },
+    ];
 
     return (
         <div>
