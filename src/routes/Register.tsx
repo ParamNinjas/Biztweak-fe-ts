@@ -23,27 +23,28 @@ const Signup=()=>{
         const { user, session, error } = await supabase.auth.signUp({
             email: email,
             password: password,
-            // name: name
           })
-
+          if (error){
+            return null;
+          }
+        return user
       }
-      async function ExtraInfo() {
+      async function ExtraInfo(createdUser : any) {
             const { data, error } = await supabase
             .from('profile')
             .insert([
-            { display_name: name},
-            { email: email},
+            { display_name: name, email : email, role: 1, id : createdUser.id },
             ])
             console.log('AddingUserInfo', name,email );
       }
-      function Run(){
-        ExtraInfo();
-        newUser();
+      async function Run(){
+        const createdUser = await newUser();
+        if(createdUser){
+            ExtraInfo(createdUser);
+        }
+        
         console.log("running both fuctions")
       }
-           
-      
-
     return(
         <div className="Signup-con">
             <Navbar/>

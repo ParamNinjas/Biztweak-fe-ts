@@ -12,7 +12,9 @@
 
 .search {
 }
-
+.adminCon{
+    background-color: #dbd7d2;
+}
 
 
 .Assesments {
@@ -156,4 +158,8 @@
 }
 .AllAsses Link{
   color: #FFFFFF !important;
+}
+
+.prof{
+    background-color: #FFFFFF;
 }
