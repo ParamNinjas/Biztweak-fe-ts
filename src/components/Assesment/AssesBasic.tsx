@@ -65,7 +65,7 @@ const AssessBasic = () => {
     
       } 
     
-    } 
+    } as IRecomendation
       const result = await Api.POST_CreateRecommendation(payload)
       console.log('Result is' , result) 
     } 

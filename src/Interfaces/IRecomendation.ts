@@ -1,9 +1,10 @@
 export interface IRecomendation {
-    id : number,
-    created_at : string,
-    segmentResponses : ISegmentResponse,
+    // id : number,
+    // created_at : string,
     segment : string,
     userId : string
+    segmentResponses : ISegmentResponse,
+   
 }
 
 export interface ISegmentResponse {
@@ -39,12 +40,14 @@ export interface Resources {
 }
 
 export interface ICompany {
-    id : number,
+    // id : number,
     companyName : string,
     location : string,
     phase : string,
     registered : string,
     industry : string,
-    employees : string,
-    turnover : string  
+    employees : number,
+    monTurnover : number, 
+    annTurnover : number,
+    product : string
 }
