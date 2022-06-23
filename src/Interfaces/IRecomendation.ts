@@ -51,3 +51,10 @@ export interface ICompany {
     annTurnover : number,
     product : string
 }
+
+export interface IProfile {
+    // id : string,
+    display_name : string,
+    email : string,
+    Role : number
+}

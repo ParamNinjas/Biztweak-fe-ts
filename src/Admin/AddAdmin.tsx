@@ -14,6 +14,7 @@ const AddAdmin=()=>{
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+   
 
     
       async function newAdmin() {
@@ -21,10 +22,29 @@ const AddAdmin=()=>{
         const { user, session, error } = await supabase.auth.signUp({
             email: email,
             password: password,
-            // name: name
           })
-
+          if (error){
+            return null;
+          }
+        return user
       }
+      async function ExtraAdminInfo(createdUser : any) {
+        const { data, error } = await supabase
+        .from('profile')
+        .update([
+        { display_name: name, email : email, Role: 0 },
+        ])
+        .eq('id' , createdUser.id)
+        console.log('AddingUserInfo', name,email );
+        }
+        async function Run(){
+            const createdAdmin = await newAdmin();
+            if(createdAdmin){
+                ExtraAdminInfo(createdAdmin);
+            }
+    
+    console.log("running both fuctions")
+  }
            
       
 
