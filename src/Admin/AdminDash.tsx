@@ -101,9 +101,7 @@ const Admin=() => {
 
 
     return(
-        <div>
-          
-           
+        <div>   
                 <div className="adminCon">
                 <div className="adminTop">
                 <SearchBar/>
