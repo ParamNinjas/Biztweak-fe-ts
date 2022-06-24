@@ -32,10 +32,11 @@ const Signup=()=>{
       async function ExtraInfo(createdUser : any) {
             const { data, error } = await supabase
             .from('profile')
-            .insert([
-            { display_name: name, email : email, role: 1, id : createdUser.id },
+            .update([
+            { display_name: name, email : email, Role: 1 },
             ])
-            console.log('AddingUserInfo', name,email );
+            .eq('id' , createdUser.id)
+            console.log('AddingUserInfo', name,email,  );
       }
       async function Run(){
         const createdUser = await newUser();

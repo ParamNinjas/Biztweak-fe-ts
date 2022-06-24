@@ -1,4 +1,4 @@
-import React , { useState } from "react";
+import React , { useEffect, useState } from "react";
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom'
 import Typography from '@material-ui/core/Typography';
@@ -30,9 +30,44 @@ const  Login=() =>{
             email: email,
             password: password,
           })
-          navigate('/AssesBasic'); 
+          
+     
       }
-  
+      const user = supabase.auth.user()
+      const _user = user?.id??
+
+   
+
+      async function fetchData() {
+        
+        }
+        async function test() {
+            const { data, error } = await supabase
+            .from('profile')
+            .select(`
+                id, display_name, Role   
+            `)
+            .eq('id', _user)
+            const role = data && data[0]?.Role
+            // console.log('found the Role', role);
+            try {
+                if (role === 1 ){
+                        navigate('/AssesBasic'); 
+                    }else{
+                        navigate('/AdminDash');     
+            }
+            }   catch (error) { 
+                console.log(error); 
+            }
+        }
+
+    function Run(){
+            signIn();
+            test();
+            
+        }
+ 
+        
 return (
     <div className="login-container">
           <Navbar/>
@@ -94,7 +129,7 @@ return (
                         <Button 
                             variant="outlined"
                             className="Btnlogin"
-                            onClick={()=> signIn()}
+                            onClick={()=> Run()}
                             >
                                 Login
                         </Button>
