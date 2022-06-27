@@ -9,7 +9,7 @@ import Register from './routes/Register';
 import Dashboard from "./routes/Dash/Dashboard";
 import Profile from "./CompanyProfile/Profile";
 // import AssesSell from "./components/Assesment/AssesSell";
-import AssessBasic from "./components/Assesment/AssesBasic";
+import AssessBasic from "./components/Assesment/AssesSales";
 import Report from "./components/Report/Report";
 import Getcourse from "./components/Course/Getcourse"
 import Coursepage from "./components/Course/Coursepage"
@@ -23,7 +23,11 @@ import AddUser from "./Admin/AdminComponents/AddUser/AddUser";
 import SendMail from "./Admin/AdminComponents/SendMail/SendMail";
 // import Registered from "./Admin/AdminComponents/Registered/TotRegistered";
 import AllAsses from "./Admin/AdminComponents/AllAsses/AllAsses";
+import Funding from "./components/Assesment/Funding/Funding";
+import Customer from "./components/Assesment/Customer/Customer";
+import AssesFull from "./components/Assesment/FullSuit/AssesFull";
 import './Login/Login.css'
+
 
 
 
@@ -45,7 +49,7 @@ function App() {
           <Route path='/Dashboard' element={<Dashboard />} />
           <Route path='/Profile' element={<Profile />} />
           <Route path='/Report' element={<Report />} />
-          <Route path='/AssesBasic' element={<AssessBasic />} />
+          <Route path='/AssesSales' element={<AssessBasic />} />
           <Route path='/Getcourse' element={<Getcourse />} />
           <Route path='/Coursepage' element={<Coursepage />} />
           <Route path='/Bar' element={<Bargraph />} />
@@ -58,6 +62,9 @@ function App() {
           <Route path='/SendMail' element={<SendMail />} />
           {/* <Route path='/TotRegistered' element={<Registered />} /> */}
           <Route path='/AllAsses' element={<AllAsses />} />
+          <Route path='/Funding' element={<Funding />} />
+          <Route path='/Customer' element={<Customer />} />
+          <Route path='/AssesFull' element={<AssesFull />} />
         </Routes>
       </Router>
     </div>

@@ -9,9 +9,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Radio from '@material-ui/core/Radio';
 // import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import UserNavbar from '../UserNav/UserNav';
-import company from '../../Images/company.png'
-import './Assessment.css'
+import UserNavbar from '../../UserNav/UserNav';
+import company from '../../../Images/company.png'
+import '../Assessment.css'
 
 
 // const useStyles = makeStyles((theme) => ({
@@ -27,7 +27,7 @@ import './Assessment.css'
 
 
 
-const AssesSell = () => {
+const AssesFull = () => {
   // const [selectedValue, setSelectedValue] = React.useState('a');
 
   // const handleChange = (event) => {
@@ -1588,4 +1588,4 @@ const AssesSell = () => {
     
 }
 
-export default AssesSell
+export default AssesFull

@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Navbar from '../components/Navbar/Navbar'
 import { supabase } from "../supabaseClient";
 import { useNavigate } from 'react-router-dom';
+// import Cookies from 'js-cookie'
 import '../Login/Login.css'
 
 
@@ -25,47 +26,60 @@ const  Login=() =>{
     const navigate = useNavigate();
   
     async function signIn() {
-        console.log('Signed In',);
+        // console.log('Signed In',);
         const { user, session, error } = await supabase.auth.signIn({
             email: email,
             password: password,
           })
-          
-     
-      }
+    }
       const user = supabase.auth.user()
       const _user = user?.id??
 
-   
-
-      async function fetchData() {
-        
-        }
-        async function test() {
-            const { data, error } = await supabase
+   async function getData() {
+        const { data, error } = await supabase
             .from('profile')
             .select(`
                 id, display_name, Role   
             `)
             .eq('id', _user)
-            const role = data && data[0]?.Role
-            // console.log('found the Role', role);
-            try {
-                if (role === 1 ){
-                        navigate('/AssesBasic'); 
-                    }else{
-                        navigate('/AdminDash');     
-            }
-            }   catch (error) { 
-                console.log(error); 
-            }
-        }
+        
+   }
+//    useEffect (() => {
+//     (async () => {
+//         const data = await getData()
+//     })()
+//    },[])
 
-    function Run(){
-            signIn();
-            test();
-            
-        }
+    // async function getData() {
+    //     const { data, error } = await supabase
+    //     .from('profile')
+    //     .select(`
+    //         id, display_name, Role   
+    //     `)
+    //     .eq('id', _user)
+       
+    //     // console.log('found the Role', role);
+    //     const role = data && data[0]?.Role
+    //     // Cookies.set('role')  
+    //     try {
+    //         if (role === 1 ){
+    //             navigate('/AssesBasic'); 
+                     
+    //             }else if (role !== 1){
+    //                 navigate('/AdminDash');
+                    
+    //     }
+    //     }   catch (error) { 
+    //         console.log(error); 
+    //     }
+    // }
+       
+
+    //     function Runs(){
+    //         signIn();
+    //        fetchData();
+       
+    //     }
  
         
 return (
@@ -129,7 +143,7 @@ return (
                         <Button 
                             variant="outlined"
                             className="Btnlogin"
-                            onClick={()=> Run()}
+                            onClick={()=> signIn()}
                             >
                                 Login
                         </Button>
