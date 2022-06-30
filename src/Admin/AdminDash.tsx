@@ -239,7 +239,7 @@ const Admin=() => {
                     </Grid>
                       <Grid item xs={12} sm={12} md={3} lg={3}>
                     <div className="SeeMoreU">
-                              <Link to='/List' style={linkStyle}>See all users {'>'}</Link>
+                              <Link to='/List' >See all users {'>'}</Link>
                             </div>
                         <div className="newUsers">
                             <h4>New Users</h4>
