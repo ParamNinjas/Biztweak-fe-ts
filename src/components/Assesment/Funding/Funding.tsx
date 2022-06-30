@@ -16,7 +16,7 @@ import FormLabel from "@mui/material/FormLabel";
 import { Link } from 'react-router-dom';
 import { createSlice } from '@reduxjs/toolkit';
 import { Api } from '../../../services/endpoints';
-import { IRecomendation } from '../../../Interfaces/IRecomendation'
+import { IFunding, IRecomendation } from '../../../Interfaces/IRecomendation'
 import { supabase } from '../../../supabaseClient';
 import '../Assessment.css'
 
@@ -24,9 +24,526 @@ import '../Assessment.css'
 
 
 const Funding = () => {
+  const user = supabase.auth.user()
     function Alert(props : any) {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
       }
+      // const createReport = async () =>{
+      //   const payload = {
+      //    "segment": "customer",
+      //    "userId": user?.id,
+      //    "segmentResponses": {
+      //     "Channels": [{"key"   :  reachCusRecoKey ,"value": reachCusReco},
+      //                   {"key"  :  marketingPlanRecoKey ,"value": marketingPlanReco},
+      //                   { "key" :  developedNetworkRecoKey , "value" : developedNetworkReco}, 
+      //                   { "key" :  cusSupportRecoKey , "value" : cusSupportReco},
+                        
+      //     ],
+      //      "Customer": [{"key": productRecoKey ,"value": productReco},
+      //                    {"key": targetRecoKey ,"value": targetReco},
+      //                    {"key": targetLocRecoKey , "value": targetLocReco },
+      //                    {"key": targetSizeRecoKey ,"value": targetSizeReco},
+      //                    {"key": reacRecoKey,"value": reacReco},
+      //                    {"key": competitorRecoKey ,"value": competitorReco},
+      //                    {"key": accessRecoKey, "value": accessReco },
+      //                    {"key": marketLocRecoKey,"value": marketLocReco},
+      //                    {"key": idealCusRecoKey,"value": idealCusReco},
+      //                    {"key": importantCusRecoKey, "value": importantCusReco},
+      //                    {"key": cusResearchRecoKey, "value": cusResearchReco }
+      //                  ],
+      //      "Revenue": [{"key"   :  generatingRecoKey ,"value": generatingReco},
+      //                  {"key"  :  willingRecoKey ,"value": willingReco},
+      //                  { "key" :  cusPaymentRecoKey  , "value" : cusPaymentReco}, 
+      //                  { "key" :  preferedRecoKey , "value" : preferedReco},
+                      
+      //      ],
+      //      "Value": [{"key"  : problemRecoKey ,"value": problemReco},
+      //                {"key"  : problemRecoKey,"value": cusValueReco},
+      //                { "key" : problemRecoKey, "value" : needsReco}, 
+      //                { "key" :uniqueRecoKey , "value" : uniqueReco},
+      //                { "key" :elevatorRecoKey , "value" : elevatorReco}, 
+      //        ],
+      //          "Financial": [{"key"   :  budgetRecoKey  ,"value": budgetReco },
+      //                         {"key"  :  reconsiliationRecoKey ,"value": reconsiliationReco},
+      //                         { "key" :  cashFlowRecoKey  , "value" : cashFlowReco}, 
+      //                         { "key" :  documentRecoKey  , "value" : documentReco},
+      //                         { "key" :  financialManagerRecoKey  , "value" : financialManagerReco  }, 
+      //             ],
+      //             "Proof": [{"key": proofOfConceptRecoKey, "value": proofOfConceptReco},]
+       
+      //    } 
+        
+       
+      //  } as IFunding
+      //    const result = await Api.POST_CreateRecommendation(payload)
+      //    console.log('Result is' , result) 
+      // }
+      
+
+      //Channels
+      const [reachCustomer, setReachCustomer] = React.useState<string>();
+      const [marketingPlan, setMarketingPlan] = React.useState<string>();
+      const [developedNetwork, setDevelopedNetwork] = React.useState<string>();
+      const [customerSupport, setCustomerSupport] = React.useState<string>();
+
+      const handlereachCustomer = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setReachCustomer((event.target as HTMLInputElement).value);
+      };
+      const handleMarketingPlan = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setMarketingPlan((event.target as HTMLInputElement).value);
+      };
+      const handleDeveloped = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setDevelopedNetwork((event.target as HTMLInputElement).value);
+      };
+      const handleCustomerSupport = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setCustomerSupport((event.target as HTMLInputElement).value);
+      };
+
+      let reachCusReco = ""
+      let reachCusRecoKey = ""
+      if (reachCustomer === "yes"){
+        reachCusReco  = "No recommendation"
+        reachCusRecoKey  = "Customer profile has been determined."
+      }else {
+        reachCusReco  = "Social media marketing, marketing plan, marketing startegy, sales funnel, customer acquisition plan."
+        reachCusRecoKey  = "Customer profile not determined"
+      }
+
+      let marketingPlanReco = ""
+      let marketingPlanRecoKey = ""
+      if (marketingPlan === "yes"){
+        marketingPlanReco  = "No recommendation"
+        marketingPlanRecoKey  = "Strategies to reach customers has been determined."
+      }else {
+        marketingPlanReco = "marketing plan"
+        marketingPlanRecoKey = "Strategies to reach customers not determined"
+      }
+
+      let developedNetworkReco = ""
+      let developedNetworkRecoKey = ""
+      if (developedNetwork === "yes"){
+        developedNetworkReco  = "No recommendation"
+        developedNetworkRecoKey = "Network to reach target audience has been determined."
+      }else {
+        developedNetworkReco = "Sales funnel"
+        developedNetworkRecoKey = "Network to to reach target audience not determined."
+      }
+
+      let cusSupportReco = ""
+      let cusSupportRecoKey = ""
+      if (customerSupport === "yes"){
+        cusSupportReco   = "No recommendation"
+        cusSupportRecoKey = "Post sales support has been provided."
+      }else {
+        cusSupportReco  = "Sales personnel"
+        cusSupportRecoKey = "No post sales support provided"
+      }
+
+        // Customer Segment
+        const [productOwner, setProductOwner] = React.useState<string>();
+        const [tagetAudiance, setTargetAudiance] = React.useState<string>();
+        const [tagetAudianceLocation, setTargetAudianceLocation] = React.useState<
+          string
+        >();
+        const [tagetMarketSize, setTargetMarketSize] = React.useState<string>();
+        const [cusReach, setCusReach] = React.useState<string>();
+        const [competitor, setCompetitor] = React.useState<string>();
+        const [marketAccess, setMarketAccess] = React.useState<string>();
+        const [marketLocation, setMarketLocation] = React.useState<string>();
+        const [idealCustomer, setIdealCustomer] = React.useState<string>();
+        const [importantCustomer, setImportantCustomer] = React.useState<string>();
+        const [customerReaserch, setCustomerReaserch] = React.useState<string>();
+  
+      
+        const handleProductOwner = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setProductOwner((event.target as HTMLInputElement).value);
+        };
+      
+        const handleTargetAudiance = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setTargetAudiance((event.target as HTMLInputElement).value);
+        };
+      
+        const handleTargetAudianceLocation = (
+          event: React.ChangeEvent<HTMLInputElement>
+        ) => {
+          setTargetAudianceLocation((event.target as HTMLInputElement).value);
+        };
+      
+        const handleTargetMarketSize = (
+          event: React.ChangeEvent<HTMLInputElement>
+        ) => {
+          setTargetMarketSize((event.target as HTMLInputElement).value);
+        };
+        const handleCusReach = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setCusReach((event.target as HTMLInputElement).value);
+        };
+        const handleCompetitor = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setCompetitor((event.target as HTMLInputElement).value);
+        };
+        const handleMarketAccess = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setMarketAccess((event.target as HTMLInputElement).value);
+        };
+        const handleMarketLocation = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setMarketLocation((event.target as HTMLInputElement).value);
+        };
+        const handleIdealCustomer = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setIdealCustomer((event.target as HTMLInputElement).value);
+        };
+        const handleImportantCus = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setImportantCustomer((event.target as HTMLInputElement).value);
+        };
+        const handleCusResearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setCustomerReaserch((event.target as HTMLInputElement).value);
+        };
+
+        let productReco = ""
+        let productRecoKey = ""
+       if (productOwner === "yes"){
+          productReco = "No recommendation"
+          productRecoKey = "Customer profile has been determined."
+       }else {
+         productReco = "Market Research"
+         productRecoKey = "Customer profile not determined"
+       }
+    
+       let targetReco = ""
+       let targetRecoKey = ""
+       if (tagetAudiance === "yes"){
+          targetReco = "No recommendation"
+          targetRecoKey = "Target audience has been determined."
+       }else {
+         targetReco = "Market Intelligence"
+         targetRecoKey = "Target audience has not been selected"
+       }
+       
+       let targetLocReco = ""
+       let targetLocRecoKey = ""
+       if (tagetAudianceLocation === "yes"){
+        targetLocReco = "No recommendation"
+        targetLocRecoKey = "Target audience has been located geographically."
+       }else {
+        targetLocReco = "Market Research"
+        targetLocRecoKey = "Target audience has not been located geographically"
+       }
+      
+  
+       let targetSizeReco = ""
+       let targetSizeRecoKey = ""
+       if (tagetMarketSize === "yes"){
+        targetSizeReco = "No recommendation"
+        targetSizeReco = "Target audience has been segmented."
+       }else {
+        targetSizeReco = "SAM SOM TAM"
+        targetSizeRecoKey = "Target audience has not been segmented."
+       }
+  
+       let reacReco = ""
+       let reacRecoKey = ""
+       if (cusReach === "yes"){
+        reacReco = "No recommendation"
+        reacRecoKey = "Total accessible market has been determined."
+       }else {
+        reacReco = "Market Strategy"
+        reacRecoKey = "Total accessible market has not been determined"
+       }
+    
+       let competitorReco = ""
+       let competitorRecoKey = ""
+       if (competitor === "yes"){
+        competitorReco = "No recommendation"
+        competitorRecoKey = "Competitors have been identified"
+       }else {
+        competitorReco = "Competitor Analysis"
+        competitorRecoKey = "competitors have not been identified"
+       }
+       
+       let accessReco = ""
+       let accessRecoKey = ""
+       if (marketAccess === "yes"){
+        accessReco = "No recommendation"
+        accessRecoKey = "Total accessible market has been determined."
+       }else {
+        accessReco = "Total Addressable market"
+        accessRecoKey = "Total accessible market has not been determined"
+       }
+      
+  
+       let marketLocReco = ""
+       let marketLocRecoKey = ""
+       if (marketLocation === "yes"){
+        marketLocReco = "No recommendation"
+        marketLocRecoKey = "Total observable market has been determined."
+       }else {
+        marketLocReco = "Market Reasearch"
+        marketLocRecoKey = "Total observable market has not been determined."
+       }
+  
+       let idealCusReco = ""
+       let idealCusRecoKey = ""
+       if (idealCustomer === "yes"){
+        idealCusReco = "No recommendation"
+        idealCusRecoKey = "Ideal customer profile has been determined."
+       }else {
+        idealCusReco = "Ideal Customer profile"
+        idealCusRecoKey = "Ideal customer profile has not been determined."
+       }
+       
+       let importantCusReco = ""
+       let importantCusRecoKey = "" 
+       if (importantCustomer === "yes"){
+        importantCusReco = "No recommendation"
+        importantCusRecoKey = "Most important not determined."
+       }else {
+        importantCusReco = "Market Research"
+        importantCusRecoKey = "Most important customers not determined"
+       }
+      
+  
+       let cusResearchReco = ""
+       let cusResearchRecoKey = ""
+       if (customerReaserch === "yes"){
+        cusResearchReco = "No recommendation"
+        cusResearchRecoKey = "Customer research has been done"
+       }else {
+        cusResearchReco = "Business Research Officer"
+        cusResearchRecoKey = "Customer research has not been done"
+       }
+        //Revenue Streams
+        const [generatingRevenue, setGeneratingRevenue] = React.useState<string>();
+        const [willingPay, setWillingPay] = React.useState<string>();
+        const [cusPaymentMethod, setCusPaymentMethod] = React.useState<string>();
+        const [preferedPayment, setPreferedPayment] = React.useState<string>();
+
+        const handleGenerating = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setGeneratingRevenue((event.target as HTMLInputElement).value);
+        };
+        const handleWilling = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setWillingPay((event.target as HTMLInputElement).value);
+        };
+        const handleCusPayment = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setCusPaymentMethod((event.target as HTMLInputElement).value);
+        };
+        const handlePrefered = (event: React.ChangeEvent<HTMLInputElement>) => {
+          setPreferedPayment((event.target as HTMLInputElement).value);
+        };
+
+        let generatingReco = ""
+        let generatingRecoKey = ""
+        if (generatingRevenue === "yes"){
+          generatingReco = "No recommendation"
+          generatingRecoKey = "Has Knowledge of how revenue is generated."
+        }else {
+          generatingReco = "Revenue models"
+          generatingRecoKey = "Does not have Knowledge of how revenue is generated."
+        }
+
+        let willingReco = ""
+        let willingRecoKey = ""
+        if (willingPay === "yes"){
+          willingReco  = "No recommendation"
+          willingRecoKey = "Value customers are willing to pay for has been determined"
+        }else {
+          willingReco  = "Proof of concept"
+          willingRecoKey = "Value customers are willing to pay fpr not determined"
+        }
+
+        let cusPaymentReco = ""
+        let cusPaymentRecoKey = ""
+        if (cusPaymentMethod === "yes"){
+          cusPaymentReco  = "No recommendation"
+          cusPaymentRecoKey = "Current payment trends of customers are known"
+        }else {
+          cusPaymentReco  = "Competitor analysis"
+          cusPaymentRecoKey = "Current payment trends of customers not known."
+        }
+
+        let preferedReco = ""
+        let preferedRecoKey = ""
+        if (preferedPayment === "yes"){
+          preferedReco  = "No recommendation"
+          preferedRecoKey = "Preferred paymet method of customers has been determined."
+        }else {
+          preferedReco  = " Market research, competitor analysis"
+          preferedRecoKey = "Preferred paymet method of customers not determined."
+        }
+
+
+
+
+            //Value Proposition
+      const [problem, setProblem] = React.useState<string>();
+      const [cusValue, setCusValue] = React.useState<string>();
+      const [needsSatisfied, setNeedsSatisfied] = React.useState<string>();
+      const [productUniqueness, setProductUniqueness] = React.useState<string>();
+      const [elevatorPitch, setElevatorPitch] = React.useState<string>();
+
+      const handleProblem = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setProblem((event.target as HTMLInputElement).value);
+      };
+      const handleCusValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setCusValue((event.target as HTMLInputElement).value);
+      };
+      const handleNeeds = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setNeedsSatisfied((event.target as HTMLInputElement).value);
+      };
+      const handleProductUnique = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setProductUniqueness((event.target as HTMLInputElement).value);
+      };
+      const handleElevator = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setElevatorPitch((event.target as HTMLInputElement).value);
+      };
+
+      let problemReco = ""
+      let problemRecoKey = ""
+      if (problem === "yes"){
+        problemReco = "No recommendation"
+        problemRecoKey = "Problem being solved has been determined."
+      }else {
+        problemReco = "Value proposition canvas"
+        problemRecoKey = "Problem being solved not determined"
+      }
+   
+      let cusValueReco = ""
+      let cusValueRecoKey = ""
+      if (cusValue === "yes"){
+        cusValueReco = "No recommendation"
+        cusValueRecoKey = "Value being delivered has been determined."
+      }else {
+        cusValueReco = "Business model canvas"
+        cusValueRecoKey = "Value being delivered not determined."
+      }
+      
+      let needsReco = ""
+      let needsRecoKey = ""
+      if (needsSatisfied === "yes"){
+        needsReco  = "No recommendation"
+        needsRecoKey = "Customer needs have been determined."
+      }else {
+        needsReco  = "Value proposition canvas"
+        needsRecoKey = "Customer needs have not been determined."
+      }
+     
+ 
+      let uniqueReco = ""
+      let uniqueRecoKey = ""
+      if (productUniqueness === "yes"){
+        uniqueReco = "No recommendation"
+        uniqueRecoKey = "uniques selling point has been determined."
+      }else {
+        uniqueReco = "Value proposition canvas"
+        uniqueRecoKey = "Uniques selling point not determined."
+      }
+ 
+      let elevatorReco = ""
+      let elevatorRecoKey = ""
+      if (elevatorPitch === "yes"){
+        elevatorReco = "No recommendation"
+        elevatorRecoKey = "An elevator pitch has been prepared."
+      }else {
+        elevatorReco = "elevator pitch template"
+        elevatorRecoKey = "No elevator pitch"
+      }
+
+
+
+      //Financial Management
+      const [budgetForecast, setBudgetForecast] = React.useState<string>();
+      const [reconsiliation, setReconsiliation] = React.useState<string>();
+      const [cashFlow, setCashFlow] = React.useState<string>();
+      const [documentFinancials, setDocumentFinancials] = React.useState<string>();
+      const [FinancialManager, setFinancialManager] = React.useState<string>();
+
+      const handleBudget = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setBudgetForecast((event.target as HTMLInputElement).value);
+      };
+      const handleReconsiliation = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setReconsiliation((event.target as HTMLInputElement).value);
+      };
+      const handleCashFlow = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setCashFlow((event.target as HTMLInputElement).value);
+      };
+      const handleDocument = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setDocumentFinancials((event.target as HTMLInputElement).value);
+      };
+      const handleManager = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setFinancialManager((event.target as HTMLInputElement).value);
+      };
+
+  
+      let budgetReco = ""
+      let budgetRecoKey = ""
+      if (budgetForecast === "yes"){
+        budgetReco = "No recommendation"
+        budgetRecoKey = "Proper Budget forecasting in place."
+      }else {
+        budgetReco = "Budget Forecasting"
+        budgetRecoKey = "No Proper Budget Forecasting in place."
+      }
+
+      let reconsiliationReco = ""
+      let reconsiliationRecoKey = ""
+      if (reconsiliation === "yes"){
+        reconsiliationReco = "No recommendation"
+        reconsiliationRecoKey = "Company does not perfom Reconciliation."
+      }else {
+        reconsiliationReco = "Reconsiliation"
+        reconsiliationRecoKey = "Company Performs Reconsilistions"
+      }
+
+      let cashFlowReco = ""
+      let cashFlowRecoKey = ""
+      if (cashFlow === "yes"){
+        cashFlowReco = "No recommendation"
+        cashFlowRecoKey = "Has proper cash flow management."
+      }else {
+        cashFlowReco  = "Cash Flow Management"
+        cashFlowRecoKey = "Does not have proper cash flow management"
+      }
+
+      let documentReco = ""
+      let documentRecoKey = ""
+      if (documentFinancials === "yes"){
+        documentReco = "No recommendation"
+        documentRecoKey = "Financials are documented"
+      }else {
+        documentReco  = "Documenting Financials"
+        documentRecoKey = "There are no Documented Financials"
+      }
+
+      let financialManagerReco = ""
+      let financialManagerRecoKey = ""
+      if (FinancialManager === "yes"){
+        financialManagerReco = "No recommendation"
+        financialManagerRecoKey = "Has a financial Manager"
+      }else {
+        financialManagerReco = "Hire a Financial Manager"
+        financialManagerRecoKey = "Does Not have a financial Manager"
+      }
+
+         //Proof of Concept
+         const [proofOfConcept, setProofOfConcept] = React.useState<string>();
+
+         const handleProof = (event: React.ChangeEvent<HTMLInputElement>) => {
+           setProofOfConcept((event.target as HTMLInputElement).value);
+         };
+
+
+         let proofOfConceptReco = ""
+         let proofOfConceptRecoKey = ""
+         if (proofOfConcept === "yes"){
+          proofOfConceptReco = "No recommendation"
+          proofOfConceptRecoKey = "Ideal customer experience has been determined."
+         }else {
+          proofOfConceptReco = "Proof of Concept"
+          proofOfConceptRecoKey = "Ideal customer experience has not been determined."
+         }
+
+
+
+
+
+
+
 
     return (
         <div className="sell-con">

@@ -271,13 +271,12 @@ const Admin=() => {
                             </div>
                             
                         </div>
+
                     </Grid>
 
                 </Grid>
-               
+                
                 </div>
-          
-
         </div>
     )
 

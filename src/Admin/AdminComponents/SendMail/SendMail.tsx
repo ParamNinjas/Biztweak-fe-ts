@@ -51,7 +51,7 @@ const SendMail = () => {
                             className="emailCon"
                             />
                     </div>
-                    <Button variant="outlined">Send</Button>
+                    <Button className="mailBtn" variant="outlined">Send</Button>
                 </div>
             </Container>
         </div>
