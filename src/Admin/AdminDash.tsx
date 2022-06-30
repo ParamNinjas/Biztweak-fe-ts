@@ -13,6 +13,13 @@ import { BarChart, Bar, CartesianGrid, Tooltip, ResponsiveContainer } from 'rech
 import './AdminDash.css'   
 
 
+const linkStyle = {
+  margin: "1rem",
+  textDecoration: "none",
+  color: 'white'
+};
+
+
 
 const Admin=() => {
     const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
@@ -200,7 +207,7 @@ const Admin=() => {
                                 className="AddUsers"
                                 variant="outlined"
                                 >
-                                <Link to='/AddUser'>Add New Users</Link>
+                                <Link to='/AddUser' style={linkStyle}>Add New Users</Link>
                                 </Button>
                           </div>
                           <div className="regUsersBTN">
@@ -216,7 +223,7 @@ const Admin=() => {
                                 className="AllAsses"
                                 variant="outlined"
                                 >
-                                <Link to='/AllAsses'>All Assesments</Link>
+                                <Link to='/AllAsses' style={linkStyle}>All Assesments</Link>
                                 </Button>
                           </div>
                         </div>
@@ -232,7 +239,7 @@ const Admin=() => {
                     </Grid>
                       <Grid item xs={12} sm={12} md={3} lg={3}>
                     <div className="SeeMoreU">
-                              <Link to='/List'>See all users {'>'}</Link>
+                              <Link to='/List' style={linkStyle}>See all users {'>'}</Link>
                             </div>
                         <div className="newUsers">
                             <h4>New Users</h4>
@@ -243,7 +250,7 @@ const Admin=() => {
                               className="sendMail"
                               variant="outlined"
                             >
-                            <Link to='/SendMail'>SendMail</Link>
+                            <Link to='/SendMail' style={linkStyle}>SendMail</Link>
                              
                             </Button>
                             <div className="phaseBTNs">
