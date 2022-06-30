@@ -13,6 +13,7 @@ import './Coursepage.css'
 import Coursefiles from './Coursefiles'
 
 
+
 const Coursepage = () => {
     function Alert(props : any) {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
