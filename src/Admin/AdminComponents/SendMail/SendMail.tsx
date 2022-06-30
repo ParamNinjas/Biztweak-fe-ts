@@ -2,6 +2,7 @@ import React from "react";
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
+import { Button } from "@material-ui/core";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import sideNav from '../../sideNav'
@@ -21,7 +22,7 @@ const SendMail = () => {
                             id="demo-simple-select"
                             fullWidth
                             variant="outlined"
-                            // value={age}
+                            // value={age} 
                             // onChange={handleChange}
                             >
                             <MenuItem value={1}>All Users</MenuItem>
@@ -33,6 +34,24 @@ const SendMail = () => {
                             <MenuItem value={7}>Accelerate phase users</MenuItem> 
                         </Select>
                     </div>
+                    <div className="subject">
+                        <Typography>Subject</Typography>
+                        <TextField
+                            size="small"
+                            fullWidth
+                            variant="outlined"
+                            className="subjectTypo"
+                            />
+                    </div>
+                    <div className="emailContent">
+                        <Typography>Email Content</Typography>
+                        <TextField
+                            fullWidth
+                            variant="outlined"
+                            className="emailCon"
+                            />
+                    </div>
+                    <Button variant="outlined">Send</Button>
                 </div>
             </Container>
         </div>

@@ -8,7 +8,6 @@ import Login from './routes/SignIn';
 import Register from './routes/Register';
 import Dashboard from "./routes/Dash/Dashboard";
 import Profile from "./CompanyProfile/Profile";
-// import AssesSell from "./components/Assesment/AssesSell";
 import AssessBasic from "./components/Assesment/AssesSales";
 import Report from "./components/Report/Report";
 import Getcourse from "./components/Course/Getcourse"
@@ -59,8 +58,7 @@ function App() {
           <Route path='/List' element={<UserList />} />
           <Route path='/AddAdmin' element={<AddAdmin />} />
           <Route path='/AddUser' element={<AddUser />} />
-          <Route path='/SendMail' element={<SendMail />} />
-          {/* <Route path='/TotRegistered' element={<Registered />} /> */}
+          <Route path='/SendMail' element={<SendMail />} />       
           <Route path='/AllAsses' element={<AllAsses />} />
           <Route path='/Funding' element={<Funding />} />
           <Route path='/Customer' element={<Customer />} />

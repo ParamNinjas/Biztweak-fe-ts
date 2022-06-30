@@ -8,7 +8,7 @@ import SearchBar from "material-ui-search-bar";
 import Side from "./sideNav";
 import UserList from "./List";
 import { Api } from '../services/endpoints'; 
-import { IRecomendation } from "../Interfaces/IRecomendation";
+import { IProfile, IRecomendation } from "../Interfaces/IRecomendation";
 import { BarChart, Bar, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './AdminDash.css'   
 
@@ -16,14 +16,23 @@ import './AdminDash.css'
 
 const Admin=() => {
     const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
+    const [allProfiles, setAllProfiles] = useState<IProfile[]>([]);
     const test = async () =>{
         const allRecommendations = await Api.GET_AllRecommendations()
         const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
         setAllRecommendations(result)
    
       }
+     
+      // const getUsers = async () =>{
+      //     const allProfiles = await Api.GET_AllProfiles()
+      //     const profiles = allProfiles.result? allProfiles.result : [] as IProfile[];
+      //     setAllProfiles(profiles)
+     
+      //   }
       useEffect(() => {
         test()
+        // getUsers()
        
       });
       const data = [
@@ -234,8 +243,8 @@ const Admin=() => {
                               className="sendMail"
                               variant="outlined"
                             >
-                              {/* <ion-icon name="mail"></ion-icon> */}
-                              Send Mail
+                            <Link to='/SendMail'>SendMail</Link>
+                             
                             </Button>
                             <div className="phaseBTNs">
                               <div className="Phase1">
