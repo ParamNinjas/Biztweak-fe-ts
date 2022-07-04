@@ -8,22 +8,38 @@ import SearchBar from "material-ui-search-bar";
 import Side from "./sideNav";
 import UserList from "./List";
 import { Api } from '../services/endpoints'; 
-import { IRecomendation } from "../Interfaces/IRecomendation";
+import { IProfile, IRecomendation } from "../Interfaces/IRecomendation";
 import { BarChart, Bar, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './AdminDash.css'   
+
+
+const linkStyle = {
+  margin: "1rem",
+  textDecoration: "none",
+  color: 'white'
+};
 
 
 
 const Admin=() => {
     const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
+    const [allProfiles, setAllProfiles] = useState<IProfile[]>([]);
     const test = async () =>{
         const allRecommendations = await Api.GET_AllRecommendations()
         const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
         setAllRecommendations(result)
    
       }
+     
+      // const getUsers = async () =>{
+      //     const allProfiles = await Api.GET_AllProfiles()
+      //     const profiles = allProfiles.result? allProfiles.result : [] as IProfile[];
+      //     setAllProfiles(profiles)
+     
+      //   }
       useEffect(() => {
         test()
+        // getUsers()
        
       });
       const data = [
@@ -191,7 +207,7 @@ const Admin=() => {
                                 className="AddUsers"
                                 variant="outlined"
                                 >
-                                <Link to='/AddUser'>Add New Users</Link>
+                                <Link to='/AddUser' style={linkStyle}>Add New Users</Link>
                                 </Button>
                           </div>
                           <div className="regUsersBTN">
@@ -207,7 +223,7 @@ const Admin=() => {
                                 className="AllAsses"
                                 variant="outlined"
                                 >
-                                <Link to='/AllAsses'>All Assesments</Link>
+                                <Link to='/AllAsses' style={linkStyle}>All Assesments</Link>
                                 </Button>
                           </div>
                         </div>
@@ -223,7 +239,7 @@ const Admin=() => {
                     </Grid>
                       <Grid item xs={12} sm={12} md={3} lg={3}>
                     <div className="SeeMoreU">
-                              <Link to='/List'>See all users {'>'}</Link>
+                              <Link to='/List' >See all users {'>'}</Link>
                             </div>
                         <div className="newUsers">
                             <h4>New Users</h4>
@@ -234,8 +250,8 @@ const Admin=() => {
                               className="sendMail"
                               variant="outlined"
                             >
-                              {/* <ion-icon name="mail"></ion-icon> */}
-                              Send Mail
+                            <Link to='/SendMail' style={linkStyle}>SendMail</Link>
+                             
                             </Button>
                             <div className="phaseBTNs">
                               <div className="Phase1">
@@ -262,13 +278,12 @@ const Admin=() => {
                             </div>
                             
                         </div>
+
                     </Grid>
 
                 </Grid>
-               
+                
                 </div>
-          
-
         </div>
     )
 

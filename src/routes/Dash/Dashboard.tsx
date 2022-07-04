@@ -16,7 +16,12 @@ import { useNavigate } from 'react-router-dom';
 import Footernew from '../../components/Footer/Footernew';
 import './Dashboard.css'
 
-
+const linkStyle = {
+    margin: "1rem",
+    textDecoration: "none",
+    color: 'white'
+  };
+  
 const Dashboard = () => {
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate();
@@ -151,9 +156,10 @@ const Dashboard = () => {
                     <Button 
                         className='popSave'
                         variant='outlined'
+                        style={linkStyle}
                         onClick={handleClose}
                         >
-                        <Link to='/AssesBasic'>Save</Link>
+                        <Link to='/Funding'>Save</Link>
                         
                     </Button>
                     </DialogActions>
