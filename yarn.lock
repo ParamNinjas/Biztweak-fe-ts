@@ -6500,10 +6500,25 @@
   dependencies:
     "arity-n" "^1.0.4"
 
-"compressible@~2.0.16":
-  "integrity" "sha512-AF3r7P5dWxL8MxyITRMlORQNaOA2IkAFaTr4k7BUumjPtRpGDTZpl0Pb1XCO6JeDCBdp126Cgs9sMxqSjgYyRg=="
-  "resolved" "https://registry.npmjs.org/compressible/-/compressible-2.0.18.tgz"
-  "version" "2.0.18"
+cookie-signature@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz"
+  integrity sha512-QADzlaHc8icV8I7vbaJXJwod9HWYp8uCqf1xa4OfNu1T7JVxQIrUgOWtHdNDtPiywmFbiS12VjotIXLrKM3orQ==
+
+cookie@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/cookie/-/cookie-0.5.0.tgz"
+  integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
+
+cookiejs@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/cookiejs/-/cookiejs-2.1.1.tgz#ed00922fc6e5e30421e2f07c52b87f262a998124"
+  integrity sha512-Y5JFyu5hVYIePojbDgssTZKBapTOlsm/FlJOcroD9yV9gByjZA70U52yZVdlSSy64UEUqvzsEHNnOIVuzxDZsw==
+
+core-js-compat@^3.21.0, core-js-compat@^3.22.1:
+  version "3.23.1"
+  resolved "https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.23.1.tgz"
+  integrity sha512-KeYrEc8t6FJsKYB2qnDwRHWaC0cJNaqlHfCpMe5q3j/W1nje3moib/txNklddLPCtGb+etcBIyJ8zuMa/LN5/A==
   dependencies:
     "mime-db" ">= 1.43.0 < 2"
 
@@ -11854,10 +11869,15 @@
     "import-local" "^3.0.2"
     "jest-cli" "^27.5.1"
 
-"jquery@>=1.8.0":
-  "integrity" "sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw=="
-  "resolved" "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
-  "version" "3.6.0"
+js-cookie@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.1.tgz#9e39b4c6c2f56563708d7d31f6f5f21873a92414"
+  integrity sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==
+
+"js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
+  integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
 "js-base64@^2.1.8":
   "integrity" "sha512-pZe//GGmwJndub7ZghVHz7vjb2LgC1m8B07Au3eYqeqv9emhESByMXxaEgkUkEqJe87oBbSniGYoQNIBklc7IQ=="

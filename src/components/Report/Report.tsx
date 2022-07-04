@@ -45,7 +45,7 @@ const Report = () => {
 
       // Filtered Data
     
-       const filtered = allRecommendations[0]?.segmentResponses.customer.filter(seg => {
+       const filtered = allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
         return seg.value !== "No recommendation"
        
       }) 
@@ -129,7 +129,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.customer.map(
+                                                reco.segmentResponses.Customer.map(
                                                    cusList => {
                                                     const recoColor = cusList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
@@ -213,7 +213,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.customer.map(
+                                                reco.segmentResponses.Customer.map(
                                                    cusList => {
                                                     const recoColor = cusList.value === "No recommendation" ? "green" : "red" ;
                                                        return (

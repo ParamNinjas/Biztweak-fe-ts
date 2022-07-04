@@ -33,7 +33,7 @@ const AssessBasic = () => {
       "segment": "customer",
       "userId": user?.id,
       "segmentResponses": {
-        "customer": [{"key": productRecoKey ,"value": productReco},
+        "Customer": [{"key": productRecoKey ,"value": productReco},
                       {"key": targetRecoKey ,"value": targetReco},
                       {"key": targetLocRecoKey , "value": targetLocReco },
                       {"key": targetSizeRecoKey ,"value": targetSizeReco},

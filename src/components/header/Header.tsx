@@ -6,8 +6,14 @@ import Container from '@material-ui/core/Container';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import hero from '../../Images/hero-bg.png'
+import { Link } from "react-router-dom";
 import './Header.css'
 
+const linkStyle = {
+    margin: "1rem",
+    textDecoration: "none",
+    color: 'white'
+  };
 
 const Header=() => {
 return(
@@ -34,7 +40,7 @@ return(
                         <Button
                             className="BtnTake"
                             variant="outlined"
-                            >Take Free Assessment</Button>
+                            ><Link to="/sign_up" style={linkStyle}>Take Free Assessment</Link> </Button>
                     </div>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} lg={6}>
