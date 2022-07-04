@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Grid , Button } from '@material-ui/core';
+import React from 'react';
+import { Container, Grid, Button } from '@material-ui/core';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -7,529 +7,827 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MuiAlert from '@material-ui/lab/Alert';
 import UserNavbar from '../../UserNav/UserNav';
-import company from '../../../Images/company.png'
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import company from '../../../Images/company.png';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 import { Link } from 'react-router-dom';
 import { createSlice } from '@reduxjs/toolkit';
 import { Api } from '../../../services/endpoints';
-import { IRecomendation } from '../../../Interfaces/IRecomendation'
+import { IRecomendation } from '../../../Interfaces/IRecomendation';
 import { supabase } from '../../../supabaseClient';
-import '../Assessment.css'
-
-
-
+import '../Assessment.css';
 
 const Customer = () => {
-    function Alert(props : any) {
-        return <MuiAlert elevation={6} variant="filled" {...props} />;
-      }
+	function Alert(props: any) {
+		return <MuiAlert elevation={6} variant="filled" {...props} />;
+	}
+	//Channels
+	const [ reachCustomer, setReachCustomer ] = React.useState<string>();
+	const [ marketingPlan, setMarketingPlan ] = React.useState<string>();
+	const [ developedNetwork, setDevelopedNetwork ] = React.useState<string>();
+	const [ customerSupport, setCustomerSupport ] = React.useState<string>();
 
-    return (
-        <div className="sell-con">
-             <UserNavbar/>
-            <Container>
-            <Grid container spacing={2}>
-           <Grid item xs={12} sm={12} md={4} lg={4}>
-             <Typography>Company</Typography>
-             <Button 
-             className='profAdd'
-             variant='outlined'
-             >
-               Add Company 
-            </Button>
-            <div className='Accords'>
-            <div className='sideAccord'>
-              <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography className=''>No Name</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                      sit amet blandit leo lobortis eget.
-                    </Typography>
-                </AccordionDetails>
-              </Accordion>
-            </div>
-            </div>      
-           </Grid>
-           <Grid item xs={12} sm={12} md={8} lg={8}>
-           <Alert severity="info">Next Step! Complete your Company Assessment.</Alert>
-           <Typography className='biz' variant='h5'>Biz Assessment</Typography>
-           <div className='companyBox'>
-              <img
-                src={company}
-                alt='comLogo'
-                className='company'
-                />
-                <div className='companyInf'>
-                  <div className='Location'>
-                  <Typography>Location</Typography>
-                  </div>
-                  <div className='indust'>
-                  <Typography>Industry</Typography>
-                  </div>
-                  <div className='phase'>
-                  <Typography>Business Phase</Typography>
-                </div>
-                </div>
-           </div>
-        <div className="questionare">
-            <Accordion>
-            <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-            >
-            <Typography className=''>Channels</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-            <div className='rev'>
-                <div>
-                    <FormControl>
-                    <FormLabel id="demo-controlled-radio-buttons-group">
-                    Do you know how you are going to reach your customers?
-                    </FormLabel>
-                    <RadioGroup
-                        aria-labelledby="demo-controlled-radio-buttons-group"
-                        name="controlled-radio-buttons-group"
-                        // value={companyAd}
-                        // onChange={handleCompanyAd}
-                    >
-                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="no" control={<Radio />} label="No" />
-                    </RadioGroup>
-                    </FormControl>
-                </div>
+	const handlereachCustomer = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setReachCustomer((event.target as HTMLInputElement).value);
+	};
+	const handleMarketingPlan = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setMarketingPlan((event.target as HTMLInputElement).value);
+	};
+	const handleDeveloped = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setDevelopedNetwork((event.target as HTMLInputElement).value);
+	};
+	const handleCustomerSupport = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setCustomerSupport((event.target as HTMLInputElement).value);
+	};
 
-                <div>
-                    <FormControl>
-                    <FormLabel id="demo-controlled-radio-buttons-group">
-                    Do you have a marketing plan in place?
-                    </FormLabel>
-                    <RadioGroup
-                        aria-labelledby="demo-controlled-radio-buttons-group"
-                        name="controlled-radio-buttons-group"
-                        // value={effectiveAd}
-                        // onChange={handleEffectiveAd}
-                    >
-                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="no" control={<Radio />} label="No" />
-                    </RadioGroup>
-                    </FormControl>
-                </div>
+	let reachCusReco = '';
+	let reachCusRecoKey = '';
+	if (reachCustomer === 'yes') {
+		reachCusReco = 'No recommendation';
+		reachCusRecoKey = 'Customer profile has been determined.';
+	} else {
+		reachCusReco =
+			'Social media marketing, marketing plan, marketing startegy, sales funnel, customer acquisition plan.';
+		reachCusRecoKey = 'Customer profile not determined';
+	}
 
-                <div>
-                    <FormControl>
-                    <FormLabel id="demo-controlled-radio-buttons-group">
-                    Have you developed a network to reach your target audience?
-                    </FormLabel>
-                    <RadioGroup
-                        aria-labelledby="demo-controlled-radio-buttons-group"
-                        name="controlled-radio-buttons-group"
-                        // value={planning}
-                        // onChange={handlePlanning}
-                    >
-                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="no" control={<Radio />} label="No" />
-                    </RadioGroup>
-                    </FormControl>
-                </div>
+	let marketingPlanReco = '';
+	let marketingPlanRecoKey = '';
+	if (marketingPlan === 'yes') {
+		marketingPlanReco = 'No recommendation';
+		marketingPlanRecoKey = 'Strategies to reach customers has been determined.';
+	} else {
+		marketingPlanReco = 'marketing plan';
+		marketingPlanRecoKey = 'Strategies to reach customers not determined';
+	}
 
-                <div>
-                    <FormControl>
-                    <FormLabel id="demo-controlled-radio-buttons-group">
-                    Do you provide post-sales customer support?
-                    </FormLabel>
-                    <RadioGroup
-                        aria-labelledby="demo-controlled-radio-buttons-group"
-                        name="controlled-radio-buttons-group"
-                        // value={priceStrategy}
-                        // onChange={handlePriceStrategy}
-                    >
-                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="no" control={<Radio />} label="No" />
-                    </RadioGroup>
-                            </FormControl>
-                        </div>
-                    </div>
-                    </AccordionDetails>
-                </Accordion>
-            <Accordion>
-                <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel2a-header"
-                >
-                <Typography className=''>Customer segment</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                <Typography>
-                <div className='cusSegmant-con'>
-                    <div>
-                        <FormControl>
-                        <FormLabel id="demo-controlled-radio-buttons-group">
-                            Do you know who your product is for?
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            // value={productOwner}
-                            // onChange={handleProductOwner}
-                        >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        </FormControl>
-                    </div>
+	let developedNetworkReco = '';
+	let developedNetworkRecoKey = '';
+	if (developedNetwork === 'yes') {
+		developedNetworkReco = 'No recommendation';
+		developedNetworkRecoKey = 'Network to reach target audience has been determined.';
+	} else {
+		developedNetworkReco = 'Sales funnel';
+		developedNetworkRecoKey = 'Network to to reach target audience not determined.';
+	}
 
-                    <div>
-                        <FormControl>
-                        <FormLabel id="demo-controlled-radio-buttons-group">
-                            Do you know who is your target market/audience?
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            // value={tagetAudiance}
-                            // onChange={handleTargetAudiance}
-                        >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        </FormControl>
-                    </div>
+	let cusSupportReco = '';
+	let cusSupportRecoKey = '';
+	if (customerSupport === 'yes') {
+		cusSupportReco = 'No recommendation';
+		cusSupportRecoKey = 'Post sales support has been provided.';
+	} else {
+		cusSupportReco = 'Sales personnel';
+		cusSupportRecoKey = 'No post sales support provided';
+	}
 
-                    <div>
-                        <FormControl>
-                        <FormLabel id="demo-controlled-radio-buttons-group">
-                            Do you know where they are located?
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            // value={tagetAudianceLocation}
-                            // onChange={handleTargetAudianceLocation}
-                        >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        </FormControl>
-                    </div>
+	// Customer Segment
+	const [ productOwner, setProductOwner ] = React.useState<string>();
+	const [ tagetAudiance, setTargetAudiance ] = React.useState<string>();
+	const [ tagetAudianceLocation, setTargetAudianceLocation ] = React.useState<string>();
+	const [ tagetMarketSize, setTargetMarketSize ] = React.useState<string>();
+	const [ cusReach, setCusReach ] = React.useState<string>();
+	const [ competitor, setCompetitor ] = React.useState<string>();
+	const [ marketAccess, setMarketAccess ] = React.useState<string>();
+	const [ marketLocation, setMarketLocation ] = React.useState<string>();
+	const [ idealCustomer, setIdealCustomer ] = React.useState<string>();
+	const [ importantCustomer, setImportantCustomer ] = React.useState<string>();
+	const [ customerReaserch, setCustomerReaserch ] = React.useState<string>();
 
-                    <div>
-                        <FormControl>
-                        <FormLabel id="demo-controlled-radio-buttons-group">
-                            Do you know the Total market size?
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            // value={tagetMarketSize}
-                            // onChange={handleTargetMarketSize}
-                        >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        </FormControl>
-                    </div>
-                    
-                    <div>
-                        <FormControl>
-                        <FormLabel id="demo-controlled-radio-buttons-group">
-                            Do you know how you are going to reach your Customer?
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            // value={cusReach}
-                            // onChange={handleCusReach}
-                        >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        </FormControl>
-                    </div>
+	const handleProductOwner = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setProductOwner((event.target as HTMLInputElement).value);
+	};
 
-                    <div>
-                        <FormControl>
-                        <FormLabel id="demo-controlled-radio-buttons-group">
-                            Has the company actively identified a competitor in the market?
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            // value={competitor}
-                            // onChange={handleCompetitor}
-                        >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        </FormControl>
-                    </div>
+	const handleTargetAudiance = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setTargetAudiance((event.target as HTMLInputElement).value);
+	};
 
-                    <div>
-                        <FormControl>
-                        <FormLabel id="demo-controlled-radio-buttons-group">
-                            Do you know how much of your market is accessible?
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            // value={marketAccess}
-                            // onChange={handleMarketAccess}
-                        >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        </FormControl>
-                    </div>
+	const handleTargetAudianceLocation = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setTargetAudianceLocation((event.target as HTMLInputElement).value);
+	};
 
-                    <div>
-                        <FormControl>
-                        <FormLabel id="demo-controlled-radio-buttons-group">
-                        Do you know how much of your market is in your region/locality?
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            // value={marketLocation}
-                            // onChange={handleMarketLocation}
-                        >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        </FormControl>
-                    </div>
+	const handleTargetMarketSize = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setTargetMarketSize((event.target as HTMLInputElement).value);
+	};
+	const handleCusReach = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setCusReach((event.target as HTMLInputElement).value);
+	};
+	const handleCompetitor = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setCompetitor((event.target as HTMLInputElement).value);
+	};
+	const handleMarketAccess = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setMarketAccess((event.target as HTMLInputElement).value);
+	};
+	const handleMarketLocation = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setMarketLocation((event.target as HTMLInputElement).value);
+	};
+	const handleIdealCustomer = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setIdealCustomer((event.target as HTMLInputElement).value);
+	};
+	const handleImportantCus = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setImportantCustomer((event.target as HTMLInputElement).value);
+	};
+	const handleCusResearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setCustomerReaserch((event.target as HTMLInputElement).value);
+	};
 
-                    <div>
-                        <FormControl>
-                        <FormLabel id="demo-controlled-radio-buttons-group">
-                        Do you have a profile for your ideal customer?
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            // value={idealCustomer}
-                            // onChange={handleIdealCustomer}
-                        >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        </FormControl>
-                    </div>
+	let productReco = '';
+	let productRecoKey = '';
+	if (productOwner === 'yes') {
+		productReco = 'No recommendation';
+		productRecoKey = 'Customer profile has been determined.';
+	} else {
+		productReco = 'Market Research';
+		productRecoKey = 'Customer profile not determined';
+	}
 
-                    <div>
-                        <FormControl>
-                        <FormLabel id="demo-controlled-radio-buttons-group">
-                        Do you know who your most important customers are?
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            // value={importantCustomer}
-                            // onChange={handleImportantCus}
-                        >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        </FormControl>
-                    </div>
+	let targetReco = '';
+	let targetRecoKey = '';
+	if (tagetAudiance === 'yes') {
+		targetReco = 'No recommendation';
+		targetRecoKey = 'Target audience has been determined.';
+	} else {
+		targetReco = 'Market Intelligence';
+		targetRecoKey = 'Target audience has not been selected';
+	}
 
-                    <div>
-                        <FormControl>
-                        <FormLabel id="demo-controlled-radio-buttons-group">
-                        Do you have a designated Customer Researcher Specialist for this?
-                        </FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            // value={customerReaserch}
-                            // onChange={handleCusResearch}
-                        >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                        </FormControl>
-                    </div>
-                </div>
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className=''>Market Intelligence</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-        <div className='rev'>
-              <div>
-                <FormControl>
-                  <FormLabel id="demo-controlled-radio-buttons-group">
-                  Does the company conduct market research?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="controlled-radio-buttons-group"
-                    // value={companyAd}
-                    // onChange={handleCompanyAd}
-                  >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
-                  </RadioGroup>
-                </FormControl>
-              </div>
+	let targetLocReco = '';
+	let targetLocRecoKey = '';
+	if (tagetAudianceLocation === 'yes') {
+		targetLocReco = 'No recommendation';
+		targetLocRecoKey = 'Target audience has been located geographically.';
+	} else {
+		targetLocReco = 'Market Research';
+		targetLocRecoKey = 'Target audience has not been located geographically';
+	}
 
-              <div>
-                <FormControl>
-                  <FormLabel id="demo-controlled-radio-buttons-group">
-                  Has the company actively identified a competitor in the market?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="controlled-radio-buttons-group"
-                    // value={effectiveAd}
-                    // onChange={handleEffectiveAd}
-                  >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
-                  </RadioGroup>
-                </FormControl>
-              </div>
+	let targetSizeReco = '';
+	let targetSizeRecoKey = '';
+	if (tagetMarketSize === 'yes') {
+		targetSizeReco = 'No recommendation';
+		targetSizeReco = 'Target audience has been segmented.';
+	} else {
+		targetSizeReco = 'SAM SOM TAM';
+		targetSizeRecoKey = 'Target audience has not been segmented.';
+	}
 
-              <div>
-                <FormControl>
-                  <FormLabel id="demo-controlled-radio-buttons-group">
-                  Has the company identified a key competitive advantage?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="controlled-radio-buttons-group"
-                    // value={planning}
-                    // onChange={handlePlanning}
-                  >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
-                  </RadioGroup>
-                </FormControl>
-              </div>
+	let reacReco = '';
+	let reacRecoKey = '';
+	if (cusReach === 'yes') {
+		reacReco = 'No recommendation';
+		reacRecoKey = 'Total accessible market has been determined.';
+	} else {
+		reacReco = 'Market Strategy';
+		reacRecoKey = 'Total accessible market has not been determined';
+	}
 
-              <div>
-                <FormControl>
-                  <FormLabel id="demo-controlled-radio-buttons-group">
-                  Do you know the company’s product or service differentiation?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="controlled-radio-buttons-group"
-                    // value={priceStrategy}
-                    // onChange={handlePriceStrategy}
-                  >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
-                  </RadioGroup>
-                        </FormControl>
-                    </div>
-                </div>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className=''>Cost Structure</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-        <div className='rev'>
-              <div>
-                <FormControl>
-                  <FormLabel id="demo-controlled-radio-buttons-group">
-                  Have the costs involved in delivering the key activities been determined?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="controlled-radio-buttons-group"
-                    // value={companyAd}
-                    // onChange={handleCompanyAd}
-                  >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
-                  </RadioGroup>
-                </FormControl>
-              </div>
+	let competitorReco = '';
+	let competitorRecoKey = '';
+	if (competitor === 'yes') {
+		competitorReco = 'No recommendation';
+		competitorRecoKey = 'Competitors have been identified';
+	} else {
+		competitorReco = 'Competitor Analysis';
+		competitorRecoKey = 'competitors have not been identified';
+	}
 
-              <div>
-                <FormControl>
-                  <FormLabel id="demo-controlled-radio-buttons-group">
-                  Have the costs involved in acquiring the key resources been determined?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="controlled-radio-buttons-group"
-                    // value={effectiveAd}
-                    // onChange={handleEffectiveAd}
-                  >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
-                  </RadioGroup>
-                </FormControl>
-              </div>
+	let accessReco = '';
+	let accessRecoKey = '';
+	if (marketAccess === 'yes') {
+		accessReco = 'No recommendation';
+		accessRecoKey = 'Total accessible market has been determined.';
+	} else {
+		accessReco = 'Total Addressable market';
+		accessRecoKey = 'Total accessible market has not been determined';
+	}
 
-              <div>
-                <FormControl>
-                  <FormLabel id="demo-controlled-radio-buttons-group">
-                  Do you know the costs involved in maintaining customer relationships?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="controlled-radio-buttons-group"
-                    // value={planning}
-                    // onChange={handlePlanning}
-                  >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
-                  </RadioGroup>
-                </FormControl>
-              </div>
+	let marketLocReco = '';
+	let marketLocRecoKey = '';
+	if (marketLocation === 'yes') {
+		marketLocReco = 'No recommendation';
+		marketLocRecoKey = 'Total observable market has been determined.';
+	} else {
+		marketLocReco = 'Market Reasearch';
+		marketLocRecoKey = 'Total observable market has not been determined.';
+	}
 
-              <div>
-                <FormControl>
-                  <FormLabel id="demo-controlled-radio-buttons-group">
-                  Do you know the costs involved in determining and acquiring market segments?
-                  </FormLabel>
-                  <RadioGroup
-                    aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="controlled-radio-buttons-group"
-                    // value={priceStrategy}
-                    // onChange={handlePriceStrategy}
-                  >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
-                  </RadioGroup>
-                        </FormControl>
-                    </div>
-                </div>
-                </AccordionDetails>
-            </Accordion>
-        </div>
-        </Grid>
-        </Grid>
-        </Container>
-        </div>
-    )
+	let idealCusReco = '';
+	let idealCusRecoKey = '';
+	if (idealCustomer === 'yes') {
+		idealCusReco = 'No recommendation';
+		idealCusRecoKey = 'Ideal customer profile has been determined.';
+	} else {
+		idealCusReco = 'Ideal Customer profile';
+		idealCusRecoKey = 'Ideal customer profile has not been determined.';
+	}
 
-}
-export default Customer
+	let importantCusReco = '';
+	let importantCusRecoKey = '';
+	if (importantCustomer === 'yes') {
+		importantCusReco = 'No recommendation';
+		importantCusRecoKey = 'Most important not determined.';
+	} else {
+		importantCusReco = 'Market Research';
+		importantCusRecoKey = 'Most important customers not determined';
+	}
+
+	let cusResearchReco = '';
+	let cusResearchRecoKey = '';
+	if (customerReaserch === 'yes') {
+		cusResearchReco = 'No recommendation';
+		cusResearchRecoKey = 'Customer research has been done';
+	} else {
+		cusResearchReco = 'Business Research Officer';
+		cusResearchRecoKey = 'Customer research has not been done';
+	}
+
+  //Market Intelligence
+  const [ marketResearch, setMarketResearch ] = React.useState<string>();
+  const [ marketPlaninPlace, setMarketPlaninPlace ] = React.useState<string>();
+  const [ targetNetwork, setTargetNetwork ] = React.useState<string>();
+  const [ postSales, setPostSales ] = React.useState<string>();
+
+  const handleMarketResearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setMarketResearch((event.target as HTMLInputElement).value);
+	};
+  const handleMarketPlaninPlace = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setMarketPlaninPlace((event.target as HTMLInputElement).value);
+	};
+  const handleTargetNetwork = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setTargetNetwork((event.target as HTMLInputElement).value);
+	};
+  const handlePostSales = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setPostSales((event.target as HTMLInputElement).value);
+	};
+
+  let marketResearchReco = '';
+	let marketResearchRecoKey = '';
+	if (marketResearch === 'yes') {
+		marketResearchReco= 'No recommendation';
+		marketResearchRecoKey = 'Customer research has been done';
+	} else {
+		marketResearchReco = 'Business Research Officer';
+    marketResearchRecoKey = 'Customer research has not been done';
+	}
+
+  let marketPlanReco = '';
+	let marketPlanRecoKey = '';
+	if (marketPlaninPlace === 'yes') {
+		marketPlanReco= 'No recommendation';
+		marketPlanRecoKey = 'Customer research has been done';
+	} else {
+		marketPlanReco = 'Business Research Officer';
+    marketPlanRecoKey = 'Customer research has not been done';
+	}
+
+  let targetNetworkReco = '';
+	let targetNetworkRecoKey = '';
+	if (targetNetwork === 'yes') {
+		targetNetworkReco= 'No recommendation';
+		targetNetworkRecoKey = 'Customer research has been done';
+	} else {
+		targetNetworkReco = 'Business Research Officer';
+    targetNetworkRecoKey = 'Customer research has not been done';
+	}
+
+  let postSalesReco = '';
+	let postSalesRecoKey = '';
+	if (postSales === 'yes') {
+		postSalesReco= 'No recommendation';
+		postSalesRecoKey = 'Customer research has been done';
+	} else {
+		postSalesReco = 'Business Research Officer';
+    postSalesRecoKey = 'Customer research has not been done';
+	}
+
+
+  //Cost Structure
+  const [ deliveryCost, setDeliveryCost ] = React.useState<string>();
+  const [ acquiringCost, setAcquiringCost ] = React.useState<string>();
+  const [ customerRelationship, setCustomerRelationship ] = React.useState<string>();
+  const [ marketSegments, setmarketSegments ] = React.useState<string>();
+
+  const handleDeliveryCost = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setDeliveryCost((event.target as HTMLInputElement).value);
+	};
+  const handleAcquiring = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setAcquiringCost((event.target as HTMLInputElement).value);
+	};
+  const handleCustomerRelationship = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setCustomerRelationship((event.target as HTMLInputElement).value);
+	};
+  const handleMarketSegments = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setmarketSegments((event.target as HTMLInputElement).value);
+	};
+
+
+
+
+
+	return (
+		<div className="sell-con">
+			<UserNavbar />
+			<Container>
+				<Grid container spacing={2}>
+					<Grid item xs={12} sm={12} md={4} lg={4}>
+						<Typography>Company</Typography>
+						<Button className="profAdd" variant="outlined">
+							Add Company
+						</Button>
+						<div className="Accords">
+							<div className="sideAccord">
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls="panel1a-content"
+										id="panel1a-header"
+									>
+										<Typography className="">No Name</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<Typography>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+											malesuada lacus ex, sit amet blandit leo lobortis eget.
+										</Typography>
+									</AccordionDetails>
+								</Accordion>
+							</div>
+						</div>
+					</Grid>
+					<Grid item xs={12} sm={12} md={8} lg={8}>
+						<Alert severity="info">Next Step! Complete your Company Assessment.</Alert>
+						<Typography className="biz" variant="h5">
+							Biz Assessment
+						</Typography>
+						<div className="companyBox">
+							<img src={company} alt="comLogo" className="company" />
+							<div className="companyInf">
+								<div className="Location">
+									<Typography>Location</Typography>
+								</div>
+								<div className="indust">
+									<Typography>Industry</Typography>
+								</div>
+								<div className="phase">
+									<Typography>Business Phase</Typography>
+								</div>
+							</div>
+						</div>
+						<div className="questionare">
+							<Accordion>
+								<AccordionSummary
+									expandIcon={<ExpandMoreIcon />}
+									aria-controls="panel2a-content"
+									id="panel2a-header"
+								>
+									<Typography className="">Channels</Typography>
+								</AccordionSummary>
+								<AccordionDetails>
+									<div className="rev">
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Do you know how you are going to reach your customers?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													value={reachCustomer}
+													onChange={handlereachCustomer}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Do you have a marketing plan in place?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													value={marketingPlan}
+													onChange={handleMarketingPlan}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Have you developed a network to reach your target audience?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													value={developedNetwork}
+													onChange={handleDeveloped}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Do you provide post-sales customer support?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													value={customerSupport}
+													onChange={handleCustomerSupport}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+									</div>
+								</AccordionDetails>
+							</Accordion>
+							<Accordion>
+								<AccordionSummary
+									expandIcon={<ExpandMoreIcon />}
+									aria-controls="panel2a-content"
+									id="panel2a-header"
+								>
+									<Typography className="">Customer segment</Typography>
+								</AccordionSummary>
+								<AccordionDetails>
+									<Typography>
+										<div className="cusSegmant-con">
+											<div>
+												<FormControl>
+													<FormLabel id="demo-controlled-radio-buttons-group">
+														Do you know who your product is for?
+													</FormLabel>
+													<RadioGroup
+														aria-labelledby="demo-controlled-radio-buttons-group"
+														name="controlled-radio-buttons-group"
+														value={productOwner}
+														onChange={handleProductOwner}
+													>
+														<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+														<FormControlLabel value="no" control={<Radio />} label="No" />
+													</RadioGroup>
+												</FormControl>
+											</div>
+
+											<div>
+												<FormControl>
+													<FormLabel id="demo-controlled-radio-buttons-group">
+														Do you know who is your target market/audience?
+													</FormLabel>
+													<RadioGroup
+														aria-labelledby="demo-controlled-radio-buttons-group"
+														name="controlled-radio-buttons-group"
+														value={tagetAudiance}
+														onChange={handleTargetAudiance}
+													>
+														<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+														<FormControlLabel value="no" control={<Radio />} label="No" />
+													</RadioGroup>
+												</FormControl>
+											</div>
+
+											<div>
+												<FormControl>
+													<FormLabel id="demo-controlled-radio-buttons-group">
+														Do you know where they are located?
+													</FormLabel>
+													<RadioGroup
+														aria-labelledby="demo-controlled-radio-buttons-group"
+														name="controlled-radio-buttons-group"
+														value={tagetAudianceLocation}
+														onChange={handleTargetAudianceLocation}
+													>
+														<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+														<FormControlLabel value="no" control={<Radio />} label="No" />
+													</RadioGroup>
+												</FormControl>
+											</div>
+
+											<div>
+												<FormControl>
+													<FormLabel id="demo-controlled-radio-buttons-group">
+														Do you know the Total market size?
+													</FormLabel>
+													<RadioGroup
+														aria-labelledby="demo-controlled-radio-buttons-group"
+														name="controlled-radio-buttons-group"
+														value={tagetMarketSize}
+														onChange={handleTargetMarketSize}
+													>
+														<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+														<FormControlLabel value="no" control={<Radio />} label="No" />
+													</RadioGroup>
+												</FormControl>
+											</div>
+
+											<div>
+												<FormControl>
+													<FormLabel id="demo-controlled-radio-buttons-group">
+														Do you know how you are going to reach your Customer?
+													</FormLabel>
+													<RadioGroup
+														aria-labelledby="demo-controlled-radio-buttons-group"
+														name="controlled-radio-buttons-group"
+														value={cusReach}
+														onChange={handleCusReach}
+													>
+														<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+														<FormControlLabel value="no" control={<Radio />} label="No" />
+													</RadioGroup>
+												</FormControl>
+											</div>
+
+											<div>
+												<FormControl>
+													<FormLabel id="demo-controlled-radio-buttons-group">
+														Has the company actively identified a competitor in the market?
+													</FormLabel>
+													<RadioGroup
+														aria-labelledby="demo-controlled-radio-buttons-group"
+														name="controlled-radio-buttons-group"
+														value={competitor}
+														onChange={handleCompetitor}
+													>
+														<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+														<FormControlLabel value="no" control={<Radio />} label="No" />
+													</RadioGroup>
+												</FormControl>
+											</div>
+
+											<div>
+												<FormControl>
+													<FormLabel id="demo-controlled-radio-buttons-group">
+														Do you know how much of your market is accessible?
+													</FormLabel>
+													<RadioGroup
+														aria-labelledby="demo-controlled-radio-buttons-group"
+														name="controlled-radio-buttons-group"
+														value={marketAccess}
+														onChange={handleMarketAccess}
+													>
+														<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+														<FormControlLabel value="no" control={<Radio />} label="No" />
+													</RadioGroup>
+												</FormControl>
+											</div>
+
+											<div>
+												<FormControl>
+													<FormLabel id="demo-controlled-radio-buttons-group">
+														Do you know how much of your market is in your region/locality?
+													</FormLabel>
+													<RadioGroup
+														aria-labelledby="demo-controlled-radio-buttons-group"
+														name="controlled-radio-buttons-group"
+														value={marketLocation}
+														onChange={handleMarketLocation}
+													>
+														<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+														<FormControlLabel value="no" control={<Radio />} label="No" />
+													</RadioGroup>
+												</FormControl>
+											</div>
+
+											<div>
+												<FormControl>
+													<FormLabel id="demo-controlled-radio-buttons-group">
+														Do you have a profile for your ideal customer?
+													</FormLabel>
+													<RadioGroup
+														aria-labelledby="demo-controlled-radio-buttons-group"
+														name="controlled-radio-buttons-group"
+														value={idealCustomer}
+														onChange={handleIdealCustomer}
+													>
+														<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+														<FormControlLabel value="no" control={<Radio />} label="No" />
+													</RadioGroup>
+												</FormControl>
+											</div>
+
+											<div>
+												<FormControl>
+													<FormLabel id="demo-controlled-radio-buttons-group">
+														Do you know who your most important customers are?
+													</FormLabel>
+													<RadioGroup
+														aria-labelledby="demo-controlled-radio-buttons-group"
+														name="controlled-radio-buttons-group"
+														value={importantCustomer}
+														onChange={handleImportantCus}
+													>
+														<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+														<FormControlLabel value="no" control={<Radio />} label="No" />
+													</RadioGroup>
+												</FormControl>
+											</div>
+
+											<div>
+												<FormControl>
+													<FormLabel id="demo-controlled-radio-buttons-group">
+														Do you have a designated Customer Researcher Specialist for
+														this?
+													</FormLabel>
+													<RadioGroup
+														aria-labelledby="demo-controlled-radio-buttons-group"
+														name="controlled-radio-buttons-group"
+														value={customerReaserch}
+														onChange={handleCusResearch}
+													>
+														<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+														<FormControlLabel value="no" control={<Radio />} label="No" />
+													</RadioGroup>
+												</FormControl>
+											</div>
+										</div>
+									</Typography>
+								</AccordionDetails>
+							</Accordion>
+							<Accordion>
+								<AccordionSummary
+									expandIcon={<ExpandMoreIcon />}
+									aria-controls="panel2a-content"
+									id="panel2a-header"
+								>
+									<Typography className="">Market Intelligence</Typography>
+								</AccordionSummary>
+								<AccordionDetails>
+									<div className="rev">
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Does the company conduct market research?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													value={marketResearch}
+													onChange={handleMarketResearch}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Has the company actively identified a competitor in the market?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													value={marketPlaninPlace}
+													onChange={handleMarketPlaninPlace}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Has the company identified a key competitive advantage?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													value={targetNetwork}
+													onChange={handleTargetNetwork}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Do you know the company’s product or service differentiation?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													value={postSales}
+													onChange={handlePostSales}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+									</div>
+								</AccordionDetails>
+							</Accordion>
+							<Accordion>
+								<AccordionSummary
+									expandIcon={<ExpandMoreIcon />}
+									aria-controls="panel2a-content"
+									id="panel2a-header"
+								>
+									<Typography className="">Cost Structure</Typography>
+								</AccordionSummary>
+								<AccordionDetails>
+									<div className="rev">
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Have the costs involved in delivering the key activities been
+													determined?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													// value={companyAd}
+													// onChange={handleCompanyAd}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Have the costs involved in acquiring the key resources been
+													determined?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													// value={effectiveAd}
+													// onChange={handleEffectiveAd}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Do you know the costs involved in maintaining customer
+													relationships?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													// value={planning}
+													// onChange={handlePlanning}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+
+										<div>
+											<FormControl>
+												<FormLabel id="demo-controlled-radio-buttons-group">
+													Do you know the costs involved in determining and acquiring market
+													segments?
+												</FormLabel>
+												<RadioGroup
+													aria-labelledby="demo-controlled-radio-buttons-group"
+													name="controlled-radio-buttons-group"
+													// value={priceStrategy}
+													// onChange={handlePriceStrategy}
+												>
+													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
+													<FormControlLabel value="no" control={<Radio />} label="No" />
+												</RadioGroup>
+											</FormControl>
+										</div>
+									</div>
+								</AccordionDetails>
+							</Accordion>
+						</div>
+					</Grid>
+				</Grid>
+			</Container>
+		</div>
+	);
+};
+export default Customer;
