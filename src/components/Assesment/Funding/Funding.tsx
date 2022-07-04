@@ -28,56 +28,56 @@ const Funding = () => {
     function Alert(props : any) {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
       }
-      // const createReport = async () =>{
-      //   const payload = {
-      //    "segment": "customer",
-      //    "userId": user?.id,
-      //    "segmentResponses": {
-      //     "Channels": [{"key"   :  reachCusRecoKey ,"value": reachCusReco},
-      //                   {"key"  :  marketingPlanRecoKey ,"value": marketingPlanReco},
-      //                   { "key" :  developedNetworkRecoKey , "value" : developedNetworkReco}, 
-      //                   { "key" :  cusSupportRecoKey , "value" : cusSupportReco},
+      const createReport = async () =>{
+        const payload = {
+         "segment": "customer",
+         "userId": user?.id,
+         "segmentResponses": {
+          "Channels": [{"key"   :  reachCusRecoKey ,"value": reachCusReco},
+                        {"key"  :  marketingPlanRecoKey ,"value": marketingPlanReco},
+                        { "key" :  developedNetworkRecoKey , "value" : developedNetworkReco}, 
+                        { "key" :  cusSupportRecoKey , "value" : cusSupportReco},
                         
-      //     ],
-      //      "Customer": [{"key": productRecoKey ,"value": productReco},
-      //                    {"key": targetRecoKey ,"value": targetReco},
-      //                    {"key": targetLocRecoKey , "value": targetLocReco },
-      //                    {"key": targetSizeRecoKey ,"value": targetSizeReco},
-      //                    {"key": reacRecoKey,"value": reacReco},
-      //                    {"key": competitorRecoKey ,"value": competitorReco},
-      //                    {"key": accessRecoKey, "value": accessReco },
-      //                    {"key": marketLocRecoKey,"value": marketLocReco},
-      //                    {"key": idealCusRecoKey,"value": idealCusReco},
-      //                    {"key": importantCusRecoKey, "value": importantCusReco},
-      //                    {"key": cusResearchRecoKey, "value": cusResearchReco }
-      //                  ],
-      //      "Revenue": [{"key"   :  generatingRecoKey ,"value": generatingReco},
-      //                  {"key"  :  willingRecoKey ,"value": willingReco},
-      //                  { "key" :  cusPaymentRecoKey  , "value" : cusPaymentReco}, 
-      //                  { "key" :  preferedRecoKey , "value" : preferedReco},
+          ],
+           "Customer": [{"key": productRecoKey ,"value": productReco},
+                         {"key": targetRecoKey ,"value": targetReco},
+                         {"key": targetLocRecoKey , "value": targetLocReco },
+                         {"key": targetSizeRecoKey ,"value": targetSizeReco},
+                         {"key": reacRecoKey,"value": reacReco},
+                         {"key": competitorRecoKey ,"value": competitorReco},
+                         {"key": accessRecoKey, "value": accessReco },
+                         {"key": marketLocRecoKey,"value": marketLocReco},
+                         {"key": idealCusRecoKey,"value": idealCusReco},
+                         {"key": importantCusRecoKey, "value": importantCusReco},
+                         {"key": cusResearchRecoKey, "value": cusResearchReco }
+                       ],
+           "Revenue": [{"key"   :  generatingRecoKey ,"value": generatingReco},
+                       {"key"  :  willingRecoKey ,"value": willingReco},
+                       { "key" :  cusPaymentRecoKey  , "value" : cusPaymentReco}, 
+                       { "key" :  preferedRecoKey , "value" : preferedReco},
                       
-      //      ],
-      //      "Value": [{"key"  : problemRecoKey ,"value": problemReco},
-      //                {"key"  : problemRecoKey,"value": cusValueReco},
-      //                { "key" : problemRecoKey, "value" : needsReco}, 
-      //                { "key" :uniqueRecoKey , "value" : uniqueReco},
-      //                { "key" :elevatorRecoKey , "value" : elevatorReco}, 
-      //        ],
-      //          "Financial": [{"key"   :  budgetRecoKey  ,"value": budgetReco },
-      //                         {"key"  :  reconsiliationRecoKey ,"value": reconsiliationReco},
-      //                         { "key" :  cashFlowRecoKey  , "value" : cashFlowReco}, 
-      //                         { "key" :  documentRecoKey  , "value" : documentReco},
-      //                         { "key" :  financialManagerRecoKey  , "value" : financialManagerReco  }, 
-      //             ],
-      //             "Proof": [{"key": proofOfConceptRecoKey, "value": proofOfConceptReco},]
+           ],
+           "Value": [{"key"  : problemRecoKey ,"value": problemReco},
+                     {"key"  : problemRecoKey,"value": cusValueReco},
+                     { "key" : problemRecoKey, "value" : needsReco}, 
+                     { "key" :uniqueRecoKey , "value" : uniqueReco},
+                     { "key" :elevatorRecoKey , "value" : elevatorReco}, 
+             ],
+               "Financial": [{"key"   :  budgetRecoKey  ,"value": budgetReco },
+                              {"key"  :  reconsiliationRecoKey ,"value": reconsiliationReco},
+                              { "key" :  cashFlowRecoKey  , "value" : cashFlowReco}, 
+                              { "key" :  documentRecoKey  , "value" : documentReco},
+                              { "key" :  financialManagerRecoKey  , "value" : financialManagerReco  }, 
+                  ],
+                  "Proof": [{"key": proofOfConceptRecoKey, "value": proofOfConceptReco},]
        
-      //    } 
+         } 
         
        
-      //  } as IFunding
-      //    const result = await Api.POST_CreateRecommendation(payload)
-      //    console.log('Result is' , result) 
-      // }
+       } as IFunding
+         const result = await Api.POST_CreateFundingRecommendation(payload)
+         console.log('Result is' , result) 
+      }
       
 
       //Channels
@@ -618,8 +618,8 @@ const Funding = () => {
                     <RadioGroup
                         aria-labelledby="demo-controlled-radio-buttons-group"
                         name="controlled-radio-buttons-group"
-                        // value={companyAd}
-                        // onChange={handleCompanyAd}
+                        value={reachCustomer}
+                        onChange={handlereachCustomer}
                     >
                         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                         <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -635,8 +635,8 @@ const Funding = () => {
                     <RadioGroup
                         aria-labelledby="demo-controlled-radio-buttons-group"
                         name="controlled-radio-buttons-group"
-                        // value={effectiveAd}
-                        // onChange={handleEffectiveAd}
+                        value={marketingPlan}
+                        onChange={handleMarketingPlan}
                     >
                         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                         <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -652,8 +652,8 @@ const Funding = () => {
                     <RadioGroup
                         aria-labelledby="demo-controlled-radio-buttons-group"
                         name="controlled-radio-buttons-group"
-                        // value={planning}
-                        // onChange={handlePlanning}
+                        value={developedNetwork}
+                        onChange={handleDeveloped}
                     >
                         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                         <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -669,8 +669,8 @@ const Funding = () => {
                     <RadioGroup
                         aria-labelledby="demo-controlled-radio-buttons-group"
                         name="controlled-radio-buttons-group"
-                        // value={priceStrategy}
-                        // onChange={handlePriceStrategy}
+                        value={customerSupport}
+                        onChange={handleCustomerSupport}
                     >
                         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                         <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -699,8 +699,8 @@ const Funding = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            // value={productOwner}
-                            // onChange={handleProductOwner}
+                            value={productOwner}
+                            onChange={handleProductOwner}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -716,8 +716,8 @@ const Funding = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            // value={tagetAudiance}
-                            // onChange={handleTargetAudiance}
+                            value={tagetAudiance}
+                            onChange={handleTargetAudiance}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -733,8 +733,8 @@ const Funding = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            // value={tagetAudianceLocation}
-                            // onChange={handleTargetAudianceLocation}
+                            value={tagetAudianceLocation}
+                            onChange={handleTargetAudianceLocation}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -750,8 +750,8 @@ const Funding = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            // value={tagetMarketSize}
-                            // onChange={handleTargetMarketSize}
+                            value={tagetMarketSize}
+                            onChange={handleTargetMarketSize}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -767,8 +767,8 @@ const Funding = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            // value={cusReach}
-                            // onChange={handleCusReach}
+                            value={cusReach}
+                            onChange={handleCusReach}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -784,8 +784,8 @@ const Funding = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            // value={competitor}
-                            // onChange={handleCompetitor}
+                            value={competitor}
+                            onChange={handleCompetitor}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -801,8 +801,8 @@ const Funding = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            // value={marketAccess}
-                            // onChange={handleMarketAccess}
+                            value={marketAccess}
+                            onChange={handleMarketAccess}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -818,8 +818,8 @@ const Funding = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            // value={marketLocation}
-                            // onChange={handleMarketLocation}
+                            value={marketLocation}
+                            onChange={handleMarketLocation}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -835,8 +835,8 @@ const Funding = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            // value={idealCustomer}
-                            // onChange={handleIdealCustomer}
+                            value={idealCustomer}
+                            onChange={handleIdealCustomer}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -852,8 +852,8 @@ const Funding = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            // value={importantCustomer}
-                            // onChange={handleImportantCus}
+                            value={importantCustomer}
+                            onChange={handleImportantCus}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -869,8 +869,8 @@ const Funding = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            // value={customerReaserch}
-                            // onChange={handleCusResearch}
+                            value={customerReaserch}
+                            onChange={handleCusResearch}
                         >
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -899,8 +899,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={companyAd}
-                    // onChange={handleCompanyAd}
+                    value={generatingRevenue}
+                    onChange={handleGenerating}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -916,8 +916,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={effectiveAd}
-                    // onChange={handleEffectiveAd}
+                    value={willingPay}
+                    onChange={handleWilling}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -933,8 +933,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={planning}
-                    // onChange={handlePlanning}
+                    value={cusPaymentMethod}
+                    onChange={handleCusPayment}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -950,8 +950,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={priceStrategy}
-                    // onChange={handlePriceStrategy}
+                    value={preferedPayment}
+                    onChange={handlePrefered}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -980,8 +980,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={problem}
-                    // onChange={handleProblem}
+                    value={problem}
+                    onChange={handleProblem}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -997,8 +997,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={cusValue}
-                    // onChange={handleCusValue}
+                    value={cusValue}
+                    onChange={handleCusValue}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -1014,8 +1014,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={needsSatisfied}
-                    // onChange={handleNeeds}
+                    value={needsSatisfied}
+                    onChange={handleNeeds}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -1031,8 +1031,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={productUniqueness}
-                    // onChange={handleProductUnique}
+                    value={productUniqueness}
+                    onChange={handleProductUnique}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -1048,8 +1048,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={elevatorPitch}
-                    // onChange={handleElevator}
+                    value={elevatorPitch}
+                    onChange={handleElevator}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -1078,8 +1078,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={problem}
-                    // onChange={handleProblem}
+                    value={budgetForecast}
+                    onChange={handleBudget}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -1095,8 +1095,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={cusValue}
-                    // onChange={handleCusValue}
+                    value={reconsiliation}
+                    onChange={handleReconsiliation}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -1112,8 +1112,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={needsSatisfied}
-                    // onChange={handleNeeds}
+                    value={cashFlow}
+                    onChange={handleCashFlow}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -1129,8 +1129,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={productUniqueness}
-                    // onChange={handleProductUnique}
+                    value={documentFinancials}
+                    onChange={handleDocument}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -1146,8 +1146,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={elevatorPitch}
-                    // onChange={handleElevator}
+                    value={FinancialManager}
+                    onChange={handleManager}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -1175,8 +1175,8 @@ const Funding = () => {
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
-                    // value={bizModel}
-                    // onChange={handleBizModel}
+                    value={proofOfConcept}
+                    onChange={handleProof}
                   >
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -1186,6 +1186,15 @@ const Funding = () => {
             </div>
           </AccordionDetails>
         </Accordion>
+        <Button 
+            variant='outlined'
+            className='AssesSave'
+            onClick={() => createReport()}
+            
+        >
+          <Link to='/Report'>Save</Link>
+        
+        </Button> 
         </div>
         </Grid>
         </Grid>
