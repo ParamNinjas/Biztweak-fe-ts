@@ -3,7 +3,11 @@ import logo from '../Images/logo.png'
 import { Link } from 'react-router-dom'
 import './sideNav.css'
 
-
+const linkStyle = {
+    margin: "1rem",
+    textDecoration: "none", 
+    color: 'white'
+  };
 
 const Side =() => {
 
@@ -14,7 +18,7 @@ const Side =() => {
              <ul>
                 <li>Dashboard</li>
                 <li> Users</li>
-                <li> <Link to='/AddAdmin'>Admin Users</Link> </li>
+                <li> <Link to='/AddAdmin' style={linkStyle}>Admin Users</Link> </li>
                 <li>Root Admin</li>
              </ul>
             </div>

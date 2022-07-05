@@ -14,7 +14,7 @@ import './AdminDash.css';
 
 const linkStyle = {
   margin: "1rem",
-  textDecoration: "none",
+  textDecoration: "none", 
   color: 'white'
 };
 

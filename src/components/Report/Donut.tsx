@@ -53,7 +53,7 @@ const Donut = () => {
    
   }) 
   const data2 = [
-    { name: 'Group A', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 },
+    { name: 'Group A', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 }, 
     { name: 'Group B', value: typeof filteredMarkNeg !== "undefined" ? filteredMarkNeg.length : 0  },
   ];
 

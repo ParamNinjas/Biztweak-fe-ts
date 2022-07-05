@@ -40,6 +40,12 @@ const Dashboard = () => {
     const [bizInd, setBizind] = useState([])
     const [bizPhase, setBizPhase] = useState([])
 
+    // const navigationFunction = () => {
+    //     if(bizPhaseList.value === 0 ){
+    //         navigate('/AssesSell');
+    //     } else if()
+    // }
+
   const handleClickOpen = () => {
     setOpen(true);
   };

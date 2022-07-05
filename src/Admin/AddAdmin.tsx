@@ -7,6 +7,7 @@ import signin from '../Images/signin.png'
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Navbar from "../components/Navbar/Navbar";
+import pop2 from "../Images/pop2.png"
 import '../Signup/Signup.css'
 
 
@@ -56,9 +57,9 @@ const AddAdmin=()=>{
                 <Grid item xs={12} sm={12} md={5} lg={5}>
                     <div className="imagegrid">
                         <img
-                            src={signin}
-                            alt='signin'
-                            className='signinIMG' 
+                            src={pop2}
+                            alt='ad'
+                            className='addminIMG' 
                         />
                     </div>
                 </Grid>

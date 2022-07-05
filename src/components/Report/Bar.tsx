@@ -55,34 +55,34 @@ const  Bargraph = () => {
  
     const data = [
       {
-        name: 'Customer',
-        uv: filteredCusPos.length,
+        name: 'Customer', 
+        uv: typeof filteredCusPos !== "undefined" ? filteredCusPos.length : 0,
       },
       {
         name: 'Market',
-        uv: filteredMarkPos.length,
+        uv: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 ,
       },
       {
         name: 'Value',
-        uv: filteredValPos.length,
+        uv: typeof filteredValPos !== "undefined" ? filteredValPos.length : 0,
       },
       {
         name: 'Activities',
-        uv: filteredActPos.length,
+        uv: typeof filteredActPos !== "undefined" ? filteredActPos.length : 0 ,
       },
       {
         name: 'Resources',
-        uv: filteredResPos.length,
+        uv: typeof filteredResPos !== "undefined" ? filteredResPos.length : 0,
       },
     ];
     const data2 = [
       {
         name: 'Customer positive',
-        uv: filteredCusPos.length,
+        uv: typeof filteredCusPos !== "undefined" ? filteredCusPos.length : 0,
       },
       {
         name: 'Customer Negative',
-        uv: filteredCusNeg.length,
+        uv: typeof filteredCusNeg !== "undefined" ? filteredCusNeg.length : 0,
       },
     
   
