@@ -16,14 +16,61 @@ import FormLabel from '@mui/material/FormLabel';
 import { Link } from 'react-router-dom';
 import { createSlice } from '@reduxjs/toolkit';
 import { Api } from '../../../services/endpoints';
-import { IRecomendation } from '../../../Interfaces/IRecomendation';
+import { IRecomendation, ICustomer } from '../../../Interfaces/IRecomendation';
 import { supabase } from '../../../supabaseClient';
 import '../Assessment.css';
 
 const Customer = () => {
+	const user = supabase.auth.user()
 	function Alert(props: any) {
 		return <MuiAlert elevation={6} variant="filled" {...props} />;
 	}
+
+
+
+  const createReport = async () =>{
+    const payload = {
+     "segment": "customer",
+     "userId": user?.id,
+     "segmentResponses": {
+      "Channels": [{"key"   :  reachCusRecoKey ,"value": reachCusReco},
+                    {"key"  :  marketingPlanRecoKey ,"value": marketingPlanReco},
+                    { "key" :  developedNetworkRecoKey , "value" : developedNetworkReco}, 
+                    { "key" :  cusSupportRecoKey , "value" : cusSupportReco},
+                    
+      ],
+       "Customer": [{"key": productRecoKey ,"value": productReco},
+                     {"key": targetRecoKey ,"value": targetReco},
+                     {"key": targetLocRecoKey , "value": targetLocReco },
+                     {"key": targetSizeRecoKey ,"value": targetSizeReco},
+                     {"key": reacRecoKey,"value": reacReco},
+                     {"key": competitorRecoKey ,"value": competitorReco},
+                     {"key": accessRecoKey, "value": accessReco },
+                     {"key": marketLocRecoKey,"value": marketLocReco},
+                     {"key": idealCusRecoKey,"value": idealCusReco},
+                     {"key": importantCusRecoKey, "value": importantCusReco},
+                     {"key": cusResearchRecoKey, "value": cusResearchReco }
+                   ],
+       "MarketInt": [{"key"   :  marketResearchRecoKey ,"value": marketResearchReco},
+                   {"key"  :  marketPlanRecoKey ,"value": marketPlanReco},
+                   { "key" :  targetNetworkRecoKey  , "value" : targetNetworkReco}, 
+                   { "key" :  postSalesRecoKey , "value" : postSalesReco},
+                  
+       ],
+       "Cost": [{"key"  : deliveryCostRecoKey ,"value": deliveryCostReco},
+                 {"key"  : acquiringCostRecoKey,"value": acquiringCostReco},
+                 { "key" : cusRelationshipRecoKey, "value" : cusRelationshipReco}, 
+                 { "key" :marketSegmentsRecoKey , "value" : marketSegmentsReco},
+         ],
+     } 
+    
+   
+   } as ICustomer
+     const result = await Api.POST_CreateCustomerRecommendation(payload)
+     console.log('Result is' , result) 
+  }
+
+  
 	//Channels
 	const [ reachCustomer, setReachCustomer ] = React.useState<string>();
 	const [ marketingPlan, setMarketingPlan ] = React.useState<string>();
@@ -322,6 +369,47 @@ const Customer = () => {
   const handleMarketSegments = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setmarketSegments((event.target as HTMLInputElement).value);
 	};
+
+  let deliveryCostReco = '';
+	let deliveryCostRecoKey = '';
+	if (deliveryCost === 'yes') {
+		deliveryCostReco= 'No recommendation';
+		deliveryCostRecoKey = 'Cos of sales has been determined.';
+	} else {
+		deliveryCostReco = 'Business Research Officer';
+    deliveryCostRecoKey = 'Cost of sales not determined';
+	}
+
+  let acquiringCostReco = '';
+	let acquiringCostRecoKey = '';
+	if (acquiringCost === 'yes') {
+		acquiringCostReco= 'No recommendation';
+		acquiringCostRecoKey = 'Cos of sales has been determined.';
+	} else {
+		acquiringCostReco = 'Business Research Officer';
+    acquiringCostRecoKey = 'Cost of sales not determined';
+	}
+
+  let cusRelationshipReco = '';
+	let cusRelationshipRecoKey = '';
+	if (customerRelationship === 'yes') {
+		cusRelationshipReco= 'No recommendation';
+		cusRelationshipRecoKey = 'Cost of customer retention not determined';
+	} else {
+		cusRelationshipReco = 'Business Research Officer';
+    cusRelationshipRecoKey = 'Cost of customer retention not determined';
+	}
+
+  let marketSegmentsReco = '';
+	let marketSegmentsRecoKey = '';
+	if (marketSegments === 'yes') {
+		marketSegmentsReco= 'No recommendation';
+		marketSegmentsRecoKey = 'cost of market penetration has been determined.';
+	} else {
+		marketSegmentsReco = 'Business Research Officer';
+    marketSegmentsRecoKey = 'Cost of market penetration not determined';
+	}
+
 
 
 
@@ -758,8 +846,8 @@ const Customer = () => {
 												<RadioGroup
 													aria-labelledby="demo-controlled-radio-buttons-group"
 													name="controlled-radio-buttons-group"
-													// value={companyAd}
-													// onChange={handleCompanyAd}
+													value={deliveryCost}
+													onChange={handleDeliveryCost}
 												>
 													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
 													<FormControlLabel value="no" control={<Radio />} label="No" />
@@ -776,8 +864,8 @@ const Customer = () => {
 												<RadioGroup
 													aria-labelledby="demo-controlled-radio-buttons-group"
 													name="controlled-radio-buttons-group"
-													// value={effectiveAd}
-													// onChange={handleEffectiveAd}
+													value={acquiringCost}
+													onChange={handleAcquiring}
 												>
 													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
 													<FormControlLabel value="no" control={<Radio />} label="No" />
@@ -794,8 +882,8 @@ const Customer = () => {
 												<RadioGroup
 													aria-labelledby="demo-controlled-radio-buttons-group"
 													name="controlled-radio-buttons-group"
-													// value={planning}
-													// onChange={handlePlanning}
+													value={customerRelationship}
+													onChange={handleCustomerRelationship}
 												>
 													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
 													<FormControlLabel value="no" control={<Radio />} label="No" />
@@ -812,8 +900,8 @@ const Customer = () => {
 												<RadioGroup
 													aria-labelledby="demo-controlled-radio-buttons-group"
 													name="controlled-radio-buttons-group"
-													// value={priceStrategy}
-													// onChange={handlePriceStrategy}
+													value={marketSegments}
+													onChange={handleMarketSegments}
 												>
 													<FormControlLabel value="yes" control={<Radio />} label="Yes" />
 													<FormControlLabel value="no" control={<Radio />} label="No" />
@@ -823,7 +911,17 @@ const Customer = () => {
 									</div>
 								</AccordionDetails>
 							</Accordion>
+							<Button 
+							variant='outlined'
+							className='AssesSave'
+							onClick={() => createReport()}
+							
+							>
+							<Link to='/Report'>Save</Link>
+							
+							</Button>
 						</div>
+						
 					</Grid>
 				</Grid>
 			</Container>
