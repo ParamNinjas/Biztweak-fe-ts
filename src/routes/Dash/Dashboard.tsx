@@ -32,19 +32,24 @@ const Dashboard = () => {
         {value:2, label: 'Fashion/ Retail'},
     ])
     const [bizPhaseList, setBizPhaseList] = useState([
-        {value:0, label: 'I want to sell'},
+        {value:1, label: 'I want to sell'},
         {value:2, label: 'I want to learn how to find customers'},
         {value:3, label: 'I want to learn how to fundraise'},
     ])
 
-    const [bizInd, setBizind] = useState([])
-    const [bizPhase, setBizPhase] = useState([])
+    const [bizInd, setBizind] = useState<string>('')
+    const [bizPhase, setBizPhase] = useState<string>('')
 
-    // const navigationFunction = () => {
-    //     if(bizPhaseList.value === 0 ){
-    //         navigate('/AssesSell');
-    //     } else if()
-    // }
+    const NavigateFunc = () => {
+        if(bizPhase == '1'){
+            navigate('/AssesSales');
+        } else if(bizPhase == '2'){
+            navigate('/Customer');
+        } else {
+            navigate('/Funding');
+        }
+        console.log('BizPhase is =' , bizPhase)
+    }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -145,6 +150,7 @@ const Dashboard = () => {
                     <div className="dropdown2">
                     <select 
                             className='dropdownItem2' 
+                            onChange={(e) => {setBizPhase(e.target.value)}}
                         
                             >
                                 
@@ -162,10 +168,9 @@ const Dashboard = () => {
                     <Button 
                         className='popSave'
                         variant='outlined'
-                        style={linkStyle}
-                        onClick={handleClose}
+                        onClick={(e) => NavigateFunc()}
                         >
-                        <Link to='/Funding'>Save</Link>
+                        Save
                         
                     </Button>
                     </DialogActions>

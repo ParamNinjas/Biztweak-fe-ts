@@ -45,19 +45,19 @@ const Report = () => {
 
       // Filtered Data
     
-       const filtered = allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
+       const filtered = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
         return seg.value !== "No recommendation"
        
       }) 
     //   console.log('filtered list', filtered)
 
-      const filteredMark = allRecommendations[0]?.segmentResponses.Market.filter(seg => {
+      const filteredMark = allRecommendations[0]?.segmentResponses.Market && allRecommendations[0]?.segmentResponses.Market.filter(seg => {
         return seg.value !== "No recommendation"
        
       }) 
     //   console.log('filtered listm', filteredMark)
 
-      const filteredVal = allRecommendations[0]?.segmentResponses.Value.filter(seg => {
+      const filteredVal = allRecommendations[0]?.segmentResponses.Value && allRecommendations[0]?.segmentResponses.Value.filter(seg => {
         return seg.value !== "No recommendation"
        
       }) 
@@ -129,7 +129,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Customer.map(
+                                                reco.segmentResponses.Customer && reco.segmentResponses.Customer.map(
                                                    cusList => {
                                                     const recoColor = cusList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
@@ -179,7 +179,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Market.map(
+                                                reco.segmentResponses.Market && reco.segmentResponses.Market.map(
                                                    markList => {
                                                     const recoColor = markList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
@@ -213,7 +213,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Customer.map(
+                                                reco.segmentResponses.Customer && reco.segmentResponses.Customer.map(
                                                    cusList => {
                                                     const recoColor = cusList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
@@ -281,7 +281,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Market.map(
+                                                reco.segmentResponses.Market &&  reco.segmentResponses.Market.map(
                                                    markList => {
                                                     const recoColor = markList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
@@ -411,7 +411,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Resources.map(
+                                                reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
                                                    resList => {
                                                        return (
                                                            <>
@@ -483,7 +483,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Resources.map(
+                                                reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
                                                    resList => {
                                                        return (
                                                            <>
@@ -516,7 +516,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Activities.map(
+                                                reco.segmentResponses.Activities &&  reco.segmentResponses.Activities.map(
                                                    actList => {
                                                        return (
                                                            <>

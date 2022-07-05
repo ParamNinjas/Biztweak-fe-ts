@@ -28,11 +28,11 @@ const Donut = () => {
    
   });
 // Customer Pie
-  const filteredCusPos = allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
+  const filteredCusPos = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
     return seg.value !== "No recommendation"
    
   }) 
-  const filteredCusNeg = allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
+  const filteredCusNeg = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
     return seg.value === "No recommendation"
    
   }) 

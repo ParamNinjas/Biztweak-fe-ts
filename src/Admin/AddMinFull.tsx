@@ -4,13 +4,13 @@ import Container from '@material-ui/core/Container';
 import { Typography, Button } from "@material-ui/core";
 import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
+import SearchBar from "material-ui-search-bar";
+import SideN from "./AdminComponents/Side/Side";
 import Search from "./AdminTop";
-import Side from "./sideNav";
 import UserList from "./List";
 import { Api } from '../services/endpoints'; 
 import { IProfile, IRecomendation } from "../Interfaces/IRecomendation";
 import { BarChart, Bar, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import Icon from '@material-ui/core/Icon';
 import './AdminDash.css'   
 
 
@@ -22,7 +22,7 @@ const linkStyle = {
 
 
 
-const Admin=() => {
+const AdminFull=() => {
     const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
     const [allProfiles, setAllProfiles] = useState<IProfile[]>([]);
     const test = async () =>{
@@ -128,7 +128,7 @@ const Admin=() => {
                 </div>
                 <Grid container spacing={2}>
                 <Grid item xs={12} sm={12} md={2} lg={2}>
-                    <Side/>
+                    <SideN/>
                 </Grid>
                     <Grid item xs={12} sm={12} md={7} lg={7}>
                         <div className="Assesments">
@@ -137,7 +137,6 @@ const Admin=() => {
                                     <Typography>Completed Assesments</Typography>
                                 </div>
                                 <div className="inComAsses">
-                                {/* <Icon color="secondary">circle</Icon> */}
                                 <Typography className="num">0</Typography>
                                 <Typography>incomplete Assesments</Typography>
                                 </div>
@@ -182,7 +181,7 @@ const Admin=() => {
                                     <BarChart
                                     width={500}
                                     height={300}
-                                    data={data2}
+                                    data={data}
                                     margin={{
                                         top: 5,
                                         right: 30,
@@ -229,7 +228,7 @@ const Admin=() => {
                                 </Button>
                           </div>
                         </div>
-                        <div className="prof">
+                        {/* <div className="prof">
                             <Typography className="proftxt">Profiles by registered</Typography>
                             <div className="SeeMore">
                               <Link to='/List'>See All Profiles {'>'}</Link>
@@ -237,7 +236,7 @@ const Admin=() => {
                             <div className="list">
                                 <UserList/>
                             </div>
-                        </div>
+                        </div> */}
                     </Grid>
                       <Grid item xs={12} sm={12} md={3} lg={3}>
                     <div className="SeeMoreU">
@@ -275,7 +274,7 @@ const Admin=() => {
                             <Button
                                   className="phase3BTN"
                                   variant="outlined"
-                                >Get Customers
+                                >Get Funding
                                 </Button>
                             </div>
                             
@@ -291,4 +290,4 @@ const Admin=() => {
 
 }
 
-export default Admin
+export default AdminFull
