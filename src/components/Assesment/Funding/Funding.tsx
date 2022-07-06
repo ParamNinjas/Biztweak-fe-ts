@@ -18,6 +18,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Api } from '../../../services/endpoints';
 import { IFunding, IRecomendation } from '../../../Interfaces/IRecomendation'
 import { supabase } from '../../../supabaseClient';
+import Footernew from "../../Footer/Footernew";
 import '../Assessment.css'
 
 
@@ -1199,6 +1200,9 @@ const Funding = () => {
         </Grid>
         </Grid>
         </Container>
+        <div className="footAs">
+          <Footernew/>
+        </div>
         </div>
     )
 

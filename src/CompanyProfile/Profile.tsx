@@ -16,6 +16,7 @@ import FormLabel from "@mui/material/FormLabel";
 import RadioGroup from "@mui/material/RadioGroup";
 import { Api } from '../services/endpoints';
 import './Profile.css';
+import Footernew from "../components/Footer/Footernew";
 import { ICompany } from "src/Interfaces/IRecomendation";
 
 
@@ -202,6 +203,9 @@ const Profile = () => {
                     </Grid>
                 </div>
             </Container>
+            <div className="footProf">
+                <Footernew/>
+            </div>
         </div>
         
     )

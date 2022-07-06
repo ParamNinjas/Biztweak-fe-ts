@@ -176,7 +176,9 @@ const Dashboard = () => {
                     </DialogActions>
                 </Dialog>
             </div>
-          
+          <div className='footerD'>
+            <Footernew/>
+          </div>
         </div>
       
         </>

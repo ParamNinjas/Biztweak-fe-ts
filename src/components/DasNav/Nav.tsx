@@ -5,6 +5,12 @@ import logo from '../../Images/bizlogo.png'
 import { Button } from '@material-ui/core';
 import './Navbar.css';
 
+const linkStyle = {
+    margin: "1rem",
+    textDecoration: "none", 
+    color: 'black'
+  };
+
 const DashNav = () => {
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
@@ -25,10 +31,10 @@ const DashNav = () => {
             <Link to='/'><img src={logo} alt="Logo" width='170px' height='auto' /></Link>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li>
-                    <Link to='/Dashboard'>Home</Link>
+                    <Link to='/Dashboard' style={linkStyle}>Home</Link>
                 </li>
                 <li>
-                    <Link to='/blog'>Blog</Link>
+                    <Link to='/blog' style={linkStyle}>Blog</Link>
                 </li>
                 {/* <li>
                     <Link to='/about'>About Us</Link>

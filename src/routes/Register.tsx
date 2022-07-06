@@ -9,9 +9,14 @@ import signin from '../Images/signin.png'
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Navbar from "../components/Navbar/Navbar";
+import Footernew from '../components/Footer/Footernew';
 import '../Signup/Signup.css'
 
-
+const linkStyle = {
+	margin: "1rem",
+	textDecoration: "none", 
+	color: 'black'
+  };
 const Signup=()=>{
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -118,14 +123,16 @@ const Signup=()=>{
                                 Signup
                         </Button>
                             <div className="haveAcc">
-                            <Link to='/login'>Already have an account</Link>
+                            <Link to='/login' style={linkStyle}>Already have an account</Link>
                             </div>
                     </div>
                 </Grid>
             </Grid>    
       
         </Container>  
-  
+        <div className='footsz'>
+                  <Footernew/>
+                </div>
         </div>
     )
 }

@@ -13,6 +13,7 @@ import { IRecomendation } from '../../Interfaces/IRecomendation';
 import Bargraph from './Bar';
 import { Link } from 'react-router-dom';
 import Donut from './Donut';
+import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
 
 
@@ -28,18 +29,19 @@ const Report = () => {
         setAllRecommendations(result)
         setInitialize(true)
       }
-    // console.log('Report ID', user?.id)
-    // const getReco = async () => {
-    //   const { data, error } = await supabase
-    //   .from('Recommendations')
-    //   .select('*')
-    //   .eq('Recomendations?.userId', 'user?.id')
-    // }
-    
+    console.log('Report ID', user?.id,)
+    const getReco = async () => {
+      const { data, error } = await supabase
+      .from('Recomendations')
+      .select('*')
+      .eq('Recomendations?.userId', 'user?.id')
+      console.log("user data", data)
+    }
+  
 
     useEffect(() => {
       test()
-     
+     getReco();
     });
       
 
@@ -103,10 +105,10 @@ const Report = () => {
                    <Typography variant='h3'>Report Summary</Typography>
                    <Typography>Company</Typography>
                     <div className='pChart'>
-                        <Donut/>
+                        {/* <Donut/> */}
                     </div>
                     <div className='bGraph'>
-                        {<Bargraph/>}
+                        {/* {<Bargraph/>} */}
                     </div>
                     <Typography variant='h5'>Full Summary</Typography>
                   
@@ -555,6 +557,9 @@ const Report = () => {
                     </Grid>
                    
 
+                </div>
+                <div className='foot'>
+                  <Footernew/>
                 </div>
             </Container>
         </div>

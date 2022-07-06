@@ -18,6 +18,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Api } from '../../../services/endpoints';
 import { IRecomendation, ICustomer } from '../../../Interfaces/IRecomendation';
 import { supabase } from '../../../supabaseClient';
+import Footernew from '../../Footer/Footernew';
 import '../Assessment.css';
 
 const Customer = () => {
@@ -925,6 +926,9 @@ const Customer = () => {
 					</Grid>
 				</Grid>
 			</Container>
+			<div className='footCus'>
+				<Footernew/>
+			</div>
 		</div>
 	);
 };

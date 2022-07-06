@@ -146,7 +146,7 @@ const Admin=() => {
                                 <Typography>Total Assesments</Typography>
                                 </div>
                                 <div className="totUsers">
-                                <Typography className="num">3</Typography>
+                                <Typography className="num">8</Typography>
                                 <Typography>Total Users</Typography>
                                 </div>
                         </div>
@@ -267,7 +267,7 @@ const Admin=() => {
                                 <Button
                                   className="phase1BTN"
                                   variant="outlined"
-                                >Get Customers
+                                >Get Funding
                                 </Button>
                               </div>
                             </div>
