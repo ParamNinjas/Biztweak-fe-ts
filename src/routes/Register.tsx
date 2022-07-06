@@ -99,17 +99,21 @@ const Signup=()=>{
                         </div>
                         <div className="input1">
                             <TextField 
-                                    id="filled-basic"  
-                                    label="Password" 
-                                    variant="filled" 
-                                    fullWidth
-                                    onChange={(e)=> setPassword(e.target.value)}
+                                id="outlined-password-input"
+                                label="Password"
+                                type="password"
+                                autoComplete="current-password"
+                                variant="filled" 
+                                fullWidth
+                                onChange={(e)=> setPassword(e.target.value)}
                             />
                         </div>
                         <div className="input1">
                            <TextField 
-                                id="filled-basic"  
-                                label="Confirm Password" 
+                                id="outlined-password-input"
+                                label="Password"
+                                type="password"
+                                autoComplete="current-password"
                                 variant="filled" 
                                 fullWidth
                                 onChange={(e)=> setPassword(e.target.value)}

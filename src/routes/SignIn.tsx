@@ -99,8 +99,10 @@ const Login = () => {
 							</div>
 							<div className="input1">
 								<TextField
-									id="filled-basic"
+									id="outlined-password-input"
 									label="Password"
+									type="password"
+									autoComplete="current-password"
 									fullWidth
 									variant="filled"
 									onChange={(e) => setPassword(e.target.value)}
