@@ -137,7 +137,6 @@ const Admin=() => {
                                     <Typography>Completed Assesments</Typography>
                                 </div>
                                 <div className="inComAsses">
-                                {/* <Icon color="secondary">circle</Icon> */}
                                 <Typography className="num">0</Typography>
                                 <Typography>incomplete Assesments</Typography>
                                 </div>
@@ -167,12 +166,8 @@ const Admin=() => {
                                     }}
                                     >
                                     <CartesianGrid strokeDasharray="3 3" />
-                                    {/* <XAxis dataKey="name" /> */}
-                                    {/* <YAxis /> */}
                                     <Tooltip />
-                                    {/* <Legend /> */}
                                     <Bar dataKey="pv" fill="#fd7e14" />
-                                    {/* <Bar dataKey="uv" fill="#82ca9d" /> */}
                                     </BarChart>
                                 </ResponsiveContainer>
 
@@ -191,12 +186,8 @@ const Admin=() => {
                                     }}
                                     >
                                     <CartesianGrid strokeDasharray="3 3" />
-                                    {/* <XAxis dataKey="name" /> */}
-                                    {/* <YAxis /> */}
                                     <Tooltip />
-                                    {/* <Legend /> */}
                                     <Bar dataKey="pv" fill="#28a745" />
-                                    {/* <Bar dataKey="uv" fill="#82ca9d" /> */}
                                     </BarChart>
                                 </ResponsiveContainer>
 
