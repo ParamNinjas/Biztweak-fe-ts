@@ -25,6 +25,7 @@ import AllAsses from "./Admin/AdminComponents/AllAsses/AllAsses";
 import Funding from "./components/Assesment/Funding/Funding";
 import Customer from "./components/Assesment/Customer/Customer";
 import AssesFull from "./components/Assesment/FullSuit/AssesFull";
+import AdminFull from "./Admin/AddMinFull";
 import './Login/Login.css'
 
 
@@ -63,6 +64,7 @@ function App() {
           <Route path='/Funding' element={<Funding />} />
           <Route path='/Customer' element={<Customer />} />
           <Route path='/AssesFull' element={<AssesFull />} />
+          <Route path='/AdminFull' element={<AdminFull />} />
         </Routes>
       </Router>
     </div>

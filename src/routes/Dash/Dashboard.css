@@ -19,7 +19,7 @@
 }
 .btnCompany2{
     position: relative;
-    top: 20em;
+    top: 17em;
     right: 3em;
     color: aqua !important;
     border-color: aqua !important;
@@ -106,3 +106,8 @@
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  .footerD{
+    position: relative;
+    top: 18em;
+  }
