@@ -5,7 +5,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import img from '../PDFS/course1.jpg';
-import pdf1 from '../../Course/PDFS/module1.pdf';
+// import pdf1 from '../../Course/PDFS/module1.pdf';
+import * as pdf1 from '../../Course/PDFS/module1.pdf';
 
 
 const btnClick = () => {
