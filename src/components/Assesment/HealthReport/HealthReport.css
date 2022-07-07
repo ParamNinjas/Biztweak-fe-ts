@@ -1,0 +1,23 @@
+.header{
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 60px;
+    color: midnightblue;
+    font-weight: bold;
+}
+.bizReport{
+    color: #FFFFFF !important;
+    background: #0dcaf0 !important;
+    border-color: #0dcaf0 !important;
+}
+.poptypo{
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 20px;
+    color: midnightblue;
+    font-weight: bold; 
+}
+.pop3{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    left: 10em;
+}

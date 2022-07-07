@@ -953,7 +953,7 @@ const AssessBasic = () => {
             onClick={() => createReport()}
             
         >
-          <Link to='/Report'>Save</Link>
+          <Link to='/HealthReport'>Save</Link>
         
         </Button>       
       </div>

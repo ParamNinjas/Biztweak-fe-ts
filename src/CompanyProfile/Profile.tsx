@@ -18,7 +18,11 @@ import { Api } from '../services/endpoints';
 import './Profile.css';
 import Footernew from "../components/Footer/Footernew";
 import { ICompany } from "src/Interfaces/IRecomendation";
-
+import { Link } from "react-router-dom";
+const linkStyle = {
+    margin: "1rem",
+    textDecoration: "none", 
+  };
 
 const Profile = () => {
   const [companyName, setCompanyName] = useState<string>("");
@@ -189,6 +193,7 @@ const Profile = () => {
                                     placeholder="What products or services is your company offering?"
                                     />
                             </div>
+                            <Link to='/Report' style={linkStyle}>
                             <Button 
                                     variant='outlined' 
                                     className='btnProfSave'
@@ -196,6 +201,7 @@ const Profile = () => {
                             >
                                     Save
                             </Button>
+                            </Link>
                             </div>
                           
                             

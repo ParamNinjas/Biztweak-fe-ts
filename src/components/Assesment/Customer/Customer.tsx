@@ -918,7 +918,7 @@ const Customer = () => {
 							onClick={() => createReport()}
 							
 							>
-							<Link to='/Report'>Save</Link>
+							<Link to='/HealthReport'>Save</Link>
 							
 							</Button>
 						</div>
