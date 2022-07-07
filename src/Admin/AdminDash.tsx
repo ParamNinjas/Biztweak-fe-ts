@@ -122,7 +122,7 @@ const Admin=() => {
                 <div className="adminTop">
                 <Search/>
                 <div className="end">
-                    <HomeIcon/>
+                    {/* <HomeIcon/> */}
                 </div>
                 <div className="bar2">
                   <ResponsiveContainer width="100%" height="100%">
@@ -299,6 +299,7 @@ const Admin=() => {
                 </Grid>
                 
                 </div>
+        </div>
         </div>
     )
 
