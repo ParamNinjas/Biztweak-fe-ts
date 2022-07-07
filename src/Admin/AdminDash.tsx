@@ -124,30 +124,6 @@ const Admin=() => {
                 <div className="end">
                     {/* <HomeIcon/> */}
                 </div>
-                <div className="bar2">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                      width={500}
-                      height={300}
-                      data={data2}
-                      margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5,
-                      }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" />
-                      {/* <XAxis dataKey="name" /> */}
-                      {/* <YAxis /> */}
-                      <Tooltip />
-                      {/* <Legend /> */}
-                      <Bar dataKey="pv" fill="#28a745" />
-                      {/* <Bar dataKey="uv" fill="#82ca9d" /> */}
-                    </BarChart>
-                  </ResponsiveContainer>
-
-                </div>
                 <Grid container spacing={2}>
                 <Grid item xs={12} sm={12} md={2} lg={2}>
                     <Side/>
