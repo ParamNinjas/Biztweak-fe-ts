@@ -18,6 +18,12 @@ const Navbar = () => {
         }
     }
 
+    const linkStyle = {
+        margin: "1rem",
+        textDecoration: "none", 
+        color: 'black'
+      };
+      
     window.addEventListener('scroll', changeColor)
 
     return (
@@ -25,16 +31,16 @@ const Navbar = () => {
             <Link to='/'><img src={logo} alt="Logo" width='170px' height='auto' /></Link>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li>
-                    <Link to='/'>Home</Link>
+                    <Link to='/'style={linkStyle}>Home</Link>
                 </li>
                 <li>
-                    <Link to='/blog'>Blog</Link>
+                    <Link to='/blog' style={linkStyle} >Blog</Link>
                 </li>
                 <li>
-                    <Link to='/about'>About Us</Link>
+                    <Link to='/about'style={linkStyle}>About Us</Link>
                 </li>
                 <li>
-                    <Link to='/login'>Sign In</Link>
+                    <Link to='/login'style={linkStyle}>Sign In</Link>
                 </li>
                  <li className="nav-btn">
                 <Button variant='outlined' className='BtnRegister'>

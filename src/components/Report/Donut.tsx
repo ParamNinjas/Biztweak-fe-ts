@@ -28,11 +28,11 @@ const Donut = () => {
    
   });
 // Customer Pie
-  const filteredCusPos = allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
+  const filteredCusPos = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
     return seg.value !== "No recommendation"
    
   }) 
-  const filteredCusNeg = allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
+  const filteredCusNeg = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
     return seg.value === "No recommendation"
    
   }) 
@@ -53,7 +53,7 @@ const Donut = () => {
    
   }) 
   const data2 = [
-    { name: 'Group A', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 },
+    { name: 'Group A', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 }, 
     { name: 'Group B', value: typeof filteredMarkNeg !== "undefined" ? filteredMarkNeg.length : 0  },
   ];
 

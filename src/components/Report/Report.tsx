@@ -13,6 +13,7 @@ import { IRecomendation } from '../../Interfaces/IRecomendation';
 import Bargraph from './Bar';
 import { Link } from 'react-router-dom';
 import Donut from './Donut';
+import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
 
 
@@ -28,36 +29,37 @@ const Report = () => {
         setAllRecommendations(result)
         setInitialize(true)
       }
-    // console.log('Report ID', user?.id)
-    // const getReco = async () => {
-    //   const { data, error } = await supabase
-    //   .from('Recommendations')
-    //   .select('*')
-    //   .eq('Recomendations?.userId', 'user?.id')
-    // }
-    
+    console.log('Report ID', user?.id,)
+    const getReco = async () => {
+      const { data, error } = await supabase
+      .from('Recomendations')
+      .select('*')
+      .eq('Recomendations?.userId', 'user?.id')
+      console.log("user data", data)
+    }
+  
 
     useEffect(() => {
       test()
-     
+     getReco();
     });
       
 
       // Filtered Data
     
-       const filtered = allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
+       const filtered = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
         return seg.value !== "No recommendation"
        
       }) 
     //   console.log('filtered list', filtered)
 
-      const filteredMark = allRecommendations[0]?.segmentResponses.Market.filter(seg => {
+      const filteredMark = allRecommendations[0]?.segmentResponses.Market && allRecommendations[0]?.segmentResponses.Market.filter(seg => {
         return seg.value !== "No recommendation"
        
       }) 
     //   console.log('filtered listm', filteredMark)
 
-      const filteredVal = allRecommendations[0]?.segmentResponses.Value.filter(seg => {
+      const filteredVal = allRecommendations[0]?.segmentResponses.Value && allRecommendations[0]?.segmentResponses.Value.filter(seg => {
         return seg.value !== "No recommendation"
        
       }) 
@@ -103,10 +105,10 @@ const Report = () => {
                    <Typography variant='h3'>Report Summary</Typography>
                    <Typography>Company</Typography>
                     <div className='pChart'>
-                        <Donut/>
+                        {/* <Donut/> */}
                     </div>
                     <div className='bGraph'>
-                        {<Bargraph/>}
+                        {/* {<Bargraph/>} */}
                     </div>
                     <Typography variant='h5'>Full Summary</Typography>
                   
@@ -129,7 +131,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Customer.map(
+                                                reco.segmentResponses.Customer && reco.segmentResponses.Customer.map(
                                                    cusList => {
                                                     const recoColor = cusList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
@@ -179,7 +181,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Market.map(
+                                                reco.segmentResponses.Market && reco.segmentResponses.Market.map(
                                                    markList => {
                                                     const recoColor = markList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
@@ -213,7 +215,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Customer.map(
+                                                reco.segmentResponses.Customer && reco.segmentResponses.Customer.map(
                                                    cusList => {
                                                     const recoColor = cusList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
@@ -281,7 +283,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Market.map(
+                                                reco.segmentResponses.Market &&  reco.segmentResponses.Market.map(
                                                    markList => {
                                                     const recoColor = markList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
@@ -411,7 +413,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Resources.map(
+                                                reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
                                                    resList => {
                                                        return (
                                                            <>
@@ -483,7 +485,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Resources.map(
+                                                reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
                                                    resList => {
                                                        return (
                                                            <>
@@ -516,7 +518,7 @@ const Report = () => {
                                           reco => {
                                             return (
                                                 
-                                                reco.segmentResponses.Activities.map(
+                                                reco.segmentResponses.Activities &&  reco.segmentResponses.Activities.map(
                                                    actList => {
                                                        return (
                                                            <>
@@ -555,6 +557,9 @@ const Report = () => {
                     </Grid>
                    
 
+                </div>
+                <div className='foot'>
+                  <Footernew/>
                 </div>
             </Container>
         </div>

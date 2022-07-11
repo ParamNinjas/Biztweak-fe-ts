@@ -4,8 +4,10 @@
     font-weight: 600 !important;
     font-size: 1.5rem !important;
 }
-.txtfield{
-    border-color: #00a9b1 !important;
+.MuiOutlinedInput-notchedOutline{
+    /* border-color: #00a9b1 !important; */
+    /* outline-color: #00a9b1 !important; */
+    border : solid 3px #00a9b1 !important;
 }
 .Rgroup{
     display: flex ;

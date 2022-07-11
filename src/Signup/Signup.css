@@ -8,7 +8,7 @@
     top: 6em;
     background-color: #FFFFFF;
     width: 30em;
-    height: 40em;
+    height: 36em;
     justify-content: start !important;
 }
 .BtnSignup{
@@ -21,4 +21,13 @@
     position: relative;
     left: 15em;
     bottom: 3em;
+}
+.addminIMG{
+    height: 23em;
+    top: 8em;
+    position: relative;
+}
+.footsz{
+    position: relative;
+    top: 4em;
 }

@@ -1,4 +1,4 @@
-import { ICompany, IFunding, IProfile, IRecomendation } from "../Interfaces/IRecomendation";
+import { ICompany, ICustomer, IFunding, IProfile, IRecomendation } from "../Interfaces/IRecomendation";
 import { DELETE, GET, POST, PUT } from "./client";
 import { GetApiResponse, IResponseObject } from "./response";
 
@@ -20,6 +20,17 @@ export const Api = {
   },
   POST_CreateFundingRecommendation: async (
     payload: IFunding
+  ): Promise<IResponseObject<any>> => {
+    const response = await POST(
+      `${DBServiceUrl}/Recomendations`,
+      payload
+    );
+    console.log('response', response)
+    const result = GetApiResponse<any>(false, "" , response.data)
+    return result;
+  },
+  POST_CreateCustomerRecommendation: async (
+    payload: ICustomer
   ): Promise<IResponseObject<any>> => {
     const response = await POST(
       `${DBServiceUrl}/Recomendations`,

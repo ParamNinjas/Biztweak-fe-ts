@@ -18,6 +18,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import './Assessment.css'
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation'
+import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
 
 
@@ -952,13 +953,16 @@ const AssessBasic = () => {
             onClick={() => createReport()}
             
         >
-          <Link to='/Report'>Save</Link>
+          <Link to='/HealthReport'>Save</Link>
         
         </Button>       
       </div>
         </Grid>
         </Grid>
         </Container>
+        <div className='footD'>
+          <Footernew/>
+        </div>
       </div>
     )
 }

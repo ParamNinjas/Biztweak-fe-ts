@@ -1,7 +1,7 @@
 import React , { useState } from "react";
-import logo from '../Images/logo.png'
+import logo from '../../../Images/logo.png'
 import { Link } from 'react-router-dom'
-import './sideNav.css'
+import '../../sideNav.css'
 
 const linkStyle = {
     margin: "1rem",
@@ -9,17 +9,15 @@ const linkStyle = {
     color: 'white'
   };
 
-const Side =() => {
+const SideN =() => {
 
     return (
         <div className="sideNav">
               <Link to='/'><img src={logo} alt="Logo" width='170px' height='auto' /></Link>
             <div className="Nav">
              <ul>
-                <li><Link to='/AdminFull' style={linkStyle}>Dashboard</Link> </li>
-                <li> Users</li>
-                <li> <Link to='/AddAdmin' style={linkStyle}>Admin Users</Link> </li>
-                <li>Root Admin</li>
+                <li><Link to='/AdminDash' style={linkStyle}>Dashboard</Link></li>
+
              </ul>
             </div>
         </div>
@@ -28,4 +26,4 @@ const Side =() => {
 
 }
 
-export default Side
+export default SideN
