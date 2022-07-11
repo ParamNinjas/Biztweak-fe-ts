@@ -30,18 +30,18 @@ const Report = () => {
         setInitialize(true)
       }
     console.log('Report ID', user?.id,)
-    const getReco = async () => {
-      const { data, error } = await supabase
-      .from('Recomendations')
-      .select('*')
-      .eq('Recomendations?.userId', 'user?.id')
-      console.log("user data", data)
-    }
+    // const getReco = async () => {
+    //   const { data, error } = await supabase
+    //   .from('Recomendations')
+    //   .select('*')
+    //   .eq('Recomendations?.userId', 'user?.id')
+    //   console.log("user data", data)
+    // }
   
 
     useEffect(() => {
       test()
-     getReco();
+    //  getReco();
     });
       
 
@@ -51,7 +51,15 @@ const Report = () => {
         return seg.value !== "No recommendation"
        
       }) 
-    //   console.log('filtered list', filtered)
+      const filteredNeg = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
+        return seg.value !== "No recommendation"
+       
+      })
+      // typeof filteredResPos !== "undefined" ? filteredResPos.length : 0
+
+      const cusPercentage = (((typeof filtered !== "undefined" ? filtered.length : 0) / (typeof filtered !== "undefined" ? filteredNeg.length : 0)  ) * 100)
+
+      console.log('filtered list Percentage', cusPercentage , '%')
 
       const filteredMark = allRecommendations[0]?.segmentResponses.Market && allRecommendations[0]?.segmentResponses.Market.filter(seg => {
         return seg.value !== "No recommendation"
@@ -105,10 +113,10 @@ const Report = () => {
                    <Typography variant='h3'>Report Summary</Typography>
                    <Typography>Company</Typography>
                     <div className='pChart'>
-                        {/* <Donut/> */}
+                        <Donut/>
                     </div>
                     <div className='bGraph'>
-                        {/* {<Bargraph/>} */}
+                        {<Bargraph/>}
                     </div>
                     <Typography variant='h5'>Full Summary</Typography>
                   
@@ -136,7 +144,7 @@ const Report = () => {
                                                     const recoColor = cusList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
                                                            <>
-                                                           <li style={{color : recoColor}}>{cusList.key}</li>
+                                                           <li style={{backgroundColor : recoColor}}>{cusList.key}</li>
                                                            </>
 
                                                        )
@@ -186,7 +194,7 @@ const Report = () => {
                                                     const recoColor = markList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
                                                            <>
-                                                           <li style={{color : recoColor}}>{markList.key}</li>
+                                                           <li style={{backgroundColor: recoColor}}>{markList.key}</li>
                                                            </>
 
                                                        )
@@ -220,7 +228,7 @@ const Report = () => {
                                                     const recoColor = cusList.value === "No recommendation" ? "green" : "red" ;
                                                        return (
                                                            <>
-                                                           <li style={{color : recoColor}}>{cusList.key}</li>
+                                                           <li style={{backgroundColor: recoColor}}>{cusList.key}</li>
                                                            </>
 
                                                        )

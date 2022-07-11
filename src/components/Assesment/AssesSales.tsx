@@ -493,11 +493,12 @@ const AssessBasic = () => {
         <AccordionDetails>
           <Typography>
           <div className='cusSegmant-con'>
-              <div>
+              <div className='rad'>
                 <FormControl>
                   <FormLabel id="demo-controlled-radio-buttons-group">
                     Do you know who your product is for?
                   </FormLabel>
+                  
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
@@ -507,6 +508,7 @@ const AssessBasic = () => {
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
                   </RadioGroup>
+                
                 </FormControl>
               </div>
 
