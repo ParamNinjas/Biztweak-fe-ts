@@ -5,12 +5,6 @@ import { Api } from '../../services/endpoints';
 import './chart.css'
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-const datat = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-];
 
 
 
@@ -98,7 +92,7 @@ const Donut = () => {
       { name: 'Group A', value: typeof filteredResPos !== "undefined" ? filteredResPos.length : 0},
       { name: 'Group B', value: typeof filteredResNeg !== "undefined" ? filteredResNeg.length : 0  },
     ];
-    const data6 = [
+    const datat = [
       { name: 'Group A', value: typeof filteredCusPos !== "undefined" ? filteredCusPos.length : 0 },
       { name: 'Group B', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 },
       { name: 'Group C', value: typeof filteredValPos !== "undefined" ? filteredValPos.length : 0 },
@@ -141,7 +135,7 @@ const Donut = () => {
             cy="50%"
             labelLine={false}
             // label={renderCustomizedLabel}
-            outerRadius={80}
+            outerRadius={120}
             fill="#8884d8"
             dataKey="value"
           >
