@@ -20,7 +20,6 @@ import UserList from "./Admin/List";
 import AddAdmin from "./Admin/AddAdmin";
 import AddUser from "./Admin/AdminComponents/AddUser/AddUser";
 import SendMail from "./Admin/AdminComponents/SendMail/SendMail";
-// import Registered from "./Admin/AdminComponents/Registered/TotRegistered";
 import AllAsses from "./Admin/AdminComponents/AllAsses/AllAsses";
 import Funding from "./components/Assesment/Funding/Funding";
 import Customer from "./components/Assesment/Customer/Customer";

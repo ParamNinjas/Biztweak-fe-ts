@@ -17,7 +17,7 @@
 
 .pChart{
     position: relative !important;
-    bottom: 5em !important;
+    bottom: 17em !important;
 }
 
 .list li {
@@ -26,7 +26,10 @@
 }
 .bGraph{
     position: relative;
-    bottom: 10em;
+    bottom: 18em;
     gap: 2em !important;
     height: 10em !important;
 } 
+.con{
+    display: block;
+}

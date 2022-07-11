@@ -101,3 +101,7 @@
     position: relative;
     top: 7em;
 }
+.rad{
+    position: relative;
+    display: flex !important;
+}

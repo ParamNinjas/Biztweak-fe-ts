@@ -32,18 +32,19 @@ const Dashboard = () => {
         {value:2, label: 'Fashion/ Retail'},
     ])
     const [bizPhaseList, setBizPhaseList] = useState([
-        {value:1, label: 'I want to sell'},
-        {value:2, label: 'I want to learn how to find customers'},
-        {value:3, label: 'I want to learn how to fundraise'},
+        {value:1, label: 'Please Select phase'},
+        {value:2, label: 'I want to sell'},
+        {value:3, label: 'I want to learn how to find customers'},
+        {value:4, label: 'I want to learn how to fundraise'},
     ])
 
     const [bizInd, setBizind] = useState<string>('')
     const [bizPhase, setBizPhase] = useState<string>('')
 
     const NavigateFunc = () => {
-        if(bizPhase == '1'){
+        if(bizPhase == '2'){
             navigate('/AssesSales');
-        } else if(bizPhase == '2'){
+        } else if(bizPhase == '3'){
             navigate('/Customer');
         } else {
             navigate('/Funding');
