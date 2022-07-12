@@ -132,3 +132,6 @@
     display: flex;
     gap: 1em;
 }
+.asRes{
+    display: flex;
+}

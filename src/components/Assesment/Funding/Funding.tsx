@@ -622,8 +622,14 @@ const Funding = () => {
                         value={reachCustomer}
                         onChange={handlereachCustomer}
                     >
-                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                       <div className="asRes">
+                        <div className="yes">
+                          <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                        </div>
+                        <div className="no">
+                          <FormControlLabel value="no" control={<Radio />} label="No" />
+                        </div>
+                      </div>
                     </RadioGroup>
                     </FormControl>
                 </div>
@@ -639,8 +645,14 @@ const Funding = () => {
                         value={marketingPlan}
                         onChange={handleMarketingPlan}
                     >
-                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                        <div className="asRes">
+                          <div className="yes">
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                          </div>
+                          <div className="no">
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                          </div>
+                        </div>
                     </RadioGroup>
                     </FormControl>
                 </div>
@@ -656,8 +668,14 @@ const Funding = () => {
                         value={developedNetwork}
                         onChange={handleDeveloped}
                     >
-                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      <div className="asRes">
+                        <div className="yes">
+                          <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                        </div>
+                        <div className="no">
+                          <FormControlLabel value="no" control={<Radio />} label="No" />
+                        </div>
+                      </div>
                     </RadioGroup>
                     </FormControl>
                 </div>
@@ -673,8 +691,14 @@ const Funding = () => {
                         value={customerSupport}
                         onChange={handleCustomerSupport}
                     >
-                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                        <div className="asRes">
+                          <div className="yes">
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                          </div>
+                          <div className="no">
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                          </div>
+                        </div>
                     </RadioGroup>
                             </FormControl>
                         </div>
@@ -703,8 +727,14 @@ const Funding = () => {
                             value={productOwner}
                             onChange={handleProductOwner}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                          <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                         </RadioGroup>
                         </FormControl>
                     </div>
@@ -720,8 +750,14 @@ const Funding = () => {
                             value={tagetAudiance}
                             onChange={handleTargetAudiance}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                            <div className="asRes">
+                              <div className="yes">
+                                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                              </div>
+                              <div className="no">
+                                <FormControlLabel value="no" control={<Radio />} label="No" />
+                              </div>
+                            </div>
                         </RadioGroup>
                         </FormControl>
                     </div>
@@ -737,8 +773,14 @@ const Funding = () => {
                             value={tagetAudianceLocation}
                             onChange={handleTargetAudianceLocation}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                            <div className="asRes">
+                              <div className="yes">
+                                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                              </div>
+                              <div className="no">
+                                <FormControlLabel value="no" control={<Radio />} label="No" />
+                              </div>
+                            </div>
                         </RadioGroup>
                         </FormControl>
                     </div>
@@ -754,8 +796,14 @@ const Funding = () => {
                             value={tagetMarketSize}
                             onChange={handleTargetMarketSize}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                            <div className="asRes">
+                              <div className="yes">
+                                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                              </div>
+                              <div className="no">
+                                <FormControlLabel value="no" control={<Radio />} label="No" />
+                              </div>
+                            </div>
                         </RadioGroup>
                         </FormControl>
                     </div>
@@ -771,8 +819,14 @@ const Funding = () => {
                             value={cusReach}
                             onChange={handleCusReach}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                            <div className="asRes">
+                              <div className="yes">
+                                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                              </div>
+                              <div className="no">
+                                <FormControlLabel value="no" control={<Radio />} label="No" />
+                              </div>
+                            </div>
                         </RadioGroup>
                         </FormControl>
                     </div>
@@ -788,8 +842,14 @@ const Funding = () => {
                             value={competitor}
                             onChange={handleCompetitor}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                            <div className="asRes">
+                              <div className="yes">
+                                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                              </div>
+                              <div className="no">
+                                <FormControlLabel value="no" control={<Radio />} label="No" />
+                              </div>
+                            </div>
                         </RadioGroup>
                         </FormControl>
                     </div>
@@ -805,8 +865,14 @@ const Funding = () => {
                             value={marketAccess}
                             onChange={handleMarketAccess}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                           <div className="asRes">
+                            <div className="yes">
+                              <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                            </div>
+                            <div className="no">
+                              <FormControlLabel value="no" control={<Radio />} label="No" />
+                            </div>
+                          </div>
                         </RadioGroup>
                         </FormControl>
                     </div>
@@ -822,8 +888,14 @@ const Funding = () => {
                             value={marketLocation}
                             onChange={handleMarketLocation}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                            <div className="asRes">
+                              <div className="yes">
+                                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                              </div>
+                              <div className="no">
+                                <FormControlLabel value="no" control={<Radio />} label="No" />
+                              </div>
+                            </div>
                         </RadioGroup>
                         </FormControl>
                     </div>
@@ -839,8 +911,14 @@ const Funding = () => {
                             value={idealCustomer}
                             onChange={handleIdealCustomer}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                            <div className="asRes">
+                              <div className="yes">
+                                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                              </div>
+                              <div className="no">
+                                <FormControlLabel value="no" control={<Radio />} label="No" />
+                              </div>
+                            </div>
                         </RadioGroup>
                         </FormControl>
                     </div>
@@ -856,8 +934,14 @@ const Funding = () => {
                             value={importantCustomer}
                             onChange={handleImportantCus}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                            <div className="asRes">
+                              <div className="yes">
+                                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                              </div>
+                              <div className="no">
+                                <FormControlLabel value="no" control={<Radio />} label="No" />
+                              </div>
+                            </div>
                         </RadioGroup>
                         </FormControl>
                     </div>
@@ -873,8 +957,14 @@ const Funding = () => {
                             value={customerReaserch}
                             onChange={handleCusResearch}
                         >
-                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                            <div className="asRes">
+                              <div className="yes">
+                                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                              </div>
+                              <div className="no">
+                                <FormControlLabel value="no" control={<Radio />} label="No" />
+                              </div>
+                            </div>
                         </RadioGroup>
                         </FormControl>
                     </div>
@@ -903,8 +993,14 @@ const Funding = () => {
                     value={generatingRevenue}
                     onChange={handleGenerating}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                   <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -920,8 +1016,14 @@ const Funding = () => {
                     value={willingPay}
                     onChange={handleWilling}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -937,8 +1039,14 @@ const Funding = () => {
                     value={cusPaymentMethod}
                     onChange={handleCusPayment}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                   <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -954,8 +1062,14 @@ const Funding = () => {
                     value={preferedPayment}
                     onChange={handlePrefered}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                         </FormControl>
                     </div>
@@ -984,8 +1098,14 @@ const Funding = () => {
                     value={problem}
                     onChange={handleProblem}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -1001,8 +1121,14 @@ const Funding = () => {
                     value={cusValue}
                     onChange={handleCusValue}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -1018,8 +1144,14 @@ const Funding = () => {
                     value={needsSatisfied}
                     onChange={handleNeeds}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -1035,8 +1167,14 @@ const Funding = () => {
                     value={productUniqueness}
                     onChange={handleProductUnique}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -1052,8 +1190,14 @@ const Funding = () => {
                     value={elevatorPitch}
                     onChange={handleElevator}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -1082,8 +1226,14 @@ const Funding = () => {
                     value={budgetForecast}
                     onChange={handleBudget}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -1099,8 +1249,14 @@ const Funding = () => {
                     value={reconsiliation}
                     onChange={handleReconsiliation}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                   <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -1116,8 +1272,14 @@ const Funding = () => {
                     value={cashFlow}
                     onChange={handleCashFlow}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -1133,8 +1295,14 @@ const Funding = () => {
                     value={documentFinancials}
                     onChange={handleDocument}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                   <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -1150,8 +1318,14 @@ const Funding = () => {
                     value={FinancialManager}
                     onChange={handleManager}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -1179,8 +1353,14 @@ const Funding = () => {
                     value={proofOfConcept}
                     onChange={handleProof}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                   <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
