@@ -7,6 +7,7 @@
 .comName{
     position: relative;
     bottom: 10px;
+    left: 15em;
 }
 .companyLogo{
     position: relative;
@@ -16,7 +17,8 @@
 }
 .comLogo{
     position: relative;
-    left: 5em;
+    left: 23em;
+    background-color: aqua;
 }
 .registered{
     position: relative;
@@ -59,14 +61,20 @@
 }
 .comin{
     position: relative;
-    left: 9.5em;
+    left: 24.3em;
     bottom: 1em;
 }
 .btnProfSave{
-    color: aqua !important;
-    border-color: aqua !important; 
+    color: #5F9EA0!important;
+    border-color: #5F9EA0 !important; 
 }
 .footProf{
     position: relative;
     top: 8em;
+}
+.regRes{
+    display: flex;
+    position: relative;
+    left: 28em;
+    bottom: 25px;
 }

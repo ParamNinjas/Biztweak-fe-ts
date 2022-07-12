@@ -19,6 +19,8 @@ import './Profile.css';
 import Footernew from "../components/Footer/Footernew";
 import { ICompany } from "src/Interfaces/IRecomendation";
 import { Link } from "react-router-dom";
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Icon from '@material-ui/core/Icon';
 const linkStyle = {
     margin: "1rem",
     textDecoration: "none", 
@@ -100,11 +102,14 @@ const Profile = () => {
                             </div>
                             <div className="companyLogo">
                                 <Typography>Logo</Typography>
-                                <TextField
-                                    variant="outlined"
-                                    className="comLogo"
-                                    size="small"
-                                    />
+                                <Button
+                                    variant="contained"
+                                    color="default"
+                                    className='comLogo'
+                                    startIcon={<CloudUploadIcon />}
+                                >
+                                    Upload
+                                </Button>
                             </div>
                          
                             <div className="registered">
@@ -112,14 +117,21 @@ const Profile = () => {
                                 <FormLabel id="demo-controlled-radio-buttons-group">
                                     Do you know who your product is for?
                                 </FormLabel>
+                                
                                 <RadioGroup
                                     aria-labelledby="demo-controlled-radio-buttons-group"
                                     name="controlled-radio-buttons-group"
                                     value={registered}
                                     onChange={handleRegistered}
                                 >
+                                    <div className="regRes">
+                                    <div className="yes">
                                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                                    </div>
+                                    <div className="no">
                                     <FormControlLabel value="no" control={<Radio />} label="No" />
+                                    </div>
+                                    </div>
                                 </RadioGroup>
                             </FormControl>
                             </div> 
