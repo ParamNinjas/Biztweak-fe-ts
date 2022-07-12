@@ -1187,15 +1187,27 @@ const Funding = () => {
             </div>
           </AccordionDetails>
         </Accordion>
+        <div className='AssesButtons'>
+        <div className='back'>
+        <Button 
+            variant='outlined'
+            className='AssesBack'
+        >
+        Back 
+        </Button>  
+        </div>
+        <div className='save'>
         <Button 
             variant='outlined'
             className='AssesSave'
             onClick={() => createReport()}
             
         >
-          <Link to='/HealthReport'>Save</Link>
+          <Link to='/HealthReport' >Save</Link>
         
-        </Button> 
+        </Button>       
+        </div>
+      </div>
         </div>
         </Grid>
         </Grid>

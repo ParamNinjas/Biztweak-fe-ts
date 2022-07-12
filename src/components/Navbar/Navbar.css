@@ -18,6 +18,7 @@
 
 .nav-menu {
     display: flex;
+    font-weight: 400;
 }
 
 .nav-menu li {
@@ -68,9 +69,9 @@
 }
 .BtnRegister{
     position: relative;
-    color: aqua !important;
+    color: #5F9EA0 !important;
     background-color: #FFFFFF !important;
-    border-color: aqua !important;
+    border-color: #5F9EA0!important;
     border-style: solid 3px;
     position: relative;
     bottom: 7px;
