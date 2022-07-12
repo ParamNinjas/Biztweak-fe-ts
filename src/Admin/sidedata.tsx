@@ -7,68 +7,68 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import SubjectOutlined from ''
 
 
+const barWidth = 240
 
-// const barWidth = 240
+const useStyles = makeStyles({
+  page: {
+    background: '#f9f9f9',
+    width: '100%'
+  },
+  drawer: {
+    width: barWidth
+  },
+  drawerPaper: {
+    width: barWidth
+  },
+  root: {
+    display: 'flex'
+  }
+})
 
-// const useStyles = makeStyles({
-//   page: {
-//     background: '#f9f9f9',
-//     width: '100%'
-//   },
-//   drawer: {
-//     width: barWidth
-//   },
-//   drawerPaper: {
-//     width: barWidth
-//   },
-//   root: {
-//     display: 'flex'
-//   }
-// })
+export default function Layout({ children }) {
+  const classes = useStyles()
 
-// export default function Layout({ children }) {
-//   const classes = useStyles()
+  const menuItems = [
+  {
+    text: 'My Notes',
+    icon: <SubjectOutlined color/>
+  }
+  ]
 
-//   const menuItems = [
-//   {
-//     text: 'My Notes',
-//     icon: <SubjectOutlined color/>
-//   }
-//   ]
+  return (
+    <div className={classes.root}>
 
-//   return (
-//     <div className={classes.root}>
-
-//       {/* side bar */}
-//       <Drawer 
+      {/* side bar */}
+      <Drawer 
       
-//       className={classes.drawer}
-//       variant="permanent"
-//       anchor="left"
-//       classes={{ paper: classes.drawerPaper}}
+      className={classes.drawer}
+      variant="permanent"
+      anchor="left"
+      classes={{ paper: classes.drawerPaper}}
       
-//       >
-//         <div>
-//           <Typography variant="h5">
-//             Ninja Notes
-//           </Typography>
-//         </div>
+      >
+        <div>
+          <Typography variant="h5">
+            Ninja Notes
+          </Typography>
+        </div>
         
-//         <List>
-        
-        
-//         </List>
+        <List>
         
         
-//       </Drawer>
+        </List>
+        
+        
+      </Drawer>
 
 
-//       <div className={classes.page}>
-//         {children}
-//       </div>
-//     </div>
-//   )
+      <div className={classes.page}>
+        {children}
+      </div>
+    </div>
+  )
 
-// }
+}
