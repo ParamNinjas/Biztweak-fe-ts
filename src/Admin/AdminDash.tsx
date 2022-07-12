@@ -6,7 +6,7 @@ import { Typography, Button } from "@material-ui/core";
 import { Link } from 'react-router-dom';
 // import SearchBar from "material-ui-search-bar";
 import Search from "./AdminTop";
-import Side from "./sideNav";
+import Side from "./navSide";
 import UserList from "./List";
 import { Api } from '../services/endpoints'; 
 import { IProfile, IRecomendation } from "../Interfaces/IRecomendation";
