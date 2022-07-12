@@ -948,7 +948,7 @@ const AssessBasic = () => {
         </Accordion>
       </div>
       
-      <div className='AssesButtons'>
+      <div className='AssesButtons1'>
         <div className='back'>
         <Button 
             variant='outlined'

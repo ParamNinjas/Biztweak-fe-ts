@@ -67,7 +67,8 @@
 }
 .AssesButtons{
     position: relative;
-    top: 6em;
+    top: 1em !important;
+    display: flex;
     gap: 1em;
 }
 .bassicAccords{
@@ -99,7 +100,7 @@
 }
 .footD{
     position: relative;
-    top: 7em;
+    top: 7em !important;
 }
 .rad{
     position: relative;
@@ -116,4 +117,18 @@
     background-color: #FFFFFF !important;
     border-color: #5F9EA0!important;
     text-decoration: none !important;
+}
+.footCus{
+    position: relative;
+    top: 4em;
+}
+.footAs{
+    position: relative;
+    top: 4em;
+}
+.AssesButtons1{
+    position: relative;
+    top: 5em !important;
+    display: flex;
+    gap: 1em;
 }
