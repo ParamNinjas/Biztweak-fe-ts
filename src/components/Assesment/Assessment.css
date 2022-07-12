@@ -41,8 +41,8 @@
     height: 8em;
 }
 .profAdd{
-    color: #5F9EA0!important;
-    border-color: #5F9EA0 !important; 
+    color: #2d9ca2 !important;
+    border-color: #2d9ca2!important; 
     border-style: dashed !important;
     padding-top: 1em !important;
     padding-bottom: 1em !important;
@@ -107,15 +107,15 @@
     display: flex !important;
 }
 .AssesSave{
-    color: #5F9EA0 !important;
+    color: #00CED1 !important;
     background-color: #FFFFFF !important;
-    border-color: #5F9EA0!important;
+    border-color: #2d9ca2 !important;
     text-decoration: none !important;
 }
 .AssesBack{
-    color: #5F9EA0 !important;
+    color: #2d9ca2 !important;
     background-color: #FFFFFF !important;
-    border-color: #5F9EA0!important;
+    border-color: #2d9ca2 !important;
     text-decoration: none !important;
 }
 .footCus{
