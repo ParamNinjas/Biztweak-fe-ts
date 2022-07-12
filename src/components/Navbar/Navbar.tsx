@@ -27,6 +27,7 @@ const Navbar = () => {
     window.addEventListener('scroll', changeColor)
 
     return (
+        // <div className='nv'></div>
         <div className={color ? 'header header-bg' : 'header'}>
             <Link to='/'><img src={logo} alt="Logo" width='170px' height='auto' /></Link>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
