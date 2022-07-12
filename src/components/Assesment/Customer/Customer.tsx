@@ -912,15 +912,27 @@ const Customer = () => {
 									</div>
 								</AccordionDetails>
 							</Accordion>
-							<Button 
-							variant='outlined'
-							className='AssesSave'
-							onClick={() => createReport()}
-							
-							>
-							<Link to='/HealthReport'>Save</Link>
-							
-							</Button>
+							<div className='AssesButtons'>
+								<div className='back'>
+								<Button 
+									variant='outlined'
+									className='AssesBack'
+								>
+								Back 
+								</Button>  
+								</div>
+								<div className='save'>
+								<Button 
+									variant='outlined'
+									className='AssesSave'
+									onClick={() => createReport()}
+									
+								>
+								<Link to='/HealthReport' >Save</Link>
+								
+								</Button>       
+								</div>
+							</div>
 						</div>
 						
 					</Grid>

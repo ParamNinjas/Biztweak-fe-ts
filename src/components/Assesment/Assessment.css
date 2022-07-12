@@ -41,8 +41,8 @@
     height: 8em;
 }
 .profAdd{
-    color: aqua !important;
-    border-color: aqua !important; 
+    color: #5F9EA0!important;
+    border-color: #5F9EA0 !important; 
     border-style: dashed !important;
     padding-top: 1em !important;
     padding-bottom: 1em !important;
@@ -104,4 +104,16 @@
 .rad{
     position: relative;
     display: flex !important;
+}
+.AssesSave{
+    color: #5F9EA0 !important;
+    background-color: #FFFFFF !important;
+    border-color: #5F9EA0!important;
+    text-decoration: none !important;
+}
+.AssesBack{
+    color: #5F9EA0 !important;
+    background-color: #FFFFFF !important;
+    border-color: #5F9EA0!important;
+    text-decoration: none !important;
 }

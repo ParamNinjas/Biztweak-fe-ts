@@ -14,15 +14,15 @@
     position: relative;
     top: 20em;
     right: 20em;
-    color: aqua !important;
-    border-color: aqua !important;
+    color: #5F9EA0!important;
+    border-color: #5F9EA0!important;
 }
 .btnCompany2{
     position: relative;
     top: 17em;
     right: 3em;
-    color: aqua !important;
-    border-color: aqua !important;
+    color: #5F9EA0 !important;
+    border-color: #5F9EA0!important;
 }
 .conInfo{
     position: relative;
@@ -40,8 +40,8 @@
     left: -42px;
 }
 .popSave{
-    color: aqua !important;
-    border-color: aqua !important; 
+    color: #5F9EA0!important;
+    border-color: #5F9EA0 !important; 
 }
 .dropdown2{
     position: relative;

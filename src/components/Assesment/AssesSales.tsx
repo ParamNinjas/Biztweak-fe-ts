@@ -21,6 +21,12 @@ import { IRecomendation } from '../../Interfaces/IRecomendation'
 import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
 
+// const linkStyle = {
+//   margin: "1rem",
+//   textDecoration: "none", 
+  
+// };
+
 
 const AssessBasic = () => {
   const [value, setValue] = React.useState('');
@@ -943,21 +949,25 @@ const AssessBasic = () => {
       </div>
       
       <div className='AssesButtons'>
+        <div className='back'>
         <Button 
             variant='outlined'
             className='AssesBack'
         >
         Back 
         </Button>  
+        </div>
+        <div className='save'>
         <Button 
             variant='outlined'
             className='AssesSave'
             onClick={() => createReport()}
             
         >
-          <Link to='/HealthReport'>Save</Link>
+          <Link to='/HealthReport' >Save</Link>
         
         </Button>       
+        </div>
       </div>
         </Grid>
         </Grid>
