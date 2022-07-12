@@ -1,0 +1,22 @@
+[
+    {
+        "question": "Does the company advertise?",
+        "field": "companyAd"
+    },
+    {
+        "question": "Is the company’s advertising effective?",
+        "field": "effectiveAd"
+    },
+    {
+        "question": "Does the company conduct sales planning and developed targets?",
+        "field": "planning"
+    },
+    {
+        "question": "Do you have a price strategy in place?",
+        "field": "priceStrategy"
+    },
+    {
+        "question": "Do you review your pricing strategy often?",
+        "field": "priceReview"
+    }
+]

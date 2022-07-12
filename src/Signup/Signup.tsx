@@ -34,10 +34,13 @@ const Signup=()=>{
                                 Create Account
                             </Typography>  
                         </div>
+                        <div className="bodyText">
                         <p>
                         Follow the instructions to make it easier to login and you will be 
                         able to explore inside.
                         </p>
+                        </div>
+                  
                         <div className="input1">
                             <TextField 
                                     id="filled-basic"  

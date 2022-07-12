@@ -1,5 +1,6 @@
 import React , { useState, useEffect } from "react";
 // import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 import Grid from '@material-ui/core/Grid';
@@ -18,6 +19,8 @@ const linkStyle = {
 	color: 'black'
   };
 const Signup=()=>{
+
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -42,6 +45,7 @@ const Signup=()=>{
             ])
             .eq('id' , createdUser.id)
             console.log('AddingUserInfo', name,email,  );
+            navigate('/login');
       }
       async function Run(){
         const createdUser = await newUser();
@@ -75,7 +79,7 @@ const Signup=()=>{
                                 Create Account
                             </Typography>  
                         </div>
-                        <p>
+                        <p className="bodyText">
                         Follow the instructions to make it easier to login and you will be 
                         able to explore inside.
                         </p>
