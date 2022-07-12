@@ -5,6 +5,12 @@ import logo from '../../Images/bizlogo.png'
 import { Button } from '@material-ui/core';
 import './Navbar.css';
 
+const linkStyle = {
+  margin: "1rem",
+  textDecoration: "none", 
+  
+};
+
 const Navbar = () => {
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
@@ -44,8 +50,8 @@ const Navbar = () => {
                     <Link to='/login'style={linkStyle}>Sign In</Link>
                 </li>
                  <li className="nav-btn">
-                <Button variant='outlined' className='BtnRegister'>
-                <Link to='/sign_up'>Register</Link>
+                <Button variant='outlined'disableRipple className='BtnRegister'>
+                <Link to='/sign_up' >Register</Link>
                 </Button>
           </li>
             </ul>
