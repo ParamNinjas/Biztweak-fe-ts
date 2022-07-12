@@ -14,7 +14,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { Link } from 'react-router-dom';
-import { createSlice } from '@reduxjs/toolkit';
 import './Assessment.css'
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation'

@@ -10,6 +10,14 @@ import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Navbar from "../components/Navbar/Navbar";
 import Footernew from '../components/Footer/Footernew';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
+import { TransitionProps } from '@material-ui/core/transitions';
+import pop3 from '../Images/pop3.png'
 import '../Signup/Signup.css'
 
 const linkStyle = {
@@ -17,11 +25,30 @@ const linkStyle = {
 	textDecoration: "none", 
 	color: 'black'
   };
+
+
+const Transition = React.forwardRef(function Transition(
+    props: TransitionProps & { children?: React.ReactElement<any, any> },
+    ref: React.Ref<unknown>,
+  ) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
+
 const Signup=()=>{
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+  
     
       async function newUser() {
         console.log('AddingUser', email,password );
@@ -47,6 +74,7 @@ const Signup=()=>{
         const createdUser = await newUser();
         if(createdUser){
             ExtraInfo(createdUser);
+            handleClickOpen()
         }
         
         console.log("running both fuctions")
@@ -136,6 +164,29 @@ const Signup=()=>{
         </Container>  
         <div className='footsz'>
                   <Footernew/>
+                </div>
+                <div className="Alert">
+                    <Dialog
+                        open={open}
+                        TransitionComponent={Transition}
+                        keepMounted
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-slide-title"
+                        aria-describedby="alert-dialog-slide-description"
+                    >
+                        <DialogTitle id="alert-dialog-slide-title">{"User Succesfuly created"}</DialogTitle>
+                        <DialogContent>
+                        <img className="pop3" alt="pop3" src={pop3} />
+                        <DialogContentText id="alert-dialog-slide-description">
+                        An email has been sent to you please check and confrim your email address before signing in
+                        </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            OK
+                        </Button>
+                        </DialogActions>
+                    </Dialog>
                 </div>
         </div>
     )
