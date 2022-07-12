@@ -7,7 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-// import  from ''
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 
 // const barWidth = 240
@@ -32,36 +32,37 @@ import ListItemText from '@mui/material/ListItemText';
 //   const classes = useStyles()
 
 //   const menuItems = [
-//   {
-//     text: 'My Notes',
-//     icon: <SubjectOutlined color/>
-//   }
+//     {
+//       text: 'My Notes',
+//       icon: <DashboardIcon color="secondary" />
+//       path: '/AdminDash'
+//     }
 //   ]
 
 //   return (
 //     <div className={classes.root}>
 
 //       {/* side bar */}
-//       <Drawer 
-      
-//       className={classes.drawer}
-//       variant="permanent"
-//       anchor="left"
-//       classes={{ paper: classes.drawerPaper}}
-      
+//       <Drawer
+
+//         className={classes.drawer}
+//         variant="permanent"
+//         anchor="left"
+//         classes={{ paper: classes.drawerPaper }}
+
 //       >
 //         <div>
 //           <Typography variant="h5">
 //             Ninja Notes
 //           </Typography>
 //         </div>
-        
+
 //         <List>
-        
-        
+
+
 //         </List>
-        
-        
+
+
 //       </Drawer>
 
 
