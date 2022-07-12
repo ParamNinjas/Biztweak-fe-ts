@@ -14,7 +14,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { Link } from 'react-router-dom';
-import { createSlice } from '@reduxjs/toolkit';
 import './Assessment.css'
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation'
@@ -511,8 +510,14 @@ const AssessBasic = () => {
                     value={productOwner}
                     onChange={handleProductOwner}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 
                 </FormControl>
@@ -529,8 +534,14 @@ const AssessBasic = () => {
                     value={tagetAudiance}
                     onChange={handleTargetAudiance}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                   <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -546,8 +557,14 @@ const AssessBasic = () => {
                     value={tagetAudianceLocation}
                     onChange={handleTargetAudianceLocation}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                   <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -563,8 +580,14 @@ const AssessBasic = () => {
                     value={tagetMarketSize}
                     onChange={handleTargetMarketSize}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -580,8 +603,14 @@ const AssessBasic = () => {
                     value={cusReach}
                     onChange={handleCusReach}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -597,8 +626,14 @@ const AssessBasic = () => {
                     value={competitor}
                     onChange={handleCompetitor}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -614,8 +649,14 @@ const AssessBasic = () => {
                     value={marketAccess}
                     onChange={handleMarketAccess}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -631,8 +672,14 @@ const AssessBasic = () => {
                     value={marketLocation}
                     onChange={handleMarketLocation}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -648,8 +695,14 @@ const AssessBasic = () => {
                     value={idealCustomer}
                     onChange={handleIdealCustomer}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -665,8 +718,14 @@ const AssessBasic = () => {
                     value={importantCustomer}
                     onChange={handleImportantCus}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                   <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -682,8 +741,14 @@ const AssessBasic = () => {
                     value={customerReaserch}
                     onChange={handleCusResearch}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -713,8 +778,14 @@ const AssessBasic = () => {
                     value={companyAd}
                     onChange={handleCompanyAd}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -730,8 +801,14 @@ const AssessBasic = () => {
                     value={effectiveAd}
                     onChange={handleEffectiveAd}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -747,8 +824,14 @@ const AssessBasic = () => {
                     value={planning}
                     onChange={handlePlanning}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                  <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -764,8 +847,14 @@ const AssessBasic = () => {
                     value={priceStrategy}
                     onChange={handlePriceStrategy}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -781,8 +870,14 @@ const AssessBasic = () => {
                     value={priceReview}
                     onChange={handlePriceReview}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                  <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -812,8 +907,14 @@ const AssessBasic = () => {
                     value={problem}
                     onChange={handleProblem}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                  <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -829,8 +930,14 @@ const AssessBasic = () => {
                     value={cusValue}
                     onChange={handleCusValue}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                   <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -846,8 +953,14 @@ const AssessBasic = () => {
                     value={needsSatisfied}
                     onChange={handleNeeds}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -863,8 +976,14 @@ const AssessBasic = () => {
                     value={productUniqueness}
                     onChange={handleProductUnique}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -880,8 +999,14 @@ const AssessBasic = () => {
                     value={elevatorPitch}
                     onChange={handleElevator}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                    <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -909,8 +1034,14 @@ const AssessBasic = () => {
                     value={bizModel}
                     onChange={handleBizModel}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                   <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -938,8 +1069,14 @@ const AssessBasic = () => {
                     value={resources}
                     onChange={handleReasources}
                   >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+               <div className="asRes">
+                      <div className="yes">
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                      </div>
+                      <div className="no">
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                      </div>
+                    </div>
                   </RadioGroup>
                 </FormControl>
               </div>

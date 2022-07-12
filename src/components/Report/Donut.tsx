@@ -4,7 +4,7 @@ import { IRecomendation } from 'src/Interfaces/IRecomendation';
 import { Api } from '../../services/endpoints';
 import './chart.css'
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = ['#66FF00', '#9e1b32', '#6CB4EE', '#ffff00'];
 
 
 
