@@ -980,7 +980,3 @@ const AssessBasic = () => {
 }
 
 export default AssessBasic;
-// export const { save } = actions;
-// export default reducer;
-
-//try Export at the top
