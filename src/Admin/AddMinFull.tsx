@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
-// import Container from '@material-ui/core/Container';
+import Container from '@material-ui/core/Container';
 import { Typography, Button } from "@material-ui/core";
-// import HomeIcon from '@material-ui/icons/Home';
+import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
-// import SearchBar from "material-ui-search-bar";
+import SearchBar from "material-ui-search-bar";
+import SideN from "./AdminComponents/Side/Side";
 import Search from "./AdminTop";
-import Side from "./sideNav";
 import UserList from "./List";
 import { Api } from '../services/endpoints'; 
 import { IProfile, IRecomendation } from "../Interfaces/IRecomendation";
 import { BarChart, Bar, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-// import Icon from '@material-ui/core/Icon';
+import './AdminDash.css'   
+
 
 const linkStyle = {
   margin: "1rem",
@@ -21,7 +22,7 @@ const linkStyle = {
 
 
 
-const Admin=() => {
+const AdminFull=() => {
     const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
     const [allProfiles, setAllProfiles] = useState<IProfile[]>([]);
     const test = async () =>{
@@ -122,11 +123,12 @@ const Admin=() => {
                 <div className="adminTop">
                 <Search/>
                 <div className="end">
-                    {/* <HomeIcon/> */}
+                    <HomeIcon/>
+                </div>
                 </div>
                 <Grid container spacing={2}>
                 <Grid item xs={12} sm={12} md={2} lg={2}>
-                    <Side/>
+                    <SideN/>
                 </Grid>
                     <Grid item xs={12} sm={12} md={7} lg={7}>
                         <div className="Assesments">
@@ -164,8 +166,12 @@ const Admin=() => {
                                     }}
                                     >
                                     <CartesianGrid strokeDasharray="3 3" />
+                                    {/* <XAxis dataKey="name" /> */}
+                                    {/* <YAxis /> */}
                                     <Tooltip />
+                                    {/* <Legend /> */}
                                     <Bar dataKey="pv" fill="#fd7e14" />
+                                    {/* <Bar dataKey="uv" fill="#82ca9d" /> */}
                                     </BarChart>
                                 </ResponsiveContainer>
 
@@ -175,7 +181,7 @@ const Admin=() => {
                                     <BarChart
                                     width={500}
                                     height={300}
-                                    data={data2}
+                                    data={data}
                                     margin={{
                                         top: 5,
                                         right: 30,
@@ -184,8 +190,12 @@ const Admin=() => {
                                     }}
                                     >
                                     <CartesianGrid strokeDasharray="3 3" />
+                                    {/* <XAxis dataKey="name" /> */}
+                                    {/* <YAxis /> */}
                                     <Tooltip />
+                                    {/* <Legend /> */}
                                     <Bar dataKey="pv" fill="#28a745" />
+                                    {/* <Bar dataKey="uv" fill="#82ca9d" /> */}
                                     </BarChart>
                                 </ResponsiveContainer>
 
@@ -218,7 +228,7 @@ const Admin=() => {
                                 </Button>
                           </div>
                         </div>
-                        <div className="prof">
+                        {/* <div className="prof">
                             <Typography className="proftxt">Profiles by registered</Typography>
                             <div className="SeeMore">
                               <Link to='/List'>See All Profiles {'>'}</Link>
@@ -226,7 +236,7 @@ const Admin=() => {
                             <div className="list">
                                 <UserList/>
                             </div>
-                        </div>
+                        </div> */}
                     </Grid>
                       <Grid item xs={12} sm={12} md={3} lg={3}>
                     <div className="SeeMoreU">
@@ -256,7 +266,7 @@ const Admin=() => {
                                 <Button
                                   className="phase1BTN"
                                   variant="outlined"
-                                >Get Funding
+                                >Get Customers
                                 </Button>
                               </div>
                             </div>
@@ -264,7 +274,7 @@ const Admin=() => {
                             <Button
                                   className="phase3BTN"
                                   variant="outlined"
-                                >Get Customers
+                                >Get Funding
                                 </Button>
                             </div>
                             
@@ -276,11 +286,8 @@ const Admin=() => {
                 
                 </div>
         </div>
-        </div>
     )
 
 }
 
-
-
-export default Admin
+export default AdminFull

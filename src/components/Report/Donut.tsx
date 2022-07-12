@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { PieChart, Pie, Cell } from 'recharts';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 import { IRecomendation } from 'src/Interfaces/IRecomendation';
 import { Api } from '../../services/endpoints';
 import './chart.css'
 
-// const data6 = [
-//   { name: 'Group A', value: 600 },
-//   { name: 'Group B', value: 100 },
-// ];
-// const data7 = [
-//   { name: 'Group A', value: 400 },
-//   { name: 'Group B', value: 250 },
-// ];
-const COLORS = ['#D3D3D3', '#4DB282', '#FFBB28', '#FF8042'];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
 
 
 const Donut = () => {
@@ -28,11 +21,11 @@ const Donut = () => {
    
   });
 // Customer Pie
-  const filteredCusPos = allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
+  const filteredCusPos = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
     return seg.value !== "No recommendation"
    
   }) 
-  const filteredCusNeg = allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
+  const filteredCusNeg = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
     return seg.value === "No recommendation"
    
   }) 
@@ -41,7 +34,7 @@ const Donut = () => {
     { name: 'Group B', value: typeof filteredCusNeg !== "undefined" ? filteredCusNeg.length : 0  },
   ];
 
-  console.log('found it ', data)
+  // console.log('found it ', data)
 
   //Market pie
   const filteredMarkPos = allRecommendations[0]?.segmentResponses.Market.filter(seg => {
@@ -99,7 +92,7 @@ const Donut = () => {
       { name: 'Group A', value: typeof filteredResPos !== "undefined" ? filteredResPos.length : 0},
       { name: 'Group B', value: typeof filteredResNeg !== "undefined" ? filteredResNeg.length : 0  },
     ];
-    const data6 = [
+    const datat = [
       { name: 'Group A', value: typeof filteredCusPos !== "undefined" ? filteredCusPos.length : 0 },
       { name: 'Group B', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 },
       { name: 'Group C', value: typeof filteredValPos !== "undefined" ? filteredValPos.length : 0 },
@@ -120,7 +113,7 @@ const Donut = () => {
           <div className='chart1'>
         <PieChart width={700} height={300} >
         <Pie
-          data={data}
+          // data={data}
           cx={120}
           cy={200}
           innerRadius={60}
@@ -134,8 +127,26 @@ const Donut = () => {
           ))}
         </Pie>
       </PieChart>
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart width={400} height={400}>
+          <Pie
+            data={datat}
+            cx="50%"
+            cy="50%"
+            labelLine={false}
+            // label={renderCustomizedLabel}
+            outerRadius={120}
+            fill="#8884d8"
+            dataKey="value"
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
       </div>
-      <div className='chart2'>
+      {/* <div className='chart2'>
       <PieChart width={700} height={300} >
         <Pie
           data={data2}
@@ -152,8 +163,8 @@ const Donut = () => {
           ))}
         </Pie>
       </PieChart>
-      </div>
-      <div className='chart3'>
+      </div> */}
+      {/* <div className='chart3'>
       <PieChart width={700} height={300} >
         <Pie
           data={data3}
@@ -170,8 +181,8 @@ const Donut = () => {
           ))}
         </Pie>
       </PieChart>
-      </div>
-      <div className='chart4'>
+      </div> */}
+      {/* <div className='chart4'>
       <PieChart width={700} height={300} >
         <Pie
           data={data4}
@@ -188,8 +199,8 @@ const Donut = () => {
           ))}
         </Pie>
       </PieChart>
-      </div>
-      <div className='chart5'>
+      </div> */}
+      {/* <div className='chart5'>
       <PieChart width={700} height={300} >
         <Pie
           data={data5}
@@ -206,10 +217,10 @@ const Donut = () => {
           ))}
         </Pie>
       </PieChart>
-      </div>
+      </div> */}
       </div>
       <div className='group2'>
-      <div className='chart6'>
+      {/* <div className='chart6'>
       <PieChart width={700} height={300} >
         <Pie
           data={data6}
@@ -226,8 +237,8 @@ const Donut = () => {
           ))}
         </Pie>
       </PieChart>
-      </div>
-      <div className='chart7'>
+      </div> */}
+      {/* <div className='chart7'>
       <PieChart width={700} height={300} >
         <Pie
           data={data7}
@@ -244,7 +255,7 @@ const Donut = () => {
           ))}
         </Pie>
       </PieChart>
-      </div>
+      </div> */}
       </div>
         </div>
     )

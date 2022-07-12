@@ -6,7 +6,7 @@ import '../components/Navbar/Navbar.css'
 import Slider from '../components/Navbar/Navbar'
 import Header from '../components/header/Header'
 import '../components/header/Header.css'
-import Subscribe from '../components/subscribe/Subscribe'
+// import Subscribe from '../components/subscribe/Subscribe'
 
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
         <div>
             <Navbar />
            <Header />
-           <Subscribe />
+           {/* <Subscribe /> */}
             <Footernew/>
         </div>
     )

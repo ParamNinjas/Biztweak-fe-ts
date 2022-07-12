@@ -67,8 +67,12 @@
     }
 }
 .BtnRegister{
-    background-color: aqua !important;
-    color: #FFFFFF !important;
+    position: relative;
+    color: aqua !important;
+    background-color: #FFFFFF !important;
+    border-color: aqua !important;
+    border-style: solid 3px;
     position: relative;
     bottom: 7px;
+    text-decoration: none !important;
 }

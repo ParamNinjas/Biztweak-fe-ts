@@ -20,7 +20,6 @@
 .Assesments {
     display: flex;
     gap: 1em;
-    padding-top: 3em;
 }
 
 .comAsses {
@@ -125,6 +124,7 @@
     color: #fff !important;
     font-weight: 600 !important;
     width: 20em !important;
+    padding-top: 2em !important;
 }
 
 .phaseBTNs {

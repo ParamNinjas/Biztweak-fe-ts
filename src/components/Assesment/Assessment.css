@@ -97,3 +97,11 @@
     position: relative;
     top: 2.5em;
 }
+.footD{
+    position: relative;
+    top: 7em;
+}
+.rad{
+    position: relative;
+    display: flex !important;
+}

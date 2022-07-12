@@ -10,9 +10,17 @@ import Button from '@material-ui/core/Button';
 import Navbar from '../components/Navbar/Navbar';
 import { supabase } from '../supabaseClient';
 import { useNavigate } from 'react-router-dom';
+import Footernew from '../components/Footer/Footernew';
 // import cookie from 'cookiejs';
 import '../Login/Login.css';
 // import { sign } from 'crypto';
+
+const linkStyle = {
+	margin: "1rem",
+	textDecoration: "none", 
+	color: 'black'
+  };
+  
 
 const Login = () => {
 	const [ loading, setLoading ] = useState(false);
@@ -91,8 +99,10 @@ const Login = () => {
 							</div>
 							<div className="input1">
 								<TextField
-									id="filled-basic"
+									id="outlined-password-input"
 									label="Password"
+									type="password"
+									autoComplete="current-password"
 									fullWidth
 									variant="filled"
 									onChange={(e) => setPassword(e.target.value)}
@@ -111,16 +121,20 @@ const Login = () => {
 							</Button>
 							<div className="forgotLinks">
 								<div className="forgotPass">
-									<Link to="/Forgot">Forgot Password?</Link>
+									<Link to="/Forgot"style={linkStyle}>Forgot Password?</Link>
 								</div>
 								<div className="noAcc">
-									<Link to="/sign_up">Don't have an account?</Link>
+									<Link to="/sign_up"style={linkStyle}>Don't have an account?</Link>
 								</div>
 							</div>
 						</div>
 					</Grid>
 				</Grid>
+				
 			</Container>
+			<div className='footsi'>
+                  <Footernew/>
+                </div>
 		</div>
 	);
 };

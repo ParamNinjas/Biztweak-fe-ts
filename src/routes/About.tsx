@@ -2,7 +2,7 @@ import React from 'react'
 import Footernew from '../components/Footer/Footernew'
 import Navbar from '../components/Navbar/Navbar'
 import About from '../About/About'
-import Subscribe from '../components/subscribe/Subscribe'
+// import Subscribe from '../components/subscribe/Subscribe'
 import Cards from '../components/cards/Cards'
 
 
@@ -13,7 +13,7 @@ const AboutPage = () => {
             <Navbar />
             <About />
             <Cards />
-            <Subscribe />
+            {/* <Subscribe /> */}
             <Footernew />
         </div>
     )

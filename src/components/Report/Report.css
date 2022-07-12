@@ -10,14 +10,14 @@
     position: relative;
     top: 3em;
     background-color: #E5E5E5;
-    height: 50em;
+    /* height: 50em; */
     width: 100%;
 }
 
 
 .pChart{
     position: relative !important;
-    bottom: 5em !important;
+    bottom: 17em !important;
 }
 
 .list li {
@@ -26,7 +26,10 @@
 }
 .bGraph{
     position: relative;
-    bottom: 10em;
+    bottom: 18em;
     gap: 2em !important;
     height: 10em !important;
+} 
+.con{
+    display: block;
 }

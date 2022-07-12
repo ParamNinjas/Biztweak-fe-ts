@@ -18,6 +18,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import './Assessment.css'
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation'
+import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
 
 
@@ -492,11 +493,12 @@ const AssessBasic = () => {
         <AccordionDetails>
           <Typography>
           <div className='cusSegmant-con'>
-              <div>
+              <div className='rad'>
                 <FormControl>
                   <FormLabel id="demo-controlled-radio-buttons-group">
                     Do you know who your product is for?
                   </FormLabel>
+                  
                   <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
@@ -506,6 +508,7 @@ const AssessBasic = () => {
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
                   </RadioGroup>
+                
                 </FormControl>
               </div>
 
@@ -952,13 +955,16 @@ const AssessBasic = () => {
             onClick={() => createReport()}
             
         >
-          <Link to='/Report'>Save</Link>
+          <Link to='/HealthReport'>Save</Link>
         
         </Button>       
       </div>
         </Grid>
         </Grid>
         </Container>
+        <div className='footD'>
+          <Footernew/>
+        </div>
       </div>
     )
 }

@@ -18,6 +18,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Api } from '../../../services/endpoints';
 import { IRecomendation, ICustomer } from '../../../Interfaces/IRecomendation';
 import { supabase } from '../../../supabaseClient';
+import Footernew from '../../Footer/Footernew';
 import '../Assessment.css';
 
 const Customer = () => {
@@ -917,7 +918,7 @@ const Customer = () => {
 							onClick={() => createReport()}
 							
 							>
-							<Link to='/Report'>Save</Link>
+							<Link to='/HealthReport'>Save</Link>
 							
 							</Button>
 						</div>
@@ -925,6 +926,9 @@ const Customer = () => {
 					</Grid>
 				</Grid>
 			</Container>
+			<div className='footCus'>
+				<Footernew/>
+			</div>
 		</div>
 	);
 };
