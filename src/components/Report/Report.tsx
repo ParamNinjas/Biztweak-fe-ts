@@ -57,9 +57,9 @@ const Report = () => {
       })
       // typeof filteredResPos !== "undefined" ? filteredResPos.length : 0
 
-      const cusPercentage = (((typeof filtered !== "undefined" ? filtered.length : 0) / (typeof filtered !== "undefined" ? filteredNeg.length : 0)  ) * 100)
+      // const cusPercentage = (((typeof filtered !== "undefined" ? filtered.length : 0) / (typeof filtered !== "undefined" ? filteredNeg.length : 0)  ) * 100)
 
-      console.log('filtered list Percentage', cusPercentage , '%')
+      // console.log('filtered list Percentage', cusPercentage , '%')
 
       const filteredMark = allRecommendations[0]?.segmentResponses.Market && allRecommendations[0]?.segmentResponses.Market.filter(seg => {
         return seg.value !== "No recommendation"
@@ -112,9 +112,9 @@ const Report = () => {
                     />
                    <Typography variant='h3'>Report Summary</Typography>
                    <Typography>Company</Typography>
-                    <div className='pChart'>
+                    {/* <div className='pChart'>
                         <Donut/>
-                    </div>
+                    </div> */}
                     <div className='bGraph'>
                         {<Bargraph/>}
                     </div>
