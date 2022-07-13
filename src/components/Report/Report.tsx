@@ -112,9 +112,9 @@ const Report = () => {
                     />
                    <Typography variant='h3'>Report Summary</Typography>
                    <Typography>Company</Typography>
-                    {/* <div className='pChart'>
+                    <div className='pChart'>
                         <Donut/>
-                    </div> */}
+                    </div>
                     <div className='bGraph'>
                         {<Bargraph/>}
                     </div>
