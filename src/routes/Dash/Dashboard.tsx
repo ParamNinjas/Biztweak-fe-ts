@@ -43,11 +43,11 @@ const Dashboard = () => {
 
     const NavigateFunc = () => {
         if(bizPhase == '2'){
-            navigate('/AssesSales');
+            navigate('/AssesSales',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
         } else if(bizPhase == '3'){
-            navigate('/Customer');
+            navigate('/Customer',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))} });
         } else {
-            navigate('/Funding');
+            navigate('/Funding',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))} });
         }
         console.log('BizPhase is =' , bizPhase)
     }
@@ -137,7 +137,7 @@ const Dashboard = () => {
                    
                     <select 
                             className='dropdownItem' 
-                        
+                            onChange={(e) => {setBizind(e.target.value)}}
                             >
                                 
                             {

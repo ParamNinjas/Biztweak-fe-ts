@@ -13,7 +13,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { Link } from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
 import { createSlice } from '@reduxjs/toolkit';
 import './Assessment.css'
 import { Api } from '../../services/endpoints';
@@ -22,8 +22,21 @@ import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
 import marketingSales from '../../json/marketingSales.json';
 
+type LocationState = {
+  bizInd: Array <{
+    value: number;
+    label: string
+  }>,
+  bizPhase: Array<{
+    value: number;
+    label: string
+  }>
+}
 
 const AssessBasic = () => {
+  const location = useLocation();
+  const bizInd = (location.state as LocationState)?.bizInd;
+  const bizPhase = (location.state as LocationState)?.bizPhase;
   const [value, setValue] = React.useState('');
   const user = supabase.auth.user()
     function Alert(props : any) {
@@ -68,8 +81,9 @@ const AssessBasic = () => {
       } 
     
     } as IRecomendation
-      const result = await Api.POST_CreateRecommendation(payload)
-      console.log('Result is' , result) 
+    console.log("array of answers", payload)
+      // const result = await Api.POST_CreateRecommendation(payload)
+      //console.log('Result is' , result) 
     } 
     
   
@@ -261,8 +275,7 @@ const AssessBasic = () => {
         effectiveAd: string,
         planning: string,
         priceStrategy: string,
-        priceReview: string,
-        city: string
+        priceReview: string
       }
 
       const [values, setValues] = useState<marketSales[]>([]);
@@ -274,6 +287,7 @@ const AssessBasic = () => {
         });
         setValues({ ...values, [field]: (event.target as HTMLInputElement).value });
         mkSales.splice(indexOfObject, 1);
+        console.log("Answers", values)
     };
 
       const handleCompanyAd = (question: string,event: React.ChangeEvent<HTMLInputElement>) => {
@@ -299,6 +313,8 @@ const AssessBasic = () => {
         setPriceReview((event.target as HTMLInputElement).value);
       };
       
+     
+
       let companyAdReco = ""
       let companyAdRecoKey = ""
       if (companyAd === "yes"){
@@ -502,13 +518,13 @@ const AssessBasic = () => {
                 />
                 <div className='companyInf'>
                   <div className='Location'>
-                  <Typography>Location</Typography>
+                  <Typography>Location: N/A</Typography>
                   </div>
                   <div className='indust'>
-                  <Typography>Industry</Typography>
+                  <Typography>Industry: {bizInd[0].label}</Typography>
                   </div>
                   <div className='phase'>
-                  <Typography>Business Phase</Typography>
+                  <Typography>Business Phase: {bizPhase[0].label}</Typography>
                 </div>
                 </div>
            </div>
