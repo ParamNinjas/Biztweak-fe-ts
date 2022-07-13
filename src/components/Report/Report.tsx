@@ -14,34 +14,50 @@ import { Link } from 'react-router-dom';
 import Donut from './Donut';
 import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
+import { useDispatch, useSelector } from "react-redux";
+import { selectRecomendationState, setAllUserRecomendations , setSelectedRecomendation } from "../../Slice/createSlice";
 import './Report.css'
 
 
 const Report = () => {
+  // const { Recomendations } = useSelector(state=>state)
+  const dispatch = useDispatch();
+
   const [initialize, setInitialize] = useState(false)
   const user = supabase.auth.user()
     const recommendations : Array<IRecomendation> = [];
     const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
-    const test = async () =>{
-        const allRecommendations = await Api.GET_AllRecommendations()
-        const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
-        setAllRecommendations(result)
-        setInitialize(true)
-      }
+    // const test = async () =>{
+    //     const allRecommendations = await Api.GET_AllRecommendations()
+    //     const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
+    //     setAllRecommendations(result)
+    //     setInitialize(true)
+    //   }
     // console.log('Report ID', user?.id,)
-    // const getReco = async () => {
-    //   const { data, error } = await supabase
-    //   .from('Recomendations')
-    //   .select('*')
-    //   .eq('Recomendations?.userId', 'user?.id')
-    //   const recoData = data
-    //   console.log("user data", recoData)
-    // }
+    const getReco = async () => {
+      setInitialize(true)
+      const { data, error } = await supabase
+      .from('Recomendations')
+      .select('*')
+      .eq('userId', '79d8690b-a3ca-4de7-b12c-9f0ecf520629')
+      const recoData = data
+      console.log("user data", recoData)
+      dispatch(setAllUserRecomendations(recoData))
+      
+    }
   
+const state = useSelector(selectRecomendationState)
+console.log('state', state)
+
+const _setSelectedRecomendation = (selected : any) => {
+  console.log('selected', selected)
+dispatch(setSelectedRecomendation(selected))
+
+}
 
     useEffect(() => {
-      test()
-    //  getReco();
+      !initialize && 
+     getReco();
     });
       
 
@@ -73,12 +89,14 @@ const Report = () => {
       }) 
     //   console.log('filtered listv', filteredVal)
     
-
+    
+const AllRecomendations = state.RecomendationReducer.allUserRecomendations;
     return(
         <div className='report-con'>
             <DashNav/>
             <Container>
                 <div className='report'>
+                  <Button onClick={() => _setSelectedRecomendation(AllRecomendations[0][0])}>test</Button>
                     <Grid container>
                         <Grid item xs={12} sm={12} md={3} lg={3}>
                         <div className='profileInfo'>

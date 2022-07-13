@@ -1,6 +1,12 @@
 import { current } from "@reduxjs/toolkit"
 
-export interface IRecomendation {
+export interface IRecomendationBase <T>{
+    segment : string,
+    userId : string,
+    segmentResponses : T
+}
+
+export interface IRecomendation extends IRecomendationBase  <ISegmentResponse> {
     // id : number,
     // created_at : string,
     segment : string,
@@ -113,7 +119,7 @@ export interface IProfile {
     Role : number
 }
 
-export interface ICustomer{
+export interface ICustomer extends IRecomendationBase  <ICustomerResponse> {
     segment : string,
     userId : string
     segmentResponses : ICustomerResponse,
@@ -127,7 +133,7 @@ export interface ICustomerResponse {
     
     
 }
-export interface IFunding{
+export interface IFunding extends IRecomendationBase  <IFundingResponse> {
     segment : string,
     userId : string
     segmentResponses : IFundingResponse,

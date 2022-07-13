@@ -19,6 +19,8 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import pop3 from '../../../Images/pop3.png';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { selectRecomendationState, setAllUserRecomendations , setSelectedRecomendation } from "../../../Slice/createSlice";
 import './HealthReport.css';
 
 const linkStyle = {
@@ -81,6 +83,8 @@ const HealthReport = () => {
 	const handleClose = () => {
 		setOpen(false);
 	};
+	const state = useSelector(selectRecomendationState)
+console.log('state HealthReport', state)
 
 	return (
 		<div className="HR-con">
