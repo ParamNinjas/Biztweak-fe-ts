@@ -36,7 +36,7 @@ const AssessBasic = () => {
       console.log("user id", user?.id)
   const createReport = async () =>{
      const payload = {
-      "segment": "Sell",
+      "segment": "Sales",
       "userId": user?.id,
       "segmentResponses": {
         "Customer": [{"key": productRecoKey ,"value": productReco},
