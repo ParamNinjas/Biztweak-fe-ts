@@ -205,7 +205,7 @@ const Profile = () => {
                                     placeholder="What products or services is your company offering?"
                                     />
                             </div>
-                            <Link to='/Report' style={linkStyle}>
+                            <Link to='/HealthR' style={linkStyle}>
                             <Button 
                                     variant='outlined' 
                                     className='btnProfSave'
