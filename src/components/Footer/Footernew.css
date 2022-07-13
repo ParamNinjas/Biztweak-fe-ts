@@ -103,6 +103,7 @@ ul{
 	text-transform: capitalize;
 	margin-bottom: 35px;
 	font-weight: 500;
+	right: -2em;
 	position: relative;
 }
 .footer-col h4::before{
@@ -182,12 +183,17 @@ ul{
 
 .iconHeader{
 	position: relative;
-	left: 36em;
+	left: 32em;
+	font-size: 18px;
+    color: #0c0c0c;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
 }
  
 .footerL{
 	height: 100px;
-	width: 150px;
+	width: 243px;
 }
 .useful{
 	position: relative;

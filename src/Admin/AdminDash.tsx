@@ -5,7 +5,7 @@ import { Typography, Button } from "@material-ui/core";
 // import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
 // import SearchBar from "material-ui-search-bar";
-import Search from "./AdminTop";
+import Search from "../components/topbar/Topbar";
 import Side from "./navSide";
 import UserList from "./List";
 import { Api } from '../services/endpoints'; 
@@ -18,7 +18,6 @@ const linkStyle = {
   textDecoration: "none", 
   color: 'white'
 };
-
 
 
 const Admin=() => {
@@ -120,7 +119,6 @@ const Admin=() => {
         <div>   
                 <div className="adminCon">
                 <div className="adminTop">
-                <Search/>
                 <div className="end">
                     {/* <HomeIcon/> */}
                 </div>
@@ -129,7 +127,9 @@ const Admin=() => {
                     <Side/>
                 </Grid>
                     <Grid item xs={12} sm={12} md={7} lg={7}>
+                    <Search/>
                         <div className="Assesments">
+                        
                                 <div className="comAsses">
                                     <Typography className="num">{allRecommendations.length}</Typography>
                                     <Typography>Completed Assesments</Typography>

@@ -35,7 +35,7 @@ const Navbar = () => {
     return (
         // <div className='nv'></div>
         <div className={color ? 'header header-bg' : 'header'}>
-            <Link to='/'><img src={logo} alt="Logo" width='170px' height='auto' /></Link>
+            <div className='nav-logo'><Link to='/'><img src={logo} alt="Logo" width='170px' height='auto' /></Link></div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li>
                     <Link to='/'style={linkStyle}>Home</Link>

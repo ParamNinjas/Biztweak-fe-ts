@@ -15,7 +15,9 @@
     background-color: #FFFFFF;
     transition: .5s;
 }
-
+.nav-logo img{
+top:1px;
+}
 .nav-menu {
     display: flex;
     font-weight: 400;
@@ -32,6 +34,7 @@
     text-decoration: none !important;
     text-transform: none !important;
 }
+
 
 .hamburger {
     display: none;
@@ -71,8 +74,20 @@
 }
 .BtnRegister{
     position: relative;
-    color: #2d9ca2 !important;
+    color: #19A9B1 !important;
     background-color: #FFFFFF !important;
+    border-color: #19A9B1 !important;
+    border-style: solid 3px;
+    position: relative;
+    top: 9px;
+    text-decoration: none !important;
+    text-transform: none !important;
+}
+
+.BtnRegister:hover{
+    position: relative;
+    background-color: #19A9B1 !important;
+    color: #FFFFFF !important;
     border-color: #2d9ca2 !important;
     border-style: solid 3px;
     position: relative;

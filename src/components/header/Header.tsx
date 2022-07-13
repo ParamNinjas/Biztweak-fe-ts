@@ -30,7 +30,7 @@ return(
                                 2. Get ready for Funding<br/>
                                 3. Makes sales
                             </h2>
-                            <h3>learn how to improve revenue in your business.</h3>
+                            <h3>Learn how to improve revenue in your business.</h3>
                             </div>
                             <div className="homepara">
                         <p>

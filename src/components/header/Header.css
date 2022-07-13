@@ -40,7 +40,10 @@
 }
 
 .BtnTake{
-  background-color: #2d9ca2 !important;
+  background-color: #19A9B1 !important;
   color: #FFFFFF !important;
   border-radius: 50px;
+}
+.BtnTake:hover{
+  background-color: #03BBC1 !important;
 }

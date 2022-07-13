@@ -21,7 +21,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 const useStyles = makeStyles({
     
 appbar: {
-      width: 'calc(100% - 240px)'
+      width: '100%'
     },
   })
   
@@ -77,7 +77,7 @@ export default function PrimarySearchAppBar() {
     setAnchorEl(event.currentTarget);
   };
   
-  
+  const classes = useStyles()
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -165,11 +165,11 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-  const classes = useStyles()
+  
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar className={classes.appbar} >
+      <AppBar className={classes.appbar} position="static">
         <Toolbar>
           <IconButton
             size="large"
