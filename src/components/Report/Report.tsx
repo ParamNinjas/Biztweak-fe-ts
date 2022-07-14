@@ -39,9 +39,10 @@ const Report = () => {
       const { data, error } = await supabase
       .from('Recomendations')
       .select('*')
-      .eq('userId', '79d8690b-a3ca-4de7-b12c-9f0ecf520629')
+      .eq('userId', 'user?.id')
       const recoData = data
       console.log("user data", recoData)
+      console.log('Report ID', user?.id,)
       dispatch(setAllUserRecomendations(recoData))
       
     }
@@ -423,89 +424,7 @@ const AllRecomendations = state.RecomendationReducer.allUserRecomendations;
                             </Grid>
                             <Grid item xs={12} sm={12} md={6} lg={6}>
                                 
-                                        {/* <Accordion > 
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Business Concept</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
-                                    <Typography variant='h5'>Business Diagnosis</Typography>
-                                    <Accordion>
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Priority Elements</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
-
-                                    <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Best Performing Areas</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Market &&  reco.segmentResponses.Market.map(
-                                                   markList => {
-                                                    const recoColor = markList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1" ;
-                                                       return (
-                                                           <>
-                                                           
-                                                           <li style={{color : recoColor}}>{markList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion>
-
-                                    <Accordion>
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Major Gaps</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                           
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion> */}
-
+                                       
                             </Grid>
                             </Grid>
                         
@@ -726,12 +645,24 @@ const AllRecomendations = state.RecomendationReducer.allUserRecomendations;
                                     
                                     </Grid>
                             </Grid>
-                            {/* <Button
-                            variant='outlined'
-                             onClick={() => getReco()}
-                            >
-                                Get
-                            </Button> */}
+                            <div className='Job'>
+                              <Accordion >
+                                    <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel2a-content"
+                                    id="panel2a-header"
+                                    >
+                                    <Typography >Skills required by the company</Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                    <Typography>
+                                        
+                                    </Typography>
+                                    </AccordionDetails>
+                              </Accordion>
+
+
+                            </div>
                             <Button
                             variant='outlined'
                             >

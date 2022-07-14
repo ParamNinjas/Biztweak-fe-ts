@@ -24,11 +24,11 @@ root.render(
   <React.StrictMode>
   
 
-  return (
+  
     <Provider store={store}> 
       <App />
     </Provider>
-  )
+  
 
   </React.StrictMode>
 );
