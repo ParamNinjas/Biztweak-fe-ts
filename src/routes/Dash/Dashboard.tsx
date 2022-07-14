@@ -50,6 +50,11 @@ const Dashboard = () => {
         {value:2, label: 'I want to sell'},
         {value:3, label: 'I want to learn how to find customers'},
         {value:4, label: 'I want to learn how to fundraise'},
+        {value:5, label: 'I have a business idea but dont know what to do next Idea/Concept'},
+        {value:6, label: 'I have a business but it’s not making money - Startup'},
+        {value:7, label: 'I have products/sales but I have poor sales – Early stage'},
+        {value:8, label: 'We are generating revenue and would like to grow through investment Accelerate'},
+        // {value:9, label: 'I want to be an entrepreneur but don’t know how to go about it Idea/Concept'},
     ])
 
     const [bizInd, setBizind] = useState<string>('')
@@ -60,8 +65,16 @@ const Dashboard = () => {
             navigate('/AssesSales');
         } else if(bizPhase == '3'){
             navigate('/Customer');
-        } else {
+        } else if(bizPhase == '4'){
             navigate('/Funding');
+        } else if(bizPhase == '5'){
+        navigate('/Concept');
+        }else if(bizPhase == '6'){
+            navigate('/StartUp');
+        }else if(bizPhase == '7'){
+            navigate('/EarlyStage');
+        }else if(bizPhase == '8'){
+            navigate('/Accelerate');
         }
         console.log('BizPhase is =' , bizPhase)
         console.log('BizPhase is =' , bizInd)
