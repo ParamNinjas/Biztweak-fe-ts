@@ -21,3 +21,7 @@
     position: relative;
     left: 10em;
 }
+.alerts{
+    position: relative;
+    gap: 1em !important;
+}

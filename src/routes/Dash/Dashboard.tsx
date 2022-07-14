@@ -27,9 +27,23 @@ const Dashboard = () => {
     const navigate = useNavigate();
     
     const [bizIndlist, setBizindlist] = useState([
-        {value:0, label: 'Admin/ Business support'},
-        {value:1, label: 'IT/ Communication'},
-        {value:2, label: 'Fashion/ Retail'},
+        {value:0, label: 'Please Select Industry'},
+        {value:1, label: 'Admin/ Business support'},
+        {value:2, label: 'Agrigulture,Forestry and hunting'},
+        {value:3, label: 'Arts, Entertainment and Recreation'},
+        {value:4, label: 'Construstion'},
+        {value:5, label: 'Education'},
+        {value:6, label: 'Finance and Insurance'},
+        {value:7, label: 'Healthcare and Social assistance'},
+        {value:8, label: 'Hospitality'},
+        {value:9, label: 'Information Technology'},
+        {value:10, label: 'Manufacturing'},
+        {value:11, label: 'Mining and Mineral Processing'},
+        {value:12, label: 'Professional, Scientific and Technical service'},
+        {value:13, label: 'Real Estate'},
+        {value:14, label: 'Retail/ Fasion'},
+        {value:15, label: 'Transport and Logistics'},
+        {value:16, label: 'Other'},
     ])
     const [bizPhaseList, setBizPhaseList] = useState([
         {value:1, label: 'Please Select phase'},
@@ -50,6 +64,7 @@ const Dashboard = () => {
             navigate('/Funding');
         }
         console.log('BizPhase is =' , bizPhase)
+        console.log('BizPhase is =' , bizInd)
     }
 
   const handleClickOpen = () => {
@@ -137,6 +152,7 @@ const Dashboard = () => {
                    
                     <select 
                             className='dropdownItem' 
+                            onChange={(e) => {setBizind(e.target.value)}}
                         
                             >
                                 

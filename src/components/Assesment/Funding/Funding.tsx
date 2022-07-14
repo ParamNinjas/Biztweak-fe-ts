@@ -30,7 +30,7 @@ const Funding = () => {
       }
       const createReport = async () =>{
         const payload = {
-         "segment": "customer",
+         "segment": "Fundraise",
          "userId": user?.id,
          "segmentResponses": {
           "Channels": [{"key"   :  reachCusRecoKey ,"value": reachCusReco},

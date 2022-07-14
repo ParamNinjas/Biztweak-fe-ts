@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
@@ -23,7 +23,7 @@ const linkStyle = {
   
 
 const Login = () => {
-	const [ loading, setLoading ] = useState(false);
+	// const [ loading, setLoading ] = useState(false);
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const navigate = useNavigate();

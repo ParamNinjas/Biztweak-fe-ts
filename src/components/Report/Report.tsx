@@ -2,12 +2,11 @@ import React, {useState, useEffect} from 'react';
 import DashNav from '../DasNav/Nav';
 import { Container, Grid , Button , Typography, Divider } from '@material-ui/core';
 import banner from "../../Images/banner.png"
-import avatar from '../../Images/avatar.png'
+// import avatar from '../../Images/avatar.png'
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import './Report.css'
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation';
 import Bargraph from './Bar';
@@ -15,7 +14,7 @@ import { Link } from 'react-router-dom';
 import Donut from './Donut';
 import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
-
+import './Report.css'
 
 
 const Report = () => {
@@ -29,13 +28,14 @@ const Report = () => {
         setAllRecommendations(result)
         setInitialize(true)
       }
-    console.log('Report ID', user?.id,)
+    // console.log('Report ID', user?.id,)
     // const getReco = async () => {
     //   const { data, error } = await supabase
     //   .from('Recomendations')
     //   .select('*')
     //   .eq('Recomendations?.userId', 'user?.id')
-    //   console.log("user data", data)
+    //   const recoData = data
+    //   console.log("user data", recoData)
     // }
   
 
@@ -59,7 +59,7 @@ const Report = () => {
 
       const cusPercentage = (((typeof filtered !== "undefined" ? filtered.length : 0) / (typeof filtered !== "undefined" ? filteredNeg.length : 0)  ) * 100)
 
-      console.log('filtered list Percentage', cusPercentage , '%')
+      // console.log('filtered list Percentage', cusPercentage , '%')
 
       const filteredMark = allRecommendations[0]?.segmentResponses.Market && allRecommendations[0]?.segmentResponses.Market.filter(seg => {
         return seg.value !== "No recommendation"
