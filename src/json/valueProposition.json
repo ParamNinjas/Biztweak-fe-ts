@@ -1,0 +1,22 @@
+[
+    {
+        "question": "Do you know the problem you are solving?",
+        "field": "problem"
+    },
+    {
+        "question": "Do you know what value you deliver to the customer?",
+        "field": "cusValue"
+    },
+    {
+        "question": "Are you aware of which customer needs you are satisfying?",
+        "field": "needsSatisfied"
+    },
+    {
+        "question": "Can you describe the uniqueness of your product, and show key differences from existing alternatives?",
+        "field": "productUniqueness"
+    },
+    {
+        "question": "Do you have an elevator pitch?",
+        "field": "elevatorPitch"
+    }
+]
