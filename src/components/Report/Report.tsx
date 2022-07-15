@@ -34,7 +34,7 @@ const Report = () => {
   //     setInitialize(true)
   //   }
   // console.log('Report ID', user?.id,)
-  const activeUser =  user?.id
+  // const activeUser =  user?.id
   const getReco = async () => {
     const user = supabase.auth.user()
     const activeUser =  user?.id
