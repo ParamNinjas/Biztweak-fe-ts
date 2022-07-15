@@ -13,6 +13,7 @@
     /* .search {
 } */
     .adminCon {
+    display : inherit;
         background-color: #dbd7d2;
     }
 
@@ -32,11 +33,32 @@
         align-content: space-around;
         align-items: flex-start;
     }
+    
+    .checklogo {
+        color: #019231;
+        padding: 1rem;
+    }
+    
+    .crosslogo {
+        color: #cc0000;
+        padding: 1rem;
+    }
+    
+    .movelogo {
+        color: #00888d;
+        padding: 1rem;
+    }
+    
+    .grouplogo {
+        color: #00888d;
+        padding: 1rem;
+    }
 
     .widgetblk {
         width: 12em;
-        height: 8em;
+        height: 10em;
         background-color: floralwhite;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
         top: 2em;
     }
 
@@ -56,12 +78,32 @@
         width: 15em;
         height: 10em;
         background-color: floralwhite;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
     }
 
+    .word {
+        font-size: 18px !important;
+        color: #000000 !important;
+        font-weight: 600px !important;
+        padding: 2px 0 0 2px;
+        
+    }
+    
+    .Bar-Title {
+        font-size: 50px !important;
+        color: #000000 !important;
+        font-weight: 600px !important;
+        padding: 3px;
+        
+    }
+
+
     .num {
-        font-size: xxx-large !important;
-        color: aqua !important;
+        font-size: 60px !important;
+        font-weight: 500px !important;
+        color: #00A9AF !important;
         font-weight: bolder !important;
+        padding: 2px 0 0 2px ;
     }
 
     .bars {
@@ -73,18 +115,21 @@
         width: 30em;
         height: 20em;
         background-color: floralwhite;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
     }
 
     .bar2 {
         width: 20em;
         height: 20em;
         background-color: floralwhite;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
     }
 
     .new {
         width: 20em;
         height: 12em;
         background-color: floralwhite;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
     }
 
     .proftxt {

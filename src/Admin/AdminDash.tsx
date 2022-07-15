@@ -12,6 +12,16 @@ import { Api } from '../services/endpoints';
 import { IProfile, IRecomendation } from "../Interfaces/IRecomendation";
 import { BarChart, Bar, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 // import Icon from '@material-ui/core/Icon';
+import Details from './AdminComponents/featuredInfo/WidgetSm'
+import MailIcon from '@mui/icons-material/Mail';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
+import OpenWithIcon from '@mui/icons-material/OpenWith';
+import GroupIcon from '@mui/icons-material/Group';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import GroupsIcon from '@mui/icons-material/Groups';
+import PaidIcon from '@mui/icons-material/Paid';
+
 
 const linkStyle = {
   margin: "1rem",
@@ -132,21 +142,23 @@ const Admin = () => {
               <div className="Assesments">
                 <div className="fitplease">
                   <div className="widgetblk">
-                    <Typography className="num">{allRecommendations.length}</Typography>
-                    <Typography>Completed Assesments</Typography>
+                    <Typography className="num"><CheckCircleIcon className="checklogo"></CheckCircleIcon>{allRecommendations.length}</Typography>
+                    <div>
+                    <Typography className="word">Completed Assesments</Typography>
+                    </div>
                   </div>
                   <div className="widgetblk">
-                    <Typography className="num">0</Typography>
-                    <Typography>incomplete Assesments</Typography>
+                    <Typography className="num"><CancelIcon className="crosslogo"/>11</Typography>
+                    <Typography className="word">Incomplete Assesments</Typography>
                   </div>
 
                   <div className="widgetblk">
-                    <Typography className="num">{allRecommendations.length}</Typography>
-                    <Typography>Total Assesments</Typography>
+                    <Typography className="num"><OpenWithIcon className="movelogo"/>{allRecommendations.length}</Typography>
+                    <Typography className="word">Total Assesments</Typography>
                   </div>
                   <div className="widgetblk">
-                    <Typography className="num">8</Typography>
-                    <Typography>Total Users</Typography>
+                    <Typography className="num"><GroupIcon className="grouplogo"/>21</Typography>
+                    <Typography className="word">Total Users</Typography>
                   </div>
                 </div>
                 <div className="fitplease">
@@ -156,7 +168,7 @@ const Admin = () => {
                     </div>
                     <h4>New Users</h4>
                     <div className="new">
-
+                    <Details/>
                     </div>
 
                   </div>
@@ -164,19 +176,19 @@ const Admin = () => {
               </div>
 
               <div className="overView">
-                <Typography variant='h3'>Overview</Typography>
+                <Typography variant='h3' className="Bar-Title">Overview</Typography>
                 <div className="bars">
                   <div className="bar1">
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart
-                        width={500}
+                        width={400}
                         height={300}
                         data={data}
                         margin={{
                           top: 5,
                           right: 30,
-                          left: 20,
-                          bottom: 5,
+                          left: 10,
+                          bottom: 3,
                         }}
                       >
                         <CartesianGrid strokeDasharray="3 3" />
@@ -212,7 +224,7 @@ const Admin = () => {
                     className="sendMail"
                     variant="outlined"
                   >
-                    <Link to='/SendMail' style={linkStyle}>SendMail</Link>
+                    <MailIcon/><Link to='/SendMail' style={linkStyle}>SendMail</Link>
 
                   </Button>
                   <div className="phaseBTNs">
@@ -220,21 +232,21 @@ const Admin = () => {
                       <Button
                         className="phase1BTN"
                         variant="outlined"
-                      >How To Sell
+                      >< AddShoppingCartIcon/> How To Sell
                       </Button>
                     </div>
                     <div className="Phase2">
                       <Button
                         className="phase1BTN"
                         variant="outlined"
-                      >Get Funding
+                      > < PaidIcon /> Get Funding
                       </Button>
                     </div>
                     <div className="phase2">
                       <Button
                         className="phase1BTN"
                         variant="outlined"
-                      >Get Customers
+                      ><GroupsIcon /> Get Customers
                       </Button>
                     </div>
 

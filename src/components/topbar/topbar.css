@@ -18,6 +18,40 @@
   justify-content: space-between;
 }
 
+form > * {
+  /* width: 100%; */
+  max-width: 100%;
+  margin: 4rem auto;
+}
+
+.search input {
+  padding: 0.3rem;
+  background: #fff;
+  border: 2px solid rgb(200, 200, 200);
+  border-radius: 50px 0 0 50px;
+  color: #009EA9;
+  outline: none;
+  width: 70%;
+  font-size: 1.2rem;
+}
+
+.search button {
+  padding: 0.3rem;
+  background: #009EA9;
+  border: 1px solid var(--form-button);
+  border-radius: 0 30px 30px 0px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.search button :hover{
+  background: #fff;
+  color: #00dded;
+}
+
+
 .logo img {
   height: auto;
   width: 150px;

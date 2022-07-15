@@ -2,27 +2,35 @@ import React from "react";
 import "./topbar.css";
 // import logo from "../../assets/logo.png";
 import { NotificationsNone, Language, Settings } from "@material-ui/icons";
+import SearchIcon from '@mui/icons-material/Search';
+import HomeIcon from '@mui/icons-material/Home';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import PersonIcon from '@mui/icons-material/Person';
 
 export default function Topbar() {
   return (
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          {/* <span className="logo"><img src={logo} alt="logo"/></span> */}
+          <div className="search">
+            <input type="text" placeholder="Search"
+            />
+            <button><SearchIcon /></button>
+          </div>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">
-            <NotificationsNone />
-            <span className="topIconBadge">2</span>
+          <HomeIcon />
           </div>
           <div className="topbarIconContainer">
-            <Language />
-            <span className="topIconBadge">2</span>
+          <PersonIcon />
           </div>
           <div className="topbarIconContainer">
-            <Settings />
+            <h4>Admin</h4>
           </div>
-          <img src="https://resources.tidal.com/images/3e29689c/351e/4832/9c33/45619c5e46dc/750x750.jpg" alt="" className="topAvatar" />
+          <div className="topbarIconContainer">
+          <ArrowDropDownIcon/>
+          </div>
         </div>
       </div>
     </div>

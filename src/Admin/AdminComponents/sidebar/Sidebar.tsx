@@ -29,7 +29,7 @@ export default function Sidebar() {
             <Link to="/users" className="link">
               <li className="sidebarListItem">
                 <GroupIcon className="sidebarIcon" />
-                User Payment
+                Users
               </li>
             </Link>
           </ul>
@@ -38,7 +38,7 @@ export default function Sidebar() {
               <Link to="/AddAdmin" className="link">
                 <li className="sidebarListItem">
                   <AdminPanelSettingsIcon className="sidebarIcon" />
-                  User Payment
+                  Admin Users
                 </li>
               </Link>
             </ul>
@@ -47,7 +47,7 @@ export default function Sidebar() {
                 <Link to="/users" className="link">
                   <li className="sidebarListItem">
                     <AssignmentIndIcon className="sidebarIcon" />
-                    User Payment
+                    Root Admin
                   </li>
                 </Link>
               </ul>
