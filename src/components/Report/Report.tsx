@@ -354,9 +354,21 @@ const Report = () => {
                         <Typography >Priority Elements</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <Typography>
-
-                        </Typography>
+                      <div className='list'>
+                          {SelectedRecommendation?.segmentResponses?.map(
+                        (content: any) => {
+                              return (
+                                <>
+                                <Accordion>
+                                  <AccordionDetails>
+                                    {content}
+                                  </AccordionDetails>
+                                </Accordion>
+                                </>
+                              )
+                            }
+                          )}
+                        </div>
                       </AccordionDetails>
                     </Accordion>
 
