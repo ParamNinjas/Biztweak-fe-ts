@@ -8,6 +8,7 @@ const recomendationSlice = createSlice({
     },
     reducers: {
         setAllUserRecomendations: (state, param) => {
+            console.log('checking', state, param)
             const { payload } = param;
             state.allUserRecomendations = payload;
         },

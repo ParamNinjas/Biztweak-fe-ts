@@ -33,3 +33,6 @@
 .con{
     display: block;
 }
+.divider{
+    margin-bottom: 1em;
+}

@@ -11,6 +11,9 @@ import { persistReducer, persistStore } from 'redux-persist';
 import { PersistGate } from "redux-persist/integration/react";
 import sessionStorage from 'redux-persist/es/storage/session';
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { getDefaultMiddleware } from '@reduxjs/toolkit';
+
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -26,6 +29,10 @@ const configuredStore = configureStore({
   reducer: {
     persistedReducer,
   },
+  middleware: getDefaultMiddleware =>
+  getDefaultMiddleware({
+    serializableCheck: false,
+  }),
   devTools: process.env.NODE_ENV !== "production",
 });
 
