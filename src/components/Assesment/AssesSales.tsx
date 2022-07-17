@@ -33,6 +33,7 @@ type LocationState = {
   }>
 }
 
+
 const AssessBasic = () => {
   const location = useLocation();
   const bizInd = (location.state as LocationState)?.bizInd;
@@ -44,6 +45,19 @@ const AssessBasic = () => {
       }
       console.log("user id", user?.id)
   const createReport = async () =>{
+    //console.log("test", values[0] as marketSales)
+    const mase = Object.assign({}, values);
+    let companyAdReco = ""
+    let companyAdRecoKey = ""
+    if (companyAd === "yes"){
+      companyAdReco = "No recommendation"
+      companyAdRecoKey = "The company does advertise"
+    }else {
+      companyAdReco = "marketing plan"
+      companyAdRecoKey = "The company does not advertise"
+    }
+
+
      const payload = {
       "segment": "customer",
       "userId": user?.id,
@@ -60,7 +74,7 @@ const AssessBasic = () => {
                       {"key": importantCusRecoKey, "value": importantCusReco},
                       {"key": cusResearchRecoKey, "value": cusResearchReco }
                     ],
-        "Market": [{"key"   :  companyAdReco ,"value": companyAdReco},
+        "Market":   [{"key":  companyAdReco ,"value": companyAdReco},
                     {"key"  :  effectiveRecoKey ,"value": effectiveReco},
                     { "key" :  planningRecoKey  , "value" : planningReco}, 
                     { "key" :  stratRecoKey  , "value" : stratReco},
@@ -315,15 +329,7 @@ const AssessBasic = () => {
       
      
 
-      let companyAdReco = ""
-      let companyAdRecoKey = ""
-      if (companyAd === "yes"){
-        companyAdReco = "No recommendation"
-        companyAdRecoKey = "The company does advertise"
-      }else {
-        companyAdReco = "marketing plan"
-        companyAdRecoKey = "The company does not advertise"
-      }
+  
    
       let effectiveReco = ""
       let effectiveRecoKey = ""
