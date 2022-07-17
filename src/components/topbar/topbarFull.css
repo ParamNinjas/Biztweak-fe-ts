@@ -1,0 +1,93 @@
+.topbar {
+  width: 100%;
+  /* width:calc(100% - 100px); */
+  height: 70px;
+  background: #00A9AF;
+  /* position: sticky; */
+  top: 0;
+  right:2;
+  z-index: 999;
+  bottom: 50px;
+}
+
+.topbarWrapper {
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+form > * {
+  /* width: 100%; */
+  max-width: 100%;
+  margin: 4rem auto;
+}
+
+.search input {
+  padding: 0.3rem;
+  background: #fff;
+  border: 2px solid rgb(200, 200, 200);
+  border-radius: 50px 0 0 50px;
+  color: #009EA9;
+  outline: none;
+  width: 70%;
+  font-size: 1.2rem;
+}
+
+.search button {
+  padding: 0.3rem;
+  background: #009EA9;
+  border: 1px solid var(--form-button);
+  border-radius: 0 30px 30px 0px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.search button :hover{
+  background: #fff;
+  color: #00dded;
+}
+
+
+.logo img {
+  height: auto;
+  width: 150px;
+  cursor: pointer;
+}
+
+.topRight{
+    display: flex;
+    align-items: center;
+}
+
+.topbarIconContainer {
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+  color: #ffff;
+}
+
+.topIconBadge{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: -5px;
+    right: 0px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.topAvatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}

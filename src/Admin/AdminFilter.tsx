@@ -5,8 +5,8 @@ import { Typography, Button } from "@material-ui/core";
 // import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom';
 // import SearchBar from "material-ui-search-bar";
-import Search from "../components/topbar/TopbarFull";
-import Side from "../Admin/AdminComponents/sidebar/SidebarFull";
+import Search from "../components/topbar/Topbar";
+import Side from "./AdminComponents/sidebar/Sidebar";
 import UserList from "./List";
 import { Api } from '../services/endpoints';
 import { IProfile, IRecomendation } from "../Interfaces/IRecomendation";
@@ -21,8 +21,8 @@ import GroupIcon from '@mui/icons-material/Group';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import GroupsIcon from '@mui/icons-material/Groups';
 import PaidIcon from '@mui/icons-material/Paid';
-import LightbulbIcon from '@mui/icons-material/Lightbulb';
-import './AdminFull.css';
+
+
 
 
 const linkStyle = {
@@ -32,7 +32,7 @@ const linkStyle = {
 };
 
 
-const AdminFull = () => {
+const Admin2 = () => {
   const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
   const [allProfiles, setAllProfiles] = useState<IProfile[]>([]);
   const test = async () => {
@@ -226,7 +226,7 @@ const AdminFull = () => {
                     className="sendMail"
                     variant="outlined"
                   >
-                    <MailIcon/><Link to='/AdminFilter' style={linkStyle}>SendMail</Link>
+                    <MailIcon/><Link to='/SendMail' style={linkStyle}>SendMail</Link>
 
                   </Button>
                   <div className="phaseBTNs">
@@ -242,13 +242,6 @@ const AdminFull = () => {
                         className="phase1BTN"
                         variant="outlined"
                       > < PaidIcon /> Get Funding
-                      </Button>
-                    </div>
-                    <div className="phase2">
-                      <Button
-                        className="phase1BTN"
-                        variant="outlined"
-                      ><GroupsIcon /> Get Customers
                       </Button>
                     </div>
                     <div className="phase2">
@@ -314,4 +307,4 @@ const AdminFull = () => {
 
 
 
-export default AdminFull
+export default Admin2

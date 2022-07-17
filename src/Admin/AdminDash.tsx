@@ -224,7 +224,7 @@ const Admin = () => {
                     className="sendMail"
                     variant="outlined"
                   >
-                    <MailIcon/><Link to='/SendMail' style={linkStyle}>SendMail</Link>
+                    <MailIcon/><Link to='/AdminFilter' style={linkStyle}>SendMail</Link>
 
                   </Button>
                   <div className="phaseBTNs">

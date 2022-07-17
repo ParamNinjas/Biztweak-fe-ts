@@ -15,6 +15,7 @@ import Donut from './Donut';
 import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
 import './Report.css'
+import GetCourse from './GetCourse'
 
 
 const Report = () => {
@@ -719,12 +720,14 @@ const Report = () => {
                             >
                                 <Link to='/Profile'>Next</Link>
                             </Button>
-                      
+                      <div>
+                      <GetCourse />
+                      </div>
 
                     </div>    
                         </Grid>
-                    </Grid>
-                   
+                       
+                        </Grid>
 
                 </div>
                 <div className='foot'>

@@ -1,0 +1,236 @@
+    .root {
+        background-color: #f8f9fa;
+    }
+
+
+    .ForwardRef-root-1 {
+        height: 29px !important;
+        width: 10em !important;
+        left: 10px !important;
+
+    }
+
+    /* .search {
+} */
+    .adminCon {
+    display : inherit;
+        background-color: #dbd7d2;
+    }
+
+
+    .Assesments {
+        display: flex;
+        gap: 1em;
+    }
+
+    .fitplease {
+        max-width: 100%;
+        justify-content: space-around;
+        display: flex;
+        gap: 1em;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: space-around;
+        align-items: flex-start;
+    }
+    
+    .checklogo {
+        color: #019231;
+        padding: 1rem;
+    }
+    
+    .crosslogo {
+        color: #cc0000;
+        padding: 1rem;
+    }
+    
+    .movelogo {
+        color: #00888d;
+        padding: 1rem;
+    }
+    
+    .grouplogo {
+        color: #00888d;
+        padding: 1rem;
+    }
+
+    .widgetblk {
+        width: 12em;
+        height: 10em;
+        background-color: floralwhite;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
+        top: 2em;
+    }
+
+    .inComAsses {
+        width: 15em;
+        height: 10em;
+        background-color: floralwhite;
+    }
+
+    .totAsses {
+        width: 15em;
+        height: 10em;
+        background-color: floralwhite;
+    }
+
+    .totUsers {
+        width: 15em;
+        height: 10em;
+        background-color: floralwhite;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
+    }
+
+    .word {
+        font-size: 18px !important;
+        color: #000000 !important;
+        font-weight: 600px !important;
+        padding: 2px 0 0 2px;
+        
+    }
+    
+    .Bar-Title {
+        font-size: 50px !important;
+        color: #000000 !important;
+        font-weight: 600px !important;
+        padding: 3px;
+        
+    }
+
+
+    .num {
+        font-size: 60px !important;
+        font-weight: 500px !important;
+        color: #00A9AF !important;
+        font-weight: bolder !important;
+        padding: 2px 0 0 2px ;
+    }
+
+    .bars {
+        display: flex;
+        gap: 2em;
+    }
+
+    .bar1 {
+        width: 30em;
+        height: 20em;
+        background-color: floralwhite;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
+    }
+
+    .bar2 {
+        width: 20em;
+        height: 20em;
+        background-color: floralwhite;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
+    }
+
+    .new {
+        width: 20em;
+        height: 12em;
+        background-color: floralwhite;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
+    }
+
+    .proftxt {
+        font-size: x-large !important;
+        font-weight: bolder !important;
+    }
+
+    .SeeMore {
+        position: relative;
+        left: 43em;
+    }
+
+    .AddUsers {
+        background: #00a9b1 !important;
+        border-color: #00a9b1 !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+    }
+
+    .RegUsers {
+        background: #00a9b1 !important;
+        border-color: #00a9b1 !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+    }
+
+    .AllAsses {
+        background: #00a9b1 !important;
+        border-color: #00a9b1 !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+    }
+
+    .filButtons {
+        display: flex;
+        gap: 3em;
+        padding: 2em;
+    }
+
+    .SeeMoreU {
+        position: relative;
+        left: 12em;
+        top: 4em;
+    }
+
+    .newUsers {
+        position: relative;
+        /* /* left: 15em; */
+        top: -1em;
+    }
+
+    .sendMail {
+        background: #00a9b1 !important;
+        border-color: #00a9b1 !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+        width: 20em !important;
+        padding-top: 2em !important;
+    }
+
+    .phaseBTNs {
+        padding-top: 2em;
+        display: grid;
+        grid-template-columns: repeat(2, 0fr);
+        gap: 1em;
+    }
+
+    .phase1BTN {
+        background: #00a9b1 !important;
+        border-color: #00a9b1 !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+        width: 8em !important;
+        height: 8em;
+
+    }
+
+    .phase3 {
+        padding-top: 1em;
+    }
+
+    .phase3BTN {
+        background: #00a9b1 !important;
+        border-color: #00a9b1 !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+        width: 8em !important;
+        height: 8em;
+
+    }
+
+    .AllAsses Link {
+        color: #FFFFFF !important;
+    }
+
+    .prof {
+        background-color: #FFFFFF;
+    }
+
+    .bottom {
+        position: relative;
+        /* /* left: 15em; */
+        top: -1em;
+    }

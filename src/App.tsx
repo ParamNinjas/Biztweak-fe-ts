@@ -19,6 +19,7 @@ import Donut from "./components/Report/Donut";
 import UserList from "./Admin/List";
 import AddAdmin from "./Admin/AddAdmin";
 import AddUser from "./Admin/AdminComponents/AddUser/AddUser";
+import AdminFilter from "./Admin/AdminFilter"
 import SendMail from "./Admin/AdminComponents/SendMail/SendMail";
 import AllAsses from "./Admin/AdminComponents/AllAsses/AllAsses";
 import Funding from "./components/Assesment/Funding/Funding";
@@ -56,6 +57,7 @@ function App() {
           <Route path='/Bar' element={<Bargraph />} />
           <Route path='/Forgot' element={<Forgot />} />
           <Route path='/AdminDash' element={<Admin />} />
+          <Route path='/AdminFilter' element={<AdminFilter />} />
           <Route path='/Donut' element={<Donut />} />
           <Route path='/List' element={<UserList />} />
           <Route path='/AddAdmin' element={<AddAdmin />} />
