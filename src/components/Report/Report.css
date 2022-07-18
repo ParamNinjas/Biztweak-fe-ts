@@ -17,7 +17,7 @@
 
 .pChart{
     position: relative !important;
-    bottom: 16em !important;
+    bottom: 22em !important;
 }
 
 .list li {
@@ -35,4 +35,18 @@
 }
 .divider{
     margin-bottom: 1em;
+}
+.Header{
+    position: relative;
+    gap: 3em;
+    
+}
+.Header2{
+    position: relative;
+    left: 20em;
+    bottom: 27px;
+}
+.Header1{
+    position: relative;
+    justify-content: start;
 }

@@ -65,11 +65,11 @@ const Report = () => {
   // console.log("User selected recomm" , SelectedRecommendation)
   const reData  = []
   reData.push(SelectedRecommendation.segmentResponses)
-  // console.log("ReData list", reData)
+  console.log("ReData list", reData)
   const objectToArray = (obj : any) => Object.assign([], Object.values(obj))
-  // console.log("object conversion" , reData)
-  // const testData = Object.keys(SelectedRecommendation?.segmentResponses)
-  // console.log("testing 123", testData)
+  console.log("object conversion" , reData)
+  const testData = Object.keys(SelectedRecommendation?.segmentResponses)
+  console.log("testing 123", testData)
 
   useEffect(() => {
     _setSelectedRecomendation(AllRecomendations[0])
@@ -138,7 +138,7 @@ const Report = () => {
                         <Typography>Business Concept</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                        {/* <div className='list'>
+                        <div className='list'>
                           {reData.map((x : any , index : number ) => {
                            
                         return (
@@ -149,7 +149,7 @@ const Report = () => {
                           
                             })
                            const total = accord?.length
-                          const accordPercent = ((filtered?.length / total) * 100)
+                          const accordPercent = Math.floor(((filtered?.length / total) * 100))
                             console.log("accord", accordPercent)
                             return (
                               <div key={index}>
@@ -160,17 +160,24 @@ const Report = () => {
                                     id="panel1a-header"
                                     className='repoAccord'
                                   >
+                                    <div className='Header'>
+                                      <div className='Header1'>
+                                      <Typography>{testData[index]}</Typography>
+                                      </div>
+                                      <div className='Header2'>
+                                      <Typography>{accordPercent}{"%"}</Typography>
+                                      </div>
+                                    </div>
                                     
-                                     <Typography>{testData[index]}  {accordPercent}{"%"}</Typography>
                                     </AccordionSummary>
                                   <AccordionDetails>
                                   <div className='list'>
                                     {accord.map((list : any, index : number) => {
-                                      
+                                        const recoColor = list.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
                                            return (
                                             <div className='divider' key={index}>
                                             <Accordion>
-                                              <AccordionDetails>
+                                              <AccordionDetails style={{ backgroundColor: recoColor }}>
                                                 {list.key}
                                               </AccordionDetails>
                                             </Accordion>
@@ -191,7 +198,7 @@ const Report = () => {
                         } 
                         )
                       }
-                        </div> */}
+                        </div>
                           
                            
                            </AccordionDetails>
@@ -208,7 +215,7 @@ const Report = () => {
                         <Typography >Priority Elements</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                      {/* <div className='list'>
+                      <div className='list'>
                           {reData.map((x : any , index : number ) => {
                            
                         return (
@@ -219,8 +226,9 @@ const Report = () => {
                           
                             })
                            const total = accord?.length
-                          const accordPercent = ((filtered?.length / total) * 100)
+                          const accordPercent = Math.round(((filtered?.length / total) * 100))
                             console.log("accord", filtered)
+                          
                             return (
                               <div key={index}>
                                 <Accordion>
@@ -243,10 +251,12 @@ const Report = () => {
                                     //  const total = list?.length
                                     // const accordPercent = ((filteredList?.length / total) * 100)
                                     //   console.log("Filtered", filteredList)
+                                    const recoColor = list.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
                                            return (
                                             <div className='divider' key={index}>
+                                             
                                             <Accordion>
-                                              <AccordionDetails>
+                                              <AccordionDetails style={{ backgroundColor: recoColor }}>
                                                 {list.key}
                                               </AccordionDetails>
                                             </Accordion>
@@ -267,7 +277,7 @@ const Report = () => {
                         } 
                         )
                       }
-                        </div> */}
+                        </div>
                       </AccordionDetails>
                     </Accordion>
 
@@ -281,7 +291,7 @@ const Report = () => {
                         <Typography >Best Performing Areas</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <div className='list'>
+                        {/* <div className='list'>
                           {allRecommendations.map(
                             reco => {
                               return (
@@ -301,7 +311,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div>
+                        </div> */}
                       </AccordionDetails>
                     </Accordion>
 
@@ -315,7 +325,7 @@ const Report = () => {
                         <Typography >Major Gaps</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <div className='list'>
+                        {/* <div className='list'>
                           {allRecommendations.map(
                             reco => {
                               return (
@@ -335,7 +345,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div>
+                        </div> */}
                       </AccordionDetails>
                     </Accordion>
                   </Grid>
@@ -365,7 +375,7 @@ const Report = () => {
                         <Typography >Strategic Planning</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <div className='list'>
+                        {/* <div className='list'>
                           {reData?.map(
                             reco => {
                               return (
@@ -375,7 +385,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div>
+                        </div> */}
                       </AccordionDetails>
                     </Accordion>
                     <Accordion>
@@ -387,7 +397,7 @@ const Report = () => {
                         <Typography >Marketing and Sales</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <div className='list'>
+                        {/* <div className='list'>
                           {reData?.map(
                             mark => {
                               return (
@@ -397,7 +407,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div>
+                        </div> */}
                       </AccordionDetails>
                     </Accordion>
                     <Accordion>

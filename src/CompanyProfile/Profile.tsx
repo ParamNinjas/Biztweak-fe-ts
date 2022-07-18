@@ -115,7 +115,7 @@ const Profile = () => {
                             <div className="registered">
                             <FormControl>
                                 <FormLabel id="demo-controlled-radio-buttons-group">
-                                    Do you know who your product is for?
+                                    Is you company registered?
                                 </FormLabel>
                                 
                                 <RadioGroup
