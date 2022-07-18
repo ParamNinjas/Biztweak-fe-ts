@@ -25,45 +25,31 @@ const Report = () => {
 
   const [initialize, setInitialize] = useState(false)
   const user = supabase.auth.user()
-  // console.log("found user", user)
   const recommendations: Array<IRecomendation> = [];
   const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
-  // const test = async () =>{
-  //     const allRecommendations = await Api.GET_AllRecommendations()
-  //     const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
-  //     setAllRecommendations(result)
-  //     setInitialize(true)
-  //   }
-  // console.log('Report ID', user?.id,)
-  // const activeUser =  user?.id
   useEffect(() => {
     !initialize &&
       getReco();
   });
 
   const getReco = async () => {
-    // console.log("hello")
     const user = supabase.auth.user()
 
     const activeUser =  user?.id
-    // console.log("active user", activeUser)
     setInitialize(true)
     const { data, error } = await supabase
       .from('Recomendations')
       .select('*')
       .eq('userId', activeUser)
     const recoData = data
-    // console.log("user data", recoData)
-    // console.log("Active user ID" , activeUser)
     dispatch(setAllUserRecomendations(recoData))
 
   }
 
   const state = useSelector(selectRecomendationState)
-  // console.log('state', state)
+
 
   const _setSelectedRecomendation = (selected: any) => {
-    // console.log('selected', selected)
     dispatch(setSelectedRecomendation(selected))
 
   }
@@ -71,33 +57,6 @@ const Report = () => {
 
 
 
-  // Filtered Data
-
-  const filtered = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
-    return seg.value !== "No recommendation"
-
-  })
-  const filteredNeg = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
-    return seg.value !== "No recommendation"
-
-  })
-  // typeof filteredResPos !== "undefined" ? filteredResPos.length : 0
-
-  const cusPercentage = (((typeof filtered !== "undefined" ? filtered.length : 0) / (typeof filtered !== "undefined" ? filteredNeg.length : 0)) * 100)
-
-  // console.log('filtered list Percentage', cusPercentage , '%')
-
-  const filteredMark = allRecommendations[0]?.segmentResponses.Market && allRecommendations[0]?.segmentResponses.Market.filter(seg => {
-    return seg.value !== "No recommendation"
-
-  })
-  //   console.log('filtered listm', filteredMark)
-
-  const filteredVal = allRecommendations[0]?.segmentResponses.Value && allRecommendations[0]?.segmentResponses.Value.filter(seg => {
-    return seg.value !== "No recommendation"
-
-  })
-  //   console.log('filtered listv', filteredVal)
 
 
   const AllRecomendations = state?.persistedReducer?.RecomendationReducer?.allUserRecomendations ?? [];
@@ -106,11 +65,11 @@ const Report = () => {
   // console.log("User selected recomm" , SelectedRecommendation)
   const reData  = []
   reData.push(SelectedRecommendation.segmentResponses)
-  // console.log("ReData list", reData)
+  console.log("ReData list", reData)
   const objectToArray = (obj : any) => Object.assign([], Object.values(obj))
   // console.log("object conversion" , reData)
   const testData = Object.keys(SelectedRecommendation?.segmentResponses)
-  // console.log("testing 123", testData)
+  console.log("testing 123", testData)
 
   useEffect(() => {
     _setSelectedRecomendation(AllRecomendations[0])
@@ -382,88 +341,7 @@ const Report = () => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={6} lg={6}>
 
-                    {/* <Accordion > 
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Business Concept</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
-                                    <Typography variant='h5'>Business Diagnosis</Typography>
-                                    <Accordion>
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Priority Elements</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
-
-                                    <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Best Performing Areas</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Market &&  reco.segmentResponses.Market.map(
-                                                   markList => {
-                                                    const recoColor = markList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1" ;
-                                                       return (
-                                                           <>
-                                                           
-                                                           <li style={{color : recoColor}}>{markList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion>
-
-                                    <Accordion>
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Major Gaps</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                           
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion> */}
+                 
 
                   </Grid>
                 </Grid>
@@ -488,11 +366,11 @@ const Report = () => {
                       </AccordionSummary>
                       <AccordionDetails>
                         <div className='list'>
-                          {filtered?.map(
+                          {reData?.map(
                             reco => {
                               return (
                                 <>
-                                  <p>{reco.value}</p>
+                                  <p>{reco.Market.value}</p>
                                 </>
                               )
                             }
@@ -510,7 +388,7 @@ const Report = () => {
                       </AccordionSummary>
                       <AccordionDetails>
                         <div className='list'>
-                          {filteredMark?.map(
+                          {reData?.map(
                             mark => {
                               return (
                                 <>
@@ -531,8 +409,8 @@ const Report = () => {
                         <Typography >Product Development</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <div className='list'>
-                          {filteredVal?.map(
+                        {/* <div className='list'>
+                          {ReData?.map(
                             val => {
                               return (
                                 <>
@@ -541,7 +419,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div>
+                        </div> */}
                       </AccordionDetails>
                     </Accordion>
                     <Accordion>
@@ -554,7 +432,7 @@ const Report = () => {
                         <Typography >Financial Management</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <div className='list'>
+                        {/* <div className='list'>
                           {allRecommendations.map(
                             reco => {
                               return (
@@ -573,7 +451,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div>
+                        </div> */}
                       </AccordionDetails>
                     </Accordion>
                     <Accordion >
@@ -603,7 +481,7 @@ const Report = () => {
                         <Typography >Market Intelligence</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <div className='list'>
+                        {/* <div className='list'>
                           {filtered?.map(
                             reco => {
                               return (
@@ -613,7 +491,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div>
+                        </div> */}
                       </AccordionDetails>
                     </Accordion>
 
@@ -626,7 +504,7 @@ const Report = () => {
                         <Typography >Talent Management</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <div className='list'>
+                        {/* <div className='list'>
                           {allRecommendations.map(
                             reco => {
                               return (
@@ -645,7 +523,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div>
+                        </div> */}
                       </AccordionDetails>
                     </Accordion>
 
@@ -659,7 +537,7 @@ const Report = () => {
                       </AccordionSummary>
                       <AccordionDetails>
                         <Typography>
-                          <div className='list'>
+                          {/* <div className='list'>
                             {allRecommendations.map(
                               reco => {
                                 return (
@@ -678,7 +556,40 @@ const Report = () => {
                                 )
                               }
                             )}
-                          </div>
+                          </div> */}
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+                    <Accordion >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                      >
+                        <Typography >Employment Opportunities</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Typography>
+                          {/* <div className='list'>
+                            {allRecommendations.map(
+                              reco => {
+                                return (
+
+                                  reco.segmentResponses.Activities && reco.segmentResponses.Activities.map(
+                                    actList => {
+                                      return (
+                                        <>
+                                          <li>{actList.value}</li>
+                                        </>
+
+                                      )
+                                    }
+                                  )
+
+                                )
+                              }
+                            )}
+                          </div> */}
                         </Typography>
                       </AccordionDetails>
                     </Accordion>
