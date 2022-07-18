@@ -25,7 +25,7 @@ const Report = () => {
 
   const [initialize, setInitialize] = useState(false)
   const user = supabase.auth.user()
-  console.log("found user", user)
+  // console.log("found user", user)
   const recommendations: Array<IRecomendation> = [];
   const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
   // const test = async () =>{
@@ -42,28 +42,28 @@ const Report = () => {
   });
 
   const getReco = async () => {
-    console.log("hello")
+    // console.log("hello")
     const user = supabase.auth.user()
 
     const activeUser =  user?.id
-    console.log("active user", activeUser)
+    // console.log("active user", activeUser)
     setInitialize(true)
     const { data, error } = await supabase
       .from('Recomendations')
       .select('*')
       .eq('userId', activeUser)
     const recoData = data
-    console.log("user data", recoData)
-    console.log("Active user ID" , activeUser)
+    // console.log("user data", recoData)
+    // console.log("Active user ID" , activeUser)
     dispatch(setAllUserRecomendations(recoData))
 
   }
 
   const state = useSelector(selectRecomendationState)
-  console.log('state', state)
+  // console.log('state', state)
 
   const _setSelectedRecomendation = (selected: any) => {
-    console.log('selected', selected)
+    // console.log('selected', selected)
     dispatch(setSelectedRecomendation(selected))
 
   }
@@ -101,16 +101,16 @@ const Report = () => {
 
 
   const AllRecomendations = state?.persistedReducer?.RecomendationReducer?.allUserRecomendations ?? [];
-  console.log("All User Reccom in state", AllRecomendations)
+  // console.log("All User Reccom in state", AllRecomendations)
   const SelectedRecommendation = state?.persistedReducer?.RecomendationReducer?.selectedRecomendation ?? [];
-  console.log("User selected recomm" , SelectedRecommendation)
+  // console.log("User selected recomm" , SelectedRecommendation)
   const reData  = []
   reData.push(SelectedRecommendation.segmentResponses)
-  console.log("ReData list", reData)
+  // console.log("ReData list", reData)
   const objectToArray = (obj : any) => Object.assign([], Object.values(obj))
-  console.log("object conversion" , reData)
+  // console.log("object conversion" , reData)
   const testData = Object.keys(SelectedRecommendation?.segmentResponses)
-  console.log("testing 123", testData)
+  // console.log("testing 123", testData)
 
   useEffect(() => {
     _setSelectedRecomendation(AllRecomendations[0])
@@ -181,10 +181,17 @@ const Report = () => {
                         <AccordionDetails>
                         <div className='list'>
                           {reData.map((x : any , index : number ) => {
+                           
                         return (
                           <>
                           { Object.values(x).map((accord : any, index : number) => {
-                            console.log("accord", accord)
+                             const filtered = accord && accord.filter((seg : any) => {
+                              return seg.value !== "No recommendation"
+                          
+                            })
+                           const total = accord?.length
+                          const accordPercent = ((filtered?.length / total) * 100)
+                            console.log("accord", accordPercent)
                             return (
                               <div key={index}>
                                 <Accordion>
@@ -195,7 +202,7 @@ const Report = () => {
                                     className='repoAccord'
                                   >
                                     
-                                     <Typography>{testData[index]}</Typography>
+                                     <Typography>{testData[index]}  {accordPercent}{"%"}</Typography>
                                     </AccordionSummary>
                                   <AccordionDetails>
                                   <div className='list'>
@@ -231,190 +238,6 @@ const Report = () => {
                            </AccordionDetails>
                    
                   </Accordion >
-
-                        {/* <div className='con'>
-                          <div className='cus'>
-                            <Accordion >
-                              <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                                className='repoAccord'
-                              >
-                                <Typography >Customer Segment</Typography>
-                              </AccordionSummary>
-                              <AccordionDetails>
-
-                                <div className='list'>
-                                  {allRecommendations.map(
-                                    reco => {
-                                      return (
-
-                                        reco.segmentResponses.Customer && reco.segmentResponses.Customer.map(
-                                          cusList => {
-                                            const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
-                                            return (
-                                              <>
-                                                <li style={{ backgroundColor: recoColor }}>{cusList.key}</li>
-                                              </>
-
-                                            )
-                                          }
-                                        )
-
-                                      )
-                                    }
-                                  )}
-                                </div>
-                              </AccordionDetails>
-                            </Accordion >
-                          </div>
-                          <div className='Mark'>
-                            <Accordion >
-                              <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                                className='repoAccord'
-                              >
-                                <Typography >Market</Typography>
-                              </AccordionSummary>
-                              <AccordionDetails>
-                                <div className='list'>
-                                  {allRecommendations.map(
-                                    reco => {
-                                      return (
-
-                                        reco.segmentResponses.Market && reco.segmentResponses.Market.map(
-                                          cusList => {
-                                            const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
-                                            return (
-                                              <>
-                                                <li style={{ backgroundColor: recoColor }}>{cusList.key}</li>
-                                              </>
-
-                                            )
-                                          }
-                                        )
-
-                                      )
-                                    }
-                                  )}
-                                </div>
-
-                              </AccordionDetails>
-                            </Accordion >
-                          </div>
-                          <div className='cus'>
-                            <Accordion >
-                              <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                                className='repoAccord'
-                              >
-                                <Typography >Value Proposition</Typography>
-                              </AccordionSummary>
-                              <AccordionDetails>
-
-                                <div className='list'>
-                                  {allRecommendations.map(
-                                    reco => {
-                                      return (
-
-                                        reco.segmentResponses.Value && reco.segmentResponses.Value.map(
-                                          cusList => {
-                                            const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
-                                            return (
-                                              <>
-                                                <li style={{ backgroundColor: recoColor }}>{cusList.key}</li>
-                                              </>
-
-                                            )
-                                          }
-                                        )
-
-                                      )
-                                    }
-                                  )}
-                                </div>
-                              </AccordionDetails>
-                            </Accordion >
-                          </div>
-                          <div className='cus'>
-                            <Accordion >
-                              <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                                className='repoAccord'
-                              >
-                                <Typography >Key Rsources</Typography>
-                              </AccordionSummary>
-                              <AccordionDetails>
-
-                                <div className='list'>
-                                  {allRecommendations.map(
-                                    reco => {
-                                      return (
-
-                                        reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
-                                          cusList => {
-                                            const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
-                                            return (
-                                              <>
-                                                <li style={{ backgroundColor: recoColor }}>{cusList.key}</li>
-                                              </>
-
-                                            )
-                                          }
-                                        )
-
-                                      )
-                                    }
-                                  )}
-                                </div>
-                              </AccordionDetails>
-                            </Accordion >
-                          </div>
-                          <div className='cus'>
-                            <Accordion >
-                              <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                                className='repoAccord'
-                              >
-                                <Typography >Key Activities</Typography>
-                              </AccordionSummary>
-                              <AccordionDetails>
-
-                                <div className='list'>
-                                  {allRecommendations.map(
-                                    reco => {
-                                      return (
-
-                                        reco.segmentResponses.Activities && reco.segmentResponses.Activities.map(
-                                          cusList => {
-                                            const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
-                                            return (
-                                              <>
-                                                <li style={{ backgroundColor: recoColor }}>{cusList.key}</li>
-                                              </>
-
-                                            )
-                                          }
-                                        )
-
-                                      )
-                                    }
-                                  )}
-                                </div>
-                              </AccordionDetails>
-                            </Accordion >
-                          </div>
-                        </div> */}
-                    
                     <Typography variant='h5'>Business Diagnosis</Typography>
                     <Accordion >
                       <AccordionSummary
@@ -427,19 +250,64 @@ const Report = () => {
                       </AccordionSummary>
                       <AccordionDetails>
                       <div className='list'>
-                          {SelectedRecommendation?.segmentResponses?.Activities.map(
-                        (content: any, index : number) => {
-                              return (
-                                <div key={index}>
+                          {reData.map((x : any , index : number ) => {
+                           
+                        return (
+                          <>
+                          { Object.values(x).map((accord : any, index : number) => {
+                             const filtered = accord && accord.filter((seg : any) => {
+                              return seg.value !== "No recommendation"
+                          
+                            })
+                           const total = accord?.length
+                          const accordPercent = ((filtered?.length / total) * 100)
+                            console.log("accord", filtered)
+                            return (
+                              <div key={index}>
                                 <Accordion>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    className='repoAccord'
+                                  >
+                                    
+                                     <Typography>{testData[index]}  {accordPercent}{"%"}</Typography>
+                                    </AccordionSummary>
                                   <AccordionDetails>
-                                    {content.key}
+                                  <div className='list'>
+                                    {accord.map((list : any, index : number) => {
+                                    //   const filteredList = list && list?.filter((seg : any) => {
+                                    //     return seg.value !== "No recommendation"
+                                    
+                                    //   })
+                                    //  const total = list?.length
+                                    // const accordPercent = ((filteredList?.length / total) * 100)
+                                    //   console.log("Filtered", filteredList)
+                                           return (
+                                            <div className='divider' key={index}>
+                                            <Accordion>
+                                              <AccordionDetails>
+                                                {list.key}
+                                              </AccordionDetails>
+                                            </Accordion>
+                                            </div>
+                                          )
+                                    })}
+                                    </div>
                                   </AccordionDetails>
                                 </Accordion>
                                 </div>
                               )
-                            }
-                          )}
+                          
+                          })}
+                          </>
+                        )
+                         
+                       
+                        } 
+                        )
+                      }
                         </div>
                       </AccordionDetails>
                     </Accordion>
