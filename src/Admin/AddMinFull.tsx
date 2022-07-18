@@ -226,7 +226,7 @@ const AdminFull = () => {
                     className="sendMail"
                     variant="outlined"
                   >
-                    <MailIcon/><Link to='/AdminFilter' style={linkStyle}>SendMail</Link>
+                    <MailIcon/><Link to='/AdminMailFull' style={linkStyle}>SendMail</Link>
 
                   </Button>
                   <div className="phaseBTNs">

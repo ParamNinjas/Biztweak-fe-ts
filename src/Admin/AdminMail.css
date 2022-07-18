@@ -1,5 +1,6 @@
     .root {
         background-color: #f8f9fa;
+        height: 100%;
     }
 
 
@@ -37,25 +38,33 @@
     .checklogo {
         color: #019231;
         padding: 1rem;
+        width : 30px !important;
+        height: auto !important;
     }
     
     .crosslogo {
         color: #cc0000;
         padding: 1rem;
+        width : 30px !important;
+        height: auto !important;
     }
     
     .movelogo {
         color: #00888d;
         padding: 1rem;
+        width : 30px !important;
+        height: auto !important;
     }
     
     .grouplogo {
         color: #00888d;
         padding: 1rem;
+        width : 30px !important;
+        height: auto !important;
     }
 
     .widgetblk {
-        width: 12em;
+        width: 10em;
         height: 10em;
         background-color: floralwhite;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
@@ -82,11 +91,10 @@
     }
 
     .word {
-        font-size: 18px !important;
+        font-size: 17px !important;
         color: #000000 !important;
         font-weight: 600px !important;
         padding: 2px 0 0 2px;
-        
     }
     
     .Bar-Title {
