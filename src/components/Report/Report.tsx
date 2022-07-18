@@ -65,11 +65,11 @@ const Report = () => {
   // console.log("User selected recomm" , SelectedRecommendation)
   const reData  = []
   reData.push(SelectedRecommendation.segmentResponses)
-  console.log("ReData list", reData)
+  // console.log("ReData list", reData)
   const objectToArray = (obj : any) => Object.assign([], Object.values(obj))
   // console.log("object conversion" , reData)
-  const testData = Object.keys(SelectedRecommendation?.segmentResponses)
-  console.log("testing 123", testData)
+  // const testData = Object.keys(SelectedRecommendation?.segmentResponses)
+  // console.log("testing 123", testData)
 
   useEffect(() => {
     _setSelectedRecomendation(AllRecomendations[0])
@@ -138,7 +138,7 @@ const Report = () => {
                         <Typography>Business Concept</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                        <div className='list'>
+                        {/* <div className='list'>
                           {reData.map((x : any , index : number ) => {
                            
                         return (
@@ -191,7 +191,7 @@ const Report = () => {
                         } 
                         )
                       }
-                        </div>
+                        </div> */}
                           
                            
                            </AccordionDetails>
@@ -208,7 +208,7 @@ const Report = () => {
                         <Typography >Priority Elements</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                      <div className='list'>
+                      {/* <div className='list'>
                           {reData.map((x : any , index : number ) => {
                            
                         return (
@@ -267,7 +267,7 @@ const Report = () => {
                         } 
                         )
                       }
-                        </div>
+                        </div> */}
                       </AccordionDetails>
                     </Accordion>
 
@@ -436,18 +436,15 @@ const Report = () => {
                           {allRecommendations.map(
                             reco => {
                               return (
-
                                 reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
                                   resList => {
                                     return (
                                       <>
                                         <li>{resList.value}</li>
                                       </>
-
                                     )
                                   }
                                 )
-
                               )
                             }
                           )}
@@ -508,18 +505,15 @@ const Report = () => {
                           {allRecommendations.map(
                             reco => {
                               return (
-
                                 reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
                                   resList => {
                                     return (
                                       <>
                                         <li>{resList.value}</li>
                                       </>
-
                                     )
                                   }
                                 )
-
                               )
                             }
                           )}
@@ -541,18 +535,15 @@ const Report = () => {
                             {allRecommendations.map(
                               reco => {
                                 return (
-
                                   reco.segmentResponses.Activities && reco.segmentResponses.Activities.map(
                                     actList => {
                                       return (
                                         <>
                                           <li>{actList.value}</li>
                                         </>
-
                                       )
                                     }
                                   )
-
                                 )
                               }
                             )}
@@ -574,18 +565,15 @@ const Report = () => {
                             {allRecommendations.map(
                               reco => {
                                 return (
-
                                   reco.segmentResponses.Activities && reco.segmentResponses.Activities.map(
                                     actList => {
                                       return (
                                         <>
                                           <li>{actList.value}</li>
                                         </>
-
                                       )
                                     }
                                   )
-
                                 )
                               }
                             )}
