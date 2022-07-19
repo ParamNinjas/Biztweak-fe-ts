@@ -83,7 +83,7 @@ const Login = () => {
 									Login Account
 								</Typography>
 							</div>
-							<p>
+							<p className='bodyText'> 
 								Follow the instructions to make it easier to login and you will be able to explore
 								inside.
 							</p>

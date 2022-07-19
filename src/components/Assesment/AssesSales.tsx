@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Grid , Button } from '@material-ui/core';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -13,12 +13,25 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { Link } from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
+import { createSlice } from '@reduxjs/toolkit';
 import './Assessment.css'
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation'
 import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
+import marketingSales from '../../json/marketingSales.json';
+
+type LocationState = {
+  bizInd: Array <{
+    value: number;
+    label: string
+  }>,
+  bizPhase: Array<{
+    value: number;
+    label: string
+  }>
+}
 
 // const linkStyle = {
 //   margin: "1rem",
@@ -28,6 +41,9 @@ import { supabase } from '../../supabaseClient';
 
 
 const AssessBasic = () => {
+  const location = useLocation();
+  const bizInd = (location.state as LocationState)?.bizInd;
+  const bizPhase = (location.state as LocationState)?.bizPhase;
   const [value, setValue] = React.useState('');
   const user = supabase.auth.user()
     function Alert(props : any) {
@@ -35,6 +51,19 @@ const AssessBasic = () => {
       }
       console.log("user id", user?.id)
   const createReport = async () =>{
+    //console.log("test", values[0] as marketSales)
+    const mase = Object.assign({}, values);
+    let companyAdReco = ""
+    let companyAdRecoKey = ""
+    if (companyAd === "yes"){
+      companyAdReco = "No recommendation"
+      companyAdRecoKey = "The company does advertise"
+    }else {
+      companyAdReco = "marketing plan"
+      companyAdRecoKey = "The company does not advertise"
+    }
+
+
      const payload = {
       "segment": "Sales",
       "userId": user?.id,
@@ -51,7 +80,7 @@ const AssessBasic = () => {
                       {"key": importantCusRecoKey, "value": importantCusReco},
                       {"key": cusResearchRecoKey, "value": cusResearchReco }
                     ],
-        "Market": [{"key"   :  companyAdReco ,"value": companyAdReco},
+        "Market":   [{"key":  companyAdReco ,"value": companyAdReco},
                     {"key"  :  effectiveRecoKey ,"value": effectiveReco},
                     { "key" :  planningRecoKey  , "value" : planningReco}, 
                     { "key" :  stratRecoKey  , "value" : stratReco},
@@ -72,8 +101,9 @@ const AssessBasic = () => {
       } 
     
     } as IRecomendation
-      const result = await Api.POST_CreateRecommendation(payload)
-      console.log('Result is' , result) 
+    console.log("array of answers", payload)
+      // const result = await Api.POST_CreateRecommendation(payload)
+      //console.log('Result is' , result) 
     } 
     
   
@@ -132,7 +162,9 @@ const AssessBasic = () => {
         setImportantCustomer((event.target as HTMLInputElement).value);
       };
       const handleCusResearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+       
         setCustomerReaserch((event.target as HTMLInputElement).value);
+        console.log("Lance", customerReaserch);
       };
 
       let productReco = ""
@@ -248,7 +280,7 @@ const AssessBasic = () => {
       cusResearchRecoKey = "Customer research has not been done"
      }
      
- 
+     const [touched, setTouched] = useState<boolean>(false);
 
       // Market and Sales
       const [companyAd, setCompanyAd] = React.useState<string>();
@@ -256,10 +288,38 @@ const AssessBasic = () => {
       const [planning, setPlanning] = React.useState<string>();
       const [priceStrategy, setPriceStrategy] = React.useState<string>();
       const [priceReview, setPriceReview] = React.useState<string>();
+      const [mkSales, setMkSales] = useState<{question: string, field:string}[]>(marketingSales);
 
-      const handleCompanyAd = (event: React.ChangeEvent<HTMLInputElement>) => {
+      interface marketSales {
+        companyAd: string,
+        effectiveAd: string,
+        planning: string,
+        priceStrategy: string,
+        priceReview: string
+      }
+
+      const [values, setValues] = useState<marketSales[]>([]);
+
+      const handleChange = (question: string, field: string,event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+        console.log(index, question)
+        const indexOfObject = mkSales.findIndex(object => {
+          return object.question === question;
+        });
+        setValues({ ...values, [field]: (event.target as HTMLInputElement).value });
+        mkSales.splice(indexOfObject, 1);
+        console.log("Answers", values)
+    };
+
+      const handleCompanyAd = (question: string,event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log("ev", question,(event.target as HTMLInputElement).value)
+        const indexOfObject = mkSales.findIndex(object => {
+          return object.question === question;
+        });
         setCompanyAd((event.target as HTMLInputElement).value);
+        mkSales.splice(indexOfObject, 1);
       };
+
+
       const handleEffectiveAd = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEffectiveAdd((event.target as HTMLInputElement).value);
       };
@@ -273,15 +333,9 @@ const AssessBasic = () => {
         setPriceReview((event.target as HTMLInputElement).value);
       };
       
-      let companyAdReco = ""
-      let companyAdRecoKey = ""
-      if (companyAd === "yes"){
-        companyAdReco = "No recommendation"
-        companyAdRecoKey = "The company does advertise"
-      }else {
-        companyAdReco = "marketing plan"
-        companyAdRecoKey = "The company does not advertise"
-      }
+     
+
+  
    
       let effectiveReco = ""
       let effectiveRecoKey = ""
@@ -476,13 +530,13 @@ const AssessBasic = () => {
                 />
                 <div className='companyInf'>
                   <div className='Location'>
-                  <Typography>Location</Typography>
+                  <Typography>Location: N/A</Typography>
                   </div>
                   <div className='indust'>
-                  <Typography>Industry</Typography>
+                  <Typography>Industry: {bizInd[0].label}</Typography>
                   </div>
                   <div className='phase'>
-                  <Typography>Business Phase</Typography>
+                  <Typography>Business Phase: {bizPhase[0].label}</Typography>
                 </div>
                 </div>
            </div>
@@ -767,7 +821,32 @@ const AssessBasic = () => {
         </AccordionSummary>
         <AccordionDetails>
         <div className='rev'>
-              <div>
+           {
+           mkSales.map((val, index) => {
+            return(
+              <div key={index}>
+              <FormControl>
+                <FormLabel id="demo-controlled-radio-buttons-group">
+                {val.question}
+                </FormLabel>
+                <RadioGroup
+                  aria-labelledby="demo-controlled-radio-buttons-group"
+                  //name="controlled-radio-buttons-group"
+                  defaultValue=""
+                  value={values[index]} 
+                 // name={values[index]} 
+                  onChange={(e) => handleChange(val.question, val.field, e, index)}
+                >
+                  <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                  <FormControlLabel value="no" control={<Radio />} label="No" />
+                </RadioGroup>
+              </FormControl>
+            </div>
+            )
+        
+           })
+          }
+              {/* <div>
                 <FormControl>
                   <FormLabel id="demo-controlled-radio-buttons-group">
                   Does the company advertise?
@@ -880,7 +959,7 @@ const AssessBasic = () => {
                     </div>
                   </RadioGroup>
                 </FormControl>
-              </div>
+              </div> */}
        
         </div>
         </AccordionDetails>
@@ -1115,5 +1194,4 @@ const AssessBasic = () => {
       </div>
     )
 }
-
 export default AssessBasic;

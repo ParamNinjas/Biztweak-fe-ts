@@ -1,0 +1,18 @@
+[
+    {
+        "question": "Have the costs involved in delivering the key activities been determined?",
+        "field": "deliveryCost"
+    },
+    {
+        "question": "Have the costs involved in acquiring the key resources been determined?",
+        "field": "acquiringCost"
+    },
+    {
+        "question": "Do you know the costs involved in maintaining customer relationships?",
+        "field": "customerRelationship"
+    },
+    {
+        "question": "Do you know the costs involved in determining and acquiring market segments?",
+        "field": "marketSegments"
+    }
+]

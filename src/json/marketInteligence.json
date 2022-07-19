@@ -1,0 +1,18 @@
+[
+    {
+        "question": " Does the company conduct market research?",
+        "field": "marketResearch"
+    },
+    {
+        "question": "Has the company actively identified a competitor in the market?",
+        "field": "marketPlaninPlace"
+    },
+    {
+        "question": "Has the company identified a key competitive advantage?",
+        "field": "targetNetwork"
+    },
+    {
+        "question": "Do you know the company’s product or service differentiation?",
+        "field": "postSales"
+    }
+]
