@@ -15,7 +15,7 @@ const Subscribe = () => {
   const [to_name, setTo_Name] = useState("");
   
   const submitInfo = (event: React.FormEvent<HTMLFormElement>) => {
-    // event.preventDefault();
+    event.preventDefault();
     console.log("to_name", to_name);
     
     const emailContent = {
