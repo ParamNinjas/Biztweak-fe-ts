@@ -65,6 +65,12 @@ const Report = () => {
   // console.log("User selected recomm" , SelectedRecommendation)
   const reData  = []
   reData.push(SelectedRecommendation.segmentResponses)
+
+  const mark = []
+ 
+
+
+
   console.log("ReData list", reData)
   const objectToArray = (obj : any) => Object.assign([], Object.values(obj))
   console.log("object conversion" , reData)
@@ -74,6 +80,28 @@ const Report = () => {
   useEffect(() => {
     _setSelectedRecomendation(AllRecomendations[0])
   });
+
+  // Filtere outputs
+  const filteredMark = SelectedRecommendation.segmentResponses?.Market && SelectedRecommendation.segmentResponses?.Market.filter((seg : any) => {
+    return seg.value !== "No recommendation"
+  }) 
+  console.log("Market list", filteredMark)
+
+  const filteredFin = SelectedRecommendation.segmentResponses?.Financial && SelectedRecommendation.segmentResponses?.Financial.filter((seg : any) => {
+    return seg.value !== "No recommendation"
+  }) 
+  console.log("Market list", filteredFin)
+
+  const filteredMarkInt = SelectedRecommendation.segmentResponses?.MarketInt && SelectedRecommendation.segmentResponses?.MarketInt.filter((seg : any) => {
+    return seg.value !== "No recommendation"
+  }) 
+  console.log("Market list", filteredMarkInt)
+
+  // const filteredEmp = SelectedRecommendation.segmentResponses && SelectedRecommendation.segmentResponses.filter((seg : any) => {
+  //   return seg.value !== "No recommendation"
+  // }) 
+  // console.log("Market list", filteredEmp)
+
 
 
   return (
@@ -145,11 +173,17 @@ const Report = () => {
                           <>
                           { Object.values(x).map((accord : any, index : number) => {
                              const filtered = accord && accord.filter((seg : any) => {
-                              return seg.value !== "No recommendation"
+                              return seg.value == "No recommendation"
+                          
+                            })
+                            const Empoylent = accord && accord.filter((seg : any) => {
+                              return seg.value == "No recommendation"
                           
                             })
                            const total = accord?.length
-                          const accordPercent = Math.floor(((filtered?.length / total) * 100))
+                          const accordPercent = Math.floor(((filtered?.length * 100) / total ))
+                    
+
                             console.log("accord", accordPercent)
                             return (
                               <div key={index}>
@@ -174,6 +208,7 @@ const Report = () => {
                                   <div className='list'>
                                     {accord.map((list : any, index : number) => {
                                         const recoColor = list.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
+                                        
                                            return (
                                             <div className='divider' key={index}>
                                             <Accordion>
@@ -202,7 +237,6 @@ const Report = () => {
                           
                            
                            </AccordionDetails>
-                   
                   </Accordion >
                     <Typography variant='h5'>Business Diagnosis</Typography>
                     <Accordion >
@@ -222,52 +256,60 @@ const Report = () => {
                           <>
                           { Object.values(x).map((accord : any, index : number) => {
                              const filtered = accord && accord.filter((seg : any) => {
-                              return seg.value !== "No recommendation"
+                              return seg.value == "No recommendation"
                           
                             })
                            const total = accord?.length
-                          const accordPercent = Math.round(((filtered?.length / total) * 100))
-                            console.log("accord", filtered)
+                           const accordPercent = Math.floor((filtered?.length * 100) / total )
+                         
                           
-                            return (
-                              <div key={index}>
-                                <Accordion>
-                                <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon />}
-                                    aria-controls="panel1a-content"
-                                    id="panel1a-header"
-                                    className='repoAccord'
-                                  >
-                                    
-                                     <Typography>{testData[index]}  {accordPercent}{"%"}</Typography>
-                                    </AccordionSummary>
-                                  <AccordionDetails>
-                                  <div className='list'>
-                                    {accord.map((list : any, index : number) => {
-                                    //   const filteredList = list && list?.filter((seg : any) => {
-                                    //     return seg.value !== "No recommendation"
-                                    
-                                    //   })
-                                    //  const total = list?.length
-                                    // const accordPercent = ((filteredList?.length / total) * 100)
-                                    //   console.log("Filtered", filteredList)
-                                    const recoColor = list.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
-                                           return (
-                                            <div className='divider' key={index}>
-                                             
-                                            <Accordion>
-                                              <AccordionDetails style={{ backgroundColor: recoColor }}>
-                                                {list.key}
-                                              </AccordionDetails>
-                                            </Accordion>
-                                            </div>
-                                          )
-                                    })}
-                                    </div>
-                                  </AccordionDetails>
-                                </Accordion>
-                                </div>
-                              )
+                          
+
+                              return (
+                                <div key={index}>
+                                  <Accordion>
+                                  <AccordionSummary
+                                      expandIcon={<ExpandMoreIcon />}
+                                      aria-controls="panel1a-content"
+                                      id="panel1a-header"
+                                      className='repoAccord'
+                                    >
+                                      
+                                      <div className='Header'>
+                                        <div className='Header1'>
+                                        <Typography>{testData[index]}</Typography>
+                                        </div>
+                                        <div className='Header2'>
+                                        <Typography>{accordPercent}{"%"}</Typography>
+                                        </div>
+                                      </div>
+                                      </AccordionSummary>
+                                    <AccordionDetails>
+                                    <div className='list'>
+                                      {accord.map((list : any, index : number) => {
+                                      
+                                      const recoColor = list.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
+                                             return (
+                                              <div className='divider' key={index}>
+                                               
+                                              <Accordion>
+                                                <AccordionDetails style={{ backgroundColor: recoColor }}>
+                                                  {list.key}
+                                                </AccordionDetails>
+                                              </Accordion>
+                                              </div>
+                                            )
+                                      })}
+                                      </div>
+                                    </AccordionDetails>
+                                  </Accordion>
+                                  </div>
+                                  
+                                )
+                            // }else{
+                            //   return null
+                            // }
+                           
                           
                           })}
                           </>
@@ -291,27 +333,77 @@ const Report = () => {
                         <Typography >Best Performing Areas</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        {/* <div className='list'>
-                          {allRecommendations.map(
-                            reco => {
+                      <div className='list'>
+                          {reData.map((x : any , index : number ) => {
+                           
+                        return (
+                          <>
+                          { Object.values(x).map((accord : any, index : number) => {
+                             const filtered = accord && accord.filter((seg : any) => {
+                              return seg.value == "No recommendation"
+                          
+                            })
+                           const total = accord?.length
+                           const accordPercent = Math.floor((filtered?.length * 100) / total )
+                         
+                          // if (accord)
+                          
+                            if(accordPercent >= 60 ){
                               return (
-
-                                reco.segmentResponses.Market && reco.segmentResponses.Market.map(
-                                  markList => {
-                                    const recoColor = markList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
-                                    return (
-                                      <>
-                                        <li style={{ backgroundColor: recoColor }}>{markList.key}</li>
-                                      </>
-
-                                    )
-                                  }
+                                <div key={index}>
+                                  <Accordion>
+                                  <AccordionSummary
+                                      expandIcon={<ExpandMoreIcon />}
+                                      aria-controls="panel1a-content"
+                                      id="panel1a-header"
+                                      className='repoAccord'
+                                    >
+                                      
+                                      <div className='Header'>
+                                        <div className='Header1'>
+                                        <Typography>{testData[index]}</Typography>
+                                        </div>
+                                        <div className='Header2'>
+                                        <Typography>{accordPercent}{"%"}</Typography>
+                                        </div>
+                                      </div>
+                                      </AccordionSummary>
+                                    <AccordionDetails>
+                                    <div className='list'>
+                                      {accord.map((list : any, index : number) => {
+                                      
+                                      const recoColor = list.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
+                                             return (
+                                              <div className='divider' key={index}>
+                                               
+                                              <Accordion>
+                                                <AccordionDetails style={{ backgroundColor: recoColor }}>
+                                                  {list.key}
+                                                </AccordionDetails>
+                                              </Accordion>
+                                              </div>
+                                            )
+                                      })}
+                                      </div>
+                                    </AccordionDetails>
+                                  </Accordion>
+                                  </div>
+                                  
                                 )
-
-                              )
+                            }else{
+                              return null
                             }
-                          )}
-                        </div> */}
+                           
+                          
+                          })}
+                          </>
+                        )
+                         
+                       
+                        } 
+                        )
+                      }
+                        </div>
                       </AccordionDetails>
                     </Accordion>
 
@@ -325,27 +417,78 @@ const Report = () => {
                         <Typography >Major Gaps</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        {/* <div className='list'>
-                          {allRecommendations.map(
-                            reco => {
+                      <div className='list'>
+                          {reData.map((x : any , index : number ) => {
+                           
+                        return (
+                          <>
+                          { Object.values(x).map((accord : any, index : number) => {
+                             const filtered = accord && accord.filter((seg : any) => {
+                              return seg.value == "No recommendation"
+                          
+                            })
+                           const total = accord?.length
+                           const accordPercent = Math.floor((filtered?.length * 100) / total )
+                         
+                          // if (accord)
+                          
+                            if(accordPercent < 60 ){
                               return (
-
-                                reco.segmentResponses.Customer && reco.segmentResponses.Customer.map(
-                                  cusList => {
-                                    const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
-                                    return (
-                                      <>
-                                        <li style={{ backgroundColor: recoColor }}>{cusList.key}</li>
-                                      </>
-
-                                    )
-                                  }
+                                <div key={index}>
+                                  <Accordion>
+                                  <AccordionSummary
+                                      expandIcon={<ExpandMoreIcon />}
+                                      aria-controls="panel1a-content"
+                                      id="panel1a-header"
+                                      className='repoAccord'
+                                    >
+                                      
+                                      <div className='Header'>
+                                        <div className='Header1'>
+                                        <Typography>{testData[index]}</Typography>
+                                        </div>
+                                        <div className='Header2'>
+                                        <Typography>{accordPercent}{"%"}</Typography>
+                                        </div>
+                                      </div>
+                                      </AccordionSummary>
+                                    <AccordionDetails>
+                                    <div className='list'>
+                                      {accord.map((list : any, index : number) => {
+                                      
+                                      const recoColor = list.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
+                                             return (
+                                              <div className='divider' key={index}>
+                                               
+                                              <Accordion>
+                                                <AccordionDetails style={{ backgroundColor: recoColor }}>
+                                                  {list.key}
+                                                </AccordionDetails>
+                                              </Accordion>
+                                              </div>
+                                            )
+                                      })}
+                                      </div>
+                                    </AccordionDetails>
+                                  </Accordion>
+                                  </div>
+                                  
                                 )
-
-                              )
+                            }else{
+                              return null
                             }
-                          )}
-                        </div> */}
+                           
+                          
+                          })}
+                          </>
+                        )
+                         
+                       
+                        } 
+                        )
+                      }
+                        </div>
+                       
                       </AccordionDetails>
                     </Accordion>
                   </Grid>
@@ -397,9 +540,9 @@ const Report = () => {
                         <Typography >Marketing and Sales</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        {/* <div className='list'>
-                          {reData?.map(
-                            mark => {
+                        <div className='list'>
+                          {filteredMark?.map(
+                            (mark : any) => {
                               return (
                                 <>
                                   <p>{mark.value}</p>
@@ -407,7 +550,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div> */}
+                        </div>
                       </AccordionDetails>
                     </Accordion>
                     <Accordion>
@@ -442,23 +585,17 @@ const Report = () => {
                         <Typography >Financial Management</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        {/* <div className='list'>
-                          {allRecommendations.map(
-                            reco => {
+                      <div className='list'>
+                          {filteredFin?.map(
+                            (fin : any) => {
                               return (
-                                reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
-                                  resList => {
-                                    return (
-                                      <>
-                                        <li>{resList.value}</li>
-                                      </>
-                                    )
-                                  }
-                                )
+                                <>
+                                  <p>{fin.value}</p>
+                                </>
                               )
                             }
                           )}
-                        </div> */}
+                        </div>
                       </AccordionDetails>
                     </Accordion>
                     <Accordion >
@@ -488,9 +625,9 @@ const Report = () => {
                         <Typography >Market Intelligence</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        {/* <div className='list'>
-                          {filtered?.map(
-                            reco => {
+                        <div className='list'>
+                          {filteredMarkInt ?.map(
+                            (reco : any) => {
                               return (
                                 <>
                                   <p>{reco.value}</p>
@@ -498,7 +635,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div> */}
+                        </div>
                       </AccordionDetails>
                     </Accordion>
 
