@@ -1,0 +1,18 @@
+[
+    {
+        "question": "How are you generating revenue from each customer segment?",
+        "field": "generatingRevenue"
+    },
+    {
+        "question": "Do you know the value that your customers are willing to pay for?",
+        "field": "willingPay"
+    },
+    {
+        "question": "Do you know how your customers are currently paying?",
+        "field": "cusPaymentMethod"
+    },
+    {
+        "question": "Do you know how your customers prefer to pay?",
+        "field": "preferedPayment"
+    }
+]

@@ -1,6 +1,7 @@
 .Signup-con{
     background-color: #d3d3d3;
     height: 51.6em;
+
 }
 .SignForm{
     position: relative;
@@ -30,4 +31,16 @@
 .footsz{
     position: relative;
     top: 4em;
+}
+.formTypo{
+    color: #0f1f3d;
+    position: relative;
+    font-weight: 3em !important;
+    margin: 1em;
+    font-weight: bold;
+    /* right: 10em; */
+
+}
+.formTypo .bodyText{
+    margin-left: 1em;
 }

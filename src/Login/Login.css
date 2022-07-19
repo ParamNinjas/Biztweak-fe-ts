@@ -20,8 +20,13 @@
     color: #0f1f3d;
     position: relative;
     font-weight: 3em !important;
+    margin: 1em;
+    font-weight: bold;
     /* right: 10em; */
 
+}
+.bodyText{
+    margin-left: 1em;
 }
 .loginHeading{
     font-weight: 3em !important;
