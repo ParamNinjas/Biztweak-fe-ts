@@ -21,6 +21,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import GroupsIcon from '@mui/icons-material/Groups';
 import PaidIcon from '@mui/icons-material/Paid';
+import { supabase } from "../supabaseClient";
 
 
 const linkStyle = {
@@ -51,6 +52,14 @@ const SellFilter = () => {
     // getUsers()
 
   });
+
+
+  //GetEmail
+  
+  const user = supabase.auth.user();
+  const email = user?.email;
+  console.log("Admin email", email)
+  
   const data = [
     {
       name: 'Customer',
