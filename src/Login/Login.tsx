@@ -40,10 +40,13 @@ return (
                                 Login Account
                             </Typography>  
                         </div>
-                        <p>
-                        Follow the instructions to make it easier to login and you will be 
-                        able to explore inside.
-                        </p>
+                        <div>
+                            <p className="body-text">
+                            Follow the instructions to make it easier to login and you will be 
+                            able to explore inside.
+                            </p>
+                        </div>
+                 
                         <div className="input1">
                             <TextField 
                                     id="filled-basic"  

@@ -1,0 +1,46 @@
+[
+    {
+        "question": "Do you know who your product is for?",
+        "field": "productOwner"
+    },
+    {
+        "question": "Do you know who is your target market/audience??",
+        "field": "tagetAudiance"
+    },
+    {
+        "question": "Do you know where they are located?",
+        "field": "tagetAudianceLocation,"
+    },
+    {
+        "question": "Do you know the Total market size?",
+        "field": "tagetMarketSize"
+    },
+    {
+        "question": " Do you know how you are going to reach your Customer?",
+        "field": "cusReach"
+    },
+    {
+        "question": "Has the company actively identified a competitor in the market?",
+        "field": "competitor"
+    },
+    {
+        "question": "Do you know how much of your market is accessible?",
+        "field": "marketAccess"
+    },
+    {
+        "question": "Do you know how much of your market is in your region/locality?",
+        "field": "marketLocation"
+    },
+    {
+        "question": "Do you have a profile for your ideal customer?",
+        "field": "idealCustomer"
+    },
+    {
+        "question": "Do you know who your most important customers are?",
+        "field": "importantCustomer"
+    },
+    {
+        "question": "Do you have a designated Customer Researcher Specialist for this?",
+        "field": "customerReaserch"
+    }
+]

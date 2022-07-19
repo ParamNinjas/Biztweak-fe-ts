@@ -1,0 +1,22 @@
+[
+    {
+        "question": "Does the company perform budgeting and forecasting?",
+        "field": "budgetForecast"
+    },
+    {
+        "question": "Does the company perform reconciliations?",
+        "field": "reconsiliation"
+    },
+    {
+        "question": "Does the company implement cash flow management?",
+        "field": "cashFlow"
+    },
+    {
+        "question": "Does the company document the financials of the business?",
+        "field": "documentFinancials"
+    },
+    {
+        "question": "Does the company have a dedicated person responsible for financial management?",
+        "field": "FinancialManager"
+    }
+]

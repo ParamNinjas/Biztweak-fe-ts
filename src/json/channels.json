@@ -1,0 +1,18 @@
+[
+    {
+        "question": " Do you know how you are going to reach your customers?",
+        "field": "reachCustomer"
+    },
+    {
+        "question": "Do you have a marketing plan in place?",
+        "field": "marketingPlan"
+    },
+    {
+        "question": "Have you developed a network to reach your target audience?",
+        "field": "developedNetwork"
+    },
+    {
+        "question": "Do you provide post-sales customer support?",
+        "field": "customerSupport"
+    }
+]
