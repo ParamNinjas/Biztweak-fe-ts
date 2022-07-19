@@ -18,12 +18,12 @@ display : inherit;
 }
 
 
-.Assesments {
+.Assesment {
     display: flex;
     gap: 1em;
 }
 
-.fitplease {
+.pleasefit {
     max-width: 100%;
     justify-content: space-around;
     display: flex;
@@ -34,14 +34,14 @@ display : inherit;
     align-items: flex-start;
 }
 
-.checklogo {
-    color: #019231;
+.checklogol {
+    color: #ffffff;
     padding: 1rem;
-    width : 30px !important;
+    width : 80px !important;
     height: auto !important;
 }
 
-.crosslogo {
+.crosslogo1 {
     color: #cc0000;
     padding: 1rem;
 }
@@ -56,13 +56,21 @@ display : inherit;
     padding: 1rem;
 }
 
-.widgetblk {
-    width: 12em;
+.widgetblks {
+    width: 10em;
     height: 10em;
-    background-color: floralwhite;
+    background-color: #02CBEB;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
     top: 2em;
 }
+
+.widgetshap {
+    width: 50em;
+    height: 10em;
+    background-color: #dbd7d2;
+    top: 2em;
+}
+
 
 .totUsers {
     width: 15em;
@@ -71,7 +79,7 @@ display : inherit;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
 }
 
-.word {
+.words {
     font-size: 17px !important;
     color: #000000 !important;
     font-weight: 600px !important;
@@ -87,7 +95,7 @@ display : inherit;
 }
 
 
-.num {
+.numb {
     font-size: 60px !important;
     font-weight: 500px !important;
     color: #00A9AF !important;
@@ -95,9 +103,10 @@ display : inherit;
     padding: 2px 0 0 2px ;
 }
 
-.bars {
+.bars2 {
     display: flex;
     gap: 2em;
+    margin-top: 20px;
 }
 
 .bar1 {
@@ -107,14 +116,14 @@ display : inherit;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
 }
 
-.bar2 {
+.bar {
     width: 20em;
     height: 20em;
     background-color: floralwhite;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
 }
 
-.new {
+.newn {
     width: 20em;
     height: 12em;
     background-color: floralwhite;

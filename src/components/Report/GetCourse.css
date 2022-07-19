@@ -9,9 +9,9 @@
     align-items: center;
   }
   
-  .getbar .bartext p, h1{
+  .getbar .bartext {
     color: #283344;
-    text-align: center;
+    text-align: center ;
     width: 50%;
   }
   

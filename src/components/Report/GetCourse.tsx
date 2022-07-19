@@ -17,7 +17,7 @@ export default function GetCourse() {
                 <button
                     className="BtnGet"
                 >
-                    <Link to="/CoursePage" style={linkStyle}>Get Free Courses</Link>
+                    <Link to="/GetCourse" style={linkStyle}>Get Free Courses</Link>
                 </button>
                 <h1>Webinar Series</h1>
                 <p>Please share your details if you want to be part of our Webinar series, where we help you build your business through active learning.</p>

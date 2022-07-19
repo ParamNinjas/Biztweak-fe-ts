@@ -30,6 +30,7 @@ import AdminFull from "./Admin/AddMinFull";
 import HealthReport from "./components/Assesment/HealthReport/HealthReport";
 import HealthReportFin from "./components/Assesment/HealthReport/HealthR";
 import './Login/Login.css'
+import SellFilter from "./Filters/AdminFilter/SellFilter";
 
 
 
@@ -58,6 +59,7 @@ function App() {
           <Route path='/Bar' element={<Bargraph />} />
           <Route path='/Forgot' element={<Forgot />} />
           <Route path='/AdminDash' element={<Admin />} />
+          <Route path='/SellFilter' element={<SellFilter />} />
           <Route path='/AdminMail' element={<AdminMail />} />
           <Route path='/AdminMailFull' element={<AdminMailFull />} />
           <Route path='/Donut' element={<Donut />} />

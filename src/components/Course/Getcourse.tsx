@@ -1,31 +1,63 @@
-import React, { useState } from 'react';
-import Popup from './Popup';
-import Getcs from '../../components/cards/Getcs'
- 
-function Getcourse() {
-  const [isOpen, setIsOpen] = useState(false);
- 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  }
- 
-  return <div>
-  <input
-      type="button"
-      value="Click to Open Popup"
-      onClick={togglePopup}
-    />
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    {isOpen && <Popup
-      // content={<>
-      //   <b>Get Courses</b>
-      //   <p>Please share your details if you interested in receiving the learning metarial to help you with the weaknesses in your bussiness or business idea</p>
-      //   <Getcs/>
-      //   <button>Test button</button>
-      // </>}
-      // handleClose={togglePopup}
-    />}
-  </div>
+import React from 'react';
+import { Container, Grid , Button } from '@material-ui/core';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Radio from '@material-ui/core/Radio';
+import MuiAlert from '@material-ui/lab/Alert';
+import UserNavbar from '../UserNav/UserNav';
+import company from '../../Images/company.png';
+import './Coursepage.css'
+import Content from './Content'
+
+
+
+const GetCourse = () => {
+    function Alert(props : any) {
+        return <MuiAlert elevation={6} variant="filled" {...props} />;
+      }
+    return(
+        <div className='Basic'>
+            <UserNavbar/>
+            <Container>
+            <Grid container spacing={2}>
+           <Grid item xs={12} sm={12} md={4} lg={4}>
+             <Typography>Company</Typography>
+             <Button 
+             className='profAdd'
+             variant='outlined'
+             >
+               Add Company 
+            </Button>
+            <div className='Accords'>
+            <div className='sideAccord'>
+              <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography className=''>No Name</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                      sit amet blandit leo lobortis eget.
+                    </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </div>
+            </div>      
+           </Grid>
+           <Grid item xs={12} sm={12} md={8} lg={8}>
+           <Content/>
+           </Grid>
+           </Grid>
+            </Container>
+        </div>
+    )
 }
- 
-export default Getcourse;
+
+export default GetCourse

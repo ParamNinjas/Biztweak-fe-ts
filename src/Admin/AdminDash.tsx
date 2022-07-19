@@ -30,7 +30,7 @@ const linkStyle = {
 };
 
 
-const Admin = () => {
+const SellFilter = () => {
   const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
   const [allProfiles, setAllProfiles] = useState<IProfile[]>([]);
   const test = async () => {
@@ -232,7 +232,8 @@ const Admin = () => {
                       <Button
                         className="phase1BTN"
                         variant="outlined"
-                      >< AddShoppingCartIcon/> How To Sell
+                      >< AddShoppingCartIcon/><Link to='/SellFilter' style={linkStyle}>How To Sell</Link>
+
                       </Button>
                     </div>
                     <div className="Phase2">
@@ -246,7 +247,8 @@ const Admin = () => {
                       <Button
                         className="phase1BTN"
                         variant="outlined"
-                      ><GroupsIcon /> Get Customers
+                      ><GroupsIcon /> <Link to='/AdminMail' style={linkStyle}>
+                      Get Customers</Link>
                       </Button>
                     </div>
 
@@ -305,4 +307,4 @@ const Admin = () => {
 
 
 
-export default Admin
+export default SellFilter
