@@ -45,14 +45,10 @@ const AdminMai = () => {
 
             <Grid item xs={12} sm={12} md={10} lg={10}>
               <Search />
-              <div className="Assesments">
                 <div className="Emailform">
                   <AdminMail />
               
                 </div>
-              </div>
-
-              
             </Grid>
           </Grid>
 

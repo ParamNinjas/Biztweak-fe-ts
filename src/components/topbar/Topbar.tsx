@@ -6,8 +6,17 @@ import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import PersonIcon from '@mui/icons-material/Person';
+import Typography from "@material-ui/core/Typography";
+import { supabase } from "../../supabaseClient";
 
 export default function Topbar() {
+
+
+  const user = supabase.auth.user();
+  const email = user?.email;
+  console.log("Admin email", email)
+  
+  
   return (
     <div className="topbar">
       <div className="topbarWrapper">
@@ -26,7 +35,7 @@ export default function Topbar() {
           <PersonIcon />
           </div>
           <div className="topbarIconContainer">
-            <h4>Admin</h4>
+            <Typography>{email}</Typography>
           </div>
           <div className="topbarIconContainer">
           <ArrowDropDownIcon/>

@@ -16,6 +16,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { supabase } from '../supabaseClient';
 
 
 const useStyles = makeStyles({
@@ -166,6 +167,9 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
   
+  const user = supabase.auth.user();
+  const email = user?.email;
+  console.log("Admin email", email)
 
   return (
     <Box sx={{ flexGrow: 1 }}>

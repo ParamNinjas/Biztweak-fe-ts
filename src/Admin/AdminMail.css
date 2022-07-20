@@ -19,11 +19,7 @@
     }
 
 
-    .Assesments {
-        display: flex;
-        gap: 1em;
-    }
-
+    
     .fitplease {
         max-width: 100%;
         justify-content: space-around;
@@ -241,4 +237,9 @@
         position: relative;
         /* /* left: 15em; */
         top: -1em;
+    }
+    
+    .Emailform {
+        width: 100%;
+        height: 100vh;
     }
