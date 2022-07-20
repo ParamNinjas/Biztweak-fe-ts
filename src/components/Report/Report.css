@@ -26,7 +26,7 @@
 }
 .bGraph{
     position: relative;
-    bottom: 14em;
+    bottom: -10em;
     gap: 2em !important;
     height: 10em !important;
 } 
@@ -49,4 +49,17 @@
 .Header1{
     position: relative;
     justify-content: start;
+}
+
+.report-accord{
+    position: relative;
+    top: 20em;
+}
+.recommendations{
+    position: relative;
+    top: 25em;
+}
+.foot{
+    position: relative;
+    top: 25em; 
 }

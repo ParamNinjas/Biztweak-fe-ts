@@ -84,7 +84,20 @@ const HealthReport = () => {
 		setOpen(false);
 	};
 	const state = useSelector(selectRecomendationState)
-console.log('state HealthReport', state)
+console.log('state HealthReport', state )
+const stateData  = []
+stateData.push(state)
+console.log("stateData .", stateData)
+const stateDataview  = []
+stateDataview.push(state.persistedReducer)
+console.log("stateData", stateDataview)
+const reco = []
+reco.push(stateDataview[0].RecomendationReducer)
+console.log('Recommended', reco)
+const selected = []
+selected.push(reco[0].selectedRecomendation)
+console.log("selected Recomendation", selected)
+
 
 	return (
 		<div className="HR-con">
@@ -101,10 +114,20 @@ console.log('state HealthReport', state)
 								<Typography className="">No Name</Typography>
 							</AccordionSummary>
 							<AccordionDetails>
-								<Typography>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus
-									ex, sit amet blandit leo lobortis eget.
-								</Typography>
+							{/* <div className='list'>
+                          {selected[0]?segmentResponses.map(
+                            (reco : any , index : any) => {
+                              return (
+                                <div>
+                                  <p>Your Report</p>
+								  	<Button size="small" variant="outlined" className="bizReport" onClick=onClick={() => setSelectedRecomendation(AllRecomendations[index])>
+									View Biz Report
+								</Button>
+                                </div>
+                              )
+                            }
+                          )}
+                        </div> */}
 							</AccordionDetails>
 						</Accordion>
 					</Grid>

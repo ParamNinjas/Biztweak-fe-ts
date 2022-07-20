@@ -31,7 +31,7 @@ import Accelerate from "./components/Assesment/Accelerate/Accelerate";
 import EarlyS from "./components/Assesment/EarlyS/EarlyStage";
 import Concept from "./components/Assesment/Concept/Concept";
 import StartUp from "./components/Assesment/Startup/StartUp";
-import Chart from "./components/Report/PieChart";
+import PChart from "./components/Report/PieChart";
 import NewBar  from "./components/Report/TestBar";
 import './Login/Login.css'
 
@@ -78,7 +78,7 @@ function App() {
           <Route path='/Concept' element={<Concept />} />
           <Route path='/EarlyStage' element={<EarlyS />} />
           <Route path='/StartUp' element={<StartUp />} />
-          <Route path='/PieChart' element={<Chart />} />
+          <Route path='/PieChart' element={<PChart />} />
           <Route path='/TestBar' element={<NewBar />} />
         </Routes>
       </Router>

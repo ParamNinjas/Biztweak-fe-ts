@@ -11,7 +11,7 @@ import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation';
 import Bargraph from './Bar';
 import { Link } from 'react-router-dom';
-import Donut from './Donut';
+// import Donut from './Donut';
 import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
 import { useDispatch, useSelector } from "react-redux";
@@ -60,22 +60,18 @@ const Report = () => {
 
 
   const AllRecomendations = state?.persistedReducer?.RecomendationReducer?.allUserRecomendations ?? [];
-  // console.log("All User Reccom in state", AllRecomendations)
+  console.log("All User Reccom in state", AllRecomendations)
   const SelectedRecommendation = state?.persistedReducer?.RecomendationReducer?.selectedRecomendation ?? [];
-  // console.log("User selected recomm" , SelectedRecommendation)
+  console.log("User selected recomm" , SelectedRecommendation)
   const reData  = []
   reData.push(SelectedRecommendation.segmentResponses)
-
-  const mark = []
- 
-
-
-
   console.log("ReData list", reData)
   const objectToArray = (obj : any) => Object.assign([], Object.values(obj))
   console.log("object conversion" , reData)
+  console.log("testing 123", SelectedRecommendation?.segmentResponses)
+
   const testData = Object.keys(SelectedRecommendation?.segmentResponses)
-  console.log("testing 123", testData)
+  console.log("testing 123", SelectedRecommendation?.segmentResponses)
 
   useEffect(() => {
     _setSelectedRecomendation(AllRecomendations[0])
@@ -97,7 +93,7 @@ const Report = () => {
   }) 
   console.log("Market list", filteredMarkInt)
 
-  // const filteredEmp = SelectedRecommendation.segmentResponses && SelectedRecommendation.segmentResponses.filter((seg : any) => {
+  // const filteredEmp = SelectedRecommendation.segmentResponses && SelectedRecommendation.segmentResponses?.filter((seg : any) => {
   //   return seg.value !== "No recommendation"
   // }) 
   // console.log("Market list", filteredEmp)
@@ -109,7 +105,7 @@ const Report = () => {
       <DashNav />
       <Container>
         <div className='report'>
-          <Button onClick={() => _setSelectedRecomendation(AllRecomendations[0])}>test</Button>
+        <Button onClick={() => _setSelectedRecomendation(AllRecomendations[0])}>test</Button>
           <Grid container>
             <Grid item xs={12} sm={12} md={3} lg={3}>
               <div className='profileInfo'>
@@ -144,7 +140,7 @@ const Report = () => {
               <Typography variant='h3'>Report Summary</Typography>
               <Typography>Company</Typography>
               <div className='pChart'>
-                <Donut />
+                {/* <Donut /> */}
               </div>
               <div className='bGraph'>
                 {<Bargraph />}
@@ -520,15 +516,17 @@ const Report = () => {
                       <AccordionDetails>
                         {/* <div className='list'>
                           {reData?.map(
-                            reco => {
+                            (reco, index) => {
                               return (
                                 <>
                                   <p>{reco.Market.value}</p>
+                                  <Button onClick={() => _setSelectedRecomendation(AllRecomendations[index])}>test</Button>
                                 </>
                               )
                             }
                           )}
                         </div> */}
+                        
                       </AccordionDetails>
                     </Accordion>
                     <Accordion>
@@ -540,7 +538,7 @@ const Report = () => {
                         <Typography >Marketing and Sales</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <div className='list'>
+                        {/* <div className='list'>
                           {filteredMark?.map(
                             (mark : any) => {
                               return (
@@ -550,7 +548,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div>
+                        </div> */}
                       </AccordionDetails>
                     </Accordion>
                     <Accordion>
@@ -562,17 +560,9 @@ const Report = () => {
                         <Typography >Product Development</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        {/* <div className='list'>
-                          {ReData?.map(
-                            val => {
-                              return (
-                                <>
-                                  <p>{val.value}</p>
-                                </>
-                              )
-                            }
-                          )}
-                        </div> */}
+                        <div className='list'>
+                        
+                        </div>
                       </AccordionDetails>
                     </Accordion>
                     <Accordion>
@@ -648,7 +638,7 @@ const Report = () => {
                         <Typography >Talent Management</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        {/* <div className='list'>
+                        <div className='list'>
                           {allRecommendations.map(
                             reco => {
                               return (
@@ -664,7 +654,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div> */}
+                        </div>
                       </AccordionDetails>
                     </Accordion>
 
@@ -678,7 +668,7 @@ const Report = () => {
                       </AccordionSummary>
                       <AccordionDetails>
                         <Typography>
-                          {/* <div className='list'>
+                          <div className='list'>
                             {allRecommendations.map(
                               reco => {
                                 return (
@@ -694,7 +684,7 @@ const Report = () => {
                                 )
                               }
                             )}
-                          </div> */}
+                          </div>
                         </Typography>
                       </AccordionDetails>
                     </Accordion>
@@ -708,7 +698,7 @@ const Report = () => {
                       </AccordionSummary>
                       <AccordionDetails>
                         <Typography>
-                          {/* <div className='list'>
+                          <div className='list'>
                             {allRecommendations.map(
                               reco => {
                                 return (
@@ -724,7 +714,7 @@ const Report = () => {
                                 )
                               }
                             )}
-                          </div> */}
+                          </div>
                         </Typography>
                       </AccordionDetails>
                     </Accordion>

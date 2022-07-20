@@ -43,13 +43,13 @@ root.render(
   <React.StrictMode>
 
 
-    return (
+    
     <PersistGate loading={null} persistor={persistor}>
       <Provider store={configuredStore}>
         <App />
       </Provider>
     </PersistGate>
-    )
+    
 
   </React.StrictMode>
 );

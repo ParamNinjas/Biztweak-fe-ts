@@ -63,24 +63,18 @@ const Dashboard = () => {
     const NavigateFunc = () => {
         if(bizPhase == '2'){
             navigate('/AssesSales',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
-        } else if(bizPhase == '3'){
-<<<<<<< HEAD
-            navigate('/Customer');
+        } else if(bizPhase == '3' ){
+            navigate('/Customer',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
         } else if(bizPhase == '4'){
-            navigate('/Funding');
+            navigate('/Funding',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
         } else if(bizPhase == '5'){
-        navigate('/Concept');
+        navigate('/Concept',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
         }else if(bizPhase == '6'){
-            navigate('/StartUp');
+            navigate('/StartUp',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
         }else if(bizPhase == '7'){
-            navigate('/EarlyStage');
+            navigate('/EarlyStage',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
         }else if(bizPhase == '8'){
-            navigate('/Accelerate');
-=======
-            navigate('/Customer',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))} });
-        } else {
-            navigate('/Funding',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))} });
->>>>>>> 9ee73529c376887ab5bc9b89f1d0499fb89a8cda
+            navigate('/Accelerate',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
         }
         console.log('BizPhase is =' , bizPhase)
         console.log('BizPhase is =' , bizInd)
