@@ -66,37 +66,14 @@ const SellFilter = () => {
                 <div className="pleasefit">
                 <BoxN />
                 </div>
-                <div className="pleasefit">
-                </div>
               </div>
+                <div >
 
-              <div className="overView">
-                  <div className="buttongrp">
-                <div className="bottom">
-                  <div className="phaseBTNs">
-                    <div className="Phase1">
-                    </div>
-                    <div className="Phase2">
-                    </div>
-                    <div className="phase2">
-                    </div>
 
-                  </div>
-                </div>
-              </div>
                 </div>
              
               
               <div className="filButtons">
-                <div className="newUsersBTN">
-                  
-                </div>
-                <div className="regUsersBTN">
-                  
-                </div>
-                <div className="AllAssesBTN">
-                  
-                </div>
               </div>
 
               <div className="prof">

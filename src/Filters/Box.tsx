@@ -87,7 +87,7 @@ const AllAsses = () => {
 
 
   const linkStyle = {
-    margin: "4px",
+    margin: "5px",
     textDecoration: "none",
     color: 'white'
   }
@@ -105,7 +105,7 @@ const AllAsses = () => {
             </Button>
           </div>
         </div>
-        <div className="typo">
+        <div className="typos">
           <Typography className="TotTypo">I want to learn how to sell</Typography>
           <Typography className="Comtypo">First Phase</Typography>
           <Button
