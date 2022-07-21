@@ -143,7 +143,7 @@ const Report = () => {
                 {/* <Donut /> */}
               </div>
               <div className='bGraph'>
-                {<Bargraph />}
+                {/* {<Bargraph />} */}
               </div>
               <Typography variant='h5'>Full Summary</Typography>
 

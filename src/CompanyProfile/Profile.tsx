@@ -21,43 +21,95 @@ import { ICompany } from "src/Interfaces/IRecomendation";
 import { Link } from "react-router-dom";
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Icon from '@material-ui/core/Icon';
+import { supabase } from "../supabaseClient";
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+// import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
 const linkStyle = {
     margin: "1rem",
     textDecoration: "none", 
   };
+  const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+    input: {
+      display: 'none',
+    },
+  }),
+);
 
 const Profile = () => {
   const [companyName, setCompanyName] = useState<string>("");
   const [logo, setLogo] = useState([]);
-  const [registered, setRegistered] =  useState<string>();  
+  const [phase, setPhase] =  useState<string>("Sell");
+  const [registered, setRegistered] =  useState<string>("yes");  
   const [location, setLocation] = useState<string>("");
   const [employees, setEmployees] = useState<number>(0);
   const [annTurnover, setAnnTurnover] = useState<number>(0);
   const [monTurnover, setMonTurnover] = useState<number>(0);
   const [industry, setIndustry] = useState<string>();
   const [product, setProduct] = useState<string>();
+//   const [logoUploaded, setLogoUploaded] = useState<string>();
+//   const [value, setValue] = React.useState('female');
+  
+  const classes = useStyles();
 
   const createProfile = async () =>{
     const payload = {
      "companyName": companyName,
+    //  "logo" : logo[],
      "location": location,
      "phase" : registered,
+     "industry" : industry,
      "employees" : employees,
      "registered" : registered,
-     "annTurnover" : annTurnover,
      "monTurnover" : monTurnover,
-     "industry" : industry,
+     "annTurnover" : annTurnover,
      "product" : product,
    } as ICompany
      const result = await Api.POST_CreateCompany(payload)
      console.log('Result is' , result) 
    } 
-           
+   async function uploadLogo(event : any) {
+    const logoFile = event.target.files[0]
+    const mineType = logoFile.type;
+    const ext = mineType.replace('image/png')
+    const { data, error } = await supabase
+      .storage
+      .from('logo')
+      .upload(`${supabase.auth.user()?.id}.${ext}`, logoFile, {
+        cacheControl: '3600',
+        upsert: false
+      })
+      if (error) {
+              alert('Could not upload your logo, please try again');
+            } else {
+                alert('Logo Uploaded');
+            }
+}
 
-  const handleRegistered = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRegistered((event.target as HTMLInputElement).value);
-    console.log('it works', registered)
-  };
+
+
+   const create = () => {
+    createProfile();
+    
+   }
+
+
+//   const handleRegistered = (event: React.ChangeEvent<HTMLInputElement>) => {
+//     console.log("testing")
+//     setRegistered((event.target as HTMLInputElement).value);
+//     console.log('it works', registered)
+//   };
+//   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+//     console.log("testing",(event.target as HTMLInputElement).value )
+//     setValue((event.target as HTMLInputElement).value);
+//   };
     
     return (
         <div className="profile-con">
@@ -102,39 +154,40 @@ const Profile = () => {
                             </div>
                             <div className="companyLogo">
                                 <Typography>Logo</Typography>
-                                <Button
-                                    variant="contained"
-                                    color="default"
-                                    className='comLogo'
-                                    startIcon={<CloudUploadIcon />}
-                                >
+                                <div className="uplaodBtn">
+                             <input
+                                    accept="image/*"
+                                    className={classes.input}
+                                    id="contained-button-file"
+                                    multiple
+                                    type="file"
+                                    onChange={uploadLogo}
+                                />
+                                <label htmlFor="contained-button-file">
+                                    <Button variant="contained" color="primary" component="span">
                                     Upload
-                                </Button>
+                                    </Button>
+                                </label>
+                                <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
+                                <label htmlFor="icon-button-file">
+                                    <IconButton color="primary" aria-label="upload picture" component="span">
+                                    <PhotoCamera />
+                                    </IconButton>
+                                </label>
+                                </div>
                             </div>
                          
                             <div className="registered">
-                            <FormControl>
-                                <FormLabel id="demo-controlled-radio-buttons-group">
-                                    Is you company registered?
-                                </FormLabel>
-                                
-                                <RadioGroup
-                                    aria-labelledby="demo-controlled-radio-buttons-group"
-                                    name="controlled-radio-buttons-group"
-                                    value={registered}
-                                    onChange={handleRegistered}
-                                >
-                                    <div className="regRes">
-                                    <div className="yes">
-                                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                                    </div>
-                                    <div className="no">
-                                    <FormControlLabel value="no" control={<Radio />} label="No" />
-                                    </div>
-                                    </div>
+                            {/* <FormControl component="fieldset">
+                                <FormLabel component="legend">Gender</FormLabel>
+                                <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+                                    <FormControlLabel value="female" control={<Radio />} label="Female" />
+                                    <FormControlLabel value="male" control={<Radio />} label="Male" />
+                                    <FormControlLabel value="other" control={<Radio />} label="Other" />
+                                    <FormControlLabel value="disabled" disabled control={<Radio />} label="(Disabled option)" />
                                 </RadioGroup>
-                            </FormControl>
-                            </div> 
+                                </FormControl> */}
+                            </div>
                             <div className="companyIn">
                                 <Typography>Industry</Typography>
                                 <TextField
@@ -209,7 +262,7 @@ const Profile = () => {
                             <Button 
                                     variant='outlined' 
                                     className='btnProfSave'
-                                    onClick={() => createProfile()}
+                                    onClick={() => create()}
                             >
                                     Save
                             </Button>

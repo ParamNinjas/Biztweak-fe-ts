@@ -15,9 +15,15 @@
     display: flex;
     gap: 5em;
 }
+.uplaodBtn{
+    position: relative;
+    left: 20.6em;
+    bottom: 11px;
+
+}
 .comLogo{
     position: relative;
-    left: 23em;
+    left: 23em !important;
     background-color: aqua;
 }
 .registered{

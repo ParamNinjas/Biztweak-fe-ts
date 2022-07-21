@@ -95,7 +95,7 @@ const reco = []
 reco.push(stateDataview[0].RecomendationReducer)
 console.log('Recommended', reco)
 const selected = []
-selected.push(reco[0].selectedRecomendation)
+selected.push(reco[0].allUserRecomendations)
 console.log("selected Recomendation", selected)
 
 
@@ -105,29 +105,48 @@ console.log("selected Recomendation", selected)
 			<Container>
 				<Grid container spacing={2}>
 					<Grid item xs={12} sm={12} md={3} lg={3}>
+							 {/* onClick={() => setSelectedRecomendation(AllRecomendations[index]) */}
 						<Accordion>
 							<AccordionSummary
 								expandIcon={<ExpandMoreIcon />}
 								aria-controls="panel1a-content"
 								id="panel1a-header"
 							>
-								<Typography className="">No Name</Typography>
+								<Typography className="">Current Reports</Typography>
 							</AccordionSummary>
 							<AccordionDetails>
-							{/* <div className='list'>
-                          {selected[0]?segmentResponses.map(
+							<div className='list'>
+                          {selected.map(
                             (reco : any , index : any) => {
                               return (
                                 <div>
-                                  <p>Your Report</p>
-								  	<Button size="small" variant="outlined" className="bizReport" onClick=onClick={() => setSelectedRecomendation(AllRecomendations[index])>
-									View Biz Report
-								</Button>
+									<Accordion>
+										<AccordionSummary
+											expandIcon={<ExpandMoreIcon />}
+											aria-controls="panel1a-content"
+											id="panel1a-header"
+										>
+											<Typography className="">View Report</Typography>
+										</AccordionSummary>
+										<AccordionDetails>
+											{/* <p>Your Report</p> */}
+											<Link to="/Report">
+												<Button 
+													size="small" 
+													variant="outlined" 
+													className="bizReport"
+													onClick={() => setSelectedRecomendation(reco[index])}
+												>
+												View Report
+												</Button>
+											</Link>
+										</AccordionDetails>
+									</Accordion>
                                 </div>
                               )
                             }
                           )}
-                        </div> */}
+                        </div>
 							</AccordionDetails>
 						</Accordion>
 					</Grid>

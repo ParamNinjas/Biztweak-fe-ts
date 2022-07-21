@@ -102,14 +102,15 @@ export interface MarketInt {
 export interface ICompany {
     // id : number,
     companyName : string,
+    logo : ImageData,
     location : string,
     phase : string,
-    registered : string,
     industry : string,
     employees : number,
     monTurnover : number, 
     annTurnover : number,
-    product : string
+    product : string,
+    registered : string
 }
 
 export interface IProfile {

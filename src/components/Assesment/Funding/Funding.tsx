@@ -606,10 +606,10 @@ const Funding = () => {
                   <Typography>Location: N/A</Typography>
                   </div>
                   <div className="indust">
-									<Typography>Industry: {bizInd[0].label}</Typography>
+									<Typography>Industry: {bizInd[0]?.label}</Typography>
 								</div>
 								<div className="phase">
-									<Typography>Business Phase: {bizPhase[0].label}</Typography>
+									<Typography>Business Phase: {bizPhase[0]?.label}</Typography>
 								</div>
                 </div>
            </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, TextField } from "@material-ui/core";
@@ -19,6 +19,7 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 import './AddUser.css';
+import { supabase } from "../../../supabaseClient";
 
 const useStyles = makeStyles(() => ({
     textField: {
@@ -31,8 +32,92 @@ const useStyles = makeStyles(() => ({
   }));
 
 const AddUser = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [registered, setRegistered] = useState("");
+    const [industry, setIndustry] = useState("");
+    const [companyName, setCompanyName] = useState("");
+    const [numEmpoyees, setNumEmpoyees] = useState("");
+    const [monTurnover, setMonTurnover] = useState("");
+    const [yearsOperating, setYearsOperating] = useState("");
+    const [bank, setBank] = useState("");
+    const [phase, setPhase] = useState("");
+    const [logo, setLogo] = useState([]);
+    const [location, setLocation] = useState("");
+    const [annTurnover, setAnnTurnover] = useState("");
+    const [product, setProduct] = useState("");
+    const [yearsOnPremises, setyearOnPremises] = useState("");
+    const [cashPercentage, setCashPercentage] = useState("");
+    const [cardPercentage, setCardPercentage] = useState("");
+    const [eftPercentage, setEftPercentage] = useState("");
+
 
     const classes = useStyles();
+
+    async function newUser() {
+        console.log('AddingUser', email,password );
+        const { user, session, error } = await supabase.auth.signUp({
+            email: email,
+            password: password,
+          })
+          if (error){
+            return null;
+          }
+        return user
+      }
+      async function UserProfileInfo(createdUser : any) {
+            const { data, error } = await supabase
+            .from('profile')
+            .update([
+            { display_name: name, email : email, Role: 1 },
+            ])
+            .eq('id' , createdUser.id)
+            console.log('AddingUserInfo', name,email,  );
+            // navigate('/login');
+      }
+      async function CompanyInfo(createdUser : any){
+        const { data, error } = await supabase
+            .from('Company')
+            .insert([
+                { companyName: companyName },
+                { employees: numEmpoyees },
+                { monTurnover: monTurnover },
+                { yearsOperating:  yearsOperating},
+                { phase:  phase},
+                { industry:  industry},
+                { registered:  registered},
+                { some_column:  bank},
+                { location:  location},
+                { annTurnover:  annTurnover},
+                { product:  product},
+                { yearsOnPremises:  yearsOnPremises},
+                { cashPercentage:  cashPercentage},
+                { cardPercentage:  cardPercentage},
+                { eftPercentage:  eftPercentage},
+                // { some_column:  yearsOperating},
+            ])
+      }
+      async function Run(){
+        const createdUser = await newUser();
+        if(createdUser){
+            UserProfileInfo(createdUser);
+            CompanyInfo(createdUser);
+            // handleClickOpen()
+        }
+        
+        console.log("running both fuctions")
+      }
+      const handleRegistered = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setRegistered((event.target as HTMLInputElement).value);
+        console.log('it works', registered)
+      };
+      const handleIndustry = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setIndustry((event.target as HTMLInputElement).value);
+      };
+      const handleBank = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setBank((event.target as HTMLInputElement).value);
+      };
     return (
         <div className="Adduser-con">
             <Container>
@@ -47,7 +132,9 @@ const AddUser = () => {
                             variant="outlined"
                             className={classes.textField}
                             fullWidth
+                            label="Full Name"
                             size="small"
+                            onChange={(e)=> setName(e.target.value)}
                             InputProps={{
                                 className: classes.input
                               }}
@@ -57,12 +144,18 @@ const AddUser = () => {
                             variant="outlined"
                             className="txtfield"
                             fullWidth
+                            label="Password"
+                            type="password"
+                            autoComplete="current-password"
+                            onChange={(e)=> setPassword(e.target.value)}
                             size="small"
                             />
                         <Typography>Company Name</Typography>
                         <TextField
                             variant="outlined"
                             className="txtfield"
+                            label="Company Name"
+                            onChange={(e)=> setCompanyName(e.target.value)}
                             fullWidth
                             size="small"
                             />
@@ -74,8 +167,8 @@ const AddUser = () => {
                                 <RadioGroup
                                     aria-labelledby="demo-controlled-radio-buttons-group"
                                     name="controlled-radio-buttons-group"
-                                    // value={registered}
-                                    // onChange={handleRegistered}
+                                    value={registered}
+                                    onChange={handleRegistered}
                                 >
                                     <div className="Rgroup">
                                     <div className="r1">
@@ -92,11 +185,12 @@ const AddUser = () => {
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             fullWidth
-                            // size="small"
+                            label="Select Industry"
                             variant="outlined"
-                            // value={age}
-                            // onChange={handleChange}
+                            value={industry}
+                            onSelect={handleIndustry}
                             >
+                                
                             <MenuItem value={1}>Admin/Business Support</MenuItem>
                             <MenuItem value={2}>Agriculture,Forestry,Fishing and Hunting</MenuItem>
                             <MenuItem value={3}>Arts,Entertainment and Recreation</MenuItem>
@@ -118,6 +212,8 @@ const AddUser = () => {
                         <TextField
                             variant="outlined"
                             className="txtfield"
+                            label="Number of Employees"
+                            onChange={(e)=> setNumEmpoyees(e.target.value)}
                             fullWidth
                             size="small"
                             />
@@ -125,6 +221,8 @@ const AddUser = () => {
                         <TextField
                             variant="outlined"
                             className="txtfield"
+                            label="Monthly turnover"
+                            onChange={(e)=> setMonTurnover(e.target.value)}
                             fullWidth
                             size="small"
                             />
@@ -133,6 +231,8 @@ const AddUser = () => {
                         <TextField
                             variant="outlined"
                             className="txtfield"
+                            label="Number of years operating"
+                            onChange={(e)=> setYearsOperating(e.target.value)}
                             fullWidth
                             size="small"
                             />
@@ -141,10 +241,9 @@ const AddUser = () => {
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             fullWidth
-                            // size="small"
                             variant="outlined"
-                            // value={age}
-                            // onChange={handleChange}
+                            value={bank}
+                            onSelect={handleBank}
                             >
                             <MenuItem value={1}>ABSA</MenuItem>
                             <MenuItem value={1}>Capitec Bank</MenuItem>
@@ -159,14 +258,19 @@ const AddUser = () => {
                         <TextField
                             variant="outlined"
                             className="txtfield"
+                            label="Email"
                             fullWidth
                             size="small"
+                            onChange={(e)=> setEmail(e.target.value)}
                             />
                     <Typography>Confirm Password</Typography>
                         <TextField
                             variant="outlined"
                             className="txtfield"
                             fullWidth
+                            label="Confirm Password"
+                            type="password"
+                            autoComplete="current-password"
                             size="small"
                             />
                               <Typography>Company Logo</Typography>
@@ -180,6 +284,8 @@ const AddUser = () => {
                         <TextField
                             variant="outlined"
                             className="txtfield"
+                            label="Location"
+                            onChange={(e)=> setLocation(e.target.value)}
                             fullWidth
                             size="small"
                             />
@@ -201,6 +307,8 @@ const AddUser = () => {
                         <TextField
                             variant="outlined"
                             className="txtfield"
+                            label="Annual turnover"
+                            onChange={(e)=> setAnnTurnover(e.target.value)}
                             fullWidth
                             size="small"
                             />
@@ -208,6 +316,8 @@ const AddUser = () => {
                         <TextField
                             variant="outlined"
                             className="txtfield"
+                            label="Products and Services"
+                            onChange={(e)=> setProduct(e.target.value)}
                             fullWidth
                             size="small"
                             />
@@ -215,6 +325,8 @@ const AddUser = () => {
                         <TextField
                             variant="outlined"
                             className="txtfield"
+                            label="years on Premises"
+                            onChange={(e)=> setyearOnPremises(e.target.value)}
                             fullWidth
                             size="small"
                             />
@@ -225,6 +337,8 @@ const AddUser = () => {
                             <TextField
                                 variant="outlined"
                                 className="txtfield"
+                                label="Card %"
+                                onChange={(e)=> setCardPercentage(e.target.value)}
                                 // fullWidth
                                 size="small"
                             />
@@ -234,6 +348,8 @@ const AddUser = () => {
                             <TextField
                                 variant="outlined"
                                 className="txtfield"
+                                onChange={(e)=> setCashPercentage(e.target.value)}
+                                label="Card %"
                                 // fullWidth
                                 size="small"
                             />
@@ -243,6 +359,8 @@ const AddUser = () => {
                             <TextField
                                 variant="outlined"
                                 className="txtfield"
+                                onChange={(e)=> setEftPercentage(e.target.value)}
+                                label="EFT %"
                                 // fullWidth
                                 size="small"
                             />
@@ -250,6 +368,7 @@ const AddUser = () => {
                     </div>
                     </Grid>
                     <Button
+                        onClick={()=> Run()}
                           variant="contained"
                           className="AdduserSave"  
                     >Save</Button>
