@@ -153,9 +153,10 @@ const Report = () => {
               <div className='bGraph'>
                 {<NewBar />}
               </div>
-              <Typography variant='h5'>Full Summary</Typography>
+             
 
               <div className='report-accord'>
+              <Typography variant='h5'>Full Summary</Typography>
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={12} md={6} lg={6}>
                     <Typography>Full Report</Typography>
