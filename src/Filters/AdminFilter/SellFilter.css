@@ -232,3 +232,9 @@ display : inherit;
     /* /* left: 15em; */
     top: -1em;
 }
+
+.leftblock {
+    position: relative;
+    right: 20 em;
+    bottom: 10 em;
+}

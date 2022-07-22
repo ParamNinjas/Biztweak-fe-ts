@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 // import SearchBar from "material-ui-search-bar";
 import Search from "../components/topbar/Topbar";
 import Side from "../Admin/AdminComponents/sidebar/Sidebar";
-import UserList from "./List";
+import List from "./List";
 import { Api } from '../services/endpoints';
 import { IProfile, IRecomendation } from "../Interfaces/IRecomendation";
 import { BarChart, Bar, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -22,6 +22,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import GroupsIcon from '@mui/icons-material/Groups';
 import PaidIcon from '@mui/icons-material/Paid';
 import { supabase } from "../supabaseClient";
+import IProfiles from '../Admin/AdminComponents/featuredInfo/profile';
 
 
 const linkStyle = {
@@ -33,7 +34,7 @@ const linkStyle = {
 
 const SellFilter = () => {
   const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
-  const [allProfiles, setAllProfiles] = useState<IProfile[]>([]);
+  const [profile, setProfile] = useState([] as IProfile[]);
   const test = async () => {
     const allRecommendations = await Api.GET_AllRecommendations()
     const result = allRecommendations.result ? allRecommendations.result : [] as IRecomendation[];
@@ -41,15 +42,32 @@ const SellFilter = () => {
 
   }
 
-  // const getUsers = async () =>{
-  //     const allProfiles = await Api.GET_AllProfiles()
-  //     const profiles = allProfiles.result? allProfiles.result : [] as IProfile[];
-  //     setAllProfiles(profiles)
+  const getProfiles = async () => {
+    try {
+      const user = supabase.auth.user()
 
-  //   }
+      let { data, error, status } = await supabase
+        .from('profile')
+        .select()
+
+      if (error && status !== 406) {
+        throw error
+      }
+
+      if (data) {
+
+        setProfile(data as IProfile[])
+        console.log('Kenny test ', data)
+      }
+    } catch (error) {
+    } finally {
+    }
+  }
+  
   useEffect(() => {
     test()
     // getUsers()
+    getProfiles();
 
   });
 
@@ -166,14 +184,14 @@ const SellFilter = () => {
                     <Typography className="word">Total Assesments</Typography>
                   </div>
                   <div className="widgetblk">
-                    <Typography className="num"><GroupIcon className="grouplogo"/>21</Typography>
+                    <Typography className="num"><GroupIcon className="grouplogo"/>{profile.length}</Typography>
                     <Typography className="word">Total Users</Typography>
                   </div>
                 </div>
                 <div className="fitplease">
                   <div className="newUsers">
                     <div className="SeeMoreU">
-                      <Link to='/List' >See all users {'>'}</Link>
+                      <Link to='/AdminUserList' >See all users {'>'}</Link>
                     </div>
                     <h4>New Users</h4>
                     <div className="new">
@@ -300,7 +318,7 @@ const SellFilter = () => {
                   <Link to='/List'>See All Profiles {'>'}</Link>
                 </div>
                 <div className="list">
-                  <UserList />
+                  <List />
                 </div>
 
               </div>

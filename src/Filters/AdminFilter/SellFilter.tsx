@@ -11,6 +11,7 @@ import UserList from "../../Admin/List";
 import { Api } from '../../services/endpoints';
 import { IProfile, IRecomendation } from "../../Interfaces/IRecomendation";
 import BoxN from "../Box"
+import Blocks from "../BlueAsses"
 // import { BarChart, Bar, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 // import Icon from '@material-ui/core/Icon';
 // import Details from "../../Admin/AdminComponents/featuredInfo/WidgetSm"
@@ -41,7 +42,7 @@ const SellFilter = () => {
 
   }
 
-  
+
   useEffect(() => {
     test()
     // getUsers()
@@ -62,30 +63,37 @@ const SellFilter = () => {
 
             <Grid item xs={12} sm={12} md={10} lg={10}>
               <Search />
-              <div className="Assesment">
-                <div className="pleasefit">
-                <BoxN />
+              <Grid item xs={12} sm={12} md={9} lg={9}>
+                <div className="Assesment">
+                  <div className="pleasefit">
+                    <BoxN />
+                  </div>
+                  <div className="filButtons">
+                  </div>
+                  <div className="prof">
+                    <Typography className="proftxt">Profiles by registered</Typography>
+                    <div className="SeeMore">
+                      <Link to='/List'>See All Profiles {'>'}</Link>
+                    </div>
+                    <div className="list">
+                      <UserList />
+                    </div>
+
+                  </div>
                 </div>
-              </div>
-                <div >
+
+              </Grid>
+              <Grid item xs={12} sm={12} md={3} lg={3}>
+                <div className="leftblock"  >
+                  <Blocks />
+                </div>
+              </Grid>
 
 
-                </div>
-             
-              
               <div className="filButtons">
               </div>
 
-              <div className="prof">
-                <Typography className="proftxt">Profiles by registered</Typography>
-                <div className="SeeMore">
-                  <Link to='/List'>See All Profiles {'>'}</Link>
-                </div>
-                <div className="list">
-                  <UserList />
-                </div>
 
-              </div>
             </Grid>
           </Grid>
 

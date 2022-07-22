@@ -16,11 +16,12 @@ import Bargraph from "./components/Report/Bar";
 import Forgot from "./components/forgot/Forgot";
 import Admin from "./Admin/AdminDash";
 import Donut from "./components/Report/Donut";
-import UserList from "./Admin/List";
+import List from "./Admin/List";
 import AddAdmin from "./Admin/AddAdmin";
 import AddUser from "./Admin/AdminComponents/AddUser/AddUser";
 import AdminMail from "./Admin/AdminMail"
 import AdminMailFull from "./Admin/AdminMailFull"
+import AdminUserList from "./Admin/AdminUserList"
 import SendMail from "./Admin/AdminComponents/SendMail/SendMail";
 import AllAsses from "./Admin/AdminComponents/AllAsses/AllAsses";
 import Funding from "./components/Assesment/Funding/Funding";
@@ -31,6 +32,7 @@ import HealthReport from "./components/Assesment/HealthReport/HealthReport";
 import HealthReportFin from "./components/Assesment/HealthReport/HealthR";
 import './Login/Login.css'
 import SellFilter from "./Filters/AdminFilter/SellFilter";
+import UserList from "./Admin/AdminComponents/featuredInfo/UserList";
 
 
 
@@ -61,9 +63,11 @@ function App() {
           <Route path='/AdminDash' element={<Admin />} />
           <Route path='/SellFilter' element={<SellFilter />} />
           <Route path='/AdminMail' element={<AdminMail />} />
+          <Route path='/UserList' element={<UserList />} />
           <Route path='/AdminMailFull' element={<AdminMailFull />} />
+          <Route path='/AdminUserList' element={<AdminUserList />} />
           <Route path='/Donut' element={<Donut />} />
-          <Route path='/List' element={<UserList />} />
+          <Route path='/List' element={<List />} />
           <Route path='/AddAdmin' element={<AddAdmin />} />
           <Route path='/AddUser' element={<AddUser />} />
           <Route path='/SendMail' element={<SendMail />} />       
