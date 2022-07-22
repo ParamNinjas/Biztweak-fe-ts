@@ -113,7 +113,7 @@ const Report = () => {
       <DashNav />
       <Container>
         <div className='report'>
-        <Button onClick={() => _setSelectedRecomendation(AllRecomendations[0])}>test</Button>
+        {/* <Button onClick={() => _setSelectedRecomendation(AllRecomendations[0])}>test</Button> */}
           <Grid container>
             <Grid item xs={12} sm={12} md={3} lg={3}>
               <div className='profileInfo'>
