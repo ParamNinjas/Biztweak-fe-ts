@@ -45,17 +45,29 @@ const AssessBasic = () => {
       }
       console.log("user id", user?.id)
   const createReport = async () =>{
-    //console.log("test", values[0] as marketSales)
-    const mase = Object.assign({}, values);
-    let companyAdReco = ""
-    let companyAdRecoKey = ""
-    if (companyAd === "yes"){
-      companyAdReco = "No recommendation"
-      companyAdRecoKey = "The company does advertise"
-    }else {
-      companyAdReco = "marketing plan"
-      companyAdRecoKey = "The company does not advertise"
-    }
+
+
+
+    const Market = [
+      {
+        key: effectiveAd === "yes" ? "The advertising is effective" : "The advertising is not effective",
+        value : effectiveAd === "yes" ? "No recommendation" : "marketing plan"
+      },{
+        key: companyAd === "yes" ? "The company does advertise" : "The company does not advertise",
+        value: companyAd === "yes" ? "No recommendation" : "marketing plan",
+      },
+      {
+        key: planning === "yes" ? "Sales Planning is conducted" : "Sales Planning is not conducted",
+        value: planning === "yes" ? "No recommendation" : "Sales planning, Customer acquistion plan.",
+      },{
+        key: priceStrategy === "yes" ? "Price strategy planning is done" : "Price strategy planning is not done",
+        value:priceStrategy === "yes" ? "No recommendation" : "Revenue models"
+      },{
+        key: priceReview === "yes" ? "Prive reviews are done" : "Prive reviews are not done",
+        value: priceReview === "yes" ? "No recommendation" : "Costing, product & service pricing"
+      }
+    ]
+
 
 
      const payload = {
@@ -74,12 +86,7 @@ const AssessBasic = () => {
                       {"key": importantCusRecoKey, "value": importantCusReco},
                       {"key": cusResearchRecoKey, "value": cusResearchReco }
                     ],
-        "Market":   [{"key":  companyAdReco ,"value": companyAdReco},
-                    {"key"  :  effectiveRecoKey ,"value": effectiveReco},
-                    { "key" :  planningRecoKey  , "value" : planningReco}, 
-                    { "key" :  stratRecoKey  , "value" : stratReco},
-                    { "key" :  reviewRecoKey  , "value" : reviewReco }, 
-        ],
+        "Market": Market,
         "Value": [{"key"  : problemRecoKey ,"value": problemReco},
                   {"key"  : problemRecoKey,"value": cusValueReco},
                   { "key" : problemRecoKey, "value" : needsReco}, 
@@ -295,7 +302,7 @@ const AssessBasic = () => {
       const [values, setValues] = useState<marketSales[]>([]);
 
       const handleChange = (question: string, field: string,event: React.ChangeEvent<HTMLInputElement>, index: number) => {
-        console.log(index, question)
+        console.log(index, question, field)
         const indexOfObject = mkSales.findIndex(object => {
           return object.question === question;
         });
@@ -331,47 +338,47 @@ const AssessBasic = () => {
 
   
    
-      let effectiveReco = ""
-      let effectiveRecoKey = ""
-      if (effectiveAd === "yes"){
-         effectiveReco = "No recommendation"
-         effectiveRecoKey = "The advertising is effective"
-      }else {
-        effectiveReco = "rmarketing plan"
-        effectiveRecoKey = "The advertising is not effective"
-      }
+      // let effectiveReco = ""
+      // let effectiveRecoKey = ""
+      // if (effectiveAd === "yes"){
+      //    effectiveReco = "No recommendation"
+      //    effectiveRecoKey = "The advertising is effective"
+      // }else {
+      //   effectiveReco = "rmarketing plan"
+      //   effectiveRecoKey = "The advertising is not effective"
+      // }
       
-      let planningReco = ""
-      let planningRecoKey = ""
-      if (planning === "yes"){
-        planningReco  = "No recommendation"
-        planningRecoKey = "Sales Planning is conducted"
-      }else {
-        planningReco  = "Sales planning, Customer acquistion plan,  "
-        planningRecoKey = "Sales Planning is not conducted"
-      }
+      // let planningReco = ""
+      // let planningRecoKey = ""
+      // if (planning === "yes"){
+      //   planningReco  = "No recommendation"
+      //   planningRecoKey = "Sales Planning is conducted"
+      // }else {
+      //   planningReco  = "Sales planning, Customer acquistion plan,  "
+      //   planningRecoKey = "Sales Planning is not conducted"
+      // }
      
  
-      let stratReco = ""
-      let stratRecoKey = ""
-      if (priceStrategy === "yes"){
-        stratReco = "No recommendation"
-        stratRecoKey = "Price strategy planning is done"
-      }else {
-        stratReco = "Revenue models"
-        stratRecoKey = "Price strategy planning is not done"
-      }
+      // let stratReco = ""
+      // let stratRecoKey = ""
+      // if (priceStrategy === "yes"){
+      //   stratReco = "No recommendation"
+      //   stratRecoKey = "Price strategy planning is done"
+      // }else {
+      //   stratReco = "Revenue models"
+      //   stratRecoKey = "Price strategy planning is not done"
+      // }
  
-      let reviewReco = ""
+      // let reviewReco = ""
 
-      let reviewRecoKey = ""
-      if (priceReview === "yes"){
-        reviewReco = "No recommendation"
-        reviewRecoKey = "Prive reviews are done"
-      }else {
-        reviewReco = "Costing, product & service pricing"
-        reviewRecoKey = "Prive reviews are not done"
-      }
+      // let reviewRecoKey = ""
+      // if (priceReview === "yes"){
+      //   reviewReco = "No recommendation"
+      //   reviewRecoKey = "Prive reviews are done"
+      // }else {
+      //   reviewReco = "Costing, product & service pricing"
+      //   reviewRecoKey = "Prive reviews are not done"
+      // }
       //Value Proposition
       const [problem, setProblem] = React.useState<string>();
       const [cusValue, setCusValue] = React.useState<string>();
