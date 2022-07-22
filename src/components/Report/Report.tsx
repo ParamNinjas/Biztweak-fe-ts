@@ -19,6 +19,7 @@ import { selectRecomendationState, setAllUserRecomendations, setSelectedRecomend
 import './Report.css'
 
 
+
 const Report = () => {
   // const { Recomendations } = useSelector(state=>state)
   const dispatch = useDispatch();
@@ -54,7 +55,25 @@ const Report = () => {
 
   }
 
+ 
+	  const _user = user?.id
+    useEffect(() => {
+  
+        getUserData();
+    });
+  const getUserData = async () => {
+    const { data, error } = await supabase
+  .from('profile')
+  .select(`
+      id, display_name, Role
+  `)
+  .eq('id', _user)
+    const role = data && data[0]?.Role
+    const userName = data && data[0]?.display_name
+console.log('UserName', userName)
 
+return userName
+}
 
 
 
@@ -106,6 +125,45 @@ const Report = () => {
   // }) 
   // console.log("Market list", filteredEmp)
 
+  //Pie Logic
+  console.log('state HealthReport', state )
+  const stateData  = []
+  stateData.push(state)
+  console.log("stateData .", stateData)
+  const stateDataview  = []
+  stateDataview.push(state.persistedReducer)
+  console.log("stateData", stateDataview)
+  const reco = []
+  reco.push(stateDataview[0].RecomendationReducer)
+  console.log('Recommended', reco)
+  const selected = []
+  selected.push(reco[0].selectedRecomendation)
+  console.log("selected Recomendation", selected[0]?.segmentResponses)
+  let barInfoArray = [] as any[]
+  if(selected[0]?.segmentResponses != null){
+  barInfoArray = Object.keys(selected[0]?.segmentResponses)
+  }
+  let barData = [] as any[]
+  if (selected[0]?.segmentResponses != null) {
+    barData = Object.values(selected[0]?.segmentResponses).map( 
+      (data : any) => {
+        return data.length          
+    // const barInfo = {
+    //   data?.map(
+        
+    // }
+      }
+      
+  )
+  }
+  
+  
+  const barKey = barInfoArray.map((name : any, index : number) => ({  name , value : barData[index] }))
+  console.log("here is the key", barKey)
+
+  const barkeysProps = {  
+    barkeyInfo: barKey
+  }
 
 
   return (
@@ -123,9 +181,10 @@ const Report = () => {
                                     alt='avimage'
                                     className='avImg'
                                     /> */}
-                <Typography>John Smith</Typography>
+                <Typography>Name</Typography>
                 <Divider />
                 <div className='conInfo'>
+               
                   <Typography>JohnSmith@gmail.com</Typography>
                   <p>
                     2009 MA in English Literature
@@ -148,7 +207,8 @@ const Report = () => {
               <Typography variant='h3'>Report Summary</Typography>
               <Typography>Company</Typography>
               <div className='pChart'>
-                <PChart />
+                
+                <PChart barkeyinfo={barKey} />
               </div>
               <div className='bGraph'>
                 {<NewBar />}

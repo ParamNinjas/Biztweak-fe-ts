@@ -3,12 +3,12 @@ import { PieChart, Pie, Cell } from "recharts";
 import { useDispatch, useSelector } from "react-redux";
 import { selectRecomendationState, setAllUserRecomendations , setSelectedRecomendation } from "../../Slice/createSlice";
 
-const data = [
-  { name: "Group A", value: 4 },
-  { name: "Group B", value: 11 },
-  { name: "Group C", value: 4 },
-  { name: "Group D", value: 4 }
-];
+// const data = [
+//   { name: "Group A", value: 4 },
+//   { name: "Group B", value: 11 },
+//   { name: "Group C", value: 4 },
+//   { name: "Group D", value: 4 }
+// ];
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 const RADIAN = Math.PI / 180;
@@ -37,48 +37,28 @@ const renderCustomizedLabel = ({
     </text>
   );
 };
+const Test = () => {
+  return "1"
+}
 
 
-export default function PChart() {
+export default function PChart(props : any) {
   const state = useSelector(selectRecomendationState)
-// console.log('state HealthReport', state )
-// const stateData  = []
-// stateData.push(state)
-// console.log("stateData .", stateData)
-// const stateDataview  = []
-// stateDataview.push(state.persistedReducer)
-// console.log("stateData", stateDataview)
-// const reco = []
-// reco.push(stateDataview[0].RecomendationReducer)
-// console.log('Recommended', reco)
-// const selected = []
-// selected.push(reco[0].selectedRecomendation)
-// console.log("selected Recomendation", selected[0]?.segmentResponses)
-// const barInfoArray = Object.keys(selected[0]?.segmentResponses)
-// const barData = Object.values(selected[0]?.segmentResponses).map( 
-//         (data : any) => {
-//           return data.length          
-//       // const barInfo = {
-//       //   data?.map(
-          
-//       // }
-//         }
-        
-// )
-
+  
+console.log("Proplist" , props)
   return (
     <PieChart width={400} height={400}>
       <Pie
-        data={data}
+        data={props.barkeyinfo}
         cx={200}
         cy={200}
         labelLine={false}
-        label={renderCustomizedLabel}
+        label={Test}
         outerRadius={80}
         fill="#8884d8"
         dataKey="value"
       >
-        {data.map((entry, index) => (
+        {props?.barkeyinfo && props?.barkeyinfo.map((entry : any, index : any) => (
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>
