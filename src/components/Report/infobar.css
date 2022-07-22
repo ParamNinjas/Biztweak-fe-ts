@@ -1,0 +1,20 @@
+.infobar {
+  display: flex;
+  color: #00C3C5;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+.infobar p {
+  text-align: center;
+  max-width: 500px;
+  align-items: center;
+  color: #fff;
+  display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+

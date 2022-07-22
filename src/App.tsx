@@ -15,9 +15,12 @@ import Coursepage from "./components/Course/Coursepage"
 import Forgot from "./components/forgot/Forgot";
 import Admin from "./Admin/AdminDash";
 import Donut from "./components/Report/Donut";
-import UserList from "./Admin/List";
+import List from "./Admin/List";
 import AddAdmin from "./Admin/AddAdmin";
 import AddUser from "./Admin/AdminComponents/AddUser/AddUser";
+import AdminMail from "./Admin/AdminMail"
+import AdminMailFull from "./Admin/AdminMailFull"
+import AdminUserList from "./Admin/AdminUserList"
 import SendMail from "./Admin/AdminComponents/SendMail/SendMail";
 import AllAsses from "./Admin/AdminComponents/AllAsses/AllAsses";
 import Funding from "./components/Assesment/Funding/Funding";
@@ -34,6 +37,8 @@ import PChart from "./components/Report/PieChart";
 import NewBar  from "./components/Report/BarChart";
 import ConceptBar from "./Admin/AdminComponents/Charts/Bar";
 import './Login/Login.css'
+import SellFilter from "./Filters/AdminFilter/SellFilter";
+import UserList from "./Admin/AdminComponents/featuredInfo/UserList";
 
 
 
@@ -61,8 +66,13 @@ function App() {
           <Route path='/Coursepage' element={<Coursepage />} />
           <Route path='/Forgot' element={<Forgot />} />
           <Route path='/AdminDash' element={<Admin />} />
+          <Route path='/SellFilter' element={<SellFilter />} />
+          <Route path='/AdminMail' element={<AdminMail />} />
+          <Route path='/UserList' element={<UserList />} />
+          <Route path='/AdminMailFull' element={<AdminMailFull />} />
+          <Route path='/AdminUserList' element={<AdminUserList />} />
           <Route path='/Donut' element={<Donut />} />
-          <Route path='/List' element={<UserList />} />
+          <Route path='/List' element={<List />} />
           <Route path='/AddAdmin' element={<AddAdmin />} />
           <Route path='/AddUser' element={<AddUser />} />
           <Route path='/SendMail' element={<SendMail />} />       

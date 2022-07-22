@@ -1,4 +1,4 @@
-    .root {
+.root {
     background-color: #f8f9fa;
 }
 
@@ -6,13 +6,14 @@
 .ForwardRef-root-1 {
     height: 29px !important;
     width: 10em !important;
-    left: 10px !important; 
+    left: 10px !important;
 
 }
 
 /* .search {
 } */
-.adminCon{
+.adminCon {
+display : inherit;
     background-color: #dbd7d2;
 }
 
@@ -22,34 +23,76 @@
     gap: 1em;
 }
 
-.comAsses {
-    width: 15em;
-    height: 10em;
-    background-color: floralwhite;
+.fitplease {
+    max-width: 100%;
+    justify-content: space-around;
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
+    align-items: flex-start;
 }
 
-.inComAsses {
-    width: 15em;
-    height: 10em;
-    background-color: floralwhite;
+.checklogo {
+    color: #019231;
+    padding: 1rem;
+    width : 30px !important;
+    height: auto !important;
 }
 
-.totAsses {
-    width: 15em;
+.crosslogo {
+    color: #cc0000;
+    padding: 1rem;
+}
+
+.movelogo {
+    color: #00888d;
+    padding: 1rem;
+}
+
+.grouplogo {
+    color: #00888d;
+    padding: 1rem;
+}
+
+.widgetblk {
+    width: 12em;
     height: 10em;
     background-color: floralwhite;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
+    top: 2em;
 }
 
 .totUsers {
     width: 15em;
     height: 10em;
     background-color: floralwhite;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
 }
 
+.word {
+    font-size: 17px !important;
+    color: #000000 !important;
+    font-weight: 600px !important;
+    padding: 2px 0 0 2px;
+}
+
+.Bar-Title {
+    font-size: 50px !important;
+    color: #000000 !important;
+    font-weight: 600px !important;
+    padding: 3px;
+    
+}
+
+
 .num {
-    font-size: xxx-large !important;
-    color: aqua !important;
+    font-size: 60px !important;
+    font-weight: 500px !important;
+    color: #00A9AF !important;
     font-weight: bolder !important;
+    padding: 2px 0 0 2px ;
 }
 
 .bars {
@@ -61,18 +104,21 @@
     width: 30em;
     height: 20em;
     background-color: floralwhite;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
 }
 
 .bar2 {
     width: 20em;
     height: 20em;
     background-color: floralwhite;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
 }
 
 .new {
     width: 20em;
-    height: 20em;
+    height: 12em;
     background-color: floralwhite;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.103), 0 6px 20px 0 rgba(0, 0, 0, 0.103);
 }
 
 .proftxt {
@@ -118,6 +164,12 @@
     top: 4em;
 }
 
+.newUsers {
+    position: relative;
+    /* /* left: 15em; */
+    top: -1em;
+}
+
 .sendMail {
     background: #00a9b1 !important;
     border-color: #00a9b1 !important;
@@ -129,7 +181,8 @@
 
 .phaseBTNs {
     padding-top: 2em;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 0fr);
     gap: 1em;
 }
 
@@ -154,12 +207,19 @@
     font-weight: 600 !important;
     width: 8em !important;
     height: 8em;
-   
-}
-.AllAsses Link{
-  color: #FFFFFF !important;
+
 }
 
-.prof{
+.AllAsses Link {
+    color: #FFFFFF !important;
+}
+
+.prof {
     background-color: #FFFFFF;
+}
+
+.bottom {
+    position: relative;
+    /* /* left: 15em; */
+    top: -1em;
 }

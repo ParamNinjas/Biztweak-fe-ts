@@ -1,0 +1,32 @@
+.comA{
+    font-weight: bold !important;
+    font-size: 1.5rem !important;
+}
+
+.cartlogo{
+    width: 200px !important;
+    height: auto;
+    color: white;
+
+}
+
+.Totnum{
+    color: #00a9b1 !important;
+    margin-right: 10px !important;
+    font-size: 100px !important;
+    font-weight: bold !important; 
+    background-color: #00a9b1 !important;
+}
+.TotComAsses{
+    display: flex;
+}
+.typo{
+    position: relative;
+    top: 2em;
+}
+.TotTypo{
+    font-size: 28px !important;
+}
+.Comtypo{
+    font-size: 28px !important; 
+}

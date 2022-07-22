@@ -21,7 +21,7 @@ return(
         <Container>
             <Grid container>
                 <Grid item xs={12} sm={12} md={6} lg={6}>
-                    <div className="hometext">
+                    <div className="hometext" >
                             <h1>
                                 Learn How to:
                             </h1>
@@ -30,7 +30,7 @@ return(
                                 2. Get ready for Funding<br/>
                                 3. Makes sales
                             </h2>
-                            <h3>learn how to improve revenue in your business.</h3>
+                            <h3>Learn how to improve revenue in your business.</h3>
                             </div>
                             <div className="homepara">
                         <p>

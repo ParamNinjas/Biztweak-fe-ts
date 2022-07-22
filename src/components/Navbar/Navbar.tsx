@@ -34,8 +34,8 @@ const Navbar = () => {
 
     return (
         // <div className='nv'></div>
-        <div className={color ? 'header header-bg' : 'header'}>
-            <Link to='/'><img src={logo} alt="Logo" width='170px' height='auto' /></Link>
+        <div className={color ? 'header header-bg' : 'navheader'}>
+            <div className='nav-logo'><Link to='/'><img src={logo} alt="Logo" width='230px' height='auto' /></Link></div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li>
                     <Link to='/'style={linkStyle}>Home</Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
                     <Link to='/login'style={linkStyle}>Sign In</Link>
                 </li>
                  <li className="nav-btn">
-                <Button variant='outlined'disableRipple className='BtnRegister'>
+                <Button variant='outlined'disableRipple className='Register'>
                 <Link to='/sign_up' >Register</Link>
                 </Button>
           </li>

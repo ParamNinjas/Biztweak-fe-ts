@@ -22,8 +22,8 @@ const Footernew = () => {
   	 			<h4>Useful Links</h4>
 				   <Divider/>
   	 			<ul>
-  	 				<li><a href="/training">About Us</a></li>
-  	 				<li><a href="/recruitment">Blog</a></li>
+  	 				<li><a href="/About">About Us</a></li>
+  	 				<li><a href="/blog">Blog</a></li>
   	 			</ul>
 				   </div>
   	 		</div>
@@ -50,11 +50,11 @@ const Footernew = () => {
 		   <div className="footer-icons">
   	 			<h4 className='iconHeader'>follow us</h4>
   	 			<div className="social-links">
-                   <a href="https://www.facebook.com/biztweaksouthafrica"><FaFacebook size={30} style={{ color: '#5F9EA0 ', marginRight: '1rem' }} /></a>
-                   <a href="https://twitter.com/BizTweak"><FaTwitter size={30} style={{ color: '#5F9EA0 ', marginRight: '1rem' }} /></a>
-                   <a href="https://www.linkedin.com/company/biztweak/"><FaLinkedin size={30} style={{ color: '##5F9EA0 ', marginRight: '1rem' }} /></a>
-				   <a href="https://www.linkedin.com/company/biztweak/"><FaInstagram size={30} style={{ color: '#5F9EA0 ', marginRight: '1rem' }} /></a>
-				   <a href="https://www.linkedin.com/company/biztweak/"><FaTiktok size={30} style={{ color: '#5F9EA0 ', marginRight: '1rem' }} /></a>
+                   <a href="https://www.facebook.com/biztweaksouthafrica"><FaFacebook size={30} style={{ color: '#009EA9 ', marginRight: '1rem' }} /></a>
+                   <a href="https://twitter.com/BizTweak"><FaTwitter size={30} style={{ color: '#009EA9', marginRight: '1rem' }} /></a>
+                   <a href="https://www.linkedin.com/company/biztweak/"><FaLinkedin size={30} style={{ color: '#009EA9', marginRight: '1rem' }} /></a>
+				   <a href="https://www.linkedin.com/company/biztweak/"><FaInstagram size={30} style={{ color: '#009EA9 ', marginRight: '1rem' }} /></a>
+				   <a href="https://www.linkedin.com/company/biztweak/"><FaTiktok size={30} style={{ color: '#009EA9', marginRight: '1rem' }} /></a>
   	 			</div>
   	 		</div>
   	 </div>

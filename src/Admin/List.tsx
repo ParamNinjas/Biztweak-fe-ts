@@ -15,6 +15,9 @@ export default function UserList() {
     Prof()
    
   });
+  
+  console.log('Profile list', allProfiles)
+  
   return (
     <div style={{ height: 250, width: '100%' }}>
       <DataGrid

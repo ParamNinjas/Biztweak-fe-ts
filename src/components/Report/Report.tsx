@@ -17,6 +17,7 @@ import { supabase } from '../../supabaseClient';
 import { useDispatch, useSelector } from "react-redux";
 import { selectRecomendationState, setAllUserRecomendations, setSelectedRecomendation } from "../../Slice/createSlice";
 import './Report.css'
+import GetCourse from './GetCourse'
 
 
 

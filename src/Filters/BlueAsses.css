@@ -1,0 +1,29 @@
+.con {
+position: relative;
+left: 56em;
+bottom: 31em;
+gap: 2em;
+
+}
+
+.Asses {
+ width :190px;
+ height : 190px;
+ color: white;
+ background-color: #0098B4 !important;
+ margin: 10px;
+ text-align: center !important;
+ position: relative;
+ right: 20 em;
+ bottom: 10 em;
+}
+
+.text{
+color: white;
+font-size: 28px !important;
+}
+
+.numer{
+    color: white;
+    font-size: 50px !important;
+    }
