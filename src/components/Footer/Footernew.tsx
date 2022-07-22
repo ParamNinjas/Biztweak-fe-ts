@@ -22,8 +22,8 @@ const Footernew = () => {
   	 			<h4>Useful Links</h4>
 				   <Divider/>
   	 			<ul>
-  	 				<li><a href="/training">About Us</a></li>
-  	 				<li><a href="/recruitment">Blog</a></li>
+  	 				<li><a href="/About">About Us</a></li>
+  	 				<li><a href="/blog">Blog</a></li>
   	 			</ul>
 				   </div>
   	 		</div>
