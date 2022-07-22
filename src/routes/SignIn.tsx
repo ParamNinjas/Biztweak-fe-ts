@@ -29,13 +29,17 @@ const Login = () => {
 	const navigate = useNavigate();
 
     const signIn = async () => {
-        console.log('Signed In');
+        
         const { user, session, error } = await supabase.auth.signIn({
                     email: email,
                     password: password,
                   })
+				  console.log('Signed In', user);
+				  return user
     }
+
       const user = supabase.auth.user()
+	  console.log('Signedin', user);
 	  const _user = user?.id
     const getUserData = async () => {
                 const { data, error } = await supabase
@@ -45,7 +49,7 @@ const Login = () => {
 	            `)
 	            .eq('id', _user)
                 const role = data && data[0]?.Role
-        console.log('role number', role)
+        console.log('role number', role , _user)
 		try {
 			        if (role === 1 ){
 			            navigate('/Dashboard');
@@ -57,13 +61,18 @@ const Login = () => {
 			    }   catch (error) {
 			        console.log(error);
 			    }
+				return data
     }
 
     const runFunctions = async () => {
-        const login = await signIn()
-        console.log(login)
-        const data = await getUserData()
-        console.log(data)
+     await signIn().then(x => {
+			console.log("look here", x)
+			getUserData().then(user => {
+				console.log("logged in User", user)
+			})
+       		 
+		})
+        
     }
    
 	return (

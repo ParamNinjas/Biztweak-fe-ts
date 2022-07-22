@@ -133,9 +133,11 @@ const HealthReportFin = () => {
 								</div>
 							</CardContent>
 							<CardActions>
-								<Button size="small" variant="outlined" className="bizReport" onClick={handleOpen}>
+							<Link to='/Report' style={linkStyle}>
+								<Button size="small" variant="outlined" className="bizReport" >
 									View Biz Report
 								</Button>
+								</Link>
 							</CardActions>
 						</Card>
 					</Grid>

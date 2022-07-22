@@ -1,10 +1,19 @@
-import React, { PureComponent, useEffect, useState } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, { useEffect, useState } from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from "recharts";
 import { IRecomendation } from 'src/Interfaces/IRecomendation';
-import { Api } from '../../services/endpoints';
-  
-const  Bargraph = () => {
-  const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
+import { Api } from '../../../services/endpoints';
+
+
+export default function ConceptBar() {
+      const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
   const test = async () =>{
       const allRecommendations = await Api.GET_AllRecommendations()
       const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
@@ -56,59 +65,57 @@ const  Bargraph = () => {
     const data = [
       {
         name: 'Customer', 
-        uv: typeof filteredCusPos !== "undefined" ? filteredCusPos.length : 0,
+        pv: typeof filteredCusPos !== "undefined" ? filteredCusPos.length : 0,
       },
       {
         name: 'Market',
-        uv: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 ,
+        pv: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 ,
       },
       {
         name: 'Value',
-        uv: typeof filteredValPos !== "undefined" ? filteredValPos.length : 0,
+        pv: typeof filteredValPos !== "undefined" ? filteredValPos.length : 0,
       },
       {
         name: 'Activities',
-        uv: typeof filteredActPos !== "undefined" ? filteredActPos.length : 0 ,
+        pv: typeof filteredActPos !== "undefined" ? filteredActPos.length : 0 ,
       },
       {
         name: 'Resources',
-        uv: typeof filteredResPos !== "undefined" ? filteredResPos.length : 0,
+        pv: typeof filteredResPos !== "undefined" ? filteredResPos.length : 0,
       },
     ];
-    const data2 = [
-      {
-        name: 'Customer positive',
-        uv: typeof filteredCusPos !== "undefined" ? filteredCusPos.length : 0,
-      },
-      {
-        name: 'Customer Negative',
-        uv: typeof filteredCusNeg !== "undefined" ? filteredCusNeg.length : 0,
-      },
+    // const data2 = [
+    //   {
+    //     name: 'Customer positive',
+    //     uv: typeof filteredCusPos !== "undefined" ? filteredCusPos.length : 0,
+    //   },
+    //   {
+    //     name: 'Customer Negative',
+    //     uv: typeof filteredCusNeg !== "undefined" ? filteredCusNeg.length : 0,
+    //   },
     
   
-    ];
+    // ];
 
-
-    return (
-        <div className="bar">
-          <div className='bar1'>
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart width={150} height={40} data={data}>
-              <Bar dataKey="uv" fill="#38E25D" />
-            </BarChart>
-          </ResponsiveContainer>
-          </div>
-          <div className='bar2'>
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart width={150} height={40} data={data2}>
-              <Bar dataKey="uv" fill="#00C2CB" />
-            </BarChart>
-          </ResponsiveContainer>
-          </div>
-        </div>
-        
-
-    )
+  return (
+    <BarChart
+      width={500}
+      height={300}
+      data={data}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5
+      }}
+      barSize={20}
+    >
+      <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <CartesianGrid strokeDasharray="3 3" />
+      <Bar dataKey="pv" fill="#018749" background={{ fill: "#eee" }} />
+    </BarChart>
+  );
 }
-
-export default Bargraph

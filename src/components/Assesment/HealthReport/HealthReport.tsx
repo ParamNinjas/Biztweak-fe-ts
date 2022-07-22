@@ -19,6 +19,8 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import pop3 from '../../../Images/pop3.png';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { selectRecomendationState, setAllUserRecomendations , setSelectedRecomendation } from "../../../Slice/createSlice";
 import './HealthReport.css';
 
 const linkStyle = {
@@ -81,6 +83,21 @@ const HealthReport = () => {
 	const handleClose = () => {
 		setOpen(false);
 	};
+	const state = useSelector(selectRecomendationState)
+console.log('state HealthReport', state )
+const stateData  = []
+stateData.push(state)
+console.log("stateData .", stateData)
+const stateDataview  = []
+stateDataview.push(state.persistedReducer)
+console.log("stateData", stateDataview)
+const reco = []
+reco.push(stateDataview[0].RecomendationReducer)
+console.log('Recommended', reco)
+const selected = []
+selected.push(reco[0].allUserRecomendations)
+console.log("selected Recomendation", selected)
+
 
 	return (
 		<div className="HR-con">
@@ -88,19 +105,48 @@ const HealthReport = () => {
 			<Container>
 				<Grid container spacing={2}>
 					<Grid item xs={12} sm={12} md={3} lg={3}>
+							 {/* onClick={() => setSelectedRecomendation(AllRecomendations[index]) */}
 						<Accordion>
 							<AccordionSummary
 								expandIcon={<ExpandMoreIcon />}
 								aria-controls="panel1a-content"
 								id="panel1a-header"
 							>
-								<Typography className="">No Name</Typography>
+								<Typography className="">Current Reports</Typography>
 							</AccordionSummary>
 							<AccordionDetails>
-								<Typography>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus
-									ex, sit amet blandit leo lobortis eget.
-								</Typography>
+							<div className='list'>
+                          {selected.map(
+                            (reco : any , index : any) => {
+                              return (
+                                <div>
+									<Accordion>
+										<AccordionSummary
+											expandIcon={<ExpandMoreIcon />}
+											aria-controls="panel1a-content"
+											id="panel1a-header"
+										>
+											<Typography className="">View Report</Typography>
+										</AccordionSummary>
+										<AccordionDetails>
+											{/* <p>Your Report</p> */}
+											<Link to="/Report">
+												<Button 
+													size="small" 
+													variant="outlined" 
+													className="bizReport"
+													onClick={() => setSelectedRecomendation(reco[index])}
+												>
+												View Report
+												</Button>
+											</Link>
+										</AccordionDetails>
+									</Accordion>
+                                </div>
+                              )
+                            }
+                          )}
+                        </div>
 							</AccordionDetails>
 						</Accordion>
 					</Grid>

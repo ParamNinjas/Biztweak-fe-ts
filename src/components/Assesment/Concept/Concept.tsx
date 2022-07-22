@@ -13,31 +13,17 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-
-import { Link , useLocation} from 'react-router-dom';
-import { createSlice } from '@reduxjs/toolkit';
+import { Link } from 'react-router-dom';
 import { Api } from '../../../services/endpoints';
 import { IFunding } from '../../../Interfaces/IRecomendation'
 import { supabase } from '../../../supabaseClient';
 import Footernew from "../../Footer/Footernew";
 import '../Assessment.css'
 
-type LocationState = {
-  bizInd: Array <{
-    value: number;
-    label: string
-  }>,
-  bizPhase: Array<{
-    value: number;
-    label: string
-  }>
-}
 
 
-const Funding = () => {
-  const location = useLocation();
-	const bizInd = (location.state as LocationState)?.bizInd;
-	const bizPhase = (location.state as LocationState)?.bizPhase;
+
+const Concept = () => {
   const user = supabase.auth.user()
     function Alert(props : any) {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -603,14 +589,14 @@ const Funding = () => {
                 />
                 <div className='companyInf'>
                   <div className='Location'>
-                  <Typography>Location: N/A</Typography>
+                  <Typography>Location</Typography>
                   </div>
-                  <div className="indust">
-									<Typography>Industry: {bizInd[0]?.label}</Typography>
-								</div>
-								<div className="phase">
-									<Typography>Business Phase: {bizPhase[0]?.label}</Typography>
-								</div>
+                  <div className='indust'>
+                  <Typography>Industry</Typography>
+                  </div>
+                  <div className='phase'>
+                  <Typography>Business Phase</Typography>
+                </div>
                 </div>
            </div>
         <div className="questionare">
@@ -1412,4 +1398,4 @@ const Funding = () => {
     )
 
 }
-export default Funding
+export default Concept

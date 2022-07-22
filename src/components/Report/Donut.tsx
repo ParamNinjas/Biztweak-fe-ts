@@ -37,18 +37,18 @@ const Donut = () => {
   // console.log('found it ', data)
 
   //Market pie
-  const filteredMarkPos = allRecommendations[0]?.segmentResponses.Market.filter(seg => {
-    return seg.value !== "No recommendation"
+//   const filteredMarkPos = allRecommendations[0]?.segmentResponses.Market.filter(seg => {
+//     return seg.value !== "No recommendation"
    
-  }) 
-  const filteredMarkNeg = allRecommendations[0]?.segmentResponses.Market.filter(seg => {
-    return seg.value === "No recommendation"
+//   }) 
+//   const filteredMarkNeg = allRecommendations[0]?.segmentResponses.Market.filter(seg => {
+//     return seg.value === "No recommendation"
    
-  }) 
-  const data2 = [
-    { name: 'Group A', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 }, 
-    { name: 'Group B', value: typeof filteredMarkNeg !== "undefined" ? filteredMarkNeg.length : 0  },
-  ];
+//   }) 
+//   const data2 = [
+//     { name: 'Group A', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 }, 
+//     { name: 'Group B', value: typeof filteredMarkNeg !== "undefined" ? filteredMarkNeg.length : 0  },
+//   ];
 
   //Value Pie
     const filteredValPos = allRecommendations[0]?.segmentResponses.Value.filter(seg => {
@@ -94,14 +94,14 @@ const Donut = () => {
     ];
     const datat = [
       { name: 'Group A', value: typeof filteredCusPos !== "undefined" ? filteredCusPos.length : 0 },
-      { name: 'Group B', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 },
+    //   { name: 'Group B', value: typeof filteredMarkPos !== "undefined" ? filteredMarkPos.length : 0 },
       { name: 'Group C', value: typeof filteredValPos !== "undefined" ? filteredValPos.length : 0 },
       { name: 'Group D', value: typeof filteredActPos !== "undefined" ? filteredActPos.length : 0 },
       { name: 'Group E', value: typeof filteredValPos !== "undefined" ? filteredValPos.length : 0 },
     ];
     const data7 = [
       { name: 'Group A', value: typeof filteredCusNeg !== "undefined" ? filteredCusNeg.length : 0 },
-      { name: 'Group B', value: typeof filteredMarkNeg !== "undefined" ? filteredMarkNeg.length : 0 },
+    //   { name: 'Group B', value: typeof filteredMarkNeg !== "undefined" ? filteredMarkNeg.length : 0 },
       { name: 'Group C', value: typeof filteredValNeg !== "undefined" ? filteredValNeg.length : 0 },
       { name: 'Group D', value: typeof filteredActNeg !== "undefined" ? filteredActNeg.length : 0 },
       { name: 'Group E', value: typeof filteredValNeg !== "undefined" ? filteredValNeg.length : 0 },

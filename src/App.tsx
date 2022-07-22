@@ -12,7 +12,6 @@ import AssessBasic from "./components/Assesment/AssesSales";
 import Report from "./components/Report/Report";
 import Getcourse from "./components/Course/Getcourse"
 import Coursepage from "./components/Course/Coursepage"
-import Bargraph from "./components/Report/Bar";
 import Forgot from "./components/forgot/Forgot";
 import Admin from "./Admin/AdminDash";
 import Donut from "./components/Report/Donut";
@@ -30,6 +29,13 @@ import AssesFull from "./components/Assesment/FullSuit/AssesFull";
 import AdminFull from "./Admin/AddMinFull";
 import HealthReport from "./components/Assesment/HealthReport/HealthReport";
 import HealthReportFin from "./components/Assesment/HealthReport/HealthR";
+import Accelerate from "./components/Assesment/Accelerate/Accelerate";
+import EarlyS from "./components/Assesment/EarlyS/EarlyStage";
+import Concept from "./components/Assesment/Concept/Concept";
+import StartUp from "./components/Assesment/Startup/StartUp";
+import PChart from "./components/Report/PieChart";
+import NewBar  from "./components/Report/BarChart";
+import ConceptBar from "./Admin/AdminComponents/Charts/Bar";
 import './Login/Login.css'
 import SellFilter from "./Filters/AdminFilter/SellFilter";
 import UserList from "./Admin/AdminComponents/featuredInfo/UserList";
@@ -58,7 +64,6 @@ function App() {
           <Route path='/AssesSales' element={<AssessBasic />} />
           <Route path='/Getcourse' element={<Getcourse />} />
           <Route path='/Coursepage' element={<Coursepage />} />
-          <Route path='/Bar' element={<Bargraph />} />
           <Route path='/Forgot' element={<Forgot />} />
           <Route path='/AdminDash' element={<Admin />} />
           <Route path='/SellFilter' element={<SellFilter />} />
@@ -78,6 +83,13 @@ function App() {
           <Route path='/AdminFull' element={<AdminFull />} />
           <Route path='/HealthReport' element={<HealthReport />} />
           <Route path='/HealthR' element={<HealthReportFin />} />
+          <Route path='/Accelerate' element={<Accelerate />} />
+          <Route path='/Concept' element={<Concept />} />
+          <Route path='/EarlyStage' element={<EarlyS />} />
+          <Route path='/StartUp' element={<StartUp />} />
+          <Route path='/PieChart' element={<PChart />} />
+          <Route path='/BarChart' element={<NewBar />} />
+          <Route path='/Bar' element={<ConceptBar />} />
         </Routes>
       </Router>
     </div>

@@ -17,7 +17,7 @@
 
 .pChart{
     position: relative !important;
-    bottom: 22em !important;
+    bottom: 7em !important;
 }
 
 .list li {
@@ -26,10 +26,40 @@
 }
 .bGraph{
     position: relative;
-    bottom: 14em;
+    bottom: 3em;
     gap: 2em !important;
     height: 10em !important;
 } 
 .con{
     display: block;
+}
+.divider{
+    margin-bottom: 1em;
+}
+.Header{
+    position: relative;
+    gap: 3em;
+    
+}
+.Header2{
+    position: relative;
+    left: 20em;
+    bottom: 27px;
+}
+.Header1{
+    position: relative;
+    justify-content: start;
+}
+
+.report-accord{
+    position: relative;
+    top: 12em;
+}
+.recommendations{
+    position: relative;
+    top: 18em;
+}
+.foot{
+    position: relative;
+    top: 20em; 
 }

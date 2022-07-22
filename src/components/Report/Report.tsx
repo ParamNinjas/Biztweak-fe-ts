@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import DashNav from '../DasNav/Nav';
-import { Container, Grid , Button , Typography, Divider } from '@material-ui/core';
+import { Container, Grid, Button, Typography, Divider } from '@material-ui/core';
 import banner from "../../Images/banner.png"
 // import avatar from '../../Images/avatar.png'
 import Accordion from '@material-ui/core/Accordion';
@@ -9,712 +9,735 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation';
-import Bargraph from './Bar';
 import { Link } from 'react-router-dom';
-import Donut from './Donut';
+import NewBar from './BarChart';
+import PChart from './PieChart';
 import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
+import { useDispatch, useSelector } from "react-redux";
+import { selectRecomendationState, setAllUserRecomendations, setSelectedRecomendation } from "../../Slice/createSlice";
 import './Report.css'
 import GetCourse from './GetCourse'
 
 
 const Report = () => {
+  // const { Recomendations } = useSelector(state=>state)
+  const dispatch = useDispatch();
+
   const [initialize, setInitialize] = useState(false)
   const user = supabase.auth.user()
-    const recommendations : Array<IRecomendation> = [];
-    const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
-    const test = async () =>{
-        const allRecommendations = await Api.GET_AllRecommendations()
-        const result = allRecommendations.result? allRecommendations.result : [] as IRecomendation[];
-        setAllRecommendations(result)
-        setInitialize(true)
-      }
-    // console.log('Report ID', user?.id,)
-    // const getReco = async () => {
-    //   const { data, error } = await supabase
-    //   .from('Recomendations')
-    //   .select('*')
-    //   .eq('Recomendations?.userId', 'user?.id')
-    //   const recoData = data
-    //   console.log("user data", recoData)
-    // }
+  const recommendations: Array<IRecomendation> = [];
+  const [allRecommendations, setAllRecommendations] = useState<IRecomendation[]>([]);
+  useEffect(() => {
+    !initialize &&
+      getReco();
+  });
+
+  const getReco = async () => {
+    const user = supabase.auth.user()
+
+    const activeUser =  user?.id
+    setInitialize(true)
+    const { data, error } = await supabase
+      .from('Recomendations')
+      .select('*')
+      .eq('userId', activeUser)
+    const recoData = data
+    dispatch(setAllUserRecomendations(recoData))
+
+  }
+
+  const state = useSelector(selectRecomendationState)
+
+
+  const _setSelectedRecomendation = (selected: any) => {
+    dispatch(setSelectedRecomendation(selected))
+
+  }
+
+
+
+
+
+
+  const AllRecomendations = state?.persistedReducer?.RecomendationReducer?.allUserRecomendations ?? [];
+  console.log("All User Reccom in state", AllRecomendations)
+  const SelectedRecommendation = state?.persistedReducer?.RecomendationReducer?.selectedRecomendation ?? [];
+  console.log("User selected recomm" , SelectedRecommendation)
+  let reData = [] as any[]
+  if (SelectedRecommendation?.segmentResponses != null){
+    reData.push(SelectedRecommendation.segmentResponses)
+    console.log("pushing ReData", SelectedRecommendation?.segmentResponses)
+  }
+  
+  console.log("ReData list", reData)
+  const objectToArray = (obj : any) => Object.assign([], Object.values(obj))
+  console.log("object conversion" , reData)
+  console.log("testing 123", SelectedRecommendation?.segmentResponses)
+
+  let testData = [] as any[]
+  if (SelectedRecommendation?.segmentResponses != null){
+    testData  = Object.keys(SelectedRecommendation?.segmentResponses)
+    console.log("testing 123", SelectedRecommendation?.segmentResponses)
+  }
   
 
-    useEffect(() => {
-      test()
-    //  getReco();
-    });
-      
+  useEffect(() => {
+    _setSelectedRecomendation(AllRecomendations[0])
+  });
 
-      // Filtered Data
-    
-       const filtered = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
-        return seg.value !== "No recommendation"
-       
-      }) 
-      const filteredNeg = allRecommendations[0]?.segmentResponses.Customer && allRecommendations[0]?.segmentResponses.Customer.filter(seg => {
-        return seg.value !== "No recommendation"
-       
-      })
-      // typeof filteredResPos !== "undefined" ? filteredResPos.length : 0
+  // Filtere outputs
+  const filteredMark = SelectedRecommendation.segmentResponses?.Market && SelectedRecommendation.segmentResponses?.Market.filter((seg : any) => {
+    return seg.value !== "No recommendation"
+  }) 
+  console.log("Market list", filteredMark)
 
-      const cusPercentage = (((typeof filtered !== "undefined" ? filtered.length : 0) / (typeof filtered !== "undefined" ? filteredNeg.length : 0)  ) * 100)
+  const filteredFin = SelectedRecommendation.segmentResponses?.Financial && SelectedRecommendation.segmentResponses?.Financial.filter((seg : any) => {
+    return seg.value !== "No recommendation"
+  }) 
+  console.log("Market list", filteredFin)
 
-      // console.log('filtered list Percentage', cusPercentage , '%')
+  const filteredMarkInt = SelectedRecommendation.segmentResponses?.MarketInt && SelectedRecommendation.segmentResponses?.MarketInt.filter((seg : any) => {
+    return seg.value !== "No recommendation"
+  }) 
+  console.log("Market list", filteredMarkInt)
 
-      const filteredMark = allRecommendations[0]?.segmentResponses.Market && allRecommendations[0]?.segmentResponses.Market.filter(seg => {
-        return seg.value !== "No recommendation"
-       
-      }) 
-    //   console.log('filtered listm', filteredMark)
+  // const filteredEmp = SelectedRecommendation.segmentResponses && SelectedRecommendation.segmentResponses?.filter((seg : any) => {
+  //   return seg.value !== "No recommendation"
+  // }) 
+  // console.log("Market list", filteredEmp)
 
-      const filteredVal = allRecommendations[0]?.segmentResponses.Value && allRecommendations[0]?.segmentResponses.Value.filter(seg => {
-        return seg.value !== "No recommendation"
-       
-      }) 
-    //   console.log('filtered listv', filteredVal)
-    
 
-    return(
-        <div className='report-con'>
-            <DashNav/>
-            <Container>
-                <div className='report'>
-                    <Grid container>
-                        <Grid item xs={12} sm={12} md={3} lg={3}>
-                        <div className='profileInfo'>
-                                <Typography>Profile</Typography>
-                                {/* <img
+
+  return (
+    <div className='report-con'>
+      <DashNav />
+      <Container>
+        <div className='report'>
+        {/* <Button onClick={() => _setSelectedRecomendation(AllRecomendations[0])}>test</Button> */}
+          <Grid container>
+            <Grid item xs={12} sm={12} md={3} lg={3}>
+              <div className='profileInfo'>
+                <Typography>Profile</Typography>
+                {/* <img
                                     src={avatar}
                                     alt='avimage'
                                     className='avImg'
                                     /> */}
-                                <Typography>John Smith</Typography>
-                                <Divider/>
-                                <div className='conInfo'>
-                                    <Typography>JohnSmith@gmail.com</Typography>
-                                    <p>
-                                    2009 MA in English Literature
-                                    Harvard University, Cambridge, MA
-                                    3.7 GPA
-                                    </p>
-                                </div>
-                            </div>
-                            <Button variant='outlined' className='btnCompany2'>
-                                    + Add Company
-                                </Button>
+                <Typography>John Smith</Typography>
+                <Divider />
+                <div className='conInfo'>
+                  <Typography>JohnSmith@gmail.com</Typography>
+                  <p>
+                    2009 MA in English Literature
+                    Harvard University, Cambridge, MA
+                    3.7 GPA
+                  </p>
+                </div>
+              </div>
+              <Button variant='outlined' className='btnCompany2'>
+                + Add Company
+              </Button>
+
+            </Grid>
+            <Grid item xs={12} sm={12} md={9} lg={9}>
+              <img
+                src={banner}
+                alt='RepBanner'
+                className='banner'
+              />
+              <Typography variant='h3'>Report Summary</Typography>
+              <Typography>Company</Typography>
+              <div className='pChart'>
+                <PChart />
+              </div>
+              <div className='bGraph'>
+                {<NewBar />}
+              </div>
+             
+
+              <div className='report-accord'>
+              <Typography variant='h5'>Full Summary</Typography>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={12} md={6} lg={6}>
+                    <Typography>Full Report</Typography>
+                    <Accordion >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                        className='repoAccord'
+                      >
                         
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={9} lg={9}>
-                        <img
-                        src={banner}
-                        alt='RepBanner'
-                        className='banner'
-                    />
-                   <Typography variant='h3'>Report Summary</Typography>
-                   <Typography>Company</Typography>
-                    <div className='pChart'>
-                        <Donut/>
-                    </div>
-                    <div className='bGraph'>
-                        {<Bargraph/>}
-                    </div>
-                    <Typography variant='h5'>Full Summary</Typography>
-                  
-                    <div className='report-accord'>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12} sm={12} md={6} lg={6}>
-                                <Typography>Full Report</Typography>
-                                        <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Business Concept</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='con'>
-                                          <div className='cus'>
-                                        <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Customer Segment</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        
-                                            <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Customer && reco.segmentResponses.Customer.map(
-                                                   cusList => {
-                                                    const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1" ;
-                                                       return (
-                                                           <>
-                                                           <li style={{backgroundColor : recoColor}}>{cusList.key}</li>
-                                                           </>
+                        <Typography>Business Concept</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                        <div className='list'>
+                          {reData && reData.map((x : any , index : number ) => {
+                           
+                        return (
+                          <>
+                          { Object.values(x).map((accord : any, index : number) => {
+                             const filtered = accord && accord.filter((seg : any) => {
+                              return seg.value == "No recommendation"
+                          
+                            })
+                            const Empoylent = accord && accord.filter((seg : any) => {
+                              return seg.value == "No recommendation"
+                          
+                            })
+                           const total = accord?.length
+                          const accordPercent = Math.floor(((filtered?.length * 100) / total ))
+                    
 
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion >
+                            console.log("accord", accordPercent)
+                            return (
+                              <div key={index}>
+                                <Accordion>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    className='repoAccord'
+                                  >
+                                    <div className='Header'>
+                                      <div className='Header1'>
+                                      <Typography>{testData[index]}</Typography>
+                                      </div>
+                                      <div className='Header2'>
+                                      <Typography>{accordPercent}{"%"}</Typography>
+                                      </div>
                                     </div>
-                                    <div className='Mark'>
-                                    <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Market</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                            <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Market && reco.segmentResponses.Market.map(
-                                                   cusList => {
-                                                    const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1" ;
-                                                       return (
-                                                           <>
-                                                           <li style={{backgroundColor : recoColor}}>{cusList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        
-                                        </AccordionDetails>
-                                    </Accordion >
-                                    </div>
-                                    <div className='cus'>
-                                        <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Value Proposition</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        
-                                            <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Value && reco.segmentResponses.Value.map(
-                                                   cusList => {
-                                                    const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1" ;
-                                                       return (
-                                                           <>
-                                                           <li style={{backgroundColor : recoColor}}>{cusList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion >
-                                    </div>
-                                    <div className='cus'>
-                                        <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Key Resources</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        
-                                            <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
-                                                   cusList => {
-                                                    const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1" ;
-                                                       return (
-                                                           <>
-                                                           <li style={{backgroundColor : recoColor}}>{cusList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion >
-                                    </div>
-                                    <div className='cus'>
-                                        <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Key Activities</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        
-                                            <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Activities && reco.segmentResponses.Activities.map(
-                                                   cusList => {
-                                                    const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1" ;
-                                                       return (
-                                                           <>
-                                                           <li style={{backgroundColor : recoColor}}>{cusList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion >
-                                    </div>
-                                    </div>
-                                        </AccordionDetails>
-                                    </Accordion >
-                                    <Typography variant='h5'>Business Diagnosis</Typography>
-                                    <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Priority Elements</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
-
-                                    <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Best Performing Areas</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Market && reco.segmentResponses.Market.map(
-                                                   markList => {
-                                                    const recoColor = markList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1" ;
-                                                       return (
-                                                           <>
-                                                           <li style={{backgroundColor: recoColor}}>{markList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion>
-
-                                    <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Major Gaps</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Customer && reco.segmentResponses.Customer.map(
-                                                   cusList => {
-                                                    const recoColor = cusList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1" ;
-                                                       return (
-                                                           <>
-                                                           <li style={{backgroundColor: recoColor}}>{cusList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion>
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={6} lg={6}>
-                                
-                                        {/* <Accordion > 
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Business Concept</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
-                                    <Typography variant='h5'>Business Diagnosis</Typography>
-                                    <Accordion>
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Priority Elements</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
-
-                                    <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Best Performing Areas</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Market &&  reco.segmentResponses.Market.map(
-                                                   markList => {
-                                                    const recoColor = markList.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1" ;
-                                                       return (
-                                                           <>
-                                                           
-                                                           <li style={{color : recoColor}}>{markList.key}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion>
-
-                                    <Accordion>
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        className='repoAccord'
-                                        >
-                                        <Typography >Major Gaps</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                           
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion> */}
-
-                            </Grid>
-                            </Grid>
-                        
-                    </div>
-                    <div className='recommendations'>
-                        <Typography>Report Recommendations</Typography>
-                        <p>
-                            Please share your details if you interested in receiving the learning metarial to help you with the weaknesses
-                             in your bussiness or business idea
-                        </p>
-
-                            <Grid container spacing={2}>
-                                <Grid item xs={12} sm={12} md={6} lg={6}>
-                                    <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        >
-                                        <Typography >Strategic Planning</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='list'>
-                                        {filtered?.map(
-                                          reco => {
-                                            return (       
-                                            <>
-                                            <p>{reco.value}</p>
-                                            </>     
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion>
-                                    <Accordion>
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        >
-                                        <Typography >Marketing and Sales</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='list'>
-                                          {filteredMark?.map(
-                                          mark => {
-                                            return (       
-                                            <>
-                                            <p>{mark.value}</p>
-                                            </>     
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion>
-                                    <Accordion>
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        >
-                                        <Typography >Product Development</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='list'>
-                                        {filteredVal?.map(
-                                          val => {
-                                            return (       
-                                            <>
-                                            <p>{val.value}</p>
-                                            </>     
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion>
-                                    <Accordion>
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        
-                                        >
-                                        <Typography >Financial Management</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
-                                                   resList => {
-                                                       return (
-                                                           <>
-                                                           <li>{resList.value}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion>
-                                    <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        >
-                                        <Typography >Legal + Compliance</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                            
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
-
-
-                                </Grid>
-                                <Grid item xs={12} sm={12} md={6} lg={6}>
-                                    <Accordion>
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        >
-                                        <Typography >Market Intelligence</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='list'>
-                                        {filtered?.map(
-                                          reco => {
-                                            return (       
-                                            <>
-                                            <p>{reco.value}</p>
-                                            </>     
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion>
-
-                                    <Accordion>
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        >
-                                        <Typography >Talent Management</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
-                                                   resList => {
-                                                       return (
-                                                           <>
-                                                           <li>{resList.value}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </AccordionDetails>
-                                    </Accordion>
-
-                                    <Accordion >
-                                        <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel2a-content"
-                                        id="panel2a-header"
-                                        >
-                                        <Typography >Business Process Management</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                        <Typography>
-                                        <div className='list'>
-                                        {allRecommendations.map(
-                                          reco => {
-                                            return (
-                                                
-                                                reco.segmentResponses.Activities &&  reco.segmentResponses.Activities.map(
-                                                   actList => {
-                                                       return (
-                                                           <>
-                                                           <li>{actList.value}</li>
-                                                           </>
-
-                                                       )
-                                                   } 
-                                                )
-                                                
-                                            )
-                                          }
-                                        )}
-                                        </div>
-                                        </Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
                                     
-                                    </Grid>
-                            </Grid>
-                            {/* <Button
+                                    </AccordionSummary>
+                                  <AccordionDetails>
+                                  <div className='list'>
+                                    {accord.map((list : any, index : number) => {
+                                        const recoColor = list.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
+                                        
+                                           return (
+                                            <div className='divider' key={index}>
+                                            <Accordion>
+                                              <AccordionDetails style={{ backgroundColor: recoColor }}>
+                                                {list.key}
+                                              </AccordionDetails>
+                                            </Accordion>
+                                            </div>
+                                          )
+                                    })}
+                                    </div>
+                                  </AccordionDetails>
+                                </Accordion>
+                                </div>
+                              )
+                          
+                          })}
+                          </>
+                        )
+                         
+                       
+                        } 
+                        )
+                      }
+                        </div>
+                          
+                           
+                           </AccordionDetails>
+                  </Accordion >
+                    <Typography variant='h5'>Business Diagnosis</Typography>
+                    <Accordion >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                        className='repoAccord'
+                      >
+                        <Typography >Priority Elements</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                      <div className='list'>
+                          {reData.map((x : any , index : number ) => {
+                           
+                        return (
+                          <>
+                          { Object.values(x).map((accord : any, index : number) => {
+                             const filtered = accord && accord.filter((seg : any) => {
+                              return seg.value == "No recommendation"
+                          
+                            })
+                           const total = accord?.length
+                           const accordPercent = Math.floor((filtered?.length * 100) / total )
+                         
+                          
+                          
+
+                              return (
+                                <div key={index}>
+                                  <Accordion>
+                                  <AccordionSummary
+                                      expandIcon={<ExpandMoreIcon />}
+                                      aria-controls="panel1a-content"
+                                      id="panel1a-header"
+                                      className='repoAccord'
+                                    >
+                                      
+                                      <div className='Header'>
+                                        <div className='Header1'>
+                                        <Typography>{testData[index]}</Typography>
+                                        </div>
+                                        <div className='Header2'>
+                                        <Typography>{accordPercent}{"%"}</Typography>
+                                        </div>
+                                      </div>
+                                      </AccordionSummary>
+                                    <AccordionDetails>
+                                    <div className='list'>
+                                      {accord.map((list : any, index : number) => {
+                                      
+                                      const recoColor = list.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
+                                             return (
+                                              <div className='divider' key={index}>
+                                               
+                                              <Accordion>
+                                                <AccordionDetails style={{ backgroundColor: recoColor }}>
+                                                  {list.key}
+                                                </AccordionDetails>
+                                              </Accordion>
+                                              </div>
+                                            )
+                                      })}
+                                      </div>
+                                    </AccordionDetails>
+                                  </Accordion>
+                                  </div>
+                                  
+                                )
+                            // }else{
+                            //   return null
+                            // }
+                           
+                          
+                          })}
+                          </>
+                        )
+                         
+                       
+                        } 
+                        )
+                      }
+                        </div>
+                      </AccordionDetails>
+                    </Accordion>
+
+                    <Accordion >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                        className='repoAccord'
+                      >
+                        <Typography >Best Performing Areas</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                      <div className='list'>
+                          {reData.map((x : any , index : number ) => {
+                           
+                        return (
+                          <>
+                          { Object.values(x).map((accord : any, index : number) => {
+                             const filtered = accord && accord.filter((seg : any) => {
+                              return seg.value == "No recommendation"
+                          
+                            })
+                           const total = accord?.length
+                           const accordPercent = Math.floor((filtered?.length * 100) / total )
+                         
+                          // if (accord)
+                          
+                            if(accordPercent >= 60 ){
+                              return (
+                                <div key={index}>
+                                  <Accordion>
+                                  <AccordionSummary
+                                      expandIcon={<ExpandMoreIcon />}
+                                      aria-controls="panel1a-content"
+                                      id="panel1a-header"
+                                      className='repoAccord'
+                                    >
+                                      
+                                      <div className='Header'>
+                                        <div className='Header1'>
+                                        <Typography>{testData[index]}</Typography>
+                                        </div>
+                                        <div className='Header2'>
+                                        <Typography>{accordPercent}{"%"}</Typography>
+                                        </div>
+                                      </div>
+                                      </AccordionSummary>
+                                    <AccordionDetails>
+                                    <div className='list'>
+                                      {accord.map((list : any, index : number) => {
+                                      
+                                      const recoColor = list.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
+                                             return (
+                                              <div className='divider' key={index}>
+                                               
+                                              <Accordion>
+                                                <AccordionDetails style={{ backgroundColor: recoColor }}>
+                                                  {list.key}
+                                                </AccordionDetails>
+                                              </Accordion>
+                                              </div>
+                                            )
+                                      })}
+                                      </div>
+                                    </AccordionDetails>
+                                  </Accordion>
+                                  </div>
+                                  
+                                )
+                            }else{
+                              return null
+                            }
+                           
+                          
+                          })}
+                          </>
+                        )
+                         
+                       
+                        } 
+                        )
+                      }
+                        </div>
+                      </AccordionDetails>
+                    </Accordion>
+
+                    <Accordion >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                        className='repoAccord'
+                      >
+                        <Typography >Major Gaps</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                      <div className='list'>
+                          {reData.map((x : any , index : number ) => {
+                           
+                        return (
+                          <>
+                          { Object.values(x).map((accord : any, index : number) => {
+                             const filtered = accord && accord.filter((seg : any) => {
+                              return seg.value == "No recommendation"
+                          
+                            })
+                           const total = accord?.length
+                           const accordPercent = Math.floor((filtered?.length * 100) / total )
+                         
+                          // if (accord)
+                          
+                            if(accordPercent < 60 ){
+                              return (
+                                <div key={index}>
+                                  <Accordion>
+                                  <AccordionSummary
+                                      expandIcon={<ExpandMoreIcon />}
+                                      aria-controls="panel1a-content"
+                                      id="panel1a-header"
+                                      className='repoAccord'
+                                    >
+                                      
+                                      <div className='Header'>
+                                        <div className='Header1'>
+                                        <Typography>{testData[index]}</Typography>
+                                        </div>
+                                        <div className='Header2'>
+                                        <Typography>{accordPercent}{"%"}</Typography>
+                                        </div>
+                                      </div>
+                                      </AccordionSummary>
+                                    <AccordionDetails>
+                                    <div className='list'>
+                                      {accord.map((list : any, index : number) => {
+                                      
+                                      const recoColor = list.value === "No recommendation" ? "#8FBC8B" : "#FBCEB1";
+                                             return (
+                                              <div className='divider' key={index}>
+                                               
+                                              <Accordion>
+                                                <AccordionDetails style={{ backgroundColor: recoColor }}>
+                                                  {list.key}
+                                                </AccordionDetails>
+                                              </Accordion>
+                                              </div>
+                                            )
+                                      })}
+                                      </div>
+                                    </AccordionDetails>
+                                  </Accordion>
+                                  </div>
+                                  
+                                )
+                            }else{
+                              return null
+                            }
+                           
+                          
+                          })}
+                          </>
+                        )
+                         
+                       
+                        } 
+                        )
+                      }
+                        </div>
+                       
+                      </AccordionDetails>
+                    </Accordion>
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={6} lg={6}>
+
+                 
+
+                  </Grid>
+                </Grid>
+
+              </div>
+              <div className='recommendations'>
+                <Typography>Report Recommendations</Typography>
+                <p>
+                  Please share your details if you interested in receiving the learning metarial to help you with the weaknesses
+                  in your bussiness or business idea
+                </p>
+
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={12} md={6} lg={6}>
+                    <Accordion >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                      >
+                        <Typography >Strategic Planning</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        {/* <div className='list'>
+                          {reData?.map(
+                            (reco, index) => {
+                              return (
+                                <>
+                                  <p>{reco.Market.value}</p>
+                                  <Button onClick={() => _setSelectedRecomendation(AllRecomendations[index])}>test</Button>
+                                </>
+                              )
+                            }
+                          )}
+                        </div> */}
+                        
+                      </AccordionDetails>
+                    </Accordion>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                      >
+                        <Typography >Marketing and Sales</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <div className='list'>
+                          {filteredMark?.map(
+                            (mark : any) => {
+                              return (
+                                <>
+                                  <p>{mark.value}</p>
+                                </>
+                              )
+                            }
+                          )}
+                        </div>
+                      </AccordionDetails>
+                    </Accordion>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                      >
+                        <Typography >Product Development</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <div className='list'>
+                        
+                        </div>
+                      </AccordionDetails>
+                    </Accordion>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+
+                      >
+                        <Typography >Financial Management</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                      <div className='list'>
+                          {filteredFin?.map(
+                            (fin : any) => {
+                              return (
+                                <>
+                                  <p>{fin.value}</p>
+                                </>
+                              )
+                            }
+                          )}
+                        </div>
+                      </AccordionDetails>
+                    </Accordion>
+                    <Accordion >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                      >
+                        <Typography >Legal + Compliance</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Typography>
+
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+
+
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={6} lg={6}>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                      >
+                        <Typography >Market Intelligence</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <div className='list'>
+                          {filteredMarkInt ?.map(
+                            (reco : any) => {
+                              return (
+                                <>
+                                  <p>{reco.value}</p>
+                                </>
+                              )
+                            }
+                          )}
+                        </div>
+                      </AccordionDetails>
+                    </Accordion>
+
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                      >
+                        <Typography >Talent Management</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <div className='list'>
+                          {allRecommendations.map(
+                            reco => {
+                              return (
+                                reco.segmentResponses.Resources && reco.segmentResponses.Resources.map(
+                                  resList => {
+                                    return (
+                                      <>
+                                        <li>{resList.value}</li>
+                                      </>
+                                    )
+                                  }
+                                )
+                              )
+                            }
+                          )}
+                        </div>
+                      </AccordionDetails>
+                    </Accordion>
+
+                    <Accordion >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                      >
+                        <Typography >Business Process Management</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Typography>
+                          <div className='list'>
+                            {allRecommendations.map(
+                              reco => {
+                                return (
+                                  reco.segmentResponses.Activities && reco.segmentResponses.Activities.map(
+                                    actList => {
+                                      return (
+                                        <>
+                                          <li>{actList.value}</li>
+                                        </>
+                                      )
+                                    }
+                                  )
+                                )
+                              }
+                            )}
+                          </div>
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+                    <Accordion >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                      >
+                        <Typography >Employment Opportunities</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Typography>
+                          <div className='list'>
+                            {allRecommendations.map(
+                              reco => {
+                                return (
+                                  reco.segmentResponses.Activities && reco.segmentResponses.Activities.map(
+                                    actList => {
+                                      return (
+                                        <>
+                                          <li>{actList.value}</li>
+                                        </>
+                                      )
+                                    }
+                                  )
+                                )
+                              }
+                            )}
+                          </div>
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+
+                  </Grid>
+                </Grid>
+                {/* <Button
                             variant='outlined'
                              onClick={() => getReco()}
                             >
                                 Get
                             </Button> */}
+<<<<<<< HEAD
                             <Button
                             variant='outlined'
                             >
@@ -728,14 +751,27 @@ const Report = () => {
                         </Grid>
                        
                         </Grid>
+=======
+                <Button
+                  variant='outlined'
+                >
+                  <Link to='/Profile'>Next</Link>
+                </Button>
 
-                </div>
-                <div className='foot'>
-                  <Footernew/>
-                </div>
-            </Container>
+
+              </div>
+            </Grid>
+          </Grid>
+
+>>>>>>> 9ae8ba96e763284007033ec0ccab2c8e875331bb
+
         </div>
-    )
+        <div className='foot'>
+          <Footernew />
+        </div>
+      </Container>
+    </div>
+  )
 
 
 }
