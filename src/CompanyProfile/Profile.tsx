@@ -82,7 +82,7 @@ const Profile = () => {
     const { data, error } = await supabase
       .storage
       .from('logo')
-      .upload(`${supabase.auth.user()?.id}.${ext}`, logoFile, {
+      .upload(`${new Date().getTime()}.${ext}`, logoFile, {
         cacheControl: '3600',
         upsert: false
       })
@@ -91,6 +91,7 @@ const Profile = () => {
             } else {
                 alert('Logo Uploaded');
             }
+            console.log("image file",data)
 }
 
 

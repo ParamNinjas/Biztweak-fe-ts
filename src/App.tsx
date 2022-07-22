@@ -12,7 +12,6 @@ import AssessBasic from "./components/Assesment/AssesSales";
 import Report from "./components/Report/Report";
 import Getcourse from "./components/Course/Getcourse"
 import Coursepage from "./components/Course/Coursepage"
-import Bargraph from "./components/Report/Bar";
 import Forgot from "./components/forgot/Forgot";
 import Admin from "./Admin/AdminDash";
 import Donut from "./components/Report/Donut";
@@ -32,7 +31,8 @@ import EarlyS from "./components/Assesment/EarlyS/EarlyStage";
 import Concept from "./components/Assesment/Concept/Concept";
 import StartUp from "./components/Assesment/Startup/StartUp";
 import PChart from "./components/Report/PieChart";
-import NewBar  from "./components/Report/TestBar";
+import NewBar  from "./components/Report/BarChart";
+import ConceptBar from "./Admin/AdminComponents/Charts/Bar";
 import './Login/Login.css'
 
 
@@ -59,7 +59,6 @@ function App() {
           <Route path='/AssesSales' element={<AssessBasic />} />
           <Route path='/Getcourse' element={<Getcourse />} />
           <Route path='/Coursepage' element={<Coursepage />} />
-          <Route path='/Bar' element={<Bargraph />} />
           <Route path='/Forgot' element={<Forgot />} />
           <Route path='/AdminDash' element={<Admin />} />
           <Route path='/Donut' element={<Donut />} />
@@ -79,7 +78,8 @@ function App() {
           <Route path='/EarlyStage' element={<EarlyS />} />
           <Route path='/StartUp' element={<StartUp />} />
           <Route path='/PieChart' element={<PChart />} />
-          <Route path='/TestBar' element={<NewBar />} />
+          <Route path='/BarChart' element={<NewBar />} />
+          <Route path='/Bar' element={<ConceptBar />} />
         </Routes>
       </Router>
     </div>

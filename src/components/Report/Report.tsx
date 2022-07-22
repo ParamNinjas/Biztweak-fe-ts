@@ -9,9 +9,9 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Api } from '../../services/endpoints';
 import { IRecomendation } from '../../Interfaces/IRecomendation';
-import Bargraph from './Bar';
 import { Link } from 'react-router-dom';
-// import Donut from './Donut';
+import NewBar from './BarChart';
+import PChart from './PieChart';
 import Footernew from '../Footer/Footernew';
 import { supabase } from '../../supabaseClient';
 import { useDispatch, useSelector } from "react-redux";
@@ -63,15 +63,23 @@ const Report = () => {
   console.log("All User Reccom in state", AllRecomendations)
   const SelectedRecommendation = state?.persistedReducer?.RecomendationReducer?.selectedRecomendation ?? [];
   console.log("User selected recomm" , SelectedRecommendation)
-  const reData  = []
-  reData.push(SelectedRecommendation.segmentResponses)
+  let reData = [] as any[]
+  if (SelectedRecommendation?.segmentResponses != null){
+    reData.push(SelectedRecommendation.segmentResponses)
+    console.log("pushing ReData", SelectedRecommendation?.segmentResponses)
+  }
+  
   console.log("ReData list", reData)
   const objectToArray = (obj : any) => Object.assign([], Object.values(obj))
   console.log("object conversion" , reData)
   console.log("testing 123", SelectedRecommendation?.segmentResponses)
 
-  const testData = Object.keys(SelectedRecommendation?.segmentResponses)
-  console.log("testing 123", SelectedRecommendation?.segmentResponses)
+  let testData = [] as any[]
+  if (SelectedRecommendation?.segmentResponses != null){
+    testData  = Object.keys(SelectedRecommendation?.segmentResponses)
+    console.log("testing 123", SelectedRecommendation?.segmentResponses)
+  }
+  
 
   useEffect(() => {
     _setSelectedRecomendation(AllRecomendations[0])
@@ -140,10 +148,10 @@ const Report = () => {
               <Typography variant='h3'>Report Summary</Typography>
               <Typography>Company</Typography>
               <div className='pChart'>
-                {/* <Donut /> */}
+                <PChart />
               </div>
               <div className='bGraph'>
-                {/* {<Bargraph />} */}
+                {<NewBar />}
               </div>
               <Typography variant='h5'>Full Summary</Typography>
 
@@ -163,7 +171,7 @@ const Report = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                         <div className='list'>
-                          {reData.map((x : any , index : number ) => {
+                          {reData && reData.map((x : any , index : number ) => {
                            
                         return (
                           <>
@@ -538,7 +546,7 @@ const Report = () => {
                         <Typography >Marketing and Sales</Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        {/* <div className='list'>
+                        <div className='list'>
                           {filteredMark?.map(
                             (mark : any) => {
                               return (
@@ -548,7 +556,7 @@ const Report = () => {
                               )
                             }
                           )}
-                        </div> */}
+                        </div>
                       </AccordionDetails>
                     </Accordion>
                     <Accordion>

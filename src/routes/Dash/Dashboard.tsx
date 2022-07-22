@@ -67,15 +67,18 @@ const Dashboard = () => {
             navigate('/Customer',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
         } else if(bizPhase == '4'){
             navigate('/Funding',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
-        } else if(bizPhase == '5'){
-        navigate('/Concept',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
-        }else if(bizPhase == '6'){
-            navigate('/StartUp',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
-        }else if(bizPhase == '7'){
-            navigate('/EarlyStage',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
-        }else if(bizPhase == '8'){
-            navigate('/Accelerate',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
         }
+        //  else if(bizPhase == '5')
+        // {
+        // navigate('/Concept',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
+        //  }
+        //  else if(bizPhase == '6'){
+        //     navigate('/StartUp',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
+        // }else if(bizPhase == '7'){
+        //     navigate('/EarlyStage',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
+        // }else if(bizPhase == '8'){
+        //     navigate('/Accelerate',{ state: {bizInd: bizIndlist.filter(x => x.value === parseInt(bizInd)), bizPhase:  bizPhaseList.filter(x => x.value === parseInt(bizPhase))}});
+        // }
         console.log('BizPhase is =' , bizPhase)
         console.log('BizPhase is =' , bizInd)
     }
