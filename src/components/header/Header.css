@@ -42,7 +42,7 @@ max-width:relative;
 .BtnTake{
   background-color: #19A9B1 !important;
   color: #FFFFFF !important;
-  border-radius: 50px;
+  border-radius: 50px !important;
 }
 .BtnTake:hover{
   background-color: #03BBC1 !important;

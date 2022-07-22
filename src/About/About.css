@@ -18,8 +18,8 @@
 
 
 .image .right p {
+    margin-left: 0px;
     text-align: left;
-    margin: auto;
     padding: 10px 5px;
     max-width: 600px;
     color: #000000;
