@@ -1,19 +1,19 @@
 .Home-con {
-  padding: 20px 0;
+max-width:relative;
+  padding-top: 34px;
+  
   box-sizing: border-box;
 }
 
 .heroIMG{
-  /* max-width: relative !important; */
-  width: 90%;
+  max-width: relative !important;
+  width: 102%;
   height: auto;
   vertical-align: middle;
 }
 .hometext h1 {
-  font-family: 'Roboto', Black 900;
-    /* font-size: 70px 1px; */
   font-weight: bold !important;
-  font-size: 4rem !important;
+  font-size: 5.6rem !important;
   color: #0f1f3d;
   flex-shrink: 0;
   width: 100%;

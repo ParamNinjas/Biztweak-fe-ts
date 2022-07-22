@@ -1,5 +1,7 @@
 
-.header {
+.navheader {
+    margin-top: 17px;
+    margin-bottom: 3px;
     width: 100% !important;
     height: 90px;
     position: relative;
@@ -8,6 +10,7 @@
     align-items: center;
     z-index: 10;
     background-color: #FFFFFF;
+    border-bottom: 1px solid #f0f0f0 !important;
    
 }
 
@@ -29,11 +32,15 @@ top:1px;
 
 .nav-menu a {
     /* color: var(--heading-color); */
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
     text-decoration: none !important;
     text-transform: none !important;
 }
+
+.nav-menu a:hover {
+    color: rgb(170, 170, 170) !important;
+    }
 
 
 .hamburger {
@@ -72,26 +79,28 @@ top:1px;
         font-size: 3rem;
     }
 }
-.BtnRegister{
-    position: relative;
-    color: #19A9B1 !important;
-    background-color: #FFFFFF !important;
-    border-color: #19A9B1 !important;
-    border-style: solid 3px;
-    position: relative;
-    top: 9px;
-    text-decoration: none !important;
-    text-transform: none !important;
-}
-
-.BtnRegister:hover{
+.Register{
     position: relative;
     background-color: #19A9B1 !important;
     color: #FFFFFF !important;
     border-color: #2d9ca2 !important;
     border-style: solid 3px;
     position: relative;
-    top: 9px;
+    top: -10px;
+    width: 140px;
+    text-decoration: none !important;
+    text-transform: none !important;
+}
+
+.Register:hover{
+    position: relative;
+    background-color: #1bc6cf !important;
+    color: #FFFFFF !important;
+    border-color: #2d9ca2 !important;
+    border-style: solid 3px;
+    position: relative;
+    top: -10px;
+    width: 140px;
     text-decoration: none !important;
     text-transform: none !important;
 }

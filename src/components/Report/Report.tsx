@@ -737,21 +737,6 @@ const Report = () => {
                             >
                                 Get
                             </Button> */}
-<<<<<<< HEAD
-                            <Button
-                            variant='outlined'
-                            >
-                                <Link to='/Profile'>Next</Link>
-                            </Button>
-                      <div>
-                      <GetCourse />
-                      </div>
-
-                    </div>    
-                        </Grid>
-                       
-                        </Grid>
-=======
                 <Button
                   variant='outlined'
                 >
@@ -763,7 +748,6 @@ const Report = () => {
             </Grid>
           </Grid>
 
->>>>>>> 9ae8ba96e763284007033ec0ccab2c8e875331bb
 
         </div>
         <div className='foot'>

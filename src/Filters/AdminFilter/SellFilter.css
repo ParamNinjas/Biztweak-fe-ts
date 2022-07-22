@@ -234,7 +234,9 @@ display : inherit;
 }
 
 .leftblock {
+display: flex;
     position: relative;
-    right: 20 em;
-    bottom: 10 em;
+    right: 20em;
+    bottom: 10em;
+    top: 50px;
 }
